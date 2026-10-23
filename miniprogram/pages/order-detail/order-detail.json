@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "order-status-tag": "/components/order-status-tag/order-status-tag",
+    "glow-button": "/components/glow-button/glow-button",
+    "empty-state": "/components/empty-state/empty-state",
+    "loading": "/components/loading/loading"
+  }
+}

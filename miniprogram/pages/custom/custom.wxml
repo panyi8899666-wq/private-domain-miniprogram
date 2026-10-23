@@ -1,0 +1,157 @@
+<view class="page-container custom-page">
+  <loading wx:if="{{loading}}" type="skeleton" />
+
+  <view wx:elif="{{error}}" class="error-box">
+    <empty-state text="{{error.message}}" buttonText="重试" showButton="{{error.retriable}}" bind:action="onRetry" />
+  </view>
+
+  <view wx:else class="config-flow">
+    <!-- ① 大类 -->
+    <view class="step-block">
+      <text class="step-label">1. 选择大类</text>
+      <scroll-view scroll-x class="chip-scroll">
+        <view class="chip-row">
+          <view
+            wx:for="{{categories}}"
+            wx:key="code"
+            class="chip {{item.code === activeCategory ? 'chip-active box-glow' : ''}}"
+            data-index="{{index}}"
+            bindtap="onCategoryTap"
+          >{{item.category}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- ② 子类 -->
+    <view wx:if="{{subCategories.length}}" class="step-block">
+      <text class="step-label">2. 选择子类</text>
+      <view class="chip-wrap">
+        <view
+          wx:for="{{subCategories}}"
+          wx:key="name"
+          class="chip {{index === activeSubIndex ? 'chip-active box-glow' : ''}}"
+          data-index="{{index}}"
+          bindtap="onSubTap"
+        >{{item.name}}</view>
+      </view>
+    </view>
+
+    <!-- ③ 材质 -->
+    <view wx:if="{{materials.length}}" class="step-block">
+      <text class="step-label">3. 选择材质</text>
+      <view class="material-list">
+        <view
+          wx:for="{{materials}}"
+          wx:key="code"
+          class="material-item {{item.code === activeMaterial.code ? 'material-active' : ''}}"
+          data-index="{{index}}"
+          bindtap="onMaterialTap"
+        >
+          <image class="material-img" src="{{item.image}}" mode="aspectFill" lazy-load />
+          <view class="material-body">
+            <view class="material-row">
+              <text class="material-name">{{item.name}}</text>
+              <text class="material-price text-price">{{item.priceRange}} {{item.priceUnit}}</text>
+            </view>
+            <text wx:if="{{item.note}}" class="material-note text-muted">{{item.note}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ④⑤⑥ 已选材质：规格 + 工艺 + 数量 -->
+    <view wx:if="{{activeMaterial}}" class="step-block config-panel card-surface">
+      <image class="config-hero" src="{{activeMaterial.image}}" mode="aspectFill" lazy-load />
+      <text class="config-title text-neon">{{activeMaterial.name}}</text>
+
+      <view wx:if="{{thicknessOptions.length}}" class="config-section">
+        <text class="step-label">厚度</text>
+        <view class="chip-wrap">
+          <view
+            wx:for="{{thicknessOptions}}"
+            wx:key="*this"
+            class="chip {{item === selectedThickness ? 'chip-active box-glow' : ''}}"
+            data-value="{{item}}"
+            bindtap="onThicknessTap"
+          >{{item}}</view>
+        </view>
+      </view>
+
+      <view wx:if="{{sizeOptions.length}}" class="config-section">
+        <text class="step-label">尺寸 / 幅宽</text>
+        <view class="chip-wrap">
+          <view
+            wx:for="{{sizeOptions}}"
+            wx:key="*this"
+            class="chip {{item === selectedSize ? 'chip-active box-glow' : ''}}"
+            data-value="{{item}}"
+            bindtap="onSizeTap"
+          >{{item}}</view>
+        </view>
+      </view>
+
+      <view wx:if="{{craftOptions.length}}" class="config-section">
+        <text class="step-label">工艺（可多选）</text>
+        <view class="chip-wrap">
+          <view
+            wx:for="{{craftOptions}}"
+            wx:key="*this"
+            class="chip chip-check {{selectedCrafts.indexOf(item) >= 0 ? 'chip-active box-glow' : ''}}"
+            data-value="{{item}}"
+            bindtap="onCraftToggle"
+          >{{item}}</view>
+        </view>
+      </view>
+
+      <view class="config-section">
+        <text class="step-label">数量 / 面积（至少填一项）</text>
+        <view class="input-row">
+          <view class="input-group">
+            <text class="input-label">数量（件/个）</text>
+            <input class="input-box" type="number" value="{{quantity}}" bindinput="onQuantityInput" placeholder="如 5" />
+          </view>
+          <view class="input-group">
+            <text class="input-label">面积（㎡）</text>
+            <input class="input-box" type="digit" value="{{area}}" bindinput="onAreaInput" placeholder="如 6.0" />
+          </view>
+        </view>
+        <input class="input-box full" value="{{sizeDesc}}" bindinput="onSizeDescInput" placeholder="自定义尺寸描述（如 3m × 2m），选填" />
+      </view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="step-block">
+      <text class="step-label">联系方式</text>
+      <view wx:if="{{!manualInput && !phone}}" class="phone-actions">
+        <button class="btn-primary-glow phone-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">微信授权手机号</button>
+        <view class="link text-muted" bindtap="toggleManual">手动填写</view>
+      </view>
+      <view wx:elif="{{manualInput || phone}}" class="phone-info">
+        <view wx:if="{{phone}}" class="row-between">
+          <text class="text-primary">已授权：{{phoneMasked}}</text>
+          <text class="link" bindtap="toggleManual">更换</text>
+        </view>
+        <input
+          wx:if="{{manualInput}}"
+          class="input-box"
+          type="number"
+          maxlength="11"
+          value="{{manualPhone}}"
+          bindinput="onManualPhoneInput"
+          placeholder="请输入 11 位手机号"
+        />
+      </view>
+    </view>
+
+    <!-- 参考图 -->
+    <view class="step-block">
+      <text class="step-label">参考图（选填，最多 {{maxCount}} 张）</text>
+      <uploader fileIds="{{referenceFiles}}" maxCount="{{maxCount}}" bind:change="onRefChange" />
+    </view>
+
+    <!-- 提交 -->
+    <view class="submit-bar">
+      <view class="btn-primary-glow submit-btn" bindtap="onSubmit" hover-class="btn-hover">{{submitting ? '提交中...' : '提交需求，等待报价'}}</view>
+    </view>
+  </view>
+</view>

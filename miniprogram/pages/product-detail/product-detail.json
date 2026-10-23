@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "spec-picker": "/components/spec-picker/spec-picker",
+    "address-picker": "/components/address-picker/address-picker",
+    "empty-state": "/components/empty-state/empty-state",
+    "loading": "/components/loading/loading",
+    "glow-button": "/components/glow-button/glow-button"
+  }
+}

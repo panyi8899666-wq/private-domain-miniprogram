@@ -1,0 +1,42 @@
+.work-card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.work-cover-wrap {
+  width: 100%;
+  height: 320rpx;
+  background: var(--bg-surface-2);
+}
+
+.work-cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.work-body {
+  padding: 20rpx 24rpx 24rpx;
+}
+
+.work-head {
+  align-items: center;
+}
+
+.work-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.work-cat {
+  flex-shrink: 0;
+}
+
+.work-note {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}

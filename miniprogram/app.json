@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/material/material",
+    "pages/works/works",
+    "pages/shop/shop",
+    "pages/product-detail/product-detail",
+    "pages/custom/custom",
+    "pages/orders/orders",
+    "pages/order-detail/order-detail",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0b0f14",
+    "navigationBarTitleText": "潘工·广告物料制作",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0b0f14",
+    "backgroundColorTop": "#0b0f14",
+    "backgroundColorBottom": "#0b0f14"
+  },
+  "tabBar": {
+    "color": "#5c6b7e",
+    "selectedColor": "#3ec6ff",
+    "backgroundColor": "#0b0f14",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/material/material",
+        "text": "物料百科",
+        "iconPath": "images/tabbar/book.png",
+        "selectedIconPath": "images/tabbar/book-active.png"
+      },
+      {
+        "pagePath": "pages/works/works",
+        "text": "作品集",
+        "iconPath": "images/tabbar/works.png",
+        "selectedIconPath": "images/tabbar/works-active.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "商城",
+        "iconPath": "images/tabbar/shop.png",
+        "selectedIconPath": "images/tabbar/shop-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tabbar/mine.png",
+        "selectedIconPath": "images/tabbar/mine-active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

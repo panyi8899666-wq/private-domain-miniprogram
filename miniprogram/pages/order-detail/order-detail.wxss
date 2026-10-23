@@ -1,0 +1,203 @@
+/* 订单详情页样式 */
+.dd-page {
+  min-height: 100vh;
+  padding-bottom: 180rpx; /* 底部操作栏占位 */
+}
+
+.dd-state {
+  padding: var(--gap-xl) var(--gap-lg);
+}
+
+/* 状态头部 */
+.dd-header {
+  padding: var(--gap-xl) var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-sm);
+}
+
+.dd-status-text {
+  font-size: 40rpx;
+}
+
+.dd-contact {
+  font-size: 24rpx;
+}
+
+/* 内容区 */
+.dd-content {
+  padding: var(--gap-md) var(--gap-lg);
+}
+
+.dd-card {
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+
+.dd-card-title {
+  font-size: 30rpx;
+  margin-bottom: var(--gap-md);
+}
+
+.dd-row {
+  padding: var(--gap-xs) 0;
+  align-items: flex-start;
+}
+
+.dd-mono {
+  font-size: 24rpx;
+  word-break: break-all;
+}
+
+.dd-amount {
+  font-size: 34rpx;
+}
+
+/* 标准品明细 */
+.dd-item-line {
+  padding: var(--gap-sm) 0;
+  border-bottom: 1rpx solid var(--border-line);
+  align-items: flex-start;
+}
+
+.dd-item-line:last-child {
+  border-bottom: none;
+}
+
+.dd-item-info {
+  flex: 1;
+  margin-right: var(--gap-md);
+}
+
+.dd-item-name {
+  font-size: 28rpx;
+}
+
+.dd-item-spec {
+  font-size: 22rpx;
+  margin-top: 2rpx;
+}
+
+.dd-item-qty {
+  font-size: 24rpx;
+  white-space: nowrap;
+}
+
+/* 需求说明 */
+.dd-requirement {
+  padding-top: var(--gap-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+
+.dd-req-label {
+  font-size: 24rpx;
+}
+
+.dd-req-text {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.dd-addr-text {
+  flex: 1;
+  margin-left: var(--gap-md);
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+/* 参考图 */
+.dd-refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+}
+
+.dd-ref-img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: var(--radius-tag);
+  background-color: var(--bg-surface-2);
+}
+
+.dd-quote-amount {
+  font-size: 32rpx;
+}
+
+/* 时间线 */
+.dd-timeline {
+  position: relative;
+}
+
+.dd-tl-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-bottom: var(--gap-md);
+  position: relative;
+}
+
+.dd-tl-item:last-child {
+  padding-bottom: 0;
+}
+
+.dd-tl-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  margin-top: 12rpx;
+  margin-right: var(--gap-md);
+  flex-shrink: 0;
+}
+
+.dd-tl-dot-active {
+  background-color: var(--accent-glow);
+  box-shadow: 0 0 12rpx rgba(62, 198, 255, 0.7);
+}
+
+.dd-tl-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.dd-tl-status {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.dd-tl-time {
+  font-size: 22rpx;
+  margin-top: 2rpx;
+}
+
+.dd-gap {
+  height: 40rpx;
+}
+
+/* 底部操作栏 */
+.dd-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-sm);
+  padding: var(--gap-sm) var(--gap-lg);
+  padding-bottom: calc(var(--gap-sm) + env(safe-area-inset-bottom));
+  background-color: var(--bg-surface);
+  border-top: 1rpx solid var(--border-line);
+  box-shadow: 0 -8rpx 32rpx rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+.dd-footer-btn {
+  min-width: 240rpx;
+}

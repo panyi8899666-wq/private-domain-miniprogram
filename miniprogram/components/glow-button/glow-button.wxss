@@ -1,0 +1,50 @@
+.glow-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 84rpx;
+  padding: 0 40rpx;
+  border-radius: var(--radius-btn);
+  font-size: 30rpx;
+  line-height: 1.2;
+  transition: opacity 0.2s ease;
+}
+
+.glow-btn.is-block {
+  display: flex;
+  width: 100%;
+}
+
+.glow-btn.is-large {
+  min-height: 96rpx;
+  font-size: 32rpx;
+}
+
+.glow-btn-hover {
+  opacity: 0.86;
+}
+
+.glow-btn.is-disabled {
+  opacity: 0.45;
+}
+
+.glow-btn-text {
+  font-weight: 700;
+}
+
+.glow-btn-spinner {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 12rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(0, 0, 0, 0.25);
+  border-top-color: currentColor;
+  animation: glow-btn-rotate 0.8s linear infinite;
+}
+
+@keyframes glow-btn-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

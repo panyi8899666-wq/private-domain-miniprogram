@@ -1,0 +1,9 @@
+<view
+  class="glow-btn {{type === 'primary' ? 'btn-primary-glow' : 'btn-secondary-glow'}} {{block ? 'is-block' : ''}} {{size === 'large' ? 'is-large' : ''}} {{sweep ? 'btn-sweep' : ''}} {{disabled || loading ? 'is-disabled' : ''}}"
+  hover-class="{{disabled || loading ? '' : 'glow-btn-hover'}}"
+  hover-stay-time="60"
+  bindtap="onTap"
+>
+  <view wx:if="{{loading}}" class="glow-btn-spinner"></view>
+  <text class="glow-btn-text">{{loading ? loadingText : text}}</text>
+</view>

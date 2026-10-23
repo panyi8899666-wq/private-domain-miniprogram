@@ -1,0 +1,13 @@
+<view class="empty-state">
+  <view class="empty-icon box-glow">
+    <text class="empty-icon-text">{{iconText}}</text>
+  </view>
+  <text class="empty-text">{{text}}</text>
+  <text wx:if="{{subText}}" class="empty-sub">{{subText}}</text>
+  <view
+    wx:if="{{showButton}}"
+    class="empty-btn btn-secondary-glow"
+    hover-class="empty-btn-hover"
+    bindtap="onAction"
+  >{{buttonText}}</view>
+</view>

@@ -1,0 +1,191 @@
+[
+  {
+    "code": "P-CARD-001",
+    "name": "商务名片印刷",
+    "category": "printing",
+    "priceFrom": 30,
+    "images": [
+      "/images/products/card.png"
+    ],
+    "description": "250g 铜版纸双面彩印，覆哑膜，含裁切。常见尺寸 90×54mm；如需特种纸或烫金请走定制。",
+    "specs": [
+      {
+        "specId": "s1",
+        "name": "200 张",
+        "price": 30,
+        "stockLimit": 999
+      },
+      {
+        "specId": "s2",
+        "name": "500 张",
+        "price": 60,
+        "stockLimit": 999
+      },
+      {
+        "specId": "s3",
+        "name": "1000 张",
+        "price": 100,
+        "stockLimit": 999
+      }
+    ],
+    "shipping": {
+      "freeShipping": false,
+      "fee": 10,
+      "freeThreshold": 199
+    },
+    "status": "on",
+    "sales": 0,
+    "sort": 10
+  },
+  {
+    "code": "P-FLYER-001",
+    "name": "宣传单页印刷",
+    "category": "printing",
+    "priceFrom": 80,
+    "images": [
+      "/images/products/flyer.png"
+    ],
+    "description": "157g 铜版纸单面/双面彩印，A5 常用尺寸（148×210mm），含裁切，适合地推与门店发放。",
+    "specs": [
+      {
+        "specId": "s1",
+        "name": "A5 / 500 张",
+        "price": 80,
+        "stockLimit": 999
+      },
+      {
+        "specId": "s2",
+        "name": "A5 / 1000 张",
+        "price": 140,
+        "stockLimit": 999
+      },
+      {
+        "specId": "s3",
+        "name": "A5 / 2000 张",
+        "price": 240,
+        "stockLimit": 999
+      }
+    ],
+    "shipping": {
+      "freeShipping": false,
+      "fee": 10,
+      "freeThreshold": 199
+    },
+    "status": "on",
+    "sales": 0,
+    "sort": 20
+  },
+  {
+    "code": "P-KT-001",
+    "name": "KT板海报",
+    "category": "kt-board",
+    "priceFrom": 35,
+    "images": [
+      "/images/products/kt-board.png"
+    ],
+    "description": "5mm KT板覆室内写真画面，含裁切，轻便挺括，适合室内展示、活动指引与门店陈列。",
+    "specs": [
+      {
+        "specId": "s1",
+        "name": "60×90cm",
+        "price": 35,
+        "stockLimit": 500
+      },
+      {
+        "specId": "s2",
+        "name": "80×120cm",
+        "price": 58,
+        "stockLimit": 500
+      },
+      {
+        "specId": "s3",
+        "name": "100×150cm",
+        "price": 88,
+        "stockLimit": 300
+      }
+    ],
+    "shipping": {
+      "freeShipping": false,
+      "fee": 12,
+      "freeThreshold": 299
+    },
+    "status": "on",
+    "sales": 0,
+    "sort": 30
+  },
+  {
+    "code": "P-ROLLUP-001",
+    "name": "易拉宝展架",
+    "category": "banner",
+    "priceFrom": 68,
+    "images": [
+      "/images/products/rollup.png"
+    ],
+    "description": "铝合金易拉宝展架 + 室内写真画面，免工具快速展开，含收纳袋，适合活动与展会现场。",
+    "specs": [
+      {
+        "specId": "s1",
+        "name": "60×160cm",
+        "price": 68,
+        "stockLimit": 300
+      },
+      {
+        "specId": "s2",
+        "name": "80×180cm",
+        "price": 88,
+        "stockLimit": 300
+      },
+      {
+        "specId": "s3",
+        "name": "80×200cm",
+        "price": 108,
+        "stockLimit": 200
+      }
+    ],
+    "shipping": {
+      "freeShipping": true,
+      "fee": 0
+    },
+    "status": "on",
+    "sales": 0,
+    "sort": 40
+  },
+  {
+    "code": "P-INKJET-001",
+    "name": "写真喷绘（按平米）",
+    "category": "banner",
+    "priceFrom": 38,
+    "images": [
+      "/images/products/inkjet.png"
+    ],
+    "description": "按平米报价：户外喷绘采用灯箱布/刀刮布，防水防晒；户内写真采用 PP 胶/相纸，画面细腻。整幅制作含裁切。",
+    "specs": [
+      {
+        "specId": "s1",
+        "name": "户外喷绘 / 1 平米",
+        "price": 38,
+        "stockLimit": 999
+      },
+      {
+        "specId": "s2",
+        "name": "户内写真 / 1 平米",
+        "price": 45,
+        "stockLimit": 999
+      },
+      {
+        "specId": "s3",
+        "name": "灯箱布 / 1 平米",
+        "price": 55,
+        "stockLimit": 999
+      }
+    ],
+    "shipping": {
+      "freeShipping": false,
+      "fee": 15,
+      "freeThreshold": 199
+    },
+    "status": "on",
+    "sales": 0,
+    "sort": 50
+  }
+]

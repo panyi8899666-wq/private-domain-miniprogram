@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "材质百科",
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state",
+    "loading": "/components/loading/loading"
+  }
+}

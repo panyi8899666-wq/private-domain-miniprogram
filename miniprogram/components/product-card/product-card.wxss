@@ -1,0 +1,35 @@
+.product-card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.product-cover-wrap {
+  width: 100%;
+  height: 300rpx;
+  background: var(--bg-surface-2);
+}
+
+.product-cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.product-body {
+  padding: 18rpx 24rpx 24rpx;
+}
+
+.product-name {
+  font-size: 29rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.product-foot {
+  margin-top: 10rpx;
+  align-items: center;
+}
+
+.product-sales {
+  font-size: 22rpx;
+}

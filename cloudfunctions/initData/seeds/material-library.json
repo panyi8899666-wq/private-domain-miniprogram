@@ -1,0 +1,3340 @@
+[
+  {
+    "category": "喷绘写真",
+    "description": "广告喷绘写真行业常用材质资料库，覆盖户内写真（写真机）、户外喷绘（喷绘机）、弱溶剂打印、UV打印四大工艺体系。数据综合自百度百科词条（喷绘、写真机、喷绘机、喷绘写真、弱溶剂墨水、UV平板打印机/万能打印机、亚克力、软膜天花、刀刮布、单孔透、喷绘布等）、抖音百科「喷绘」词条、天彩写真机官网耗材介质清单及1688材料市场页规格信息。价格单位为元/㎡（广告制作零售参考区间，含材料+加工+损耗）。",
+    "subCategories": [
+      {
+        "name": "户内写真",
+        "machine": [
+          "写真机"
+        ],
+        "materials": [
+          {
+            "name": "PP合成纸",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.1mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.07m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印",
+              "冷裱",
+              "覆膜",
+              "裱板"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "10-25",
+            "note": "海报/展架/易拉宝最常用，材质轻、易卷曲，需覆膜防刮防水",
+            "code": "spray-1-1",
+            "image": "/images/materials/spray-1-1.png"
+          },
+          {
+            "name": "相纸",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.15mm",
+              "0.2mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.07m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印",
+              "覆膜",
+              "淋膜"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-40",
+            "note": "高光泽、色彩饱和，照片级海报、婚纱照用，需覆膜保护",
+            "code": "spray-1-2",
+            "image": "/images/materials/spray-1-2.png"
+          },
+          {
+            "name": "背胶",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.1mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.07m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印",
+              "覆膜",
+              "裱KT板"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "8-20",
+            "note": "自带不干胶（PP背胶），可直接粘贴，常用于裱KT板做展板",
+            "code": "spray-1-3",
+            "image": "/images/materials/spray-1-3.png"
+          },
+          {
+            "name": "灯片",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.1mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印",
+              "冷裱",
+              "灯箱安装"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-35",
+            "note": "半透明材质，配合灯箱背光呈现，商场/地铁灯箱广告用",
+            "code": "spray-1-4",
+            "image": "/images/materials/spray-1-4.png"
+          },
+          {
+            "name": "透明片",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.1mm",
+              "0.2mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-30",
+            "note": "PVC透明片全透明，用于玻璃橱窗贴、商场装饰",
+            "code": "spray-1-5",
+            "image": "/images/materials/spray-1-5.png"
+          },
+          {
+            "name": "油画布",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.3mm",
+              "0.5mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印",
+              "喷涂保护",
+              "绷框"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "30-80",
+            "note": "化纤/纯棉亚麻布基，仿油画纹理，装饰画、挂画，可绷木框",
+            "code": "spray-1-6",
+            "image": "/images/materials/spray-1-6.png"
+          },
+          {
+            "name": "无纺布",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.2mm",
+              "0.3mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-40",
+            "note": "布基材质，柔韧透气、可折叠，挂画、展架、会议背板",
+            "code": "spray-1-7",
+            "image": "/images/materials/spray-1-7.png"
+          },
+          {
+            "name": "丝绢布",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "写真机"
+            ],
+            "thickness": [
+              "0.1mm",
+              "0.2mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "写真打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "40-100",
+            "note": "绢丝质感、光泽柔和，高档挂画、屏风、装饰画",
+            "code": "spray-1-8",
+            "image": "/images/materials/spray-1-8.png"
+          }
+        ]
+      },
+      {
+        "name": "户外喷绘",
+        "machine": [
+          "喷绘机"
+        ],
+        "materials": [
+          {
+            "name": "喷绘布",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.3mm"
+            ],
+            "size": [
+              "1.52m",
+              "2.5m",
+              "3.2m",
+              "5m"
+            ],
+            "craft": [
+              "喷绘",
+              "打孔",
+              "焊接",
+              "加扣"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "10-25",
+            "note": "520/530/550系列灯布，PVC基材，户外广告最基础经济材料，围挡/高炮/道旗",
+            "code": "spray-2-1",
+            "image": "/images/materials/spray-2-1.png"
+          },
+          {
+            "name": "灯箱布",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.3mm"
+            ],
+            "size": [
+              "1.52m",
+              "3.2m",
+              "5m"
+            ],
+            "craft": [
+              "喷绘",
+              "灯箱安装"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "10-25",
+            "note": "分内打光（内光布）、外打光（外光布），用于灯箱、门头招牌",
+            "code": "spray-2-2",
+            "image": "/images/materials/spray-2-2.png"
+          },
+          {
+            "name": "刀刮布",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.4mm",
+              "0.5mm"
+            ],
+            "size": [
+              "1.52m",
+              "3.2m",
+              "5m"
+            ],
+            "craft": [
+              "喷绘",
+              "高频焊接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-35",
+            "note": "PVC膜刀刮工艺基材（约420g），高强度耐撕裂、吸墨好、色彩饱和，大型门头/背景",
+            "code": "spray-2-3",
+            "image": "/images/materials/spray-2-3.png"
+          },
+          {
+            "name": "车身贴",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机",
+              "写真机"
+            ],
+            "thickness": [
+              "0.1mm",
+              "0.15mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "喷绘",
+              "覆膜",
+              "导气槽"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-40",
+            "note": "供车体/墙面贴覆，胶分白胶/灰胶/黑胶，导气槽款施工无气泡",
+            "code": "spray-2-4",
+            "image": "/images/materials/spray-2-4.png"
+          },
+          {
+            "name": "单透贴",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机",
+              "写真机"
+            ],
+            "thickness": [
+              "0.15mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "喷绘",
+              "覆膜"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "20-50",
+            "note": "单孔透/单向透视膜PVC材质，车后窗、玻璃橱窗广告，外看画面内透光",
+            "code": "spray-2-5",
+            "image": "/images/materials/spray-2-5.png"
+          },
+          {
+            "name": "网格布",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.3mm"
+            ],
+            "size": [
+              "1.52m",
+              "3.2m",
+              "5m"
+            ],
+            "craft": [
+              "喷绘"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "10-25",
+            "note": "网孔透风，高层户外大型广告抗风用，减轻风阻",
+            "code": "spray-2-6",
+            "image": "/images/materials/spray-2-6.png"
+          },
+          {
+            "name": "软膜",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机",
+              "UV机"
+            ],
+            "thickness": [
+              "0.2mm"
+            ],
+            "size": [
+              "1.52m",
+              "3.2m"
+            ],
+            "craft": [
+              "UV喷绘",
+              "卡布绷装"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "30-60",
+            "note": "软膜天花/灯膜，弹性佳、透光，卡布灯箱、天花吊顶",
+            "code": "spray-2-7",
+            "image": "/images/materials/spray-2-7.png"
+          },
+          {
+            "name": "黑白布",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.35mm"
+            ],
+            "size": [
+              "1.52m",
+              "3.2m",
+              "5m"
+            ],
+            "craft": [
+              "喷绘"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "8-20",
+            "note": "黑底布（约440g），双面黑底不透光、遮挡性好，围挡/舞台背景",
+            "code": "spray-2-8",
+            "image": "/images/materials/spray-2-8.png"
+          }
+        ]
+      },
+      {
+        "name": "弱溶剂打印",
+        "machine": [
+          "写真机",
+          "喷绘机"
+        ],
+        "materials": [
+          {
+            "name": "车贴",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "写真机",
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.1mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "弱溶剂打印",
+              "覆膜"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "15-40",
+            "note": "弱溶剂墨水户外耐候，车身、店面标识、户外海报",
+            "code": "spray-3-1",
+            "image": "/images/materials/spray-3-1.png"
+          },
+          {
+            "name": "PVC膜",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "写真机",
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.1mm",
+              "0.3mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "弱溶剂打印",
+              "雕刻切割"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "20-50",
+            "note": "PVC硬片/透明膜，户外耐久，面板、贴面、装饰",
+            "code": "spray-3-2",
+            "image": "/images/materials/spray-3-2.png"
+          },
+          {
+            "name": "地贴",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "写真机",
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.2mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "弱溶剂打印",
+              "覆耐磨防滑膜"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "30-60",
+            "note": "地面广告指引，防滑耐磨、可移不留胶，商场/展会地面",
+            "code": "spray-3-3",
+            "image": "/images/materials/spray-3-3.png"
+          },
+          {
+            "name": "墙贴",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "写真机",
+              "喷绘机"
+            ],
+            "thickness": [
+              "0.1mm",
+              "0.15mm"
+            ],
+            "size": [
+              "0.914m",
+              "1.27m",
+              "1.52m"
+            ],
+            "craft": [
+              "弱溶剂打印",
+              "覆膜"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "20-50",
+            "note": "墙面彩绘/装饰，可移墙贴，室内背景墙、店面装饰",
+            "code": "spray-3-4",
+            "image": "/images/materials/spray-3-4.png"
+          }
+        ]
+      },
+      {
+        "name": "UV打印",
+        "machine": [
+          "UV平板打印机"
+        ],
+        "materials": [
+          {
+            "name": "亚克力UV",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "1mm",
+              "10mm"
+            ],
+            "size": [
+              "1.22m x 2.44m（板）"
+            ],
+            "craft": [
+              "UV平板打印",
+              "雕刻切割"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "80-200",
+            "note": "PMMA有机玻璃，高透亮、质感好，标识、装饰、展板",
+            "code": "spray-4-1",
+            "image": "/images/materials/spray-4-1.png"
+          },
+          {
+            "name": "PVC UV",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "1mm",
+              "10mm"
+            ],
+            "size": [
+              "1.22m x 2.44m（板）"
+            ],
+            "craft": [
+              "UV平板打印",
+              "雕刻切割"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "60-150",
+            "note": "PVC板硬板，轻便平整，展板、标牌、面板",
+            "code": "spray-4-2",
+            "image": "/images/materials/spray-4-2.png"
+          },
+          {
+            "name": "发泡板UV",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "3mm",
+              "20mm"
+            ],
+            "size": [
+              "1.22m x 2.44m（板）"
+            ],
+            "craft": [
+              "UV平板打印",
+              "切割"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "50-120",
+            "note": "聚氯乙烯发泡板（PVC发泡板），轻质、易加工，展架/背景板",
+            "code": "spray-4-3",
+            "image": "/images/materials/spray-4-3.png"
+          },
+          {
+            "name": "玻璃UV",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "5mm",
+              "12mm"
+            ],
+            "size": [
+              "定制"
+            ],
+            "craft": [
+              "UV平板打印",
+              "钢化"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "120-300",
+            "note": "移门/背景墙/装饰玻璃，附着力佳、耐候",
+            "code": "spray-4-4",
+            "image": "/images/materials/spray-4-4.png"
+          },
+          {
+            "name": "金属UV",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "0.5mm",
+              "3mm"
+            ],
+            "size": [
+              "定制"
+            ],
+            "craft": [
+              "UV平板打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "150-350",
+            "note": "铝板/不锈钢等金属基材，标牌、门牌、指示牌",
+            "code": "spray-4-5",
+            "image": "/images/materials/spray-4-5.png"
+          },
+          {
+            "name": "瓷砖UV",
+            "indoorOutdoor": "户内外通用",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "8mm",
+              "12mm"
+            ],
+            "size": [
+              "定制"
+            ],
+            "craft": [
+              "UV平板打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "100-250",
+            "note": "背景墙、装饰画、地砖图案，耐刮耐磨、附着力强",
+            "code": "spray-4-6",
+            "image": "/images/materials/spray-4-6.png"
+          }
+        ]
+      }
+    ],
+    "code": "spray",
+    "sort": 1
+  },
+  {
+    "category": "印刷",
+    "description": "印刷材质与工艺资料库，涵盖常用纸张、特种纸、印刷品类型、印刷工艺与印后装订/后道加工五大板块。数据整理自百度百科开放 API（铜版纸/特种纸/烫印/覆膜/模切/凹凸压印/骑马钉/胶装/线装/丝网印刷/数码印刷/白卡纸/灰底白板纸/压纹纸/触感纸/珠光纸等权威词条），价格区间为行业常用参考行情。",
+    "sources": [
+      "百度百科：铜版纸、哑粉纸、胶版纸(双胶纸)、白卡纸、特种纸、牛皮纸袋、灰底白板纸、卡纸、压纹纸、触感纸、珠光纸",
+      "百度百科：印刷、胶印、数码印刷、丝网印刷、烫印(烫金)、UV上光油、上光、覆膜",
+      "百度百科：模切、压痕、凹凸压印、折页、打孔、装订、骑马钉、胶装、线装",
+      "百度百科：名片、海报、包装盒、不干胶"
+    ],
+    "subCategories": [
+      {
+        "name": "常用印刷纸张",
+        "machine": [
+          "胶印机",
+          "数码印刷机"
+        ],
+        "materials": [
+          {
+            "name": "铜版纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "thickness": [
+              "128g",
+              "157g",
+              "200g",
+              "250g",
+              "300g",
+              "350g"
+            ],
+            "size": [
+              "A4",
+              "A3",
+              "对开 420×570mm",
+              "大度 889×1194mm",
+              "正度 787×1092mm"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "UV上光",
+              "压痕"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥6~15 / ㎡（128g 约 ¥6~8，300g 约 ¥12~15）",
+            "note": "又称涂布印刷纸/粉纸，纸面光滑白度高、吸墨性好，画册/彩页/海报常用；缺点是不耐折、受潮易粘连",
+            "code": "print-1-1",
+            "image": "/images/materials/print-1-1.png"
+          },
+          {
+            "name": "哑粉纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "thickness": [
+              "128g",
+              "157g",
+              "200g",
+              "250g",
+              "300g"
+            ],
+            "size": [
+              "A4",
+              "A3",
+              "对开",
+              "大度/正度"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "UV上光"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥7~16 / ㎡（同克重比铜版纸略贵 10%~20%）",
+            "note": "即无光铜版纸，反光低、网点细腻、显高档，高档画册/品牌广告单/名片常用",
+            "code": "print-1-2",
+            "image": "/images/materials/print-1-2.png"
+          },
+          {
+            "name": "双胶纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机",
+              "激光打印机"
+            ],
+            "thickness": [
+              "60g",
+              "70g",
+              "80g",
+              "100g",
+              "120g",
+              "140g"
+            ],
+            "size": [
+              "A4",
+              "A3",
+              "16开",
+              "对开"
+            ],
+            "craft": [
+              "胶印",
+              "数码快印",
+              "覆膜"
+            ],
+            "priceUnit": "元/500张(A4) 或 元/kg",
+            "priceRange": "约 ¥8~12 / kg；A4 一包 500 张约 ¥20~40",
+            "note": "旧称道林纸/胶版纸，双面光滑、白度适中，书刊正文/信纸/文件/宣传单页常用，写画与打印两相宜",
+            "code": "print-1-3",
+            "image": "/images/materials/print-1-3.png"
+          },
+          {
+            "name": "白卡纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "thickness": [
+              "250g",
+              "300g",
+              "350g",
+              "400g"
+            ],
+            "size": [
+              "名片 90×54mm",
+              "A5",
+              "A4",
+              "对开"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "UV上光",
+              "模切",
+              "压痕"
+            ],
+            "priceUnit": "元/㎡ 或 元/吨",
+            "priceRange": "约 ¥8~15 / ㎡（吨价约 ¥7500~10000）",
+            "note": "漂白化学木浆、挺度高耐折、吸墨好，名片/卡片/吊牌/包装盒常用；行业四大龙头产能占超七成",
+            "code": "print-1-4",
+            "image": "/images/materials/print-1-4.png"
+          },
+          {
+            "name": "牛皮纸",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "thickness": [
+              "70g",
+              "80g",
+              "100g",
+              "120g",
+              "150g",
+              "200g"
+            ],
+            "size": [
+              "A4",
+              "A3",
+              "卷筒",
+              "信封/纸袋规格"
+            ],
+            "craft": [
+              "丝网印刷",
+              "烫金",
+              "模切",
+              "覆膜(局部)"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥5~9 / ㎡",
+            "note": "kraft paper，强度高、环保可回收，本色黄/白色两种；纸袋、信封、包装、手提袋常用，可淋膜防水",
+            "code": "print-1-5",
+            "image": "/images/materials/print-1-5.png"
+          },
+          {
+            "name": "灰底白板纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机"
+            ],
+            "thickness": [
+              "200g",
+              "250g",
+              "300g",
+              "350g",
+              "400g",
+              "450g"
+            ],
+            "size": [
+              "对开",
+              "全开",
+              "按盒型开料"
+            ],
+            "craft": [
+              "覆膜",
+              "模切",
+              "压痕",
+              "裱糊"
+            ],
+            "priceUnit": "元/㎡ 或 元/吨",
+            "priceRange": "约 ¥4~7 / ㎡",
+            "note": "又称白板/粉灰/灰铜，正面白涂布、底面灰色，包装盒/纸箱面纸常用；分 A~F 五级",
+            "code": "print-1-6",
+            "image": "/images/materials/print-1-6.png"
+          },
+          {
+            "name": "卡纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "thickness": [
+              "250g",
+              "300g",
+              "350g",
+              "400g"
+            ],
+            "size": [
+              "A5",
+              "A4",
+              "A3"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "UV上光",
+              "模切"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥8~12 / ㎡",
+            "note": "介于纸与纸板之间的厚纸统称，含灰底白板卡/铜板卡(SBS)/双灰纸板，挂历、卡片、包装面纸常用",
+            "code": "print-1-7",
+            "image": "/images/materials/print-1-7.png"
+          }
+        ]
+      },
+      {
+        "name": "特种纸",
+        "machine": [
+          "胶印机",
+          "数码印刷机",
+          "丝网印刷机"
+        ],
+        "materials": [
+          {
+            "name": "珠光纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "数码印刷机",
+              "丝网印刷机"
+            ],
+            "thickness": [
+              "120g",
+              "250g"
+            ],
+            "size": [
+              "A4",
+              "A3"
+            ],
+            "craft": [
+              "烫金",
+              "UV上光",
+              "丝网印刷"
+            ],
+            "priceUnit": "元/张(A4) 或 元/㎡",
+            "priceRange": "约 ¥20~40 / ㎡",
+            "note": "PP 原料合成纸，表面珍珠光泽、刚性高；油墨附着力需配合 UV 干燥，贺卡/高档包装/邀请函常用",
+            "code": "print-2-1",
+            "image": "/images/materials/print-2-1.png"
+          },
+          {
+            "name": "触感纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "thickness": [
+              "120g",
+              "180g",
+              "250g",
+              "350g"
+            ],
+            "size": [
+              "A4",
+              "对开",
+              "卷筒"
+            ],
+            "craft": [
+              "烫金",
+              "UV",
+              "压纹"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥20~40 / ㎡",
+            "note": "表面天鹅绒般细腻绒感、抗刮耐折，高档礼盒/化妆品/首饰盒/画册封面常用，不适合四色满版印刷",
+            "code": "print-2-2",
+            "image": "/images/materials/print-2-2.png"
+          },
+          {
+            "name": "压纹纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机"
+            ],
+            "thickness": [
+              "100g",
+              "120g",
+              "150g",
+              "200g"
+            ],
+            "size": [
+              "对开",
+              "正度",
+              "大度"
+            ],
+            "craft": [
+              "烫金",
+              "凹凸压印",
+              "覆膜"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥10~20 / ㎡",
+            "note": "机械压花形成布纹/斜纹等 20 余种凹凸纹理，书籍封面/商务名片/文创包装常用；纸质较脆易裂",
+            "code": "print-2-3",
+            "image": "/images/materials/print-2-3.png"
+          },
+          {
+            "name": "金银卡纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "丝网印刷机"
+            ],
+            "thickness": [
+              "250g",
+              "300g",
+              "350g"
+            ],
+            "size": [
+              "对开",
+              "大度",
+              "按盒型开料"
+            ],
+            "craft": [
+              "烫金",
+              "UV上光",
+              "模切",
+              "丝网印刷"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥15~25 / ㎡",
+            "note": "表面金属光泽（金/银/镭射），高档烟酒/化妆品/礼品包装常用，配合 UV/烫金营造华丽效果",
+            "code": "print-2-4",
+            "image": "/images/materials/print-2-4.png"
+          },
+          {
+            "name": "相纸",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "数码印刷机",
+              "喷墨打印机",
+              "激光冲印机"
+            ],
+            "thickness": [
+              "180g",
+              "230g"
+            ],
+            "size": [
+              "6寸",
+              "A4",
+              "A3"
+            ],
+            "craft": [
+              "覆膜(亮/哑)",
+              "冷裱"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥10~20 / ㎡（照片冲印按张计价）",
+            "note": "分高光/哑光，照片打印、展架画面、证件照常用，覆膜可防褪色防刮",
+            "code": "print-2-5",
+            "image": "/images/materials/print-2-5.png"
+          }
+        ]
+      },
+      {
+        "name": "印刷品类型",
+        "machine": [
+          "胶印机",
+          "数码印刷机",
+          "丝网印刷机"
+        ],
+        "materials": [
+          {
+            "name": "名片",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "material": [
+              "250g 铜版纸",
+              "250g 哑粉纸",
+              "特种纸",
+              "PVC"
+            ],
+            "size": [
+              "90×54mm（国内通用）",
+              "90×50mm",
+              "80×40mm"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "局部UV",
+              "圆角",
+              "击凸"
+            ],
+            "priceUnit": "元/500张",
+            "priceRange": "普通铜版纸约 ¥30~80 / 500 张；特种纸+烫金约 ¥100~500 / 500 张",
+            "note": "标注姓名/职务/联系方式，国内通用规格 90×54mm，250g 哑粉纸为常见材质",
+            "code": "print-3-1",
+            "image": "/images/materials/print-3-1.png"
+          },
+          {
+            "name": "宣传单页(DM单)",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "material": [
+              "128g 铜版纸",
+              "157g 铜版纸",
+              "157g 哑粉纸"
+            ],
+            "size": [
+              "A4",
+              "A5",
+              "210×285mm"
+            ],
+            "craft": [
+              "覆膜",
+              "勒口",
+              "折页"
+            ],
+            "priceUnit": "元/张 或 元/500张",
+            "priceRange": "约 ¥0.2~0.6 / 张（A4 双面 500 张约 ¥100~300）",
+            "note": "活动推广、产品促销常用，量大胶印更划算，小量走数码快印",
+            "code": "print-3-2",
+            "image": "/images/materials/print-3-2.png"
+          },
+          {
+            "name": "画册",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机"
+            ],
+            "material": [
+              "封面 250g~300g",
+              "内页 128g~157g",
+              "哑粉纸/铜版纸"
+            ],
+            "size": [
+              "A4 210×297mm",
+              "A5",
+              "异形尺寸"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "UV",
+              "骑马钉/胶装/锁线"
+            ],
+            "priceUnit": "元/本",
+            "priceRange": "约 ¥5~50 / 本（视页数、装订与印量）",
+            "note": "企业/产品/品牌形象展示核心物料，纸张克重与装订方式直接影响高级感",
+            "code": "print-3-3",
+            "image": "/images/materials/print-3-3.png"
+          },
+          {
+            "name": "折页",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机",
+              "折页机"
+            ],
+            "material": [
+              "128g 铜版纸",
+              "157g 铜版纸",
+              "200g 铜版纸"
+            ],
+            "size": [
+              "A4 三折",
+              "A4 对折",
+              "A3 风琴折"
+            ],
+            "craft": [
+              "覆膜",
+              "压痕",
+              "烫金"
+            ],
+            "priceUnit": "元/500张",
+            "priceRange": "约 ¥200~500 / 500 张（A4 三折）",
+            "note": "折线处需压痕避免爆色，厚纸与覆膜纸尤其需压痕处理",
+            "code": "print-3-4",
+            "image": "/images/materials/print-3-4.png"
+          },
+          {
+            "name": "海报",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机",
+              "大型喷绘机"
+            ],
+            "material": [
+              "157g 铜版纸",
+              "相纸",
+              "PP 背胶",
+              "灯片"
+            ],
+            "size": [
+              "A2 420×594mm",
+              "A1 594×841mm",
+              "A0 841×1189mm"
+            ],
+            "craft": [
+              "覆膜",
+              "覆膜(亮/哑)",
+              "挂轴",
+              "裱板"
+            ],
+            "priceUnit": "元/张",
+            "priceRange": "A2 约 ¥2~8 / 张；A0 约 ¥15~40 / 张",
+            "note": "宣传招贴，含活动/演出信息；户外大尺寸多用喷绘而非胶印",
+            "code": "print-3-5",
+            "image": "/images/materials/print-3-5.png"
+          },
+          {
+            "name": "不干胶标签",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "数码印刷机",
+              "柔版印刷机"
+            ],
+            "material": [
+              "铜版纸不干胶",
+              "透明/哑银 PET",
+              "合成纸",
+              "酒标"
+            ],
+            "size": [
+              "卷装",
+              "单张",
+              "任意异形"
+            ],
+            "craft": [
+              "模切",
+              "覆膜(亮/哑)",
+              "烫金",
+              "UV上光"
+            ],
+            "priceUnit": "元/枚 或 元/卷",
+            "priceRange": "约 ¥0.05~0.5 / 枚（视材质、尺寸与数量）",
+            "note": "自粘标签材料=面材+胶粘剂+涂硅底纸，产品标签/贴纸/防伪标常用",
+            "code": "print-3-6",
+            "image": "/images/materials/print-3-6.png"
+          },
+          {
+            "name": "包装盒",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机",
+              "模切机",
+              "糊盒机"
+            ],
+            "material": [
+              "灰底白板纸",
+              "白卡纸",
+              "金银卡纸",
+              "牛皮纸"
+            ],
+            "size": [
+              "按盒型定制（天地盖/插口/飞机盒）"
+            ],
+            "craft": [
+              "覆膜",
+              "烫金",
+              "UV",
+              "模切",
+              "压痕",
+              "裱糊"
+            ],
+            "priceUnit": "元/个",
+            "priceRange": "约 ¥0.5~10 / 个（视尺寸、材质、工艺与印量）",
+            "note": "纸盒为主流，模切+糊盒成型；高档包装常用白卡+烫金/UV 组合",
+            "code": "print-3-7",
+            "image": "/images/materials/print-3-7.png"
+          }
+        ]
+      },
+      {
+        "name": "印刷工艺",
+        "machine": [
+          "胶印机",
+          "数码印刷机",
+          "丝网印刷机",
+          "模切机",
+          "烫金机",
+          "覆膜机"
+        ],
+        "materials": [
+          {
+            "name": "胶印",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶印机"
+            ],
+            "material": [
+              "铜版纸",
+              "哑粉纸",
+              "双胶纸",
+              "白卡纸"
+            ],
+            "craft": [
+              "四色印刷 CMYK",
+              "专色印刷"
+            ],
+            "priceUnit": "元/份(含开机费)",
+            "priceRange": "开机费约 ¥200~500，之后按张叠加（大批量摊薄至几毛/张）",
+            "note": "即平版/柯式印刷，借橡皮布转印、色彩还原好，画册/彩页/包装大批量首选；小量不划算",
+            "code": "print-4-1",
+            "image": "/images/materials/print-4-1.png"
+          },
+          {
+            "name": "数码快印",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "数码印刷机"
+            ],
+            "material": [
+              "铜版纸",
+              "双胶纸",
+              "特种纸"
+            ],
+            "craft": [
+              "可变数据",
+              "个性化印刷",
+              "按需印刷"
+            ],
+            "priceUnit": "元/张(A4)",
+            "priceRange": "约 ¥0.3~1 / 张（A4 彩色单面）",
+            "note": "一张起印、立等可取，适合小批量/样书/个性化；大批量单价比胶印高",
+            "code": "print-4-2",
+            "image": "/images/materials/print-4-2.png"
+          },
+          {
+            "name": "丝网印刷",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "丝网印刷机"
+            ],
+            "material": [
+              "牛皮纸",
+              "不干胶",
+              "布料",
+              "塑料",
+              "金属",
+              "玻璃"
+            ],
+            "craft": [
+              "厚墨层专色",
+              "金银色",
+              "夜光/荧光"
+            ],
+            "priceUnit": "元/版 + 元/张",
+            "priceRange": "制版费约 ¥50~300，印刷约 ¥1~10 / 张（视幅面）",
+            "note": "孔版印刷，墨层厚实立体、颜色鲜艳，适合深色底/特种材质/户外耐候",
+            "code": "print-4-3",
+            "image": "/images/materials/print-4-3.png"
+          },
+          {
+            "name": "烫金/烫银",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "烫金机"
+            ],
+            "material": [
+              "铜版纸",
+              "白卡纸",
+              "特种纸"
+            ],
+            "craft": [
+              "热烫印",
+              "冷烫印",
+              "立体烫印",
+              "全息定位烫"
+            ],
+            "priceUnit": "元/版 + 元/次/张",
+            "priceRange": "版费约 ¥100~300，加工约 ¥0.1~0.5 / 次",
+            "note": "即烫印，利用电化铝热压转移形成金属光泽（金/银/镭射），名片/包装/封面提升档次",
+            "code": "print-4-4",
+            "image": "/images/materials/print-4-4.png"
+          },
+          {
+            "name": "UV上光",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "UV涂布机",
+              "胶印机(联机)"
+            ],
+            "material": [
+              "铜版纸",
+              "金银卡纸",
+              "白卡纸"
+            ],
+            "craft": [
+              "全面UV",
+              "局部UV",
+              "哑光UV",
+              "逆向UV"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "全面 UV 约 ¥2~5 / ㎡；局部 UV 另加版费约 ¥100~300",
+            "note": "紫外线固化表面涂布，高光泽/耐磨/耐化学，成本约为覆膜一半且不易翘边",
+            "code": "print-4-5",
+            "image": "/images/materials/print-4-5.png"
+          },
+          {
+            "name": "覆膜(亮膜)",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "覆膜机"
+            ],
+            "material": [
+              "铜版纸",
+              "哑粉纸",
+              "白卡纸"
+            ],
+            "craft": [
+              "BOPP 亮膜热压"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥1.5~3 / ㎡",
+            "note": "过亮膜，增光泽、防刮防水、提升挺度；画册封面/彩页/菜单常用",
+            "code": "print-4-6",
+            "image": "/images/materials/print-4-6.png"
+          },
+          {
+            "name": "覆膜(哑膜)",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "覆膜机"
+            ],
+            "material": [
+              "铜版纸",
+              "哑粉纸",
+              "白卡纸"
+            ],
+            "craft": [
+              "BOPP 哑膜热压"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥1.5~3 / ㎡",
+            "note": "过哑膜，哑光质感、不反光更显高档，耐刮耐磨；高档画册/包装常用",
+            "code": "print-4-7",
+            "image": "/images/materials/print-4-7.png"
+          },
+          {
+            "name": "模切",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "模切机"
+            ],
+            "material": [
+              "白卡纸",
+              "灰底白板纸",
+              "不干胶",
+              "金银卡纸"
+            ],
+            "craft": [
+              "异形裁切",
+              "圆角",
+              "清废",
+              "局部去膜"
+            ],
+            "priceUnit": "元/版 + 元/张",
+            "priceRange": "刀版费约 ¥50~300，加工按面积/次数计费",
+            "note": "通过刀版冲出异形/圆角，可同步压痕；包装盒/标签/吊牌成型的关键工序",
+            "code": "print-4-8",
+            "image": "/images/materials/print-4-8.png"
+          },
+          {
+            "name": "压痕",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "模切机",
+              "压痕机"
+            ],
+            "material": [
+              "200g 以上厚纸",
+              "覆膜纸",
+              "白卡纸"
+            ],
+            "craft": [
+              "压折线",
+              "压钢线"
+            ],
+            "priceUnit": "元/次/张",
+            "priceRange": "约 ¥0.1~0.3 / 次",
+            "note": "用钢线压出折痕便于弯折，防厚纸/深色墨折叠处爆裂；折页/包装盒必备",
+            "code": "print-4-9",
+            "image": "/images/materials/print-4-9.png"
+          },
+          {
+            "name": "凹凸压印(击凸/压凹)",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "凹凸压印机",
+              "烫金机"
+            ],
+            "material": [
+              "≥180g 白卡纸",
+              "铜版纸",
+              "特种纸"
+            ],
+            "craft": [
+              "击凸(膨起)",
+              "压凹(凹陷)",
+              "浮雕击凸+烫金"
+            ],
+            "priceUnit": "元/版 + 元/张",
+            "priceRange": "版费约 ¥200~500，加工按面积计费",
+            "note": "无需油墨，靠凹凸模具让图文隆起/凹陷成浮雕感，包装/封面/LOGO 提升质感",
+            "code": "print-4-10",
+            "image": "/images/materials/print-4-10.png"
+          },
+          {
+            "name": "打孔",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "打孔机",
+              "钻孔机"
+            ],
+            "material": [
+              "卡纸",
+              "吊牌",
+              "活页纸"
+            ],
+            "craft": [
+              "圆孔",
+              "D形孔",
+              "异形孔"
+            ],
+            "priceUnit": "元/孔 或 元/张",
+            "priceRange": "约 ¥0.05~0.2 / 孔",
+            "note": "吊牌穿绳孔、活页装订孔、票据撕线孔；激光打孔精度更高",
+            "code": "print-4-11",
+            "image": "/images/materials/print-4-11.png"
+          }
+        ]
+      },
+      {
+        "name": "印后装订与后道加工",
+        "machine": [
+          "裁纸机",
+          "折页机",
+          "骑马钉机",
+          "胶装机",
+          "锁线机",
+          "冲孔机"
+        ],
+        "materials": [
+          {
+            "name": "裁切",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "程控裁纸机",
+              "切纸机"
+            ],
+            "material": [
+              "各类纸张",
+              "纸板",
+              "成品书刊"
+            ],
+            "craft": [
+              "三面裁切",
+              "按尺寸分切"
+            ],
+            "priceUnit": "元/刀",
+            "priceRange": "约 ¥0.05~0.3 / 刀（整令/整批计价更低）",
+            "note": "印刷完成后的成尺寸切边工序，控制成品尺寸精度与齐整度",
+            "code": "print-5-1",
+            "image": "/images/materials/print-5-1.png"
+          },
+          {
+            "name": "折页",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "折页机",
+              "折纸"
+            ],
+            "material": [
+              "128g~200g 铜版纸",
+              "双胶纸"
+            ],
+            "craft": [
+              "对折",
+              "三折",
+              "风琴折",
+              "关门折",
+              "十字折"
+            ],
+            "priceUnit": "元/张（按折数）",
+            "priceRange": "约 ¥0.1~0.5 / 张（视折数）",
+            "note": "按页码顺序折叠成规定幅面的关键工序，宣传折页/说明书/书帖必备",
+            "code": "print-5-2",
+            "image": "/images/materials/print-5-2.png"
+          },
+          {
+            "name": "装订-骑马钉",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "骑马钉机"
+            ],
+            "material": [
+              "80g 复印纸",
+              "铜版纸"
+            ],
+            "craft": [
+              "铁丝骑马订"
+            ],
+            "priceUnit": "元/本",
+            "priceRange": "约 ¥0.3~1.5 / 本",
+            "note": "跨订书脊、成本低效率高，适合 ≤32 页（页码需 4 的倍数）薄本画册/杂志",
+            "code": "print-5-3",
+            "image": "/images/materials/print-5-3.png"
+          },
+          {
+            "name": "装订-胶装",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "胶装机"
+            ],
+            "material": [
+              "书刊正文",
+              "画册",
+              "标书"
+            ],
+            "craft": [
+              "无线胶装",
+              "锁线胶装"
+            ],
+            "priceUnit": "元/本",
+            "priceRange": "无线胶装约 ¥1~3 / 本；锁线胶装约 ¥2~6 / 本",
+            "note": "胶装分无线胶订与锁线胶订，多数平装书/厚杂志采用；锁线更牢固适合厚册",
+            "code": "print-5-4",
+            "image": "/images/materials/print-5-4.png"
+          },
+          {
+            "name": "装订-线装",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "手工/锁线机"
+            ],
+            "material": [
+              "古籍",
+              "证书",
+              "纪念册"
+            ],
+            "craft": [
+              "四眼线装",
+              "六眼",
+              "八眼",
+              "三孔一线"
+            ],
+            "priceUnit": "元/本",
+            "priceRange": "约 ¥10~100 / 本（手工为主，视工艺繁简）",
+            "note": "中国传统装订技法，外侧露线、封面绫绢包角，古籍/高端纪念册/永久档案采用",
+            "code": "print-5-5",
+            "image": "/images/materials/print-5-5.png"
+          },
+          {
+            "name": "装订-圈装",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "冲孔机",
+              "线圈装订机"
+            ],
+            "material": [
+              "台历",
+              "手册",
+              "标书",
+              "菜谱"
+            ],
+            "craft": [
+              "铁圈(螺旋)装订",
+              "胶圈(活页)装订"
+            ],
+            "priceUnit": "元/本",
+            "priceRange": "约 ¥2~8 / 本（视厚度与圈材质）",
+            "note": "螺旋/活页圈装订，可 360° 平铺翻折、替换内页，台历/书刊/培训手册常用",
+            "code": "print-5-6",
+            "image": "/images/materials/print-5-6.png"
+          }
+        ]
+      }
+    ],
+    "code": "print",
+    "sort": 2
+  },
+  {
+    "category": "亚克力",
+    "description": "亚克力（Acrylic）又称有机玻璃，学名聚甲基丙烯酸甲酯（PMMA），透光率约92%，重量约为玻璃的一半，抗冲击强度约为普通玻璃的16倍。按生产分为浇铸板（1.8~300mm，耐候性好、适合户外标识）与挤出板（0.5~12mm，厚度公差小、价格低、适合户内水晶字）。常用板材规格 1.22×2.44m、1.22×1.83m、1.25×2.5m、2×3m。广泛用于标识标牌、展示架、灯箱面板、水晶字、建筑装饰与照明。",
+    "subCategories": [
+      {
+        "name": "透明亚克力板",
+        "machine": [
+          "激光切割机",
+          "CNC雕刻机"
+        ],
+        "materials": [
+          {
+            "name": "透明亚克力板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机",
+              "CNC雕刻机"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm",
+              "5mm",
+              "8mm",
+              "10mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "CNC雕刻",
+              "热弯",
+              "UV打印",
+              "抛光"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "50-280",
+            "note": "标识标牌/展示架最常用，透光率92%，5mm以上可做户外",
+            "code": "acrylic-1-1",
+            "image": "/images/materials/acrylic-1-1.png"
+          },
+          {
+            "name": "高透明净白板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm",
+              "8mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "抛光",
+              "钻石抛光"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "60-320",
+            "note": "无杂质高透，钻石抛光后如玻璃般通透，高端展示用",
+            "code": "acrylic-1-2",
+            "image": "/images/materials/acrylic-1-2.png"
+          },
+          {
+            "name": "透明浇铸板（户外级）",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm",
+              "8mm",
+              "10mm",
+              "20mm"
+            ],
+            "size": [
+              "1.22×2.44m",
+              "2×3m"
+            ],
+            "craft": [
+              "激光切割",
+              "热弯",
+              "粘接",
+              "喷漆"
+            ],
+            "priceUnit": "元/张",
+            "priceRange": "150-800",
+            "note": "分子量大、耐候耐紫外，适合户外标识，户外寿命5-10年",
+            "code": "acrylic-1-3",
+            "image": "/images/materials/acrylic-1-3.png"
+          },
+          {
+            "name": "透明挤出板（户内级）",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "CNC雕刻机"
+            ],
+            "thickness": [
+              "1mm",
+              "2mm",
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "CNC雕刻",
+              "粘接",
+              "切割"
+            ],
+            "priceUnit": "元/张",
+            "priceRange": "25-150",
+            "note": "厚度公差小、价格低，适合户内水晶字/产品支架",
+            "code": "acrylic-1-4",
+            "image": "/images/materials/acrylic-1-4.png"
+          }
+        ]
+      },
+      {
+        "name": "彩色亚克力板",
+        "machine": [
+          "激光切割机",
+          "CNC雕刻机"
+        ],
+        "materials": [
+          {
+            "name": "彩色透明板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "热弯",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "55-180",
+            "note": "有色透明，用于灯箱字符、招牌水晶字、装饰",
+            "code": "acrylic-2-1",
+            "image": "/images/materials/acrylic-2-1.png"
+          },
+          {
+            "name": "彩色实色板（不透明）",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "CNC雕刻机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm",
+              "8mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "CNC雕刻",
+              "UV打印",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "60-200",
+            "note": "实色不透明，用于立体字、标牌、展示道具",
+            "code": "acrylic-2-2",
+            "image": "/images/materials/acrylic-2-2.png"
+          },
+          {
+            "name": "荧光色板",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "80-220",
+            "note": "荧光黄/橙/绿等，吸睛装饰、潮牌展示",
+            "code": "acrylic-2-3",
+            "image": "/images/materials/acrylic-2-3.png"
+          }
+        ]
+      },
+      {
+        "name": "磨砂亚克力板",
+        "machine": [
+          "激光切割机",
+          "CNC雕刻机"
+        ],
+        "materials": [
+          {
+            "name": "单面磨砂板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm",
+              "8mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "热弯",
+              "UV打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "50-150",
+            "note": "一面磨砂一面光，柔光、遮挡、防指纹，灯箱面板常用",
+            "code": "acrylic-3-1",
+            "image": "/images/materials/acrylic-3-1.png"
+          },
+          {
+            "name": "双面磨砂板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "60-160",
+            "note": "两面磨砂，柔光效果好，隔断/屏风/灯片",
+            "code": "acrylic-3-2",
+            "image": "/images/materials/acrylic-3-2.png"
+          },
+          {
+            "name": "磨砂透明板",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "CNC雕刻机"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "CNC雕刻",
+              "抛光"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "40-120",
+            "note": "散射光线、遮挡视线，用于隔断、橱窗、装饰",
+            "code": "acrylic-3-3",
+            "image": "/images/materials/acrylic-3-3.png"
+          }
+        ]
+      },
+      {
+        "name": "乳白亚克力板（匀光板/光扩散板）",
+        "machine": [
+          "激光切割机",
+          "CNC雕刻机"
+        ],
+        "materials": [
+          {
+            "name": "乳白匀光板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "热弯",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "40-120",
+            "note": "乳白色光扩散板，均匀散射背光，灯箱面罩/发光字面板",
+            "code": "acrylic-4-1",
+            "image": "/images/materials/acrylic-4-1.png"
+          },
+          {
+            "name": "乳白吸光板",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "CNC雕刻机"
+            ],
+            "thickness": [
+              "1mm",
+              "2mm",
+              "3mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "CNC雕刻",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "30-90",
+            "note": "吸光匀光，用于吸顶灯/筒灯罩、边框发光字",
+            "code": "acrylic-4-2",
+            "image": "/images/materials/acrylic-4-2.png"
+          },
+          {
+            "name": "双面磨砂乳白扩散板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "45-130",
+            "note": "乳白双面磨砂，灯箱吊顶灯光片、PS扩散板",
+            "code": "acrylic-4-3",
+            "image": "/images/materials/acrylic-4-3.png"
+          }
+        ]
+      },
+      {
+        "name": "镜面/珠光亚克力板",
+        "machine": [
+          "激光切割机",
+          "CNC雕刻机"
+        ],
+        "materials": [
+          {
+            "name": "镜面板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "粘接",
+              "UV打印"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "60-170",
+            "note": "高反光镜面效果，展示陈列、装饰、陈列道具",
+            "code": "acrylic-5-1",
+            "image": "/images/materials/acrylic-5-1.png"
+          },
+          {
+            "name": "珠光板",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "激光切割机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "激光切割",
+              "热弯"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "80-200",
+            "note": "珠光闪烁质感，装饰性强，用于高端灯箱/展示",
+            "code": "acrylic-5-2",
+            "image": "/images/materials/acrylic-5-2.png"
+          },
+          {
+            "name": "半透镜面板",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "CNC雕刻机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "CNC雕刻",
+              "粘接"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "90-220",
+            "note": "半透半反光（单向可视），用于陈列窗、演艺道具",
+            "code": "acrylic-5-3",
+            "image": "/images/materials/acrylic-5-3.png"
+          }
+        ]
+      }
+    ],
+    "code": "acrylic",
+    "sort": 3
+  },
+  {
+    "category": "PVC",
+    "description": "PVC（聚氯乙烯，PolyVinyl Chloride）材质与工艺资料库，覆盖 PVC 发泡板（雪弗板/安迪板）、硬质 PVC 板（PVC-U 实心板）与 PVC 膜贴（车贴/墙贴/地贴）三大板块，以及雕刻、UV 平板打印、丝印、热弯、覆膜等加工工艺。数据整理自百度百科（PVC板/聚氯乙烯发泡板/车贴/墙贴/地贴等权威词条，其中 PVC 板词条经“科普中国”与中国科学院大学认证）与化工百科（PVC 树脂/片材/薄膜）。材料与密度、强度、耐温等物理性能取自百科权威数据；厚度、幅面与价格区间为行业通用规格与参考行情。",
+    "sources": [
+      "百度百科：PVC板（别名安迪板/雪弗板/PVC发泡板，科普中国+中国科学院大学认证）",
+      "百度百科：聚氯乙烯发泡板（PVC发泡板/雪弗板/安迪板，科普中国认证）",
+      "百度百科：车贴、墙贴、地贴（PVC 户外胶贴纸/不干胶/背胶写真）",
+      "化工百科：PVC（聚氯乙烯树脂）、PVC片材、PVC膜（Polyvinyl chloride film）"
+    ],
+    "subCategories": [
+      {
+        "name": "PVC发泡板（雪弗板/安迪板）",
+        "machine": [
+          "雕刻机",
+          "UV平板打印机",
+          "丝网印刷机",
+          "覆膜机",
+          "热弯机"
+        ],
+        "materials": [
+          {
+            "name": "白色发泡板",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "UV平板打印机",
+              "雕刻机",
+              "丝网印刷机"
+            ],
+            "thickness": [
+              "1mm",
+              "2mm",
+              "3mm",
+              "5mm",
+              "8mm",
+              "10mm",
+              "12mm",
+              "15mm",
+              "18mm",
+              "20mm"
+            ],
+            "size": [
+              "1.22×2.44m",
+              "1.22×1.22m",
+              "1.0×2.0m"
+            ],
+            "craft": [
+              "雕刻",
+              "UV平板打印",
+              "丝网印刷",
+              "覆膜",
+              "热弯"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥20~45 / ㎡（3mm 约 25~35 元/张，5mm 约 40~60 元/张，10mm 约 80~130 元/张）",
+            "note": "PVC发泡板最常用颜色，俗称雪弗板/安迪板；皮-芯结构、表面致密平整，展板/标识/广告牌/KT板替代主流。密度约 0.45~0.80 g/cm³，防潮耐候、阻燃，比KT板耐用",
+            "code": "pvc-1-1",
+            "image": "/images/materials/pvc-1-1.png"
+          },
+          {
+            "name": "彩色发泡板",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "雕刻机",
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm",
+              "8mm",
+              "10mm",
+              "15mm"
+            ],
+            "size": [
+              "1.22×2.44m",
+              "1.22×1.22m"
+            ],
+            "craft": [
+              "雕刻",
+              "UV平板打印",
+              "覆膜"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥30~60 / ㎡（比白色略贵 10%~30%，视颜色与厚度）",
+            "note": "红/黄/蓝/绿/橙等通体着色发泡板，无需覆膜即有底色，广告字底/展板/橱窗道具常用；颜色批次可能存在轻微色差",
+            "code": "pvc-1-2",
+            "image": "/images/materials/pvc-1-2.png"
+          },
+          {
+            "name": "黑色发泡板",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "雕刻机",
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "3mm",
+              "5mm",
+              "8mm",
+              "10mm"
+            ],
+            "size": [
+              "1.22×2.44m",
+              "1.22×1.22m"
+            ],
+            "craft": [
+              "雕刻",
+              "UV平板打印",
+              "覆膜"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥30~55 / ㎡",
+            "note": "黑色通体发泡板，用于深色底展板、雕刻字底、高档展示道具；深色底配合 UV 白墨打印效果佳",
+            "code": "pvc-1-3",
+            "image": "/images/materials/pvc-1-3.png"
+          },
+          {
+            "name": "高密度结皮发泡板",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "雕刻机",
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "5mm",
+              "8mm",
+              "10mm",
+              "15mm",
+              "18mm",
+              "20mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "雕刻",
+              "UV平板打印",
+              "焊接"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥40~80 / ㎡（结皮/高密度板价高于普发泡板）",
+            "note": "表面结皮层增厚、整体密度更高（约 0.7~0.8 g/cm³），刚性与耐候更好，用于户外标识、刻字、结构性展示件；弯曲强度约 3~15 MPa",
+            "code": "pvc-1-4",
+            "image": "/images/materials/pvc-1-4.png"
+          }
+        ]
+      },
+      {
+        "name": "硬质PVC板（PVC-U实心板）",
+        "machine": [
+          "雕刻机",
+          "激光雕刻机",
+          "UV平板打印机",
+          "CNC铣床"
+        ],
+        "materials": [
+          {
+            "name": "白色硬质PVC板",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "雕刻机",
+              "UV平板打印机",
+              "CNC铣床"
+            ],
+            "thickness": [
+              "1mm",
+              "2mm",
+              "3mm",
+              "5mm",
+              "6mm",
+              "8mm",
+              "10mm",
+              "12mm",
+              "15mm"
+            ],
+            "size": [
+              "1.22×2.44m",
+              "1.0×2.0m"
+            ],
+            "craft": [
+              "雕刻",
+              "UV平板打印",
+              "丝网印刷",
+              "锯切",
+              "焊接"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥30~80 / ㎡（3mm 约 50~90 元/张，5mm 约 90~150 元/张）",
+            "note": "未增塑PVC（PVC-U）实心板，密度约 1.3~1.45 g/cm³、强度高、结构致密，厚度≥1mm（参照 ISO 11833-1）；标识、标牌、雕刻字、化工防腐、设备衬板常用，耐酸碱、阻燃",
+            "code": "pvc-2-1",
+            "image": "/images/materials/pvc-2-1.png"
+          },
+          {
+            "name": "彩色硬质PVC板",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "雕刻机",
+              "CNC铣床"
+            ],
+            "thickness": [
+              "2mm",
+              "3mm",
+              "5mm",
+              "8mm"
+            ],
+            "size": [
+              "1.22×2.44m"
+            ],
+            "craft": [
+              "雕刻",
+              "丝网印刷",
+              "焊接"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥40~90 / ㎡（比白色略贵）",
+            "note": "红/黄/蓝/绿/黑等通体着色实心板，雕刻成型即可得彩色文字/图形，行业标识牌、门牌、刻度牌、安全警示牌常用",
+            "code": "pvc-2-2",
+            "image": "/images/materials/pvc-2-2.png"
+          },
+          {
+            "name": "透明硬质PVC板",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "雕刻机",
+              "UV平板打印机"
+            ],
+            "thickness": [
+              "1mm",
+              "2mm",
+              "3mm",
+              "5mm"
+            ],
+            "size": [
+              "1.22×2.44m",
+              "1.0×2.0m"
+            ],
+            "craft": [
+              "雕刻",
+              "UV平板打印",
+              "丝网印刷",
+              "热弯"
+            ],
+            "priceUnit": "元/张 或 元/㎡",
+            "priceRange": "约 ¥40~90 / ㎡",
+            "note": "透明/半透明硬质PVC，透光性好、价格低于亚克力，灯饰、展架、透明隔板、热弯罩壳用；户外长期易黄变，多用于户内",
+            "code": "pvc-2-3",
+            "image": "/images/materials/pvc-2-3.png"
+          }
+        ]
+      },
+      {
+        "name": "PVC膜/贴（车贴/墙贴/地贴）",
+        "machine": [
+          "刻字机",
+          "户外写真机",
+          "丝网印刷机",
+          "喷刻一体机"
+        ],
+        "materials": [
+          {
+            "name": "车贴",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "户外写真机",
+              "刻字机",
+              "刻绘机",
+              "丝网印刷机"
+            ],
+            "thickness": [
+              "约 0.08~0.2mm(薄膜)",
+              "白胶面/透明膜"
+            ],
+            "size": [
+              "卷装 1.06/1.27/1.52m 宽",
+              "按车身尺寸裁切"
+            ],
+            "craft": [
+              "刀刻不干胶",
+              "喷绘写真",
+              "丝网印刷",
+              "覆膜"
+            ],
+            "priceUnit": "元/㎡（含喷绘+覆膜）",
+            "priceRange": "约 ¥25~60 / ㎡（车贴喷绘，视室内外与是否覆膜）",
+            "note": "以PVC户外专用胶贴纸为主（PET等亦有），防UV、防水防晒、耐磨、撕后不留胶；中国规定车贴面积不得超过车身单幅20%且不得遮挡视线",
+            "code": "pvc-3-1",
+            "image": "/images/materials/pvc-3-1.png"
+          },
+          {
+            "name": "墙贴",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "刻字机",
+              "户外写真机"
+            ],
+            "thickness": [
+              "约 0.08~0.2mm(不干胶膜)",
+              "面材+胶水+底纸"
+            ],
+            "size": [
+              "整卷或按图案裁切",
+              "单色/彩色图案"
+            ],
+            "craft": [
+              "雕刻(刻字机)",
+              "喷绘写真",
+              "印刷",
+              "覆转移膜"
+            ],
+            "priceUnit": "元/㎡ 或 元/张",
+            "priceRange": "约 ¥15~40 / ㎡（成品墙贴按图案计价）",
+            "note": "背面带胶PVC不干胶（即时贴），配可移除R胶与转移膜；三代产品含一代PVC刻字、二代PET印刷、三代透明PET珠光膜；居家/店铺墙面、玻璃、瓷砖装饰",
+            "code": "pvc-3-2",
+            "image": "/images/materials/pvc-3-2.png"
+          },
+          {
+            "name": "地贴",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "户外写真机",
+              "覆膜机"
+            ],
+            "thickness": [
+              "背胶写真/背胶车身贴",
+              "表面覆耐磨膜"
+            ],
+            "size": [
+              "3m×4m",
+              "3m×5m",
+              "30×60cm",
+              "50×80cm"
+            ],
+            "craft": [
+              "背胶写真",
+              "覆膜(双层)",
+              "防滑表面"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥30~80 / ㎡（含覆耐磨膜）",
+            "note": "以背胶写真或背胶车身贴为材料，表面覆膜防踩踏损伤，抗划/耐老化/耐腐蚀；室内使用寿命可达15年、室外约7年，适用于商场、会展、地铁、机场地面引导与广告",
+            "code": "pvc-3-3",
+            "image": "/images/materials/pvc-3-3.png"
+          },
+          {
+            "name": "PVC装饰膜/透明贴膜",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "户外写真机",
+              "刻字机"
+            ],
+            "thickness": [
+              "约 0.05~0.2mm(薄膜)"
+            ],
+            "size": [
+              "卷装 0.9/1.06/1.27/1.52m 宽"
+            ],
+            "craft": [
+              "喷绘写真",
+              "雕刻",
+              "覆膜",
+              "丝网印刷"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥15~50 / ㎡",
+            "note": "PVC软膜（PVC film）耐候、柔软、具阻隔性，用于玻璃贴膜、灯箱软膜、展架画面、地板革、仿皮革；软质PVC含增塑剂（常用邻苯二甲酸酯类）",
+            "code": "pvc-3-4",
+            "image": "/images/materials/pvc-3-4.png"
+          }
+        ]
+      },
+      {
+        "name": "PVC加工工艺",
+        "machine": [
+          "雕刻机",
+          "UV平板打印机",
+          "丝网印刷机",
+          "覆膜机",
+          "热弯机",
+          "挤出机"
+        ],
+        "materials": [
+          {
+            "name": "雕刻",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "雕刻机",
+              "激光雕刻机"
+            ],
+            "material": [
+              "PVC发泡板",
+              "硬质PVC板",
+              "PVC字坯"
+            ],
+            "craft": [
+              "机雕",
+              "激光雕刻",
+              "镂空雕刻"
+            ],
+            "priceUnit": "元/工时 或 元/㎡",
+            "priceRange": "约 ¥20~80 / ㎡（视厚度与雕刻深度），按工时约 ¥50~150 / 小时",
+            "note": "发泡板/硬质PVC板密度低、加工阻力小，尤其适合雕刻；发泡板可雕出文字/异形，PVC-U实心板雕刻标识字边缘更锐利",
+            "code": "pvc-4-1",
+            "image": "/images/materials/pvc-4-1.png"
+          },
+          {
+            "name": "UV平板打印",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "UV平板打印机"
+            ],
+            "material": [
+              "PVC发泡板",
+              "硬质PVC板"
+            ],
+            "craft": [
+              "白彩同印",
+              "白墨堆叠",
+              "局部光油"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥30~100 / ㎡（含白墨）",
+            "note": "UV墨水在PVC板表面直接喷印、即打即干、色彩鲜艳附着力好，展板/标识/灯箱画面主流工艺；PVC板表面致密平整、易上墨",
+            "code": "pvc-4-2",
+            "image": "/images/materials/pvc-4-2.png"
+          },
+          {
+            "name": "丝网印刷",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "丝网印刷机"
+            ],
+            "material": [
+              "PVC板",
+              "PVC不干胶",
+              "车贴"
+            ],
+            "craft": [
+              "专色丝印",
+              "厚墨层",
+              "金银色"
+            ],
+            "priceUnit": "元/版 + 元/张",
+            "priceRange": "制版费约 ¥50~300，印刷约 ¥1~10 / 张",
+            "note": "墨层厚实、颜色鲜艳、耐候性强，适合PVC标牌/车贴/墙贴批量专色印刷",
+            "code": "pvc-4-3",
+            "image": "/images/materials/pvc-4-3.png"
+          },
+          {
+            "name": "热弯",
+            "indoorOutdoor": "户内",
+            "machine": [
+              "热弯机",
+              "恒温烤箱"
+            ],
+            "material": [
+              "硬质PVC板",
+              "PVC发泡板(薄)"
+            ],
+            "craft": [
+              "热折弯",
+              "弧面成型"
+            ],
+            "priceUnit": "元/件",
+            "priceRange": "约 ¥5~30 / 件（按弯折道数与尺寸）",
+            "note": "PVC板受热软化后可折弯/成弧，冷却定型；透明PVC护罩、展示架、异形壳罩常用；维卡软化点约 70~80°C，热弯温度需精确控制",
+            "code": "pvc-4-4",
+            "image": "/images/materials/pvc-4-4.png"
+          },
+          {
+            "name": "覆膜",
+            "indoorOutdoor": "户内/户外",
+            "machine": [
+              "覆膜机",
+              "冷裱机"
+            ],
+            "material": [
+              "PVC发泡板",
+              "喷绘画面",
+              "地贴"
+            ],
+            "craft": [
+              "亮膜",
+              "哑膜",
+              "耐磨膜",
+              "冷裱"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "约 ¥2~8 / ㎡（视膜材）",
+            "note": "板材面层贴装饰膜或喷绘画面贴保护膜；地贴覆耐磨膜防踩踏，展板覆亮/哑膜提升质感并防刮",
+            "code": "pvc-4-5",
+            "image": "/images/materials/pvc-4-5.png"
+          },
+          {
+            "name": "挤出/压延成型",
+            "indoorOutdoor": "通用",
+            "machine": [
+              "挤出机",
+              "压延机",
+              "共挤设备"
+            ],
+            "material": [
+              "PVC树脂",
+              "发泡剂",
+              "稳定剂"
+            ],
+            "craft": [
+              "挤出成型",
+              "压延成型",
+              "共挤皮芯结构"
+            ],
+            "priceUnit": "—（板材生产工序）",
+            "priceRange": "—",
+            "note": "PVC板由树脂+热稳定剂/润滑剂/填料，经挤出或压延制成；发泡板引入发泡剂并控制泡孔结构；共挤可形成'皮-芯-皮'致密表层+泡沫芯层",
+            "code": "pvc-4-6",
+            "image": "/images/materials/pvc-4-6.png"
+          }
+        ]
+      }
+    ],
+    "code": "pvc",
+    "sort": 4
+  },
+  {
+    "category": "发光字",
+    "description": "发光字是采用发光二极管（LED）作为光源，由字壳、面板、底板制作而成的发光标识（英文名 luminous character，又称广告字）。具有色彩丰富、个性化的特点，广泛应用于企业、商店、展览展示等场景的门头招牌与标识系统。电源通常为 220V 转 12V / 5V 低压。常见类型包括 3D 打印发光字、迷你字、铝边字、树脂字、不锈钢字、吸塑字、电镀字、冲孔灯珠外露（外露发光字）、亚克力字、铁皮烤漆字、无边字、水晶字等。",
+    "commonMaterials": [
+      "亚克力面板",
+      "不锈钢（拉丝/镜面）",
+      "镀锌铁皮",
+      "铝边条/铝板",
+      "钛金板",
+      "树脂（环氧/不饱和）",
+      "LED光源（模组/裸灯/灯串）",
+      "水晶板"
+    ],
+    "priceUnits": {
+      "按字": "元/字，适用于小字、散字、迷你字、水晶字等",
+      "按平方": "元/㎡，适用于大字、吸塑字、冲孔字、不锈钢发光字等",
+      "按延米": "元/延米，适用于围边、铝边、不锈钢包边、灯带边框等"
+    },
+    "thicknessStandard": {
+      "字壳厚度": [
+        "3cm",
+        "5cm",
+        "8cm",
+        "10cm",
+        "12cm",
+        "15cm"
+      ],
+      "迷你字最小笔画": "5-6mm",
+      "树脂字匀光层厚度": "≤20mm",
+      "水晶字总厚度": "5-22mm",
+      "金属板基材厚度": "0.8-1.5mm（镀锌板/不锈钢板）"
+    },
+    "commonProcess": [
+      "电脑排版",
+      "激光切割",
+      "等离子/数控冲孔",
+      "吸塑成型",
+      "雕刻/CNC 铣削",
+      "焊接（铝焊/氩弧焊）",
+      "烤漆/喷漆",
+      "丝印",
+      "打胶/灌胶",
+      "粘接亚克力面板",
+      "装 LED 灯（模组/裸灯/灯串）"
+    ],
+    "subCategories": [
+      {
+        "name": "吸塑字",
+        "machine": [
+          "激光切割机",
+          "吸塑机",
+          "雕刻机",
+          "折弯机",
+          "焊接设备"
+        ],
+        "description": "吸塑字，又称亚克力吸塑字，是一种塑料加工工艺，原理是将平展的塑料硬片材（亚克力板）加热变软后，采用真空吸附于模具表面冷却成型，再由底座等组合而成。属于门头招牌最常用的发光字类型，立体感强、发光均匀、耐候性好。",
+        "materials": [
+          {
+            "name": "亚克力吸塑字",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "吸塑机",
+              "激光切割机",
+              "雕刻机",
+              "焊接设备"
+            ],
+            "thickness": [
+              "字壳8cm",
+              "字壳12cm",
+              "字壳15cm"
+            ],
+            "size": [
+              "字高10cm以上",
+              "按平米计价",
+              "单字尺寸受吸塑模具限制，超大字体需分体拼接"
+            ],
+            "craft": [
+              "电脑排版",
+              "雕刻模具",
+              "亚克力板加热吸塑成型",
+              "激光切割修边",
+              "焊接字壳（铝边/镀锌板围边）",
+              "装LED模组",
+              "烤漆/喷漆",
+              "底板密封"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "250-800 元/㎡（市场参考价，需本地询价核实）",
+            "note": "门头招牌常用，立体感强、发光均匀，面板为亚克力吸塑成型，耐候性优异，支持红黄蓝绿等多色定制",
+            "code": "light-1-1",
+            "image": "/images/materials/light-1-1.png"
+          },
+          {
+            "name": "亚克力吸塑灯箱字",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "吸塑机",
+              "激光切割机",
+              "折弯机"
+            ],
+            "thickness": [
+              "字壳10cm",
+              "字壳15cm"
+            ],
+            "size": [
+              "字高20cm以上",
+              "按平米计价"
+            ],
+            "craft": [
+              "吸塑成型",
+              "箱体焊接",
+              "内置LED光源",
+              "面板封边"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "300-1000 元/㎡（市场参考价）",
+            "note": "面板+独立箱体结构，透光更均匀，适合大型招牌",
+            "code": "light-1-2",
+            "image": "/images/materials/light-1-2.png"
+          }
+        ]
+      },
+      {
+        "name": "迷你字",
+        "machine": [
+          "雕刻机",
+          "激光切割机",
+          "CNC 铣床",
+          "灌胶设备"
+        ],
+        "description": "迷你字又称迷你发光字，是近年流行的小型通体发光字，采用高透亚克力或树脂制作字壳，笔画纤细（最小可做 5-6mm），侧面与正面同时发光，立体感和精致度高，常用双色字壳（侧面深色、面板透光）。适用于室内门头、展柜、形象墙等精细标识。",
+        "materials": [
+          {
+            "name": "树脂迷你字（通体发光）",
+            "indoorOutdoor": "户外/室内",
+            "machine": [
+              "CNC 铣床",
+              "激光切割机",
+              "灌胶设备"
+            ],
+            "thickness": [
+              "字壳1-3cm",
+              "笔画最小5-6mm"
+            ],
+            "size": [
+              "字高5cm以上",
+              "按字计价（元/字）",
+              "精细笔画可做5-6mm"
+            ],
+            "craft": [
+              "排版",
+              "亚克力/树脂字壳雕刻成型",
+              "内置LED光源",
+              "灌封匀光树脂",
+              "打磨抛光",
+              "侧面封边（深色）"
+            ],
+            "priceUnit": "元/字（也可按 cm 计：约1-3元/cm）",
+            "priceRange": "综合约 600-1500 元/㎡（按字计价，市场参考价）",
+            "note": "最小可做5-6mm笔画，通体均匀发光，双色字壳效果精致，适合精工标识",
+            "code": "light-2-1",
+            "image": "/images/materials/light-2-1.png"
+          },
+          {
+            "name": "亚克力迷你字",
+            "indoorOutdoor": "室内",
+            "machine": [
+              "雕刻机",
+              "激光切割机",
+              "CNC 铣床"
+            ],
+            "thickness": [
+              "字壳1-3cm",
+              "面板2-3mm亚克力"
+            ],
+            "size": [
+              "字高5cm以上",
+              "按字计价（元/字）"
+            ],
+            "craft": [
+              "激光/CNC切割亚克力",
+              "雕刻字壳",
+              "热弯塑形",
+              "装LED",
+              "粘合封边"
+            ],
+            "priceUnit": "元/字",
+            "priceRange": "市场参考价（按字计价，需询价）",
+            "note": "全亚克力制作，成本较树脂迷你字低，室内使用为主",
+            "code": "light-2-2",
+            "image": "/images/materials/light-2-2.png"
+          }
+        ]
+      },
+      {
+        "name": "树脂字",
+        "machine": [
+          "激光切割机",
+          "焊接设备",
+          "灌胶/浇铸设备"
+        ],
+        "description": "树脂字，又称 LED 树脂发光字或通体发光字，是以外壳为基础结构、内置 LED 光源并灌注树脂层制成的广告标识，约 2006 年出现。核心工艺包括外壳焊接、光源排布及树脂罐封，通过激光焊接、贴片 LED 模块保证结构密封与光线均匀。表面亮度达 500-1500 Mcd，匀光层厚度可控制在 20mm 以内，防水、较薄、均匀。",
+        "materials": [
+          {
+            "name": "环氧树脂发光字",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "激光切割机",
+              "焊接设备",
+              "灌胶设备"
+            ],
+            "thickness": [
+              "匀光层厚度≤20mm",
+              "字壳厚度1-5cm"
+            ],
+            "size": [
+              "最小笔画6mm",
+              "字高按需定制",
+              "按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "外壳焊接（金属围边盒）",
+              "光源排布（贴片LED模块，细笔画加密灯点）",
+              "环氧/不饱和树脂浇铸",
+              "灌封匀光层",
+              "低温时A料预热50-60℃配比"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "800-1500 元/㎡（市场参考价）",
+            "note": "亮度500-1500 Mcd，最小6mm笔画，防水，通体均匀发光；低温环境A料需预热50-60℃",
+            "code": "light-3-1",
+            "image": "/images/materials/light-3-1.png"
+          },
+          {
+            "name": "不锈钢边树脂发光字",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "激光切割机",
+              "焊接设备",
+              "灌胶设备"
+            ],
+            "thickness": [
+              "匀光层≤20mm",
+              "不锈钢边厚度0.8-1.2mm"
+            ],
+            "size": [
+              "最小笔画6mm",
+              "按平方计价"
+            ],
+            "craft": [
+              "激光切割字形",
+              "不锈钢围边焊接",
+              "光源排布",
+              "树脂灌封",
+              "打磨抛光"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "900-1600 元/㎡（市场参考价）",
+            "note": "不锈钢边+树脂面，IP68 防护，-40℃到80℃稳定工作，适用于高空、墙体、水池等场景",
+            "code": "light-3-2",
+            "image": "/images/materials/light-3-2.png"
+          }
+        ]
+      },
+      {
+        "name": "背光字",
+        "machine": [
+          "激光切割机",
+          "冲孔机",
+          "焊接设备",
+          "折弯机"
+        ],
+        "description": "背光字又称背发光字、背打光字，面板采用不透光的不锈钢板/铝板（拉丝或镜面），字面本身不发光，LED 光源装在字壳背面/侧方，灯光打在安装墙面形成光晕（背光/背景光）效果，营造高端氛围。常见于品牌形象墙、高档门头、文化墙。",
+        "materials": [
+          {
+            "name": "不锈钢背发光字",
+            "indoorOutdoor": "户外/室内",
+            "machine": [
+              "激光切割机",
+              "焊接设备",
+              "折弯机"
+            ],
+            "thickness": [
+              "字壳3-8cm",
+              "面板1.0-1.5mm不锈钢板"
+            ],
+            "size": [
+              "字高10cm以上",
+              "按字计价（元/字）",
+              "大规格按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "激光切割不锈钢面板",
+              "焊接围边字壳",
+              "面板烤漆/拉丝/镜面处理",
+              "背面安装LED光源",
+              "背面留缝出光"
+            ],
+            "priceUnit": "元/字（大规格按元/㎡）",
+            "priceRange": "综合约 600-1500 元/㎡（市场参考价）",
+            "note": "字面不透光、背面发光形成光晕，高档氛围感强，面板拉丝或镜面不锈钢质感",
+            "code": "light-4-1",
+            "image": "/images/materials/light-4-1.png"
+          },
+          {
+            "name": "铝板背发光字",
+            "indoorOutdoor": "室内",
+            "machine": [
+              "激光切割机",
+              "雕刻机",
+              "折弯机"
+            ],
+            "thickness": [
+              "字壳2-6cm",
+              "铝板1.0-2.0mm"
+            ],
+            "size": [
+              "字高8cm以上",
+              "按字计价（元/字）"
+            ],
+            "craft": [
+              "排版",
+              "铝板激光切割",
+              "折弯围边",
+              "表面烤漆/阳极氧化",
+              "背面装LED",
+              "背面出光"
+            ],
+            "priceUnit": "元/字",
+            "priceRange": "市场参考价（按字计价）",
+            "note": "铝板更轻、耐腐蚀，颜色可烤漆定制，室内高档标识常用",
+            "code": "light-4-2",
+            "image": "/images/materials/light-4-2.png"
+          }
+        ]
+      },
+      {
+        "name": "冲孔字",
+        "machine": [
+          "等离子切割机",
+          "数控冲孔机",
+          "激光切割机",
+          "焊接设备",
+          "烤漆设备"
+        ],
+        "description": "冲孔字又称铁皮字、外露发光字、LED冲孔字/钻孔字/穿孔字，是以镀锌板、不锈钢板、铝板或钛金板为基材，通过冲孔工艺在表面形成规则孔洞并嵌入防水 LED 灯珠/灯串制成的发光标识。光源外露形成点阵效果，制作流程含电脑排版、激光切割、等离子冲孔、铝焊焊接等九道工序，具备 IP65 防水、单颗 LED 低至 0.1W、夜间亮度高、远距离辨识度强的特点。",
+        "materials": [
+          {
+            "name": "镀锌板冲孔字（外露发光字）",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "等离子切割机",
+              "数控冲孔机",
+              "激光切割机",
+              "焊接设备",
+              "烤漆设备"
+            ],
+            "thickness": [
+              "板材0.8-1.5mm",
+              "孔洞依据灯珠直径（一般9mm/12mm）"
+            ],
+            "size": [
+              "字高30cm以上（户外）",
+              "按平方计价"
+            ],
+            "craft": [
+              "电脑排版",
+              "激光切割字形",
+              "等离子冲孔/数控开槽",
+              "立体边焊接",
+              "打磨",
+              "表面烤漆",
+              "装LED防水灯串",
+              "接电源"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "150-400 元/㎡（单色市场参考价）",
+            "note": "IP65防水，单颗LED灯珠低至0.1W，灯珠外露点阵效果，镀锌板基材成本低、性价比高",
+            "code": "light-5-1",
+            "image": "/images/materials/light-5-1.png"
+          },
+          {
+            "name": "不锈钢冲孔字",
+            "indoorOutdoor": "户外",
+            "machine": [
+              "等离子切割机",
+              "数控冲孔机",
+              "焊接设备"
+            ],
+            "thickness": [
+              "不锈钢板0.8-1.2mm"
+            ],
+            "size": [
+              "字高30cm以上",
+              "按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "激光/等离子切割",
+              "冲孔",
+              "围边焊接",
+              "拉丝/镜面处理",
+              "装LED灯串"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "250-600 元/㎡（市场参考价）",
+            "note": "不锈钢基材耐腐蚀，拉丝或镜面质感，光源颜色可灵活调整，不受基材色漆影响",
+            "code": "light-5-2",
+            "image": "/images/materials/light-5-2.png"
+          }
+        ]
+      },
+      {
+        "name": "不锈钢字",
+        "machine": [
+          "激光切割机",
+          "焊接设备",
+          "抛光打磨设备"
+        ],
+        "description": "不锈钢发光字是结合不锈钢材质与亚克力发光特性的标识制品，属于金属字衍生产品的主流类型。通过镜面不锈钢围边形成亮镜效果，或采用拉丝不锈钢呈现中高档纹理质感，白天展现金属装饰美学，夜间通过 LED 光源实现亮化。制作需经激光切割字形、焊接围边与底板、安装 LED 灯组及粘接亚克力面板等工序，保证字形精准与密封防水，发光均匀。",
+        "materials": [
+          {
+            "name": "镜面不锈钢发光字",
+            "indoorOutdoor": "户外/室内",
+            "machine": [
+              "激光切割机",
+              "焊接设备",
+              "抛光机"
+            ],
+            "thickness": [
+              "围边0.8-1.2mm",
+              "字壳5-10cm"
+            ],
+            "size": [
+              "字高10cm以上",
+              "按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "激光切割字形",
+              "焊接围边与底板",
+              "镜面抛光",
+              "安装LED灯组",
+              "粘接亚克力面板"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "400-1000 元/㎡（市场参考价）",
+            "note": "镜面不锈钢亮镜围边效果，白天金属质感强，夜间发光均匀，底板焊接密封防水",
+            "code": "light-6-1",
+            "image": "/images/materials/light-6-1.png"
+          },
+          {
+            "name": "拉丝不锈钢发光字",
+            "indoorOutdoor": "户外/室内",
+            "machine": [
+              "激光切割机",
+              "焊接设备",
+              "拉丝机"
+            ],
+            "thickness": [
+              "围边0.8-1.2mm",
+              "字壳5-10cm"
+            ],
+            "size": [
+              "字高10cm以上",
+              "按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "激光切割",
+              "焊接围边与底板",
+              "拉丝表面处理",
+              "装LED",
+              "粘接亚克力面板"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "450-1200 元/㎡（市场参考价）",
+            "note": "拉丝纹理呈现中高档哑光质感，耐指纹耐刮，适合品牌门头与建筑标识",
+            "code": "light-6-2",
+            "image": "/images/materials/light-6-2.png"
+          }
+        ]
+      },
+      {
+        "name": "无边字",
+        "machine": [
+          "激光切割机",
+          "雕刻机",
+          "折弯机",
+          "热弯设备"
+        ],
+        "description": "无边字又称无边发光字、无边框字，亚克力面板直接成型为字壳，边缘不做金属围边（或仅极窄处理），侧面与正面同时透光，外观轻薄、通透、简洁。常用于现代简约风格的室内外门头、形象墙，整体感强。",
+        "materials": [
+          {
+            "name": "亚克力无边发光字",
+            "indoorOutdoor": "户外/室内",
+            "machine": [
+              "激光切割机",
+              "雕刻机",
+              "热弯设备"
+            ],
+            "thickness": [
+              "面板2-3mm",
+              "字壳造型高度约1-3cm"
+            ],
+            "size": [
+              "字高8cm以上",
+              "按字计价（元/字）",
+              "大规格按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "激光切割亚克力",
+              "热弯/雕刻成型字壳",
+              "侧面透光处理",
+              "内置LED光源",
+              "底板粘合"
+            ],
+            "priceUnit": "元/字（大规格按元/㎡）",
+            "priceRange": "综合约 400-800 元/㎡（市场参考价）",
+            "note": "无金属围边、侧面透光，外观轻薄通透，适合简约风格，常与迷你字对比选用",
+            "code": "light-7-1",
+            "image": "/images/materials/light-7-1.png"
+          }
+        ]
+      },
+      {
+        "name": "铝边字",
+        "machine": [
+          "激光切割机",
+          "折弯机",
+          "焊接/粘接设备"
+        ],
+        "description": "铝边发光字（铝边字）是以铝边条作为围边材料，结合树脂或亚克力面板制成的发光标识，从传统树脂发光字演变而来，通过铝材围边提升耐用性。光源采用 LED，12V 低压安全，三面通体均匀发光、光泽度高、立体感强，后续衍生不锈钢边和钛金边发光字。",
+        "materials": [
+          {
+            "name": "铝边发光字",
+            "indoorOutdoor": "户外/室内",
+            "machine": [
+              "激光切割机",
+              "折弯机",
+              "焊接设备"
+            ],
+            "thickness": [
+              "字壳2-6cm"
+            ],
+            "size": [
+              "字高10cm以上",
+              "按平方计价"
+            ],
+            "craft": [
+              "排版",
+              "铝边条折弯围边",
+              "焊接/粘接字壳",
+              "内装LED（12V低压）",
+              "粘接树脂/亚克力面板"
+            ],
+            "priceUnit": "元/㎡",
+            "priceRange": "600-1200 元/㎡（市场参考价）",
+            "note": "铝边围边、三面通体发光，12V低压安全、节能，耐候性强、不易开裂变形",
+            "code": "light-8-1",
+            "image": "/images/materials/light-8-1.png"
+          }
+        ]
+      },
+      {
+        "name": "水晶字",
+        "machine": [
+          "机械雕刻机",
+          "激光雕刻机",
+          "抛光设备"
+        ],
+        "description": "水晶字（亚克力水晶字）是由透明亚克力板与有色亚克力板通过无影胶粘合制成的广告标识字体，总厚度通常 5-22mm，采用分体雕刻或粘合后雕刻工艺，尺寸一般控制在 1 米以内，导光性强、质量轻，适用于公司形象墙、党建文化墙、门头店招等。本身常不发光，但可与 LED 底光结合形成发光效果。",
+        "materials": [
+          {
+            "name": "亚克力水晶字",
+            "indoorOutdoor": "室内/室外",
+            "machine": [
+              "机械雕刻机",
+              "激光雕刻机",
+              "抛光机"
+            ],
+            "thickness": [
+              "总厚度5-22mm"
+            ],
+            "size": [
+              "尺寸一般控制在1米以内",
+              "按字计价（元/字）"
+            ],
+            "craft": [
+              "设计软件出矢量文件",
+              "机械/激光雕刻切割",
+              "无影胶粘合透明板与有色板",
+              "抛光形成透亮边缘",
+              "上色（彩色板/烤漆/写真/UV印色）"
+            ],
+            "priceUnit": "元/字",
+            "priceRange": "市场参考价（按字计价，需询价）",
+            "note": "导光性强、质量轻，可配底光做发光效果；上色方式含原有色板、烤漆、写真粘贴、UV印色",
+            "code": "light-9-1",
+            "image": "/images/materials/light-9-1.png"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "发光字",
+        "url": "https://baike.baidu.com/item/发光字"
+      },
+      {
+        "title": "吸塑字",
+        "url": "https://baike.baidu.com/item/吸塑字"
+      },
+      {
+        "title": "树脂字",
+        "url": "https://baike.baidu.com/item/树脂字"
+      },
+      {
+        "title": "冲孔字",
+        "url": "https://baike.baidu.com/item/冲孔字"
+      },
+      {
+        "title": "LED发光字",
+        "url": "https://baike.baidu.com/item/LED发光字"
+      },
+      {
+        "title": "亚克力发光字",
+        "url": "https://baike.baidu.com/item/亚克力发光字"
+      },
+      {
+        "title": "树脂发光字（LED树脂发光字）",
+        "url": "https://baike.baidu.com/item/树脂发光字"
+      },
+      {
+        "title": "不锈钢发光字",
+        "url": "https://baike.baidu.com/item/不锈钢发光字"
+      },
+      {
+        "title": "铝边发光字",
+        "url": "https://baike.baidu.com/item/铝边发光字"
+      },
+      {
+        "title": "LED冲孔字",
+        "url": "https://baike.baidu.com/item/LED冲孔字"
+      },
+      {
+        "title": "外露发光字",
+        "url": "https://baike.baidu.com/item/外露发光字"
+      },
+      {
+        "title": "水晶字",
+        "url": "https://baike.baidu.com/item/水晶字"
+      },
+      {
+        "title": "3D打印发光字",
+        "url": "https://baike.baidu.com/item/3D打印发光字"
+      }
+    ],
+    "note": "价格区间为行业常见市场参考价，因地区、工艺复杂度、字体笔画与数量差异较大，实际报价需本地询价核实；迷你字、背光字、无边字为行业通用细分类型，其工艺/尺寸/计价数据依据行业内公认规范与专业经验整理，并与抓取到的权威词条（发光字/树脂字/铝边字/水晶字等）交叉印证。",
+    "code": "light",
+    "sort": 5
+  }
+]

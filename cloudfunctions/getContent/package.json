@@ -1,0 +1,9 @@
+{
+  "name": "getContent",
+  "version": "1.0.0",
+  "description": "内容聚合查询（首页/物料百科/作品集）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

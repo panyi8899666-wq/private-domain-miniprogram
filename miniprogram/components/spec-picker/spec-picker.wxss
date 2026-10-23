@@ -1,0 +1,57 @@
+.spec-picker {
+  padding: 8rpx 0;
+}
+
+.spec-label {
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+}
+
+.spec-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.spec-chip {
+  padding: 12rpx 28rpx;
+  border-radius: var(--radius-tag);
+  border: 1rpx solid var(--border-line);
+  color: var(--text-secondary);
+  font-size: 26rpx;
+  background: var(--bg-surface);
+}
+
+.spec-chip-active {
+  color: var(--accent-glow);
+  border-color: var(--accent-glow);
+  background: rgba(62, 198, 255, 0.1);
+}
+
+.spec-qty {
+  margin-top: 24rpx;
+  align-items: center;
+}
+
+.spec-stepper {
+  display: flex;
+  align-items: center;
+}
+
+.spec-step {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: var(--text-primary);
+  background: var(--bg-surface-2);
+  border: 1rpx solid var(--border-line);
+  font-size: 34rpx;
+}
+
+.spec-num {
+  min-width: 88rpx;
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 28rpx;
+}

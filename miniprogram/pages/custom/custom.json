@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "定制下单",
+  "usingComponents": {
+    "uploader": "/components/uploader/uploader",
+    "empty-state": "/components/empty-state/empty-state",
+    "loading": "/components/loading/loading"
+  }
+}

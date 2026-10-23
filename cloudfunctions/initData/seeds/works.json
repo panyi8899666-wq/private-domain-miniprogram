@@ -1,0 +1,112 @@
+[
+  {
+    "code": "w001",
+    "name": "跑动的小车",
+    "category": "3d",
+    "categoryName": "3D设计",
+    "images": ["/images/works/car-night.jpg"],
+    "alt": "橙白卡通小汽车黑夜森林行驶的3D动画渲染成品",
+    "note": "3D动画渲染 · Blender/C4D 场景与视觉表现",
+    "featured": true,
+    "sort": 10
+  },
+  {
+    "code": "w002",
+    "name": "机器人IP设计",
+    "category": "3d",
+    "categoryName": "3D设计",
+    "images": ["/images/works/robot-ip.jpg"],
+    "alt": "卡通机器人3D白模与骨骼绑定制作过程预览",
+    "note": "3D角色IP设计 · 骨骼绑定全流程制作",
+    "featured": true,
+    "sort": 20
+  },
+  {
+    "code": "w003",
+    "name": "投币盒子",
+    "category": "3d",
+    "categoryName": "3D设计",
+    "images": ["/images/works/coin-box.jpg"],
+    "alt": "橙色机械装置配合悬浮金币的3D建模渲染成品",
+    "note": "3D建模渲染 · 机械装置与流体金币特效",
+    "featured": true,
+    "sort": 30
+  },
+  {
+    "code": "w004",
+    "name": "春日樱花",
+    "category": "3d",
+    "categoryName": "3D设计",
+    "images": ["/images/works/cherry-blossom.jpg"],
+    "alt": "粉色樱花蓝天仰视视角的3D渲染场景",
+    "note": "3D建模渲染 · 樱花氛围场景",
+    "featured": true,
+    "sort": 40
+  },
+  {
+    "code": "w005",
+    "name": "2024龙年商场美陈展台",
+    "category": "zhantai",
+    "categoryName": "展台美陈",
+    "images": ["/images/works/mall-dragon.jpg"],
+    "alt": "商场中庭2024龙年美陈展台，卡通龙搭配幸运转盘与贰零贰肆发光字",
+    "note": "2024 龙年商场中庭美陈 · 展台设计与发光字",
+    "featured": true,
+    "sort": 50
+  },
+  {
+    "code": "w006",
+    "name": "元旦拱门美陈",
+    "category": "zhantai",
+    "categoryName": "展台美陈",
+    "images": ["/images/works/mall-newyear.jpg"],
+    "alt": "商场元旦拱门美陈，舞狮、兔子与金蛋墙组合",
+    "note": "商场元旦主题美陈 · 拱门门头与氛围布置",
+    "featured": true,
+    "sort": 60
+  },
+  {
+    "code": "w007",
+    "name": "商城展台设计",
+    "category": "zhantai",
+    "categoryName": "展台美陈",
+    "images": ["/images/works/mall-stand.jpg"],
+    "alt": "商城展台设计方案3D效果图",
+    "note": "商城展台设计 · 3D效果图方案",
+    "featured": false,
+    "sort": 70
+  },
+  {
+    "code": "w008",
+    "name": "户外标识·精神堡垒",
+    "category": "biaoshi",
+    "categoryName": "户外标识",
+    "images": ["/images/works/landmark.jpg"],
+    "alt": "户外标识/精神堡垒设计与现场展示",
+    "note": "户外标识 · 精神堡垒设计与落地",
+    "featured": false,
+    "sort": 80
+  },
+  {
+    "code": "w009",
+    "name": "天马光电子奠基仪式",
+    "category": "shichuang",
+    "categoryName": "实拍案例",
+    "images": ["/images/works/tianma-groundbreaking.jpg"],
+    "alt": "天马光电子2022奠基仪式现场实拍",
+    "note": "2022 年天马光电子奠基仪式 · 现场实拍",
+    "featured": false,
+    "sort": 90
+  },
+  {
+    "code": "w010",
+    "name": "发光字系列·落地交付",
+    "category": "faguangzi",
+    "categoryName": "发光字",
+    "images": ["/images/works/light-char-sign.jpg"],
+    "alt": "不锈钢发光字系列安装施工后的落地实拍",
+    "note": "发光字系列 · 均已落地安装施工交付",
+    "featured": false,
+    "sort": 100
+  }
+]

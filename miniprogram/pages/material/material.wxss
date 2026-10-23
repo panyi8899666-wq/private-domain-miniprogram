@@ -1,0 +1,144 @@
+.lib-header {
+  margin-bottom: 20rpx;
+}
+
+.lib-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.lib-cta {
+  margin-top: 20rpx;
+  text-align: center;
+  padding: 22rpx;
+  border-radius: var(--radius-btn);
+  color: #04121a;
+  font-weight: 600;
+  font-size: 30rpx;
+}
+
+/* 大类横滑 */
+.cat-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-base);
+  padding: 16rpx 0;
+  white-space: nowrap;
+}
+
+.cat-row {
+  display: inline-flex;
+  gap: 16rpx;
+  padding: 0 24rpx;
+}
+
+.cat-chip {
+  padding: 10rpx 28rpx;
+  border-radius: var(--radius-tag);
+  border: 1rpx solid var(--border-line);
+  color: var(--text-secondary);
+  font-size: 26rpx;
+  flex-shrink: 0;
+}
+
+.cat-chip-active {
+  color: var(--accent-glow);
+  border-color: var(--accent-glow);
+  background: rgba(62, 198, 255, 0.1);
+}
+
+/* 子类 + 材质 */
+.sub-block {
+  margin-top: 28rpx;
+}
+
+.sub-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sub-machine {
+  display: block;
+  margin-top: 6rpx;
+  margin-bottom: 16rpx;
+  font-size: 22rpx;
+}
+
+.mat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.mat-card {
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx;
+  border: 1rpx solid var(--border-line);
+  border-radius: var(--radius-btn);
+  background: var(--bg-surface);
+}
+
+.mat-img {
+  width: 208rpx;
+  height: 156rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+  background: var(--bg-base);
+  border: 1rpx solid var(--border-line);
+}
+
+.mat-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-head {
+  align-items: baseline;
+  gap: 12rpx;
+}
+
+.mat-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-price {
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+
+.mat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 12rpx;
+}
+
+.mat-note {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mat-cta {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  text-align: right;
+}

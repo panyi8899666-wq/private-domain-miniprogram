@@ -1,0 +1,192 @@
+<view class="dd-page">
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="dd-state">
+    <loading type="skeleton" rows="{{4}}" />
+  </view>
+
+  <!-- 加载失败 -->
+  <view wx:elif="{{loadError}}" class="dd-state">
+    <empty-state
+      text="{{loadError.message}}"
+      sub-text="请检查网络后重试"
+      icon-text="!"
+      show-button="{{loadError.retriable}}"
+      button-text="重试"
+      bind:action="fetchDetail"
+    />
+  </view>
+
+  <!-- 订单内容 -->
+  <block wx:elif="{{hasOrder}}">
+    <!-- 状态头部 -->
+    <view class="dd-header bg-light-spots">
+      <order-status-tag status="{{order.status}}" />
+      <text class="dd-status-text section-title-glow">{{order.statusText}}</text>
+      <text wx:if="{{order.contactPhoneText}}" class="dd-contact text-aux">联系方式 {{order.contactPhoneText}}</text>
+    </view>
+
+    <view class="dd-content">
+      <!-- 订单基本信息 -->
+      <view class="dd-card card-surface">
+        <view class="dd-row row-between">
+          <text class="text-aux">订单编号</text>
+          <text class="dd-mono">{{order.orderNo}}</text>
+        </view>
+        <view class="dd-row row-between">
+          <text class="text-aux">订单类型</text>
+          <text>{{order.typeText}}</text>
+        </view>
+        <view class="dd-row row-between">
+          <text class="text-aux">下单时间</text>
+          <text>{{order.createdAtText}}</text>
+        </view>
+        <view class="dd-row row-between">
+          <text class="text-aux">应付金额</text>
+          <text class="dd-amount text-price">{{order.amountText}}</text>
+        </view>
+      </view>
+
+      <!-- 明细：标准品 -->
+      <view wx:if="{{order.items.length}}" class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">商品明细</view>
+        <view wx:for="{{order.items}}" wx:key="key" class="dd-item-line row-between">
+          <view class="dd-item-info col">
+            <text class="dd-item-name">{{item.name}}</text>
+            <text wx:if="{{item.specName}}" class="dd-item-spec text-aux">{{item.specName}}</text>
+          </view>
+          <text class="dd-item-qty text-aux">{{item.unitPrice}} ×{{item.quantity}}</text>
+        </view>
+      </view>
+
+      <!-- 明细：定制需求 -->
+      <view wx:else class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">需求明细</view>
+        <view wx:if="{{order.customRequirement.materialType}}" class="dd-row row-between">
+          <text class="text-aux">物料类型</text>
+          <text>{{order.customRequirement.materialType}}</text>
+        </view>
+        <view wx:if="{{order.customRequirement.size}}" class="dd-row row-between">
+          <text class="text-aux">尺寸</text>
+          <text>{{order.customRequirement.size}}</text>
+        </view>
+        <view wx:if="{{order.customRequirement.quantity}}" class="dd-row row-between">
+          <text class="text-aux">数量</text>
+          <text>{{order.customRequirement.quantity}}</text>
+        </view>
+        <view wx:if="{{order.customRequirement.installPosition}}" class="dd-row row-between">
+          <text class="text-aux">安装 / 使用位置</text>
+          <text>{{order.customRequirement.installPosition}}</text>
+        </view>
+        <view wx:if="{{order.customRequirement.requirement}}" class="dd-requirement">
+          <text class="text-aux dd-req-label">需求说明</text>
+          <text class="dd-req-text">{{order.customRequirement.requirement}}</text>
+        </view>
+      </view>
+
+      <!-- 收货信息 -->
+      <view wx:if="{{order.hasAddress}}" class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">收货信息</view>
+        <view class="dd-row row-between">
+          <text class="text-aux">收货人</text>
+          <text>{{order.address.name}}</text>
+        </view>
+        <view class="dd-row row-between">
+          <text class="text-aux">联系电话</text>
+          <text>{{order.address.phone}}</text>
+        </view>
+        <view class="dd-row">
+          <text class="text-aux">收货地址</text>
+          <text class="dd-addr-text">{{order.address.detail}}</text>
+        </view>
+      </view>
+
+      <!-- 参考图 -->
+      <view wx:if="{{order.hasReference}}" class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">参考图</view>
+        <view class="dd-refs">
+          <image
+            wx:for="{{order.referenceFileIds}}"
+            wx:key="*this"
+            class="dd-ref-img"
+            src="{{item}}"
+            mode="aspectFill"
+            data-index="{{index}}"
+            bindtap="previewRef"
+          />
+        </view>
+      </view>
+
+      <!-- 报价信息 -->
+      <view wx:if="{{order.hasQuote}}" class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">商家报价</view>
+        <view class="dd-row row-between">
+          <text class="text-aux">报价金额</text>
+          <text class="text-price dd-quote-amount">{{order.quote.amount}}</text>
+        </view>
+        <view wx:if="{{order.quote.description}}" class="dd-requirement">
+          <text class="text-aux dd-req-label">报价说明</text>
+          <text class="dd-req-text">{{order.quote.description}}</text>
+        </view>
+        <view wx:if="{{order.quote.quotedAt}}" class="dd-row row-between">
+          <text class="text-aux">报价时间</text>
+          <text>{{order.quote.quotedAt}}</text>
+        </view>
+        <view wx:if="{{order.quote.validUntil}}" class="dd-row row-between">
+          <text class="text-aux">有效期至</text>
+          <text>{{order.quote.validUntil}}</text>
+        </view>
+      </view>
+
+      <!-- 状态时间线 -->
+      <view class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">订单进度</view>
+        <view class="dd-timeline">
+          <view wx:for="{{order.timeline}}" wx:key="key" class="dd-tl-item">
+            <view class="dd-tl-dot {{index === order.timeline.length - 1 ? 'dd-tl-dot-active' : ''}}"></view>
+            <view class="dd-tl-body">
+              <text class="dd-tl-status">{{item.statusText}}</text>
+              <text wx:if="{{item.at}}" class="dd-tl-time text-muted">{{item.at}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="dd-gap safe-bottom"></view>
+    </view>
+
+    <!-- 底部操作栏 -->
+    <view class="dd-footer safe-bottom">
+      <glow-button
+        wx:if="{{canCancel}}"
+        class="dd-footer-btn"
+        text="取消订单"
+        type="secondary"
+        size="large"
+        loading="{{cancelling}}"
+        loading-text="取消中"
+        disabled="{{cancelling || paying}}"
+        bind:tap="onCancel"
+      />
+      <glow-button
+        wx:if="{{canPay}}"
+        class="dd-footer-btn"
+        text="去支付"
+        type="primary"
+        size="large"
+        sweep="{{!paying}}"
+        loading="{{paying}}"
+        loading-text="支付中"
+        disabled="{{paying || cancelling}}"
+        bind:tap="onPay"
+      />
+      <glow-button
+        wx:if="{{canContact}}"
+        class="dd-footer-btn"
+        text="联系商家"
+        type="primary"
+        size="large"
+        bind:tap="onContact"
+      />
+    </view>
+  </block>
+</view>

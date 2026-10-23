@@ -1,0 +1,90 @@
+/* 个人中心页样式 */
+.mi-page {
+  min-height: 100vh;
+  padding: var(--gap-lg);
+  padding-bottom: var(--gap-xl);
+}
+
+/* 头像昵称区 */
+.mi-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--gap-lg);
+  border-radius: var(--radius-card);
+  border: 1rpx solid var(--border-line);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--gap-lg);
+}
+
+.mi-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: var(--bg-surface-2);
+  border: 2rpx solid rgba(62, 198, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.mi-profile-info {
+  flex: 1;
+  margin-left: var(--gap-md);
+  justify-content: center;
+}
+
+.mi-name {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.mi-phone {
+  font-size: 24rpx;
+  margin-top: var(--gap-xs);
+}
+
+.mi-arrow {
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+/* 菜单 */
+.mi-menu {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-bottom: var(--gap-lg);
+}
+
+.mi-menu-item {
+  padding: var(--gap-md) var(--gap-lg);
+}
+
+.mi-menu-hover {
+  background-color: var(--bg-surface-2);
+}
+
+.mi-menu-icon {
+  font-size: 32rpx;
+  margin-right: var(--gap-md);
+}
+
+.mi-menu-text {
+  font-size: 30rpx;
+  color: var(--text-primary);
+}
+
+.mi-divider {
+  height: 1rpx;
+  background-color: var(--border-line);
+  margin: 0 var(--gap-lg);
+}
+
+.mi-logout-text {
+  color: var(--danger);
+}
+
+/* 版权 */
+.mi-copyright {
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: var(--gap-xl);
+}

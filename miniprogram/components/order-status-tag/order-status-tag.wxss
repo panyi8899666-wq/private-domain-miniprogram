@@ -1,0 +1,15 @@
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rpx 20rpx;
+  border-radius: var(--radius-tag);
+  border-width: 1rpx;
+  border-style: solid;
+}
+
+.status-tag-text {
+  font-size: 22rpx;
+  line-height: 1.4;
+  font-weight: 600;
+}

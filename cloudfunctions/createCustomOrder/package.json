@@ -1,0 +1,9 @@
+{
+  "name": "createCustomOrder",
+  "version": "1.0.0",
+  "description": "定制需求提交，生成「待报价」订单并记录参考图 fileID",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

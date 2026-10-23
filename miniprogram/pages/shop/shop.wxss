@@ -1,0 +1,29 @@
+.shop-head {
+  padding: 8rpx 0 24rpx;
+}
+
+.shop-title {
+  display: block;
+}
+
+.shop-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+}
+
+.empty-box {
+  padding: 80rpx 0;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 24rpx;
+}

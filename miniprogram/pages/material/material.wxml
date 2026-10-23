@@ -1,0 +1,59 @@
+<view class="page-container">
+  <view class="lib-header">
+    <text class="page-title text-glow-gradient">材质百科</text>
+    <text class="lib-sub text-aux">覆盖喷绘 / 印刷 / 亚克力 / PVC / 发光字，点击材质即可配置下单</text>
+    <view class="lib-cta btn-primary-glow" bindtap="goCustom">直接定制下单</view>
+  </view>
+
+  <loading wx:if="{{loading}}" type="skeleton" />
+
+  <view wx:elif="{{error}}" class="error-box">
+    <empty-state text="{{error.message}}" buttonText="重试" showButton="{{error.retriable}}" bind:action="onRetry" />
+  </view>
+
+  <block wx:else>
+    <!-- 大类横滑 tab -->
+    <scroll-view scroll-x class="cat-bar">
+      <view class="cat-row">
+        <view
+          wx:for="{{categories}}"
+          wx:key="code"
+          class="cat-chip {{item.code === activeCategory ? 'cat-chip-active box-glow' : ''}}"
+          data-index="{{index}}"
+          bindtap="onCategoryTap"
+        >{{item.category}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 子类 + 材质 -->
+    <view wx:for="{{subCategories}}" wx:for-item="sub" wx:key="name" class="sub-block">
+      <text class="sub-title section-title-glow">{{sub.name}}</text>
+      <text wx:if="{{sub.machine}}" class="sub-machine text-muted">适用机型：{{sub.machine}}</text>
+      <view class="mat-list">
+        <view
+          wx:for="{{sub.materials}}"
+          wx:for-item="m"
+          wx:key="code"
+          class="mat-card card-surface"
+          data-category="{{activeCategory}}"
+          data-code="{{m.code}}"
+          bindtap="goConfig"
+        >
+          <image class="mat-img" src="{{m.image}}" mode="aspectFill" lazy-load />
+          <view class="mat-body">
+            <view class="mat-head row-between">
+              <text class="mat-name">{{m.name}}</text>
+              <text class="mat-price text-price">{{m.priceRange}} {{m.priceUnit}}</text>
+            </view>
+            <view class="mat-tags">
+              <text wx:if="{{m.indoorOutdoor}}" class="tag">{{m.indoorOutdoor}}</text>
+              <text wx:for="{{m.thickness}}" wx:for-item="t" wx:key="*this" class="tag">{{t}}</text>
+            </view>
+            <text wx:if="{{m.note}}" class="mat-note text-muted">{{m.note}}</text>
+            <view class="mat-cta text-neon">配置下单 ›</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

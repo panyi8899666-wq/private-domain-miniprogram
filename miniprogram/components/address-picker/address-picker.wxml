@@ -1,0 +1,25 @@
+<view class="address-picker card-surface" bindtap="onOpen">
+  <block wx:if="{{address && address.name}}">
+    <view class="addr-line1 row">
+      <text class="addr-name">{{address.name}}</text>
+      <text class="addr-phone">{{address.phone}}</text>
+    </view>
+    <text class="addr-detail">{{address.detail}}</text>
+  </block>
+  <view wx:else class="addr-empty">
+    <text class="text-muted">请选择收货地址</text>
+  </view>
+</view>
+
+<view wx:if="{{show}}" class="addr-mask" bindtap="onCancel">
+  <view class="addr-modal" catchtap="noop">
+    <view class="addr-modal-title">填写收货信息</view>
+    <input class="addr-input" placeholder="收货人姓名" value="{{name}}" bindinput="onName" />
+    <input class="addr-input" type="number" maxlength="11" placeholder="联系电话（11位手机号）" value="{{phone}}" bindinput="onPhone" />
+    <input class="addr-input" placeholder="详细地址" value="{{detail}}" bindinput="onDetail" />
+    <view class="addr-btns row">
+      <view class="addr-btn addr-cancel" bindtap="onCancel">取消</view>
+      <view class="addr-btn addr-ok btn-primary-glow" bindtap="onSubmit">确定</view>
+    </view>
+  </view>
+</view>

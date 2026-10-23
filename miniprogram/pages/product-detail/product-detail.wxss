@@ -1,0 +1,122 @@
+/* 商品详情页样式（深色工业风，复用全局设计令牌） */
+.pd-page {
+  min-height: 100vh;
+  padding-bottom: 160rpx; /* 为底部固定操作栏预留空间 */
+}
+
+.pd-state {
+  padding: var(--gap-lg);
+}
+
+/* 商品图轮播 */
+.pd-swiper {
+  width: 100%;
+  height: 560rpx;
+}
+
+.pd-img-wrap {
+  width: 100%;
+  height: 560rpx;
+}
+
+.pd-img {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-surface);
+}
+
+/* 内容区 */
+.pd-content {
+  padding: var(--gap-md) var(--gap-lg);
+}
+
+.pd-name {
+  font-size: 40rpx;
+  font-weight: 800;
+  line-height: 1.35;
+  display: block;
+}
+
+.pd-price-row {
+  margin: var(--gap-sm) 0 var(--gap-md);
+}
+
+.pd-price {
+  font-size: 40rpx;
+}
+
+.pd-sales {
+  font-size: 24rpx;
+}
+
+/* 卡片 */
+.pd-card {
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+
+.pd-card-title {
+  font-size: 30rpx;
+  margin-bottom: var(--gap-md);
+}
+
+/* 金额核算 */
+.pd-amount-row {
+  padding: var(--gap-xs) 0;
+}
+
+.pd-amount-label {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.pd-total {
+  font-size: 40rpx;
+}
+
+.pd-tip {
+  display: block;
+  margin-top: var(--gap-sm);
+}
+
+/* 商品说明 */
+.pd-desc {
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+
+.pd-gap {
+  height: 40rpx;
+}
+
+/* 底部固定操作栏 */
+.pd-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-sm) var(--gap-lg);
+  padding-bottom: calc(var(--gap-sm) + env(safe-area-inset-bottom));
+  background-color: var(--bg-surface);
+  border-top: 1rpx solid var(--border-line);
+  box-shadow: 0 -8rpx 32rpx rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+.pd-footer-total {
+  justify-content: center;
+}
+
+.pd-footer-price {
+  font-size: 36rpx;
+}
+
+.pd-buy-btn {
+  min-width: 320rpx;
+}

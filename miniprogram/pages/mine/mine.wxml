@@ -1,0 +1,74 @@
+<view class="mi-page">
+  <!-- 头像昵称区 -->
+  <view class="mi-profile bg-light-spots" bindtap="onLoginTap">
+    <image
+      class="mi-avatar"
+      src="{{avatar}}"
+      mode="aspectFill"
+      binderror="onAvatarError"
+    />
+    <view class="mi-profile-info col">
+      <text class="mi-name text-glow-gradient">{{nickName}}</text>
+      <text wx:if="{{isLogin}}" class="mi-phone text-aux">{{phoneMasked || '已登录'}}</text>
+      <text wx:else class="mi-phone text-aux">点击登录，查看订单与更多服务</text>
+    </view>
+    <view class="mi-arrow text-muted">›</view>
+  </view>
+
+  <!-- 菜单列表 -->
+  <view class="mi-menu card-surface">
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goOrders">
+      <view class="row">
+        <text class="mi-menu-icon">📋</text>
+        <text class="mi-menu-text">我的订单</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goAddress">
+      <view class="row">
+        <text class="mi-menu-icon">📍</text>
+        <text class="mi-menu-text">收货地址</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goContact">
+      <view class="row">
+        <text class="mi-menu-icon">☎️</text>
+        <text class="mi-menu-text">联系商家</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goPrivacy">
+      <view class="row">
+        <text class="mi-menu-icon">🛡</text>
+        <text class="mi-menu-text">隐私协议</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="mi-menu card-surface mi-logout">
+    <view
+      wx:if="{{isLogin}}"
+      class="mi-menu-item row-between"
+      hover-class="mi-menu-hover"
+      bindtap="onLogout"
+    >
+      <text class="mi-menu-text mi-logout-text">退出登录</text>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+  </view>
+
+  <view class="mi-copyright text-muted">潘工·广告物料制作</view>
+  <view class="safe-bottom"></view>
+</view>

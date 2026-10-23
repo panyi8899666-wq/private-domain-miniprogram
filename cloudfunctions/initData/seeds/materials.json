@@ -1,0 +1,102 @@
+[
+  {
+    "code": "fashezi",
+    "type": "illuminated",
+    "name": "发光字",
+    "title": "发光字 · 八项参数全解",
+    "intro": "做发光字前先花 1 分钟看懂这 8 个参数，少花冤枉钱。",
+    "params": [
+      { "name": "厚度", "value": "8cm / 12cm / 15cm", "note": "字壳越厚越立体，视安装位置选择" },
+      { "name": "材质", "value": "亚克力 / 铝板 / 不锈钢", "note": "室内多用亚克力，户外推荐铝板+防水处理" },
+      { "name": "工艺", "value": "吸塑 / 平面 / 围边 / 迷你字", "note": "不同工艺影响观感与造价" },
+      { "name": "光源", "value": "LED 模组（防水款）", "note": "单色/七彩/全彩由需求决定" },
+      { "name": "功率", "value": "约 15~35W/平米", "note": "影响亮度与电费，可省电调节" },
+      { "name": "寿命", "value": "LED 光源 5 万小时以上", "note": "正常使用可用 8~10 年亮度衰减小" },
+      { "name": "适用场景", "value": "门头招牌 / 室内形象墙 / 楼顶大字", "note": "户外安装需做防风防水处理" },
+      { "name": "价格区间", "value": "约 ¥300~¥800 / 平米", "note": "具体看字体大小、材质与数量，免费报价" }
+    ],
+    "priceRange": "约 ¥300~¥800 / 平米",
+    "ctaText": "我要定制发光字",
+    "ctaPath": "/pages/custom/custom?materialType=illuminated",
+    "sort": 10
+  },
+  {
+    "code": "dengxiang",
+    "type": "lightbox",
+    "name": "灯箱与标识字",
+    "title": "灯箱与标识字",
+    "intro": "门面亮不亮、品牌立不立，灯箱与标识字说了算。",
+    "categories": [
+      {
+        "type": "灯箱（吸塑灯箱 / 超薄灯箱）",
+        "scenes": "店铺招牌、走廊导视、地铁广告位",
+        "craft": "铝合金边框 + 亚克力面板 + LED 光源，可做单面/双面",
+        "priceRange": "约 ¥200~¥600 / 平米（含光源）"
+      },
+      {
+        "type": "标识字（水晶字 / 金属字 / 迷你字）",
+        "scenes": "前台背景墙、室内形象墙、门头小字",
+        "craft": "亚克力/不锈钢/铝板雕刻，可内置 LED 或外露灯珠",
+        "priceRange": "约 ¥150~¥500 / 平米"
+      }
+    ],
+    "priceRange": "约 ¥150~¥600 / 平米",
+    "ctaText": "灯箱/标识字报价",
+    "ctaPath": "/pages/custom/custom?materialType=lightbox",
+    "sort": 20
+  },
+  {
+    "code": "penhui",
+    "type": "inkjet",
+    "name": "喷绘写真",
+    "title": "喷绘写真：户内 vs 户外对照表",
+    "intro": "做海报前先看这张表，选对材料不返工。",
+    "columns": ["比较维度", "户内写真", "户外喷绘"],
+    "rows": [
+      { "dimension": "材质厚度", "indoor": "PP 胶/相纸，较薄约 0.1mm", "outdoor": "灯箱布/刀刮布，厚且耐拉扯 0.4mm+" },
+      { "dimension": "分辨率", "indoor": "高（1440dpi 级）近看清晰", "outdoor": "中（720dpi 级）远看整体效果" },
+      { "dimension": "防雨防晒", "indoor": "不防水，怕晒，适合室内", "outdoor": "防水防晒，户外至少 1~2 年不褪色" },
+      { "dimension": "用途", "indoor": "易拉宝、KT板海报、橱窗贴", "outdoor": "大型广告牌、楼体喷绘、围挡" }
+    ],
+    "table": {
+      "columns": ["比较维度", "户内写真", "户外喷绘"],
+      "rows": [
+        { "dimension": "材质厚度", "indoor": "PP 胶/相纸，较薄约 0.1mm", "outdoor": "灯箱布/刀刮布，厚且耐拉扯 0.4mm+" },
+        { "dimension": "分辨率", "indoor": "高（1440dpi 级）近看清晰", "outdoor": "中（720dpi 级）远看整体效果" },
+        { "dimension": "防雨防晒", "indoor": "不防水，怕晒，适合室内", "outdoor": "防水防晒，户外至少 1~2 年不褪色" },
+        { "dimension": "用途", "indoor": "易拉宝、KT板海报、橱窗贴", "outdoor": "大型广告牌、楼体喷绘、围挡" }
+      ]
+    },
+    "priceRange": "户内写真约 ¥40~¥80 / 平米；户外喷绘约 ¥30~¥60 / 平米",
+    "ctaText": "喷绘写真报价",
+    "ctaPath": "/pages/custom/custom?materialType=inkjet",
+    "sort": 30
+  },
+  {
+    "code": "yinshua",
+    "type": "print",
+    "name": "印刷品",
+    "title": "印刷品：克重与常见尺寸",
+    "intro": "选对纸张克重，印刷品质感直接上一个档次。",
+    "columns": ["材质", "克重范围", "常见可印尺寸"],
+    "rows": [
+      { "material": "铜版纸", "weight": "128g / 157g / 200g / 250g", "sizes": "A4/A3、210×285mm 彩页、对开 420×570mm" },
+      { "material": "卡纸", "weight": "250g / 300g / 350g", "sizes": "名片 90×54mm、A5/A4 卡片、吊牌" },
+      { "material": "相纸", "weight": "180g / 230g 高光/哑光", "sizes": "6寸~A3 照片打印、展架画面" },
+      { "material": "不干胶", "weight": "80g / 100g 底纸", "sizes": "卷装/单张，标签贴纸任意尺寸" }
+    ],
+    "table": {
+      "columns": ["材质", "克重范围", "常见可印尺寸"],
+      "rows": [
+        { "material": "铜版纸", "weight": "128g / 157g / 200g / 250g", "sizes": "A4/A3、210×285mm 彩页、对开 420×570mm" },
+        { "material": "卡纸", "weight": "250g / 300g / 350g", "sizes": "名片 90×54mm、A5/A4 卡片、吊牌" },
+        { "material": "相纸", "weight": "180g / 230g 高光/哑光", "sizes": "6寸~A3 照片打印、展架画面" },
+        { "material": "不干胶", "weight": "80g / 100g 底纸", "sizes": "卷装/单张，标签贴纸任意尺寸" }
+      ]
+    },
+    "priceRange": "按材质与数量报价，A4 单页约 ¥0.3~¥2 / 张",
+    "ctaText": "印刷品报价",
+    "ctaPath": "/pages/custom/custom?materialType=print",
+    "sort": 40
+  }
+]

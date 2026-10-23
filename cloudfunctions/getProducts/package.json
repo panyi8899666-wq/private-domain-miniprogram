@@ -1,0 +1,9 @@
+{
+  "name": "getProducts",
+  "version": "1.0.0",
+  "description": "标准品商品列表与详情查询（仅返回在售商品）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

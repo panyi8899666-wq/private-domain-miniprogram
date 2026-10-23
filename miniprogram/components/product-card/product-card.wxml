@@ -1,0 +1,17 @@
+<view class="product-card card-surface" hover-class="product-card-hover" bindtap="onTap">
+  <view class="product-cover-wrap">
+    <image
+      class="product-cover"
+      src="{{cover}}"
+      mode="aspectFill"
+      binderror="onImageError"
+    />
+  </view>
+  <view class="product-body">
+    <text class="product-name ellipsis">{{product.name}}</text>
+    <view class="product-foot row-between">
+      <text class="product-price text-price">¥{{product.priceFrom}} 起</text>
+      <text wx:if="{{product.sales}}" class="product-sales text-muted">已售{{product.sales}}</text>
+    </view>
+  </view>
+</view>

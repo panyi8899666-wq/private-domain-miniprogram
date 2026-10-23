@@ -1,0 +1,116 @@
+<view class="pd-page">
+  <!-- 加载中（骨架屏） -->
+  <view wx:if="{{loading}}" class="pd-state">
+    <loading type="skeleton" rows="{{3}}" />
+  </view>
+
+  <!-- 加载失败态 -->
+  <view wx:elif="{{loadingError}}" class="pd-state">
+    <empty-state
+      text="{{loadingError.message}}"
+      sub-text="请检查网络后重试"
+      icon-text="!"
+      show-button="{{loadingError.retriable}}"
+      button-text="重试"
+      bind:action="fetchDetail"
+    />
+  </view>
+
+  <!-- 商品内容 -->
+  <block wx:else>
+    <!-- 商品图轮播 -->
+    <swiper
+      wx:if="{{images.length}}"
+      class="pd-swiper"
+      indicator-dots="{{images.length > 1}}"
+      indicator-color="rgba(255,255,255,0.3)"
+      indicator-active-color="#3ec6ff"
+      circular="{{images.length > 1}}"
+    >
+      <swiper-item wx:for="{{images}}" wx:key="*this">
+        <image
+          class="pd-img"
+          src="{{item}}"
+          mode="aspectFill"
+          data-index="{{index}}"
+          binderror="onImageError"
+        />
+      </swiper-item>
+    </swiper>
+    <view wx:else class="pd-img-wrap">
+      <image class="pd-img" src="/images/placeholder.png" mode="aspectFill" />
+    </view>
+
+    <view class="pd-content">
+      <text class="pd-name text-glow-gradient">{{product.name}}</text>
+      <view class="pd-price-row row-between">
+        <text class="pd-price text-price">{{priceFromText}} 起</text>
+        <text wx:if="{{product.sales}}" class="pd-sales text-aux">已售 {{product.sales}}</text>
+      </view>
+
+      <!-- 规格选择 + 数量 -->
+      <view class="pd-card card-surface">
+        <view class="pd-card-title section-title-glow">选择规格与数量</view>
+        <spec-picker
+          specs="{{specs}}"
+          selected-spec-id="{{selectedSpecId}}"
+          quantity="{{quantity}}"
+          bind:change="onSpecChange"
+        />
+      </view>
+
+      <!-- 收货信息 -->
+      <view class="pd-card card-surface">
+        <view class="pd-card-title section-title-glow">收货信息</view>
+        <address-picker address="{{address}}" bind:select="onAddressSelect" />
+      </view>
+
+      <!-- 金额核算（前端展示，以服务端为准） -->
+      <view class="pd-card card-surface">
+        <view class="pd-card-title section-title-glow">金额核算</view>
+        <view class="pd-amount-row row-between">
+          <text class="text-aux">商品金额</text>
+          <text class="text-body">{{goodsAmountText}}</text>
+        </view>
+        <view class="pd-amount-row row-between">
+          <text class="text-aux">运费</text>
+          <text class="text-body">{{shippingText}}</text>
+        </view>
+        <view class="divider"></view>
+        <view class="pd-amount-row row-between">
+          <text class="pd-amount-label">应付合计</text>
+          <text class="pd-total text-price">{{amountText}}</text>
+        </view>
+        <text class="pd-tip text-muted">金额仅供参考，最终以服务端核算为准</text>
+      </view>
+
+      <!-- 商品详情说明 -->
+      <view wx:if="{{product.description}}" class="pd-card card-surface">
+        <view class="pd-card-title section-title-glow">商品详情</view>
+        <text class="pd-desc">{{product.description}}</text>
+      </view>
+
+      <!-- 底部留白，避免被固定操作栏遮挡 -->
+      <view class="pd-gap safe-bottom"></view>
+    </view>
+
+    <!-- 底部固定操作栏 -->
+    <view class="pd-footer safe-bottom">
+      <view class="pd-footer-total col">
+        <text class="text-aux">应付合计</text>
+        <text class="pd-footer-price text-price">{{amountText}}</text>
+      </view>
+      <glow-button
+        class="pd-buy-btn"
+        text="立即购买"
+        type="primary"
+        size="large"
+        sweep="{{canBuy && !submitting}}"
+        disabled="{{!canBuy}}"
+        loading="{{submitting}}"
+        loading-text="提交中"
+        bind:tap="onBuy"
+      />
+    </view>
+  </block>
+</view>

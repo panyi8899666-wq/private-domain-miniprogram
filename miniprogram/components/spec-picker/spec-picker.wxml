@@ -1,0 +1,20 @@
+<view class="spec-picker">
+  <view class="spec-label text-aux">选择规格</view>
+  <view class="spec-list">
+    <view
+      wx:for="{{specs}}"
+      wx:key="specId"
+      class="spec-chip {{item.specId === activeSpecId ? 'spec-chip-active box-glow' : ''}}"
+      data-index="{{index}}"
+      bindtap="onSelectSpec"
+    >{{item.name}}</view>
+  </view>
+  <view class="spec-qty row-between">
+    <text class="text-aux">购买数量</text>
+    <view class="spec-stepper">
+      <view class="spec-step" bindtap="onMinus">−</view>
+      <text class="spec-num">{{quantity}}</text>
+      <view class="spec-step" bindtap="onPlus">＋</view>
+    </view>
+  </view>
+</view>

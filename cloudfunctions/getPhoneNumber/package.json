@@ -1,0 +1,9 @@
+{
+  "name": "getPhoneNumber",
+  "version": "1.0.0",
+  "description": "解密用户主动授权后的手机号并脱敏返回",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

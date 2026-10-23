@@ -1,0 +1,113 @@
+/* 我的订单页样式 */
+.od-page {
+  min-height: 100vh;
+}
+
+/* 筛选标签 */
+.od-filters {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: var(--bg-base);
+  padding: var(--gap-sm) var(--gap-lg);
+  border-bottom: 1rpx solid var(--border-line);
+}
+
+.od-filter-scroll {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.od-filter {
+  display: inline-flex;
+  align-items: center;
+  padding: 10rpx 28rpx;
+  margin-right: var(--gap-sm);
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  background-color: var(--bg-surface);
+  border: 1rpx solid var(--border-line);
+  border-radius: 32rpx;
+}
+
+.od-filter-active {
+  color: var(--accent-glow);
+  background-color: rgba(62, 198, 255, 0.1);
+  border-color: rgba(62, 198, 255, 0.5);
+  box-shadow: 0 0 16rpx rgba(62, 198, 255, 0.25);
+}
+
+/* 状态容器（加载/失败/空态/未登录） */
+.od-state {
+  padding: var(--gap-xl) var(--gap-lg);
+}
+
+/* 订单列表 */
+.od-list {
+  padding: var(--gap-md) var(--gap-lg);
+}
+
+.od-item {
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+
+.od-item-hover {
+  opacity: 0.85;
+}
+
+.od-item-head {
+  margin-bottom: var(--gap-sm);
+}
+
+.od-no {
+  font-size: 22rpx;
+}
+
+.od-item-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-md);
+}
+
+.od-summary {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.od-amount {
+  font-size: 30rpx;
+  white-space: nowrap;
+}
+
+.od-item-foot {
+  margin-top: var(--gap-sm);
+  padding-top: var(--gap-sm);
+  border-top: 1rpx solid var(--border-line);
+}
+
+.od-time {
+  font-size: 22rpx;
+}
+
+.od-more {
+  font-size: 22rpx;
+  color: var(--accent-glow);
+}
+
+/* 触底 */
+.od-more-loading {
+  padding: var(--gap-md);
+  display: flex;
+  justify-content: center;
+}
+
+.od-no-more {
+  text-align: center;
+  padding: var(--gap-lg);
+  font-size: 22rpx;
+}

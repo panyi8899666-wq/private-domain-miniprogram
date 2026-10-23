@@ -1,0 +1,14 @@
+<view wx:if="{{type === 'skeleton'}}" class="skeleton-wrap">
+  <view wx:for="{{skeletonRows}}" wx:key="*this" class="skeleton-item card-surface">
+    <view class="skeleton-thumb"></view>
+    <view class="skeleton-lines">
+      <view class="skeleton-line skeleton-line-lg"></view>
+      <view class="skeleton-line skeleton-line-sm"></view>
+    </view>
+  </view>
+</view>
+
+<view wx:else class="loading-wrap">
+  <view class="loading-spinner"></view>
+  <text wx:if="{{text}}" class="loading-text">{{text}}</text>
+</view>

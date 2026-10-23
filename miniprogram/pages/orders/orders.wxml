@@ -1,0 +1,88 @@
+<view class="od-page">
+  <!-- 状态筛选标签 -->
+  <view class="od-filters">
+    <scroll-view scroll-x class="od-filter-scroll" enable-flex>
+      <view
+        wx:for="{{filters}}"
+        wx:key="label"
+        class="od-filter {{activeFilter === item.value ? 'od-filter-active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onFilterTap"
+      >{{item.label}}</view>
+    </scroll-view>
+  </view>
+
+  <!-- 未登录引导态 -->
+  <view wx:if="{{needLogin}}" class="od-state">
+    <empty-state
+      text="登录后查看订单"
+      sub-text="登录即可查看和跟踪您的订单进度"
+      icon-text="👤"
+      show-button
+      button-text="立即登录"
+      bind:action="goLogin"
+    />
+  </view>
+
+  <!-- 加载中 -->
+  <view wx:elif="{{loading}}" class="od-state">
+    <loading type="skeleton" rows="{{3}}" />
+  </view>
+
+  <!-- 加载失败 -->
+  <view wx:elif="{{loadError}}" class="od-state">
+    <empty-state
+      text="{{loadError.message}}"
+      sub-text="请检查网络后重试"
+      icon-text="!"
+      show-button="{{loadError.retriable}}"
+      button-text="重试"
+      bind:action="reload"
+    />
+  </view>
+
+  <!-- 空态 -->
+  <view wx:elif="{{empty}}" class="od-state">
+    <empty-state
+      text="暂无相关订单"
+      sub-text="还没有符合条件的订单，去逛逛吧"
+      icon-text="∅"
+      show-button
+      button-text="去逛逛"
+      bind:action="goShop"
+    />
+  </view>
+
+  <!-- 订单列表 -->
+  <view wx:else class="od-list">
+    <view
+      wx:for="{{list}}"
+      wx:key="id"
+      class="od-item card-surface"
+      hover-class="od-item-hover"
+      data-id="{{item.id}}"
+      bindtap="goDetail"
+    >
+      <view class="od-item-head row-between">
+        <text class="od-no text-aux">订单号 {{item.orderNo}}</text>
+        <order-status-tag status="{{item.status}}" />
+      </view>
+      <view class="od-item-body">
+        <text class="od-summary ellipsis-2">{{item.summaryText}}</text>
+        <text class="od-amount text-price">{{item.amountText}}</text>
+      </view>
+      <view class="od-item-foot row-between">
+        <text class="od-time text-muted">{{item.timeText}}</text>
+        <text class="od-more text-aux">查看详情 ›</text>
+      </view>
+    </view>
+
+    <!-- 触底加载提示 -->
+    <view wx:if="{{loadingMore}}" class="od-more-loading">
+      <loading type="spinner" text="加载中" />
+    </view>
+    <view wx:elif="{{!hasMore}}" class="od-no-more text-muted">— 已经到底啦 —</view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

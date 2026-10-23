@@ -1,0 +1,90 @@
+{
+  "key": "main",
+  "_source": "由 content/site.json + content/home.json 转换；已整体丢弃 wechat.*（个人微信号/二维码）、social.*（第三方占位外链）与 order.json.payment.*（收款码），并将 hero/process 中『加微信』相关文案改造为官方支付流程文案，满足 REQ-048/REQ-049。",
+  "siteName": "潘工·广告物料制作",
+  "slogan": "10+年广告标识与发光字经验，3D视效·展台美陈·户外标识一站式",
+  "hero": {
+    "badge": "广告标识·发光字·一站式服务",
+    "title": "发光字 · 展台美陈 · 户外标识 · 3D设计",
+    "subtitle": "免费测量、免费设计、免费报价，3D视效/展台美陈/户外标识/发光字全程服务",
+    "primaryCtaText": "免费咨询报价",
+    "primaryCtaPath": "/pages/custom/custom",
+    "secondaryCtaText": "先看物料百科",
+    "secondaryCtaPath": "/pages/material/material",
+    "backgroundImage": ""
+  },
+  "services": [
+    {
+      "name": "广告设计",
+      "icon": "pen-tool",
+      "desc": "品牌视觉/3D效果图/标识设计，改到满意为止",
+      "path": "/pages/material/material?section=dengxiang"
+    },
+    {
+      "name": "物料制作",
+      "icon": "box",
+      "desc": "发光字、灯箱、标识字生产与安装",
+      "path": "/pages/material/material?section=fashezi"
+    },
+    {
+      "name": "喷绘写真",
+      "icon": "spray",
+      "desc": "室内写真、户外喷绘，送货上门安装",
+      "path": "/pages/material/material?section=penhui"
+    },
+    {
+      "name": "印刷品",
+      "icon": "file-print",
+      "desc": "铜版纸、卡纸、相纸，大小批量都接",
+      "path": "/pages/material/material?section=yinshua"
+    }
+  ],
+  "materialPreview": [
+    {
+      "title": "发光字",
+      "summary": "厚度/材质/光源/寿命…一文看懂怎么做",
+      "image": "",
+      "path": "/pages/material/material?section=fashezi",
+      "ctaText": "看发光字参数"
+    },
+    {
+      "title": "喷绘写真",
+      "summary": "室内写真 vs 户外喷绘，差别一表看清",
+      "image": "",
+      "path": "/pages/material/material?section=penhui",
+      "ctaText": "看喷绘对照"
+    },
+    {
+      "title": "印刷品",
+      "summary": "铜版纸/卡纸/相纸克重与尺寸对照",
+      "image": "",
+      "path": "/pages/material/material?section=yinshua",
+      "ctaText": "看印刷对照"
+    }
+  ],
+  "process": [
+    { "step": "01", "title": "提交需求", "desc": "在线填写物料类型/尺寸/数量/位置，可上传参考图" },
+    { "step": "02", "title": "商家报价", "desc": "确认方案后 30 分钟内给出报价，可选择报价有效期" },
+    { "step": "03", "title": "在线支付", "desc": "确认报价后使用微信官方支付完成付款" },
+    { "step": "04", "title": "制作生产", "desc": "按工艺标准生产，全程可查看订单进度" },
+    { "step": "05", "title": "交付验收", "desc": "同城配送安装，外地快递发货，验收满意即完成" }
+  ],
+  "processStandard": [
+    { "step": "01", "title": "下单", "desc": "在商城选择规格与数量，填写收货信息" },
+    { "step": "02", "title": "支付", "desc": "使用微信官方支付完成付款" },
+    { "step": "03", "title": "制作", "desc": "按选定规格生产，进度可查" },
+    { "step": "04", "title": "交付", "desc": "同城配送安装，外地快递发货" }
+  ],
+  "processCtaText": "立即下单 / 提交定制需求",
+  "processCtaPath": "/pages/custom/custom",
+  "enterprise": {
+    "subjectName": "潘工·广告物料制作",
+    "qualificationNote": "营业执照等经营资质按微信小程序平台要求展示",
+    "serviceCommitment": "物料参数与价格如实说明，不作夸大或虚假宣传"
+  },
+  "contact": {
+    "phone": "17306983179",
+    "location": "厦门、广州均可（可上门测量）",
+    "serviceHours": "9:00-21:00"
+  }
+}

@@ -1,0 +1,64 @@
+<view class="page-container">
+  <loading wx:if="{{loading}}" />
+
+  <view wx:elif="{{error}}" class="error-wrap">
+    <empty-state
+      text="{{error.message}}"
+      buttonText="重试"
+      showButton="{{error.retriable}}"
+      bind:action="onRetry"
+    />
+  </view>
+
+  <block wx:else>
+    <!-- Hero 首屏 -->
+    <view class="hero bg-light-spots">
+      <text wx:if="{{slogan}}" class="hero-badge text-tag">{{slogan}}</text>
+      <text class="hero-brand text-neon">{{siteName}}</text>
+      <text class="hero-title text-glow-gradient">{{heroTitle}}</text>
+      <text wx:if="{{heroSubtitle}}" class="hero-sub">{{heroSubtitle}}</text>
+      <view class="hero-btns">
+        <view class="hero-btn btn-primary-glow" bindtap="goCustom">立即提交需求</view>
+        <view class="hero-btn btn-secondary-glow" bindtap="goShop">逛逛标准品</view>
+      </view>
+    </view>
+
+    <!-- 核心服务 -->
+    <view class="section">
+      <text class="section-title section-title-glow">核心服务</text>
+      <view class="service-grid">
+        <view wx:for="{{services}}" wx:key="name" class="service-card card-surface" bindtap="goMaterial">
+          <text class="service-icon">{{item.icon}}</text>
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 精选作品 -->
+    <view wx:if="{{featuredWorks.length}}" class="section">
+      <view class="row-between">
+        <text class="section-title section-title-glow">精选作品</text>
+        <text class="more-link" bindtap="goWorks">查看更多 ›</text>
+      </view>
+      <view class="work-grid">
+        <work-card wx:for="{{featuredWorks}}" wx:key="code" work="{{item}}" bind:tap="onPreviewWork" />
+      </view>
+    </view>
+
+    <!-- 接单流程 -->
+    <view class="section">
+      <text class="section-title section-title-glow">接单流程</text>
+      <view class="process-list">
+        <view wx:for="{{process}}" wx:key="step" class="process-item">
+          <view class="process-num process-step-num">{{item.step}}</view>
+          <view class="process-content">
+            <text class="process-title">{{item.title}}</text>
+            <text class="process-desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="process-cta btn-primary-glow" bindtap="goCustom">立即提交需求</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,26 @@
+<view class="page-container">
+  <scroll-view scroll-x class="cat-bar">
+    <view class="cat-scroll">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="cat-chip {{item.id === activeCategory ? 'cat-chip-active box-glow' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onSelectCategory"
+      >{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <loading wx:if="{{loading}}" type="skeleton" />
+
+  <view wx:elif="{{!loading && list.length === 0}}" class="empty-box">
+    <empty-state text="暂无作品" subText="该分类下还没有案例" />
+  </view>
+
+  <view wx:else class="work-grid">
+    <work-card wx:for="{{list}}" wx:key="code" work="{{item}}" bind:tap="onPreviewWork" />
+  </view>
+
+  <view wx:if="{{loadingMore}}" class="loading-more text-muted">加载中...</view>
+  <view wx:if="{{!hasMore && list.length > 0}}" class="loading-more text-muted">— 已经到底啦 —</view>
+</view>

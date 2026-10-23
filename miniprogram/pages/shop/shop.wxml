@@ -1,0 +1,19 @@
+<view class="page-container">
+  <view class="shop-head">
+    <text class="shop-title section-title-glow">标准品商城</text>
+    <text class="shop-sub text-aux">固定价格直接下单，定制需求请走「定制」</text>
+  </view>
+
+  <loading wx:if="{{loading}}" type="skeleton" />
+
+  <view wx:elif="{{!loading && list.length === 0}}" class="empty-box">
+    <empty-state text="暂无商品" subText="商家正在上新，敬请期待" />
+  </view>
+
+  <view wx:else class="product-grid">
+    <product-card wx:for="{{list}}" wx:key="code" product="{{item}}" bind:tap="onTapProduct" />
+  </view>
+
+  <view wx:if="{{loadingMore}}" class="loading-more text-muted">加载中...</view>
+  <view wx:if="{{!hasMore && list.length > 0}}" class="loading-more text-muted">— 已经到底啦 —</view>
+</view>

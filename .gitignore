@@ -1,0 +1,16 @@
+# 依赖与缓存
+node_modules/
+cloudfunctions/**/node_modules/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# 微信开发者工具本地配置
+project.private.config.json
+
+# 构建产物
+miniprogram_npm/
