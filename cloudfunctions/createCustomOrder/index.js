@@ -144,6 +144,11 @@ exports.main = async (event) => {
       contactPhone: /^\d{6,15}$/.test(contactPhone) ? contactPhone : '',
       clientRequestId,
       privacyAgreed: payload.privacyAgreed === true,
+      // 对接设计师：新订单默认由 Muse 对接；留言与回复走 musePoll / museReply 桥
+      designer: { name: 'Muse', role: '对接设计师' },
+      designerReplies: [],
+      clientMessages: [],
+      designerAckAt: null,
       payments: [],
       timeline: [{ status: 'pending_quote', at: now, source: 'customer' }],
       createdAt: now,

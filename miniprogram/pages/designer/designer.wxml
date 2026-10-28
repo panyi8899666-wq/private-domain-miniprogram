@@ -1,0 +1,47 @@
+<view class="ds-page">
+  <!-- 对接设计师身份卡 -->
+  <view class="ds-hero card-surface bg-light-spots">
+    <view class="ds-avatar">M</view>
+    <view class="ds-hero-info col">
+      <text class="ds-name">{{designer.name}}</text>
+      <text class="ds-role text-aux">{{designer.role}}</text>
+      <text class="ds-scope text-body">{{designer.scope}}</text>
+    </view>
+  </view>
+  <view class="ds-note card-surface">
+    <text class="text-aux">{{designer.note}}</text>
+  </view>
+
+  <!-- 对接流程 -->
+  <view class="ds-card card-surface">
+    <text class="section-title">对接流程</text>
+    <view wx:for="{{steps}}" wx:key="no" class="ds-step">
+      <text class="ds-step-no">{{item.no}}</text>
+      <view class="col">
+        <text class="ds-step-title">{{item.title}}</text>
+        <text class="ds-step-desc text-aux">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 对接入口 -->
+  <view class="ds-card card-surface">
+    <text class="section-title">开始对接</text>
+    <view class="ds-btn ds-btn-primary" bindtap="goCustom">去定制下单</view>
+    <view class="ds-btn" bindtap="goOrders">查看我的订单</view>
+    <view class="ds-btn" bindtap="goContact">联系商家</view>
+    <text class="ds-tip text-aux">提交后请在“我的订单”里查看进度，报价与方案以订单详情为准。</text>
+  </view>
+
+  <!-- 常见问题 -->
+  <view class="ds-card card-surface">
+    <text class="section-title">常见问题</text>
+    <view wx:for="{{faqs}}" wx:key="q" class="ds-faq">
+      <text class="ds-faq-q">{{item.q}}</text>
+      <text class="ds-faq-a text-aux">{{item.a}}</text>
+    </view>
+  </view>
+
+  <view class="ds-copyright text-muted">潘工·广告物料制作</view>
+  <view class="safe-bottom"></view>
+</view>

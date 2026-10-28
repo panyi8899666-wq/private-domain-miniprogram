@@ -46,6 +46,22 @@
         </view>
       </view>
 
+      <!-- 对接设计师 -->
+      <view class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">对接设计师</view>
+        <view class="dd-row row-between">
+          <text class="text-aux">负责人</text>
+          <text>{{order.designer.name}} · {{order.designer.role}}</text>
+        </view>
+        <view class="dd-row row-between">
+          <text class="text-aux">职责</text>
+          <text>{{order.designer.scope}}</text>
+        </view>
+        <view class="dd-row">
+          <text class="text-aux">{{order.designer.note}}</text>
+        </view>
+      </view>
+
       <!-- 明细：标准品 -->
       <view wx:if="{{order.items.length}}" class="dd-card card-surface">
         <view class="dd-card-title section-title-glow">商品明细</view>
@@ -135,6 +151,29 @@
           <text class="text-aux">有效期至</text>
           <text>{{order.quote.validUntil}}</text>
         </view>
+      </view>
+
+      <!-- 对接留言：客户留言 + 对接设计师回复（异步，非实时聊天） -->
+      <view class="dd-card card-surface">
+        <view class="dd-card-title section-title-glow">对接留言</view>
+        <view wx:if="{{!order.thread.length}}" class="dd-row">
+          <text class="text-aux">下单后有什么要补充的，在这里留言，对接设计师会按订单回复。</text>
+        </view>
+        <view wx:for="{{order.thread}}" wx:key="key" class="dd-msg">
+          <text class="dd-msg-from text-aux">{{item.fromText}} · {{item.atText}}</text>
+          <text class="dd-msg-text">{{item.text}}</text>
+        </view>
+        <view class="dd-msg-form">
+          <input
+            class="dd-msg-input"
+            value="{{messageInput}}"
+            bindinput="onMessageInput"
+            placeholder="给对接设计师留言（最多 500 字）"
+            maxlength="500"
+          />
+          <view class="dd-msg-btn" bindtap="sendMessage">发送</view>
+        </view>
+        <text class="text-aux">留言为异步回复，不是实时聊天；报价与方案须经工作室确认后发出。</text>
       </view>
 
       <!-- 状态时间线 -->

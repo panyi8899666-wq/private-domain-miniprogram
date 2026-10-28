@@ -12,7 +12,7 @@
 
 ```
 ├── miniprogram/          小程序前端
-│   ├── pages/            9 个页面
+│   ├── pages/            10 个页面
 │   │   ├── index/        首页
 │   │   ├── material/     材质百科（5 大类 110 材质浏览）
 │   │   ├── works/        作品集
@@ -21,11 +21,12 @@
 │   │   ├── custom/       配置式下单（选材质→规格→工艺→数量）
 │   │   ├── orders/       我的订单
 │   │   ├── order-detail/ 订单详情
-│   │   └── mine/         个人中心
+│   │   ├── mine/         个人中心
+│   │   └── designer/     对接设计师窗口（Muse）
 │   ├── components/       9 个公共组件
 │   ├── images/           图标 + 材质图（110 张）
 │   └── utils/            工具函数（request/constants/format/auth）
-├── cloudfunctions/       13 个云函数（后端）
+├── cloudfunctions/       16 个云函数（后端，含对接桥 3 个）
 │   ├── login/ getPhoneNumber/           登录、手机号
 │   ├── getContent/ getProducts/         内容、商品查询
 │   ├── createOrder/ createCustomOrder/  下单
@@ -35,6 +36,31 @@
 │   └── initData/                        数据初始化（含材质库）
 └── project.config.json   微信开发者工具项目配置
 ```
+
+## 对接设计师
+
+- 对接设计师：Muse，负责需求整理、报价对接与进度跟进；最终方案与交付由工作室确认。
+- 对接窗口：`miniprogram/pages/designer/`（我的 → 对接设计师进入；订单详情页亦显示负责人）。
+- 对接为异步订单留言，不是实时聊天：客户在订单详情“对接留言”区留言，
+  对接设计师按订单回复；需求与报价仍走既有订单流程。
+
+## 对接直连桥（省掉手动转发）
+
+- 全流程见 `muse-bridge/README.md`（pan 2026-10-29 定稿，18 步）：
+  客户发 → Muse（收到即报 pan）→ 整理 → 反馈客户（人话确认）→ 反馈 pan →
+  pan 确认 → Muse 设计 → 稿件发 pan → pan 确认 → 给客户 → 客户确认 →
+  确认信息发 pan → 确认下单 → 客户付款 → 最终下单 → 下单信息提交 pan →
+  pan 经 QQ / 微信向供应商下单 → 反馈客户已下单。轮询每 5 分钟经微信云开发
+  HTTP API 走 `musePoll` / `museReply`；客户留言经 `addOrderMessage` 进入订单。
+- 安全：access_token + 云函数环境变量 `MUSE_BRIDGE_SECRET` 两道校验；
+  `musePoll` 不回传 openid 与客户手机号；密钥绝不进仓库、绝不发聊天。
+- 存档：百度网盘 `正鑫越订单存档/<订单号>_<客户名称>-<下单日期>-<设计名称>/`
+  下只存设计文件与源文件（最终确认版），另附一份备注（首行即客户名称-下单日期-设计名称），
+  工具与规则见 `muse-bridge/archive.py` 与桥文档存档一节；
+  需百度开放平台 API 时再找 pan 要，现在不问。
+- 云函数现为 16 个：原有 13 个 + `musePoll`、`museReply`、`addOrderMessage`。
+  上线前须完成正式 AppID、云环境、环境变量与 AppSecret 安全存储等一次性步骤，
+  详见 `muse-bridge/README.md`“上线前 pan 只需做一次”一节。
 
 ## 快速开始
 

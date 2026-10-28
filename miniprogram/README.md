@@ -23,7 +23,7 @@ miniprogram/
 │   ├── empty-state/  loading/  glow-button/  order-status-tag/
 │   ├── work-card/    product-card/  spec-picker/
 │   └── address-picker/  uploader/
-└── pages/              # 9 个页面
+└── pages/              # 10 个页面
     ├── index/            # 首页（TabBar）
     ├── material/         # 物料百科（TabBar）
     ├── works/            # 作品集（TabBar）
@@ -32,7 +32,8 @@ miniprogram/
     ├── custom/           # 定制需求
     ├── orders/           # 我的订单
     ├── order-detail/     # 订单详情
-    └── mine/             # 个人中心（TabBar）
+    ├── mine/             # 个人中心（TabBar）
+    └── designer/         # 对接设计师窗口（Muse）
 ```
 
 ## 二、部署前必须替换的占位配置

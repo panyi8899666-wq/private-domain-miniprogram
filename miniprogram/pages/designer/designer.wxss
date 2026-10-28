@@ -1,0 +1,127 @@
+/* 对接设计师窗口样式（复用全局设计令牌） */
+.ds-page {
+  min-height: 100vh;
+  padding: var(--gap-lg);
+  padding-bottom: var(--gap-xl);
+}
+
+.ds-hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--gap-lg);
+  border-radius: var(--radius-card);
+  border: 1rpx solid var(--border-line);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--gap-md);
+}
+
+.ds-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--accent-glow);
+  border-radius: 50%;
+  background-color: var(--bg-surface-2);
+  border: 2rpx solid rgba(62, 198, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.ds-hero-info {
+  flex: 1;
+  margin-left: var(--gap-md);
+}
+
+.ds-name {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.ds-role {
+  margin-top: var(--gap-xs);
+}
+
+.ds-scope {
+  margin-top: var(--gap-xs);
+}
+
+.ds-note {
+  padding: var(--gap-md) var(--gap-lg);
+  border-radius: var(--radius-card);
+  margin-bottom: var(--gap-lg);
+}
+
+.ds-card {
+  padding: var(--gap-lg);
+  border-radius: var(--radius-card);
+  margin-bottom: var(--gap-lg);
+}
+
+.ds-step {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--gap-md);
+}
+
+.ds-step-no {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--accent-glow);
+  margin-right: var(--gap-md);
+  flex-shrink: 0;
+}
+
+.ds-step-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.ds-step-desc {
+  margin-top: var(--gap-xs);
+}
+
+.ds-btn {
+  margin-top: var(--gap-md);
+  padding: var(--gap-md);
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: var(--radius-btn);
+  border: 1rpx solid var(--border-line);
+  background-color: var(--bg-surface-2);
+  color: var(--text-primary);
+}
+
+.ds-btn-primary {
+  background-color: var(--accent-glow);
+  border-color: var(--accent-glow);
+  color: #0b0f14;
+  font-weight: 700;
+}
+
+.ds-tip {
+  display: block;
+  margin-top: var(--gap-md);
+}
+
+.ds-faq {
+  margin-top: var(--gap-md);
+}
+
+.ds-faq-q {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.ds-faq-a {
+  display: block;
+  margin-top: var(--gap-xs);
+}
+
+.ds-copyright {
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: var(--gap-xl);
+}

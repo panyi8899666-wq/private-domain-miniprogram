@@ -138,6 +138,17 @@ const ERROR_MESSAGES = {
   B001: '导入失败，请检查数据格式'
 };
 
+/**
+ * 对接设计师（后台与客户对接统一负责人）
+ * 各页统一引用此处，不在页面里散落硬编码；最终方案与交付由工作室确认
+ */
+const DESIGNER = {
+  name: 'Muse',
+  role: '对接设计师',
+  scope: '负责需求整理、报价对接与进度跟进',
+  note: '最终方案与交付由工作室确认'
+};
+
 /** 网络异常统一文案（REQ-003 异常场景 1） */
 const NETWORK_ERROR_MESSAGE = '网络异常，请检查网络后重试';
 
@@ -161,5 +172,6 @@ module.exports = {
   AMOUNT_UNIT,
   ERROR_MESSAGES,
   NETWORK_ERROR_MESSAGE,
-  REQUEST_TIMEOUT
+  REQUEST_TIMEOUT,
+  DESIGNER
 };

@@ -47,6 +47,16 @@
 
     <view class="mi-divider"></view>
 
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goDesigner">
+      <view class="row">
+        <text class="mi-menu-icon">🤝</text>
+        <text class="mi-menu-text">对接设计师</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
     <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goPrivacy">
       <view class="row">
         <text class="mi-menu-icon">🛡</text>

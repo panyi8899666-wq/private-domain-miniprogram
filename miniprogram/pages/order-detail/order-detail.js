@@ -7,7 +7,7 @@
  */
 const { callFunction } = require('../../utils/request');
 const { formatAmount, formatTime, maskPhone } = require('../../utils/format');
-const { ORDER_STATUS_TEXT, ORDER_STATUS } = require('../../utils/constants');
+const { ORDER_STATUS_TEXT, ORDER_STATUS, DESIGNER } = require('../../utils/constants');
 
 /** 商家联系电话（占位号码，上线前替换为官方客服电话） */
 const CONTACT_PHONE = '17306983179';
@@ -47,7 +47,9 @@ Page({
     canCancel: false,
     canContact: false,
     paying: false,
-    cancelling: false
+    cancelling: false,
+    messageInput: '',
+    sendingMessage: false
   },
 
   onLoad(query) {
@@ -127,7 +129,38 @@ Page({
     const address = order.address || {};
     const quote = order.quote || null;
 
+    // 对接设计师：云函数返回 designer 对象时优先用它，否则默认用常量；
+    // 避免老订单因无此字段而空白或报错
+    const designer =
+      order.designer && typeof order.designer === 'object'
+        ? Object.assign({}, DESIGNER, order.designer)
+        : DESIGNER;
+
+    // 对接留言 thread：客户留言 + 对接回复按时间合并展示
+    const thread = []
+      .concat(
+        (order.clientMessages || []).map((m, idx) => ({
+          key: 'c_' + idx,
+          fromText: '我',
+          text: m.text || '',
+          at: m.at || 0,
+          atText: m.at != null ? formatTime(m.at) : '',
+          isDesigner: false
+        })),
+        (order.designerReplies || []).map((m, idx) => ({
+          key: 'd_' + idx,
+          fromText: (m.name || 'Muse') + ' · 对接设计师',
+          text: m.text || '',
+          at: m.at || 0,
+          atText: m.at != null ? formatTime(m.at) : '',
+          isDesigner: true
+        }))
+      )
+      .sort((a, b) => a.at - b.at);
+
     const decorated = {
+      designer: designer,
+      thread: thread,
       orderNo: order.orderNo || '',
       status: status,
       statusText: ORDER_STATUS_TEXT[status] || status || '未知',
@@ -209,6 +242,30 @@ Page({
       return;
     }
     wx.previewImage({ urls: fileIds, current: fileIds[Math.min(index, fileIds.length - 1)] });
+  },
+
+  /** 对接留言输入 */
+  onMessageInput(e) {
+    this.setData({ messageInput: (e.detail && e.detail.value) || '' });
+  },
+
+  /** 发送对接留言（只追加留言，不改订单状态与金额） */
+  sendMessage() {
+    const text = (this.data.messageInput || '').trim();
+    if (!text || this.data.sendingMessage) return;
+    this.setData({ sendingMessage: true });
+    callFunction('addOrderMessage', {
+      payload: { orderId: this.orderId, text },
+      showError: true
+    })
+      .then(() => {
+        this.setData({ messageInput: '', sendingMessage: false });
+        wx.showToast({ title: '已发送，对接设计师会按订单回复', icon: 'none' });
+        this.fetchDetail();
+      })
+      .catch(() => {
+        this.setData({ sendingMessage: false });
+      });
   },
 
   /** 去支付 */

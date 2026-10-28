@@ -8,7 +8,8 @@
     "pages/custom/custom",
     "pages/orders/orders",
     "pages/order-detail/order-detail",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/designer/designer"
   ],
   "window": {
     "backgroundTextStyle": "light",

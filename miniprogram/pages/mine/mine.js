@@ -1,7 +1,7 @@
 /**
  * 个人中心页（tabBar，REQ-044、REQ-042、REQ-051、REQ-024）
  * - 头像/昵称区：未登录显示「点击登录」，登录调 login 云函数换取 openid 与用户记录
- * - 我的订单入口、收货地址入口（微信官方地址簿 wx.chooseAddress）、联系商家、隐私协议、退出登录
+ * - 我的订单入口、收货地址入口（微信官方地址簿 wx.chooseAddress）、联系商家、对接设计师窗口、隐私协议、退出登录
  */
 const auth = require('../../utils/auth');
 const { maskPhone } = require('../../utils/format');
@@ -94,6 +94,11 @@ Page({
         }
       });
     });
+  },
+
+  /** 对接设计师窗口 */
+  goDesigner() {
+    wx.navigateTo({ url: '/pages/designer/designer' });
   },
 
   /** 联系商家 */
