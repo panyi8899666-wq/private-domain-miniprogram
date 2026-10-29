@@ -1,7 +1,7 @@
 {
   "key": "main",
   "_source": "由 content/site.json + content/home.json 转换；已整体丢弃 wechat.*（个人微信号/二维码）、social.*（第三方占位外链）与 order.json.payment.*（收款码），并将 hero/process 中『加微信』相关文案改造为官方支付流程文案，满足 REQ-048/REQ-049。",
-  "siteName": "潘工·广告物料制作",
+  "siteName": "正鑫越文化工作室",
   "slogan": "10+年广告标识与发光字经验，3D视效·展台美陈·户外标识一站式",
   "hero": {
     "badge": "广告标识·发光字·一站式服务",
@@ -78,7 +78,7 @@
   "processCtaText": "立即下单 / 提交定制需求",
   "processCtaPath": "/pages/custom/custom",
   "enterprise": {
-    "subjectName": "潘工·广告物料制作",
+    "subjectName": "正鑫越文化工作室",
     "qualificationNote": "营业执照等经营资质按微信小程序平台要求展示",
     "serviceCommitment": "物料参数与价格如实说明，不作夸大或虚假宣传"
   },

@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "private": true,
   "type": "commonjs",
-  "description": "潘工·广告物料制作 微信小程序（原生 WXML/WXSS/JS + 云开发）。小程序与云函数均使用 CommonJS，故显式声明 commonjs，避免被根 package.json 的 type:module 影响。"
+  "description": "正鑫越文化工作室 微信小程序（原生 WXML/WXSS/JS + 云开发）。小程序与云函数均使用 CommonJS，故显式声明 commonjs，避免被根 package.json 的 type:module 影响。"
 }

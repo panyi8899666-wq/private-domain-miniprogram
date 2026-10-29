@@ -1,5 +1,5 @@
 {
-  "description": "潘工·广告物料制作 微信小程序（原生 WXML/WXSS/JS + 云开发）",
+  "description": "正鑫越文化工作室 微信小程序（原生 WXML/WXSS/JS + 云开发）",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -46,7 +46,7 @@
   "compileType": "miniprogram",
   "libVersion": "3.5.5",
   "appid": "touristappid",
-  "projectname": "pan-gong-miniprogram",
+  "projectname": "正鑫越文化工作室",
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "condition": {},

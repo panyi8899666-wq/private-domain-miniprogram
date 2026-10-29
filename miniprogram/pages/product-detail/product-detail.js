@@ -270,7 +270,7 @@ Page({
   onShareAppMessage() {
     const product = this.data.product || {};
     return {
-      title: product.name || '潘工·广告物料制作',
+      title: product.name || '正鑫越文化工作室',
       path: '/pages/product-detail/product-detail?id=' + this.productId,
       imageUrl: this.data.images[0] || ''
     };

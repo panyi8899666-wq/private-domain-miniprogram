@@ -22,7 +22,7 @@ Page({
   data: {
     loading: true,
     error: null,
-    siteName: '潘工·广告物料制作',
+    siteName: '正鑫越文化工作室',
     slogan: '',
     heroTitle: '发光字 · 展台美陈 · 户外标识 · 3D设计',
     heroSubtitle: '',
@@ -42,7 +42,7 @@ Page({
         const site = data.site || {};
         this.setData({
           loading: false,
-          siteName: site.siteName || '潘工·广告物料制作',
+          siteName: site.siteName || '正鑫越文化工作室',
           slogan: site.slogan || '',
           heroTitle: (site.hero && site.hero.title) || '发光字 · 展台美陈 · 户外标识 · 3D设计',
           heroSubtitle: (site.hero && site.hero.subtitle) || '',
