@@ -1,7 +1,7 @@
 /**
  * 个人中心页（tabBar，REQ-044、REQ-042、REQ-051、REQ-024）
  * - 头像/昵称区：未登录显示「点击登录」，登录调 login 云函数换取 openid 与用户记录
- * - 我的订单入口、收货地址入口（微信官方地址簿 wx.chooseAddress）、联系商家、对接设计师窗口、隐私协议、退出登录
+ * - 我的资料入口、我的订单入口、收货地址管理页（云端落库）、联系商家、对接设计师窗口、隐私协议、退出登录
  */
 const auth = require('../../utils/auth');
 const { maskPhone } = require('../../utils/format');
@@ -60,6 +60,13 @@ Page({
     }
   },
 
+  /** 我的资料 */
+  goProfile() {
+    this.ensureLogin(() => {
+      wx.navigateTo({ url: '/pages/profile/profile' });
+    });
+  },
+
   /** 我的订单 */
   goOrders() {
     this.ensureLogin(() => {
@@ -67,32 +74,10 @@ Page({
     });
   },
 
-  /** 收货地址入口：微信官方地址簿导入并保存为常用地址 */
-  goAddress() {
+  /** 收货地址管理（第一批注册入口：独立管理页，落库到云端） */
+  goAddresses() {
     this.ensureLogin(() => {
-      wx.chooseAddress({
-        success: (res) => {
-          const address = {
-            name: res.userName || '',
-            phone: res.telNumber || '',
-            detail: '收件地址（由微信地址簿导入）',
-            addressId: 'wx_' + Date.now()
-          };
-          try {
-            const user = auth.getLocalUser() || {};
-            const list = Array.isArray(user.addresses) ? user.addresses : [];
-            list.unshift(address);
-            user.addresses = list.slice(0, 10);
-            auth.persistAuth(auth.getOpenid(), user);
-          } catch (err) {
-            console.warn('[mine] 保存地址失败', err);
-          }
-          wx.showToast({ title: '已保存地址', icon: 'success' });
-        },
-        fail: () => {
-          // 用户取消，静默处理
-        }
-      });
+      wx.navigateTo({ url: '/pages/addresses/addresses' });
     });
   },
 

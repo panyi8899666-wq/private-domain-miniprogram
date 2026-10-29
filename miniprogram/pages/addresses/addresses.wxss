@@ -1,0 +1,81 @@
+.ad-empty {
+  padding: 40rpx 24rpx;
+  text-align: center;
+}
+.ad-item {
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+.ad-default {
+  font-size: 22rpx;
+  color: #3ec6ff;
+  border: 1rpx solid #3ec6ff;
+  border-radius: 20rpx;
+  padding: 2rpx 14rpx;
+}
+.ad-detail {
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+.ad-actions {
+  display: flex;
+  gap: 40rpx;
+  margin-top: 8rpx;
+}
+.ad-action {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+.ad-danger {
+  color: #ff5c5c;
+}
+.ad-form {
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 28rpx;
+  margin-top: 8rpx;
+}
+.ad-form-actions {
+  display: flex;
+  gap: 20rpx;
+}
+.ad-form-btn {
+  flex: 1;
+  margin: 0;
+}
+.ad-bottom-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 28rpx;
+}
+.ad-bottom-btn {
+  flex: 1;
+  margin: 0;
+}
+.pf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+.pf-label {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+.pf-input {
+  height: 84rpx;
+  border: 1rpx solid var(--border-line);
+  border-radius: var(--radius-tag);
+  padding: 0 24rpx;
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.pf-picker {
+  color: var(--text-primary);
+}

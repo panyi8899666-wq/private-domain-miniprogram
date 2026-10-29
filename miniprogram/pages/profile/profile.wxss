@@ -1,0 +1,67 @@
+.pf-form {
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 28rpx;
+}
+.pf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+.pf-label {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+.pf-input {
+  height: 84rpx;
+  border: 1rpx solid var(--border-line);
+  border-radius: var(--radius-tag);
+  padding: 0 24rpx;
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
+  font-size: 28rpx;
+}
+.pf-radio {
+  margin-right: 48rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+.pf-mini-btn {
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  margin: 0;
+  border-radius: var(--radius-tag);
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
+  border: 1rpx solid var(--border-line);
+}
+.pf-mini-btn::after {
+  border: none;
+}
+.pf-auth-btn {
+  width: 100%;
+  margin: 0;
+}
+.pf-link {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+.pf-link-row {
+  padding: 28rpx 24rpx;
+  margin-top: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pf-save {
+  width: 100%;
+  margin-top: 32rpx;
+}
+.pf-tip {
+  margin-top: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+}

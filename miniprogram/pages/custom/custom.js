@@ -7,6 +7,7 @@
  */
 const { callFunction, buildErrorState } = require('../../utils/request');
 const { requireLogin, getPhoneNumber } = require('../../utils/auth');
+const profile = require('../../utils/profile');
 const { UPLOAD_LIMITS } = require('../../utils/constants');
 
 function genClientRequestId(prefix) {
@@ -258,7 +259,10 @@ Page({
 
     requireLogin({ message: '提交定制需求需要登录，是否立即登录？' }).then((ok) => {
       if (!ok) return;
-      this.submitOrder(contactPhone);
+      // 第一批注册入口：资料不全（姓名/手机号/收货地址）先引导补齐
+      profile.requireOrderProfile().then((ready) => {
+        if (ready) this.submitOrder(contactPhone);
+      });
     });
   },
 

@@ -17,6 +17,16 @@
 
   <!-- 菜单列表 -->
   <view class="mi-menu card-surface">
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goProfile">
+      <view class="row">
+        <text class="mi-menu-icon">👤</text>
+        <text class="mi-menu-text">我的资料</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
     <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goOrders">
       <view class="row">
         <text class="mi-menu-icon">📋</text>
@@ -27,7 +37,7 @@
 
     <view class="mi-divider"></view>
 
-    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goAddress">
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goAddresses">
       <view class="row">
         <text class="mi-menu-icon">📍</text>
         <text class="mi-menu-text">收货地址</text>

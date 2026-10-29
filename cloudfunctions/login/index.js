@@ -43,6 +43,12 @@ function toPublicUser(user) {
     phone: maskPhone(user.phone),
     hasPhone: !!user.phone,
     role: user.role || 'customer',
+    realName: user.realName || '',
+    company: user.company || '',
+    customerType: user.customerType || 'personal',
+    industry: user.industry || '',
+    invoiceTitle: user.invoiceTitle || '',
+    taxNo: user.taxNo || '',
     addresses: Array.isArray(user.addresses) ? user.addresses : [],
     privacyAgreedAt: user.privacyAgreedAt || 0
   };
@@ -85,6 +91,12 @@ exports.main = async (event) => {
         nickName,
         avatarUrl,
         phone: '',
+        realName: '',
+        company: '',
+        customerType: 'personal',
+        industry: '',
+        invoiceTitle: '',
+        taxNo: '',
         addresses: [],
         role: 'customer', // 商家角色需在云开发控制台手动设置 users.role='merchant'
         privacyAgreedAt: 0,

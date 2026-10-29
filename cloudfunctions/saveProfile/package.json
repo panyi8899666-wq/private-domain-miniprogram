@@ -1,0 +1,1 @@
+{"dependencies":{"wx-server-sdk":"~2.6.3"},"description":"保存客户注册资料（姓名/公司/类型/行业/开票）","main":"index.js","name":"saveProfile","version":"1.0.0"}

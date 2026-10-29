@@ -8,6 +8,7 @@
 const { callFunction } = require('../../utils/request');
 const { formatAmount } = require('../../utils/format');
 const { requireLogin } = require('../../utils/auth');
+const profile = require('../../utils/profile');
 
 const PLACEHOLDER = '/images/placeholder.png';
 
@@ -188,7 +189,16 @@ Page({
   /** 立即购买 */
   onBuy() {
     if (this.data.submitting) return;
-    const { specs, selectedSpecId, quantity, address } = this.data;
+    const { specs, selectedSpecId, quantity } = this.data;
+    let address = this.data.address;
+    // 第一批注册入口：未选收货信息时，优先用客户默认地址预填
+    if (!address || !address.name || !address.phone || !address.detail) {
+      const d = profile.getDefaultAddress();
+      if (d) {
+        address = { name: d.name, phone: d.phone, detail: d.detail, addressId: d.addressId };
+        this.setData({ address: address });
+      }
+    }
     const spec = specs.find((s) => s && s.specId === selectedSpecId);
     if (!spec) {
       wx.showToast({ title: '请先选择规格', icon: 'none' });
@@ -202,7 +212,10 @@ Page({
     // 下单前登录引导（REQ-023 前置）
     requireLogin({ message: '下单需要登录，是否立即登录？' }).then((ok) => {
       if (!ok) return;
-      this.submitOrder(spec);
+      // 第一批注册入口：资料不全（姓名/手机号/收货地址）先引导补齐
+      profile.requireOrderProfile().then((ready) => {
+        if (ready) this.submitOrder(spec);
+      });
     });
   },
 

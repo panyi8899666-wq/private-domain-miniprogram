@@ -9,6 +9,8 @@
     "pages/orders/orders",
     "pages/order-detail/order-detail",
     "pages/mine/mine",
+    "pages/profile/profile",
+    "pages/addresses/addresses",
     "pages/designer/designer"
   ],
   "window": {

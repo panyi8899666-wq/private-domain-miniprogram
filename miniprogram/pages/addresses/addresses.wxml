@@ -1,0 +1,54 @@
+<view class="page-container">
+  <view class="section">
+    <view class="section-title">收货地址</view>
+    <view class="text-aux">下单时默认使用默认地址；地址会同步保存到云端，换设备也不丢失。</view>
+  </view>
+
+  <view wx:if="{{!list.length && !showForm}}" class="card-surface ad-empty">
+    <text class="text-aux">还没有收货地址，先新增一条吧。</text>
+  </view>
+
+  <view wx:for="{{list}}" wx:key="addressId" class="card-surface ad-item">
+    <view class="row-between">
+      <text class="text-body">{{item.name}} {{item.phone}}</text>
+      <text wx:if="{{item.isDefault}}" class="ad-default">默认</text>
+    </view>
+    <text class="text-aux ad-detail">{{item.detail}}</text>
+    <view class="ad-actions">
+      <text class="ad-action" wx:if="{{!item.isDefault}}" data-id="{{item.addressId}}" bindtap="onSetDefault">设为默认</text>
+      <text class="ad-action" data-id="{{item.addressId}}" bindtap="onEdit">编辑</text>
+      <text class="ad-action ad-danger" data-id="{{item.addressId}}" bindtap="onDelete">删除</text>
+    </view>
+  </view>
+
+  <view wx:if="{{showForm}}" class="card-surface ad-form">
+    <view class="pf-field">
+      <text class="pf-label">收货人</text>
+      <input class="pf-input" placeholder="请填写收货人姓名" maxlength="30" value="{{formName}}" bindinput="onName" />
+    </view>
+    <view class="pf-field">
+      <text class="pf-label">手机号</text>
+      <input class="pf-input" type="number" placeholder="请填写 11 位手机号" maxlength="11" value="{{formPhone}}" bindinput="onPhone" />
+    </view>
+    <view class="pf-field">
+      <text class="pf-label">省市区</text>
+      <picker mode="region" value="{{region}}" bindchange="onRegionChange">
+        <view class="pf-input pf-picker">{{region.length ? region.join(' ') : '请选择省市区'}}</view>
+      </picker>
+    </view>
+    <view class="pf-field">
+      <text class="pf-label">详细地址</text>
+      <input class="pf-input" placeholder="街道、门牌号" maxlength="200" value="{{formDetailInfo}}" bindinput="onDetailInfo" />
+    </view>
+    <view class="ad-form-actions">
+      <button class="btn-secondary-glow ad-form-btn" bindtap="onCancelForm">取消</button>
+      <button class="btn-primary-glow ad-form-btn" bindtap="onSaveForm">保存地址</button>
+    </view>
+  </view>
+
+  <view wx:if="{{!showForm}}" class="ad-bottom-actions">
+    <button class="btn-secondary-glow ad-bottom-btn" bindtap="onImportWx">微信导入</button>
+    <button class="btn-primary-glow ad-bottom-btn" bindtap="onAdd">新增地址</button>
+  </view>
+  <view class="safe-bottom"></view>
+</view>

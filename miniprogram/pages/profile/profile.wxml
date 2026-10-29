@@ -1,0 +1,65 @@
+<view class="page-container">
+  <view class="section">
+    <view class="section-title">客户资料</view>
+    <view class="text-aux">姓名用于订单联系与交付确认；开票信息仅在需要开票时使用。</view>
+  </view>
+
+  <view class="card-surface pf-form">
+    <view class="pf-field">
+      <text class="pf-label">真实姓名 *</text>
+      <input class="pf-input" placeholder="请填写真实姓名" maxlength="20" value="{{realName}}" bindinput="onRealName" />
+    </view>
+
+    <view class="pf-field">
+      <text class="pf-label">手机号 *</text>
+      <view wx:if="{{phoneMasked}}" class="row-between">
+        <text class="text-body">{{phoneMasked}}</text>
+        <button class="pf-mini-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">重新授权</button>
+      </view>
+      <view wx:else>
+        <button class="btn-secondary-glow pf-auth-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">微信手机号快捷授权</button>
+        <text class="pf-link" bindtap="onManualPhoneTap">手动填写手机号</text>
+      </view>
+      <view wx:if="{{manualInput}}">
+        <input class="pf-input" type="number" placeholder="请填写 11 位手机号" maxlength="11" value="{{manualPhone}}" bindinput="onManualPhone" />
+      </view>
+    </view>
+
+    <view class="pf-field">
+      <text class="pf-label">客户类型</text>
+      <radio-group bindchange="onTypeChange">
+        <label class="pf-radio"><radio value="personal" checked="{{customerType === 'personal'}}" />个人客户</label>
+        <label class="pf-radio"><radio value="company" checked="{{customerType === 'company'}}" />企业客户</label>
+      </radio-group>
+    </view>
+
+    <view class="pf-field">
+      <text class="pf-label">公司名称</text>
+      <input class="pf-input" placeholder="企业客户请填写公司全称" maxlength="60" value="{{company}}" bindinput="onCompany" />
+    </view>
+
+    <view class="pf-field">
+      <text class="pf-label">行业</text>
+      <input class="pf-input" placeholder="如：餐饮、酒店、广告" maxlength="30" value="{{industry}}" bindinput="onIndustry" />
+    </view>
+
+    <view class="pf-field">
+      <text class="pf-label">开票抬头</text>
+      <input class="pf-input" placeholder="需要开票时填写" maxlength="60" value="{{invoiceTitle}}" bindinput="onInvoiceTitle" />
+    </view>
+
+    <view class="pf-field">
+      <text class="pf-label">税号</text>
+      <input class="pf-input" placeholder="15 / 18 / 20 位字母数字" maxlength="20" value="{{taxNo}}" bindinput="onTaxNo" />
+    </view>
+  </view>
+
+  <view class="card-surface pf-link-row" bindtap="goAddresses">
+    <text class="text-body">收货地址管理</text>
+    <text class="text-muted">›</text>
+  </view>
+
+  <button class="btn-primary-glow pf-save" bindtap="onSave" disabled="{{saving}}">保存资料</button>
+  <view class="text-muted pf-tip">资料仅用于订单联系、发货与开票，不会对外公开。</view>
+  <view class="safe-bottom"></view>
+</view>

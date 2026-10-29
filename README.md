@@ -12,7 +12,7 @@
 
 ```
 ├── miniprogram/          小程序前端
-│   ├── pages/            10 个页面
+│   ├── pages/            12 个页面
 │   │   ├── index/        首页
 │   │   ├── material/     材质百科（5 大类 110 材质浏览）
 │   │   ├── works/        作品集
@@ -22,12 +22,15 @@
 │   │   ├── orders/       我的订单
 │   │   ├── order-detail/ 订单详情
 │   │   ├── mine/         个人中心
+│   │   ├── profile/      客户注册资料（第一批注册入口）
+│   │   ├── addresses/    收货地址管理（第一批注册入口）
 │   │   └── designer/     对接设计师窗口（Muse）
 │   ├── components/       9 个公共组件
 │   ├── images/           图标 + 材质图（110 张）
-│   └── utils/            工具函数（request/constants/format/auth）
-├── cloudfunctions/       16 个云函数（后端，含对接桥 3 个）
+│   └── utils/            工具函数（request/constants/format/auth/profile）
+├── cloudfunctions/       18 个云函数（后端，含对接桥 3 个、注册入口 2 个）
 │   ├── login/ getPhoneNumber/           登录、手机号
+│   ├── saveProfile/ saveAddresses/      客户资料、地址管理（第一批注册入口）
 │   ├── getContent/ getProducts/         内容、商品查询
 │   ├── createOrder/ createCustomOrder/  下单
 │   ├── submitQuote/                     商家报价
@@ -58,7 +61,7 @@
   下只存设计文件与源文件（最终确认版），另附一份备注（首行即客户名称-下单日期-设计名称），
   工具与规则见 `muse-bridge/archive.py` 与桥文档存档一节；
   需百度开放平台 API 时再找 pan 要，现在不问。
-- 云函数现为 16 个：原有 13 个 + `musePoll`、`museReply`、`addOrderMessage`。
+- 云函数现为 18 个：原有 13 个 + `musePoll`、`museReply`、`addOrderMessage`（对接桥 3 个）+ `saveProfile`、`saveAddresses`（第一批注册入口 2 个）。
   上线前须完成正式 AppID、云环境、环境变量与 AppSecret 安全存储等一次性步骤，
   详见 `muse-bridge/README.md`“上线前 pan 只需做一次”一节。
 
