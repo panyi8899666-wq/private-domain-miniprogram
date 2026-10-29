@@ -40,7 +40,7 @@ miniprogram/
 
 | 占位项 | 位置 | 说明 |
 |-------|------|------|
-| **云开发环境 ID** | `miniprogram/app.js` 顶部 `CLOUD_ENV_ID = 'YOUR_ENV_ID'` | 替换为真实环境 ID（云开发控制台可查），否则云函数调用会失败 |
+| **云开发环境 ID** | `miniprogram/app.js` 顶部 `CLOUD_ENV_ID = 'cloud1-d0get66qf4fc7987f'` | 已于 2026-10-29 填入微信体验版环境 ID（云开发控制台可查） |
 | **小程序 AppID** | 根目录 `project.config.json` 的 `"appid": "touristappid"` | 替换为企业主体小程序 AppID；`touristappid` 仅用于游客模式预览 |
 | **TabBar 图标** | `miniprogram/images/tabbar/*.png` | 当前为脚本生成的纯几何占位图标，可替换为正式设计图标（81×81px @3x） |
 | **占位图** | `miniprogram/images/placeholder.png` | 图片加载失败/无数据时展示，可替换为品牌化占位图 |

@@ -6,11 +6,11 @@
  *
  * ⚠️ 部署前必须将 CLOUD_ENV_ID 替换为真实的云开发环境 ID，详见 miniprogram/README.md
  */
-const CLOUD_ENV_ID = 'YOUR_ENV_ID'; // TODO: 替换为真实云开发环境 ID，例如 'pan-gong-prod-1a2b3c'
+const CLOUD_ENV_ID = 'cloud1-d0get66qf4fc7987f'; // 2026-10-29 填入微信体验版环境 ID
 
 App({
   globalData: {
-    /** 云开发环境 ID（占位，部署前替换） */
+    /** 云开发环境 ID（微信体验版环境） */
     envId: CLOUD_ENV_ID,
     /** 当前用户 openid（由云端返回，前端不得自行生成） */
     openid: '',
