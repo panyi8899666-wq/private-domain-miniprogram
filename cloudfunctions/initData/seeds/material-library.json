@@ -34,7 +34,7 @@
             "priceRange": "10-25",
             "note": "海报/展架/易拉宝最常用，材质轻、易卷曲，需覆膜防刮防水",
             "code": "spray-1-1",
-            "image": "/images/materials/spray-1-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-1.png"
           },
           {
             "name": "相纸",
@@ -61,7 +61,7 @@
             "priceRange": "15-40",
             "note": "高光泽、色彩饱和，照片级海报、婚纱照用，需覆膜保护",
             "code": "spray-1-2",
-            "image": "/images/materials/spray-1-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-2.png"
           },
           {
             "name": "背胶",
@@ -87,7 +87,7 @@
             "priceRange": "8-20",
             "note": "自带不干胶（PP背胶），可直接粘贴，常用于裱KT板做展板",
             "code": "spray-1-3",
-            "image": "/images/materials/spray-1-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-3.png"
           },
           {
             "name": "灯片",
@@ -112,7 +112,7 @@
             "priceRange": "15-35",
             "note": "半透明材质，配合灯箱背光呈现，商场/地铁灯箱广告用",
             "code": "spray-1-4",
-            "image": "/images/materials/spray-1-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-4.png"
           },
           {
             "name": "透明片",
@@ -136,7 +136,7 @@
             "priceRange": "15-30",
             "note": "PVC透明片全透明，用于玻璃橱窗贴、商场装饰",
             "code": "spray-1-5",
-            "image": "/images/materials/spray-1-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-5.png"
           },
           {
             "name": "油画布",
@@ -162,7 +162,7 @@
             "priceRange": "30-80",
             "note": "化纤/纯棉亚麻布基，仿油画纹理，装饰画、挂画，可绷木框",
             "code": "spray-1-6",
-            "image": "/images/materials/spray-1-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-6.png"
           },
           {
             "name": "无纺布",
@@ -186,7 +186,7 @@
             "priceRange": "15-40",
             "note": "布基材质，柔韧透气、可折叠，挂画、展架、会议背板",
             "code": "spray-1-7",
-            "image": "/images/materials/spray-1-7.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-7.png"
           },
           {
             "name": "丝绢布",
@@ -210,7 +210,7 @@
             "priceRange": "40-100",
             "note": "绢丝质感、光泽柔和，高档挂画、屏风、装饰画",
             "code": "spray-1-8",
-            "image": "/images/materials/spray-1-8.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-1-8.png"
           }
         ]
       },
@@ -245,7 +245,7 @@
             "priceRange": "10-25",
             "note": "520/530/550系列灯布，PVC基材，户外广告最基础经济材料，围挡/高炮/道旗",
             "code": "spray-2-1",
-            "image": "/images/materials/spray-2-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-1.png"
           },
           {
             "name": "灯箱布",
@@ -269,7 +269,7 @@
             "priceRange": "10-25",
             "note": "分内打光（内光布）、外打光（外光布），用于灯箱、门头招牌",
             "code": "spray-2-2",
-            "image": "/images/materials/spray-2-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-2.png"
           },
           {
             "name": "刀刮布",
@@ -294,7 +294,7 @@
             "priceRange": "15-35",
             "note": "PVC膜刀刮工艺基材（约420g），高强度耐撕裂、吸墨好、色彩饱和，大型门头/背景",
             "code": "spray-2-3",
-            "image": "/images/materials/spray-2-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-3.png"
           },
           {
             "name": "车身贴",
@@ -321,7 +321,7 @@
             "priceRange": "15-40",
             "note": "供车体/墙面贴覆，胶分白胶/灰胶/黑胶，导气槽款施工无气泡",
             "code": "spray-2-4",
-            "image": "/images/materials/spray-2-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-4.png"
           },
           {
             "name": "单透贴",
@@ -346,7 +346,7 @@
             "priceRange": "20-50",
             "note": "单孔透/单向透视膜PVC材质，车后窗、玻璃橱窗广告，外看画面内透光",
             "code": "spray-2-5",
-            "image": "/images/materials/spray-2-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-5.png"
           },
           {
             "name": "网格布",
@@ -369,7 +369,7 @@
             "priceRange": "10-25",
             "note": "网孔透风，高层户外大型广告抗风用，减轻风阻",
             "code": "spray-2-6",
-            "image": "/images/materials/spray-2-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-6.png"
           },
           {
             "name": "软膜",
@@ -393,7 +393,7 @@
             "priceRange": "30-60",
             "note": "软膜天花/灯膜，弹性佳、透光，卡布灯箱、天花吊顶",
             "code": "spray-2-7",
-            "image": "/images/materials/spray-2-7.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-7.png"
           },
           {
             "name": "黑白布",
@@ -416,7 +416,7 @@
             "priceRange": "8-20",
             "note": "黑底布（约440g），双面黑底不透光、遮挡性好，围挡/舞台背景",
             "code": "spray-2-8",
-            "image": "/images/materials/spray-2-8.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-2-8.png"
           }
         ]
       },
@@ -450,7 +450,7 @@
             "priceRange": "15-40",
             "note": "弱溶剂墨水户外耐候，车身、店面标识、户外海报",
             "code": "spray-3-1",
-            "image": "/images/materials/spray-3-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-3-1.png"
           },
           {
             "name": "PVC膜",
@@ -476,7 +476,7 @@
             "priceRange": "20-50",
             "note": "PVC硬片/透明膜，户外耐久，面板、贴面、装饰",
             "code": "spray-3-2",
-            "image": "/images/materials/spray-3-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-3-2.png"
           },
           {
             "name": "地贴",
@@ -501,7 +501,7 @@
             "priceRange": "30-60",
             "note": "地面广告指引，防滑耐磨、可移不留胶，商场/展会地面",
             "code": "spray-3-3",
-            "image": "/images/materials/spray-3-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-3-3.png"
           },
           {
             "name": "墙贴",
@@ -527,7 +527,7 @@
             "priceRange": "20-50",
             "note": "墙面彩绘/装饰，可移墙贴，室内背景墙、店面装饰",
             "code": "spray-3-4",
-            "image": "/images/materials/spray-3-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-3-4.png"
           }
         ]
       },
@@ -558,7 +558,7 @@
             "priceRange": "80-200",
             "note": "PMMA有机玻璃，高透亮、质感好，标识、装饰、展板",
             "code": "spray-4-1",
-            "image": "/images/materials/spray-4-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-4-1.png"
           },
           {
             "name": "PVC UV",
@@ -581,7 +581,7 @@
             "priceRange": "60-150",
             "note": "PVC板硬板，轻便平整，展板、标牌、面板",
             "code": "spray-4-2",
-            "image": "/images/materials/spray-4-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-4-2.png"
           },
           {
             "name": "发泡板UV",
@@ -604,7 +604,7 @@
             "priceRange": "50-120",
             "note": "聚氯乙烯发泡板（PVC发泡板），轻质、易加工，展架/背景板",
             "code": "spray-4-3",
-            "image": "/images/materials/spray-4-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-4-3.png"
           },
           {
             "name": "玻璃UV",
@@ -627,7 +627,7 @@
             "priceRange": "120-300",
             "note": "移门/背景墙/装饰玻璃，附着力佳、耐候",
             "code": "spray-4-4",
-            "image": "/images/materials/spray-4-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-4-4.png"
           },
           {
             "name": "金属UV",
@@ -649,7 +649,7 @@
             "priceRange": "150-350",
             "note": "铝板/不锈钢等金属基材，标牌、门牌、指示牌",
             "code": "spray-4-5",
-            "image": "/images/materials/spray-4-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-4-5.png"
           },
           {
             "name": "瓷砖UV",
@@ -671,7 +671,7 @@
             "priceRange": "100-250",
             "note": "背景墙、装饰画、地砖图案，耐刮耐磨、附着力强",
             "code": "spray-4-6",
-            "image": "/images/materials/spray-4-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/spray-4-6.png"
           }
         ]
       }
@@ -728,7 +728,7 @@
             "priceRange": "约 ¥6~15 / ㎡（128g 约 ¥6~8，300g 约 ¥12~15）",
             "note": "又称涂布印刷纸/粉纸，纸面光滑白度高、吸墨性好，画册/彩页/海报常用；缺点是不耐折、受潮易粘连",
             "code": "print-1-1",
-            "image": "/images/materials/print-1-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-1.png"
           },
           {
             "name": "哑粉纸",
@@ -759,7 +759,7 @@
             "priceRange": "约 ¥7~16 / ㎡（同克重比铜版纸略贵 10%~20%）",
             "note": "即无光铜版纸，反光低、网点细腻、显高档，高档画册/品牌广告单/名片常用",
             "code": "print-1-2",
-            "image": "/images/materials/print-1-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-2.png"
           },
           {
             "name": "双胶纸",
@@ -792,7 +792,7 @@
             "priceRange": "约 ¥8~12 / kg；A4 一包 500 张约 ¥20~40",
             "note": "旧称道林纸/胶版纸，双面光滑、白度适中，书刊正文/信纸/文件/宣传单页常用，写画与打印两相宜",
             "code": "print-1-3",
-            "image": "/images/materials/print-1-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-3.png"
           },
           {
             "name": "白卡纸",
@@ -824,7 +824,7 @@
             "priceRange": "约 ¥8~15 / ㎡（吨价约 ¥7500~10000）",
             "note": "漂白化学木浆、挺度高耐折、吸墨好，名片/卡片/吊牌/包装盒常用；行业四大龙头产能占超七成",
             "code": "print-1-4",
-            "image": "/images/materials/print-1-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-4.png"
           },
           {
             "name": "牛皮纸",
@@ -857,7 +857,7 @@
             "priceRange": "约 ¥5~9 / ㎡",
             "note": "kraft paper，强度高、环保可回收，本色黄/白色两种；纸袋、信封、包装、手提袋常用，可淋膜防水",
             "code": "print-1-5",
-            "image": "/images/materials/print-1-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-5.png"
           },
           {
             "name": "灰底白板纸",
@@ -888,7 +888,7 @@
             "priceRange": "约 ¥4~7 / ㎡",
             "note": "又称白板/粉灰/灰铜，正面白涂布、底面灰色，包装盒/纸箱面纸常用；分 A~F 五级",
             "code": "print-1-6",
-            "image": "/images/materials/print-1-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-6.png"
           },
           {
             "name": "卡纸",
@@ -918,7 +918,7 @@
             "priceRange": "约 ¥8~12 / ㎡",
             "note": "介于纸与纸板之间的厚纸统称，含灰底白板卡/铜板卡(SBS)/双灰纸板，挂历、卡片、包装面纸常用",
             "code": "print-1-7",
-            "image": "/images/materials/print-1-7.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-1-7.png"
           }
         ]
       },
@@ -954,7 +954,7 @@
             "priceRange": "约 ¥20~40 / ㎡",
             "note": "PP 原料合成纸，表面珍珠光泽、刚性高；油墨附着力需配合 UV 干燥，贺卡/高档包装/邀请函常用",
             "code": "print-2-1",
-            "image": "/images/materials/print-2-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-2-1.png"
           },
           {
             "name": "触感纸",
@@ -983,7 +983,7 @@
             "priceRange": "约 ¥20~40 / ㎡",
             "note": "表面天鹅绒般细腻绒感、抗刮耐折，高档礼盒/化妆品/首饰盒/画册封面常用，不适合四色满版印刷",
             "code": "print-2-2",
-            "image": "/images/materials/print-2-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-2-2.png"
           },
           {
             "name": "压纹纸",
@@ -1011,7 +1011,7 @@
             "priceRange": "约 ¥10~20 / ㎡",
             "note": "机械压花形成布纹/斜纹等 20 余种凹凸纹理，书籍封面/商务名片/文创包装常用；纸质较脆易裂",
             "code": "print-2-3",
-            "image": "/images/materials/print-2-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-2-3.png"
           },
           {
             "name": "金银卡纸",
@@ -1040,7 +1040,7 @@
             "priceRange": "约 ¥15~25 / ㎡",
             "note": "表面金属光泽（金/银/镭射），高档烟酒/化妆品/礼品包装常用，配合 UV/烫金营造华丽效果",
             "code": "print-2-4",
-            "image": "/images/materials/print-2-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-2-4.png"
           },
           {
             "name": "相纸",
@@ -1067,7 +1067,7 @@
             "priceRange": "约 ¥10~20 / ㎡（照片冲印按张计价）",
             "note": "分高光/哑光，照片打印、展架画面、证件照常用，覆膜可防褪色防刮",
             "code": "print-2-5",
-            "image": "/images/materials/print-2-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-2-5.png"
           }
         ]
       },
@@ -1108,7 +1108,7 @@
             "priceRange": "普通铜版纸约 ¥30~80 / 500 张；特种纸+烫金约 ¥100~500 / 500 张",
             "note": "标注姓名/职务/联系方式，国内通用规格 90×54mm，250g 哑粉纸为常见材质",
             "code": "print-3-1",
-            "image": "/images/materials/print-3-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-1.png"
           },
           {
             "name": "宣传单页(DM单)",
@@ -1136,7 +1136,7 @@
             "priceRange": "约 ¥0.2~0.6 / 张（A4 双面 500 张约 ¥100~300）",
             "note": "活动推广、产品促销常用，量大胶印更划算，小量走数码快印",
             "code": "print-3-2",
-            "image": "/images/materials/print-3-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-2.png"
           },
           {
             "name": "画册",
@@ -1165,7 +1165,7 @@
             "priceRange": "约 ¥5~50 / 本（视页数、装订与印量）",
             "note": "企业/产品/品牌形象展示核心物料，纸张克重与装订方式直接影响高级感",
             "code": "print-3-3",
-            "image": "/images/materials/print-3-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-3.png"
           },
           {
             "name": "折页",
@@ -1194,7 +1194,7 @@
             "priceRange": "约 ¥200~500 / 500 张（A4 三折）",
             "note": "折线处需压痕避免爆色，厚纸与覆膜纸尤其需压痕处理",
             "code": "print-3-4",
-            "image": "/images/materials/print-3-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-4.png"
           },
           {
             "name": "海报",
@@ -1225,7 +1225,7 @@
             "priceRange": "A2 约 ¥2~8 / 张；A0 约 ¥15~40 / 张",
             "note": "宣传招贴，含活动/演出信息；户外大尺寸多用喷绘而非胶印",
             "code": "print-3-5",
-            "image": "/images/materials/print-3-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-5.png"
           },
           {
             "name": "不干胶标签",
@@ -1256,7 +1256,7 @@
             "priceRange": "约 ¥0.05~0.5 / 枚（视材质、尺寸与数量）",
             "note": "自粘标签材料=面材+胶粘剂+涂硅底纸，产品标签/贴纸/防伪标常用",
             "code": "print-3-6",
-            "image": "/images/materials/print-3-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-6.png"
           },
           {
             "name": "包装盒",
@@ -1287,7 +1287,7 @@
             "priceRange": "约 ¥0.5~10 / 个（视尺寸、材质、工艺与印量）",
             "note": "纸盒为主流，模切+糊盒成型；高档包装常用白卡+烫金/UV 组合",
             "code": "print-3-7",
-            "image": "/images/materials/print-3-7.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-3-7.png"
           }
         ]
       },
@@ -1322,7 +1322,7 @@
             "priceRange": "开机费约 ¥200~500，之后按张叠加（大批量摊薄至几毛/张）",
             "note": "即平版/柯式印刷，借橡皮布转印、色彩还原好，画册/彩页/包装大批量首选；小量不划算",
             "code": "print-4-1",
-            "image": "/images/materials/print-4-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-1.png"
           },
           {
             "name": "数码快印",
@@ -1344,7 +1344,7 @@
             "priceRange": "约 ¥0.3~1 / 张（A4 彩色单面）",
             "note": "一张起印、立等可取，适合小批量/样书/个性化；大批量单价比胶印高",
             "code": "print-4-2",
-            "image": "/images/materials/print-4-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-2.png"
           },
           {
             "name": "丝网印刷",
@@ -1369,7 +1369,7 @@
             "priceRange": "制版费约 ¥50~300，印刷约 ¥1~10 / 张（视幅面）",
             "note": "孔版印刷，墨层厚实立体、颜色鲜艳，适合深色底/特种材质/户外耐候",
             "code": "print-4-3",
-            "image": "/images/materials/print-4-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-3.png"
           },
           {
             "name": "烫金/烫银",
@@ -1392,7 +1392,7 @@
             "priceRange": "版费约 ¥100~300，加工约 ¥0.1~0.5 / 次",
             "note": "即烫印，利用电化铝热压转移形成金属光泽（金/银/镭射），名片/包装/封面提升档次",
             "code": "print-4-4",
-            "image": "/images/materials/print-4-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-4.png"
           },
           {
             "name": "UV上光",
@@ -1416,7 +1416,7 @@
             "priceRange": "全面 UV 约 ¥2~5 / ㎡；局部 UV 另加版费约 ¥100~300",
             "note": "紫外线固化表面涂布，高光泽/耐磨/耐化学，成本约为覆膜一半且不易翘边",
             "code": "print-4-5",
-            "image": "/images/materials/print-4-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-5.png"
           },
           {
             "name": "覆膜(亮膜)",
@@ -1436,7 +1436,7 @@
             "priceRange": "约 ¥1.5~3 / ㎡",
             "note": "过亮膜，增光泽、防刮防水、提升挺度；画册封面/彩页/菜单常用",
             "code": "print-4-6",
-            "image": "/images/materials/print-4-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-6.png"
           },
           {
             "name": "覆膜(哑膜)",
@@ -1456,7 +1456,7 @@
             "priceRange": "约 ¥1.5~3 / ㎡",
             "note": "过哑膜，哑光质感、不反光更显高档，耐刮耐磨；高档画册/包装常用",
             "code": "print-4-7",
-            "image": "/images/materials/print-4-7.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-7.png"
           },
           {
             "name": "模切",
@@ -1480,7 +1480,7 @@
             "priceRange": "刀版费约 ¥50~300，加工按面积/次数计费",
             "note": "通过刀版冲出异形/圆角，可同步压痕；包装盒/标签/吊牌成型的关键工序",
             "code": "print-4-8",
-            "image": "/images/materials/print-4-8.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-8.png"
           },
           {
             "name": "压痕",
@@ -1502,7 +1502,7 @@
             "priceRange": "约 ¥0.1~0.3 / 次",
             "note": "用钢线压出折痕便于弯折，防厚纸/深色墨折叠处爆裂；折页/包装盒必备",
             "code": "print-4-9",
-            "image": "/images/materials/print-4-9.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-9.png"
           },
           {
             "name": "凹凸压印(击凸/压凹)",
@@ -1525,7 +1525,7 @@
             "priceRange": "版费约 ¥200~500，加工按面积计费",
             "note": "无需油墨，靠凹凸模具让图文隆起/凹陷成浮雕感，包装/封面/LOGO 提升质感",
             "code": "print-4-10",
-            "image": "/images/materials/print-4-10.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-10.png"
           },
           {
             "name": "打孔",
@@ -1548,7 +1548,7 @@
             "priceRange": "约 ¥0.05~0.2 / 孔",
             "note": "吊牌穿绳孔、活页装订孔、票据撕线孔；激光打孔精度更高",
             "code": "print-4-11",
-            "image": "/images/materials/print-4-11.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-4-11.png"
           }
         ]
       },
@@ -1583,7 +1583,7 @@
             "priceRange": "约 ¥0.05~0.3 / 刀（整令/整批计价更低）",
             "note": "印刷完成后的成尺寸切边工序，控制成品尺寸精度与齐整度",
             "code": "print-5-1",
-            "image": "/images/materials/print-5-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-5-1.png"
           },
           {
             "name": "折页",
@@ -1607,7 +1607,7 @@
             "priceRange": "约 ¥0.1~0.5 / 张（视折数）",
             "note": "按页码顺序折叠成规定幅面的关键工序，宣传折页/说明书/书帖必备",
             "code": "print-5-2",
-            "image": "/images/materials/print-5-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-5-2.png"
           },
           {
             "name": "装订-骑马钉",
@@ -1626,7 +1626,7 @@
             "priceRange": "约 ¥0.3~1.5 / 本",
             "note": "跨订书脊、成本低效率高，适合 ≤32 页（页码需 4 的倍数）薄本画册/杂志",
             "code": "print-5-3",
-            "image": "/images/materials/print-5-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-5-3.png"
           },
           {
             "name": "装订-胶装",
@@ -1647,7 +1647,7 @@
             "priceRange": "无线胶装约 ¥1~3 / 本；锁线胶装约 ¥2~6 / 本",
             "note": "胶装分无线胶订与锁线胶订，多数平装书/厚杂志采用；锁线更牢固适合厚册",
             "code": "print-5-4",
-            "image": "/images/materials/print-5-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-5-4.png"
           },
           {
             "name": "装订-线装",
@@ -1670,7 +1670,7 @@
             "priceRange": "约 ¥10~100 / 本（手工为主，视工艺繁简）",
             "note": "中国传统装订技法，外侧露线、封面绫绢包角，古籍/高端纪念册/永久档案采用",
             "code": "print-5-5",
-            "image": "/images/materials/print-5-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-5-5.png"
           },
           {
             "name": "装订-圈装",
@@ -1693,7 +1693,7 @@
             "priceRange": "约 ¥2~8 / 本（视厚度与圈材质）",
             "note": "螺旋/活页圈装订，可 360° 平铺翻折、替换内页，台历/书刊/培训手册常用",
             "code": "print-5-6",
-            "image": "/images/materials/print-5-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/print-5-6.png"
           }
         ]
       }
@@ -1740,7 +1740,7 @@
             "priceRange": "50-280",
             "note": "标识标牌/展示架最常用，透光率92%，5mm以上可做户外",
             "code": "acrylic-1-1",
-            "image": "/images/materials/acrylic-1-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-1-1.png"
           },
           {
             "name": "高透明净白板",
@@ -1765,7 +1765,7 @@
             "priceRange": "60-320",
             "note": "无杂质高透，钻石抛光后如玻璃般通透，高端展示用",
             "code": "acrylic-1-2",
-            "image": "/images/materials/acrylic-1-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-1-2.png"
           },
           {
             "name": "透明浇铸板（户外级）",
@@ -1794,7 +1794,7 @@
             "priceRange": "150-800",
             "note": "分子量大、耐候耐紫外，适合户外标识，户外寿命5-10年",
             "code": "acrylic-1-3",
-            "image": "/images/materials/acrylic-1-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-1-3.png"
           },
           {
             "name": "透明挤出板（户内级）",
@@ -1820,7 +1820,7 @@
             "priceRange": "25-150",
             "note": "厚度公差小、价格低，适合户内水晶字/产品支架",
             "code": "acrylic-1-4",
-            "image": "/images/materials/acrylic-1-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-1-4.png"
           }
         ]
       },
@@ -1854,7 +1854,7 @@
             "priceRange": "55-180",
             "note": "有色透明，用于灯箱字符、招牌水晶字、装饰",
             "code": "acrylic-2-1",
-            "image": "/images/materials/acrylic-2-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-2-1.png"
           },
           {
             "name": "彩色实色板（不透明）",
@@ -1879,7 +1879,7 @@
             "priceRange": "60-200",
             "note": "实色不透明，用于立体字、标牌、展示道具",
             "code": "acrylic-2-2",
-            "image": "/images/materials/acrylic-2-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-2-2.png"
           },
           {
             "name": "荧光色板",
@@ -1902,7 +1902,7 @@
             "priceRange": "80-220",
             "note": "荧光黄/橙/绿等，吸睛装饰、潮牌展示",
             "code": "acrylic-2-3",
-            "image": "/images/materials/acrylic-2-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-2-3.png"
           }
         ]
       },
@@ -1936,7 +1936,7 @@
             "priceRange": "50-150",
             "note": "一面磨砂一面光，柔光、遮挡、防指纹，灯箱面板常用",
             "code": "acrylic-3-1",
-            "image": "/images/materials/acrylic-3-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-3-1.png"
           },
           {
             "name": "双面磨砂板",
@@ -1959,7 +1959,7 @@
             "priceRange": "60-160",
             "note": "两面磨砂，柔光效果好，隔断/屏风/灯片",
             "code": "acrylic-3-2",
-            "image": "/images/materials/acrylic-3-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-3-2.png"
           },
           {
             "name": "磨砂透明板",
@@ -1983,7 +1983,7 @@
             "priceRange": "40-120",
             "note": "散射光线、遮挡视线，用于隔断、橱窗、装饰",
             "code": "acrylic-3-3",
-            "image": "/images/materials/acrylic-3-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-3-3.png"
           }
         ]
       },
@@ -2017,7 +2017,7 @@
             "priceRange": "40-120",
             "note": "乳白色光扩散板，均匀散射背光，灯箱面罩/发光字面板",
             "code": "acrylic-4-1",
-            "image": "/images/materials/acrylic-4-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-4-1.png"
           },
           {
             "name": "乳白吸光板",
@@ -2041,7 +2041,7 @@
             "priceRange": "30-90",
             "note": "吸光匀光，用于吸顶灯/筒灯罩、边框发光字",
             "code": "acrylic-4-2",
-            "image": "/images/materials/acrylic-4-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-4-2.png"
           },
           {
             "name": "双面磨砂乳白扩散板",
@@ -2063,7 +2063,7 @@
             "priceRange": "45-130",
             "note": "乳白双面磨砂，灯箱吊顶灯光片、PS扩散板",
             "code": "acrylic-4-3",
-            "image": "/images/materials/acrylic-4-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-4-3.png"
           }
         ]
       },
@@ -2097,7 +2097,7 @@
             "priceRange": "60-170",
             "note": "高反光镜面效果，展示陈列、装饰、陈列道具",
             "code": "acrylic-5-1",
-            "image": "/images/materials/acrylic-5-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-5-1.png"
           },
           {
             "name": "珠光板",
@@ -2120,7 +2120,7 @@
             "priceRange": "80-200",
             "note": "珠光闪烁质感，装饰性强，用于高端灯箱/展示",
             "code": "acrylic-5-2",
-            "image": "/images/materials/acrylic-5-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-5-2.png"
           },
           {
             "name": "半透镜面板",
@@ -2143,7 +2143,7 @@
             "priceRange": "90-220",
             "note": "半透半反光（单向可视），用于陈列窗、演艺道具",
             "code": "acrylic-5-3",
-            "image": "/images/materials/acrylic-5-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/acrylic-5-3.png"
           }
         ]
       }
@@ -2207,7 +2207,7 @@
             "priceRange": "约 ¥20~45 / ㎡（3mm 约 25~35 元/张，5mm 约 40~60 元/张，10mm 约 80~130 元/张）",
             "note": "PVC发泡板最常用颜色，俗称雪弗板/安迪板；皮-芯结构、表面致密平整，展板/标识/广告牌/KT板替代主流。密度约 0.45~0.80 g/cm³，防潮耐候、阻燃，比KT板耐用",
             "code": "pvc-1-1",
-            "image": "/images/materials/pvc-1-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-1-1.png"
           },
           {
             "name": "彩色发泡板",
@@ -2236,7 +2236,7 @@
             "priceRange": "约 ¥30~60 / ㎡（比白色略贵 10%~30%，视颜色与厚度）",
             "note": "红/黄/蓝/绿/橙等通体着色发泡板，无需覆膜即有底色，广告字底/展板/橱窗道具常用；颜色批次可能存在轻微色差",
             "code": "pvc-1-2",
-            "image": "/images/materials/pvc-1-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-1-2.png"
           },
           {
             "name": "黑色发泡板",
@@ -2264,7 +2264,7 @@
             "priceRange": "约 ¥30~55 / ㎡",
             "note": "黑色通体发泡板，用于深色底展板、雕刻字底、高档展示道具；深色底配合 UV 白墨打印效果佳",
             "code": "pvc-1-3",
-            "image": "/images/materials/pvc-1-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-1-3.png"
           },
           {
             "name": "高密度结皮发泡板",
@@ -2293,7 +2293,7 @@
             "priceRange": "约 ¥40~80 / ㎡（结皮/高密度板价高于普发泡板）",
             "note": "表面结皮层增厚、整体密度更高（约 0.7~0.8 g/cm³），刚性与耐候更好，用于户外标识、刻字、结构性展示件；弯曲强度约 3~15 MPa",
             "code": "pvc-1-4",
-            "image": "/images/materials/pvc-1-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-1-4.png"
           }
         ]
       },
@@ -2340,7 +2340,7 @@
             "priceRange": "约 ¥30~80 / ㎡（3mm 约 50~90 元/张，5mm 约 90~150 元/张）",
             "note": "未增塑PVC（PVC-U）实心板，密度约 1.3~1.45 g/cm³、强度高、结构致密，厚度≥1mm（参照 ISO 11833-1）；标识、标牌、雕刻字、化工防腐、设备衬板常用，耐酸碱、阻燃",
             "code": "pvc-2-1",
-            "image": "/images/materials/pvc-2-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-2-1.png"
           },
           {
             "name": "彩色硬质PVC板",
@@ -2367,7 +2367,7 @@
             "priceRange": "约 ¥40~90 / ㎡（比白色略贵）",
             "note": "红/黄/蓝/绿/黑等通体着色实心板，雕刻成型即可得彩色文字/图形，行业标识牌、门牌、刻度牌、安全警示牌常用",
             "code": "pvc-2-2",
-            "image": "/images/materials/pvc-2-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-2-2.png"
           },
           {
             "name": "透明硬质PVC板",
@@ -2396,7 +2396,7 @@
             "priceRange": "约 ¥40~90 / ㎡",
             "note": "透明/半透明硬质PVC，透光性好、价格低于亚克力，灯饰、展架、透明隔板、热弯罩壳用；户外长期易黄变，多用于户内",
             "code": "pvc-2-3",
-            "image": "/images/materials/pvc-2-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-2-3.png"
           }
         ]
       },
@@ -2436,7 +2436,7 @@
             "priceRange": "约 ¥25~60 / ㎡（车贴喷绘，视室内外与是否覆膜）",
             "note": "以PVC户外专用胶贴纸为主（PET等亦有），防UV、防水防晒、耐磨、撕后不留胶；中国规定车贴面积不得超过车身单幅20%且不得遮挡视线",
             "code": "pvc-3-1",
-            "image": "/images/materials/pvc-3-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-3-1.png"
           },
           {
             "name": "墙贴",
@@ -2463,7 +2463,7 @@
             "priceRange": "约 ¥15~40 / ㎡（成品墙贴按图案计价）",
             "note": "背面带胶PVC不干胶（即时贴），配可移除R胶与转移膜；三代产品含一代PVC刻字、二代PET印刷、三代透明PET珠光膜；居家/店铺墙面、玻璃、瓷砖装饰",
             "code": "pvc-3-2",
-            "image": "/images/materials/pvc-3-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-3-2.png"
           },
           {
             "name": "地贴",
@@ -2491,7 +2491,7 @@
             "priceRange": "约 ¥30~80 / ㎡（含覆耐磨膜）",
             "note": "以背胶写真或背胶车身贴为材料，表面覆膜防踩踏损伤，抗划/耐老化/耐腐蚀；室内使用寿命可达15年、室外约7年，适用于商场、会展、地铁、机场地面引导与广告",
             "code": "pvc-3-3",
-            "image": "/images/materials/pvc-3-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-3-3.png"
           },
           {
             "name": "PVC装饰膜/透明贴膜",
@@ -2516,7 +2516,7 @@
             "priceRange": "约 ¥15~50 / ㎡",
             "note": "PVC软膜（PVC film）耐候、柔软、具阻隔性，用于玻璃贴膜、灯箱软膜、展架画面、地板革、仿皮革；软质PVC含增塑剂（常用邻苯二甲酸酯类）",
             "code": "pvc-3-4",
-            "image": "/images/materials/pvc-3-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-3-4.png"
           }
         ]
       },
@@ -2552,7 +2552,7 @@
             "priceRange": "约 ¥20~80 / ㎡（视厚度与雕刻深度），按工时约 ¥50~150 / 小时",
             "note": "发泡板/硬质PVC板密度低、加工阻力小，尤其适合雕刻；发泡板可雕出文字/异形，PVC-U实心板雕刻标识字边缘更锐利",
             "code": "pvc-4-1",
-            "image": "/images/materials/pvc-4-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-4-1.png"
           },
           {
             "name": "UV平板打印",
@@ -2573,7 +2573,7 @@
             "priceRange": "约 ¥30~100 / ㎡（含白墨）",
             "note": "UV墨水在PVC板表面直接喷印、即打即干、色彩鲜艳附着力好，展板/标识/灯箱画面主流工艺；PVC板表面致密平整、易上墨",
             "code": "pvc-4-2",
-            "image": "/images/materials/pvc-4-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-4-2.png"
           },
           {
             "name": "丝网印刷",
@@ -2595,7 +2595,7 @@
             "priceRange": "制版费约 ¥50~300，印刷约 ¥1~10 / 张",
             "note": "墨层厚实、颜色鲜艳、耐候性强，适合PVC标牌/车贴/墙贴批量专色印刷",
             "code": "pvc-4-3",
-            "image": "/images/materials/pvc-4-3.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-4-3.png"
           },
           {
             "name": "热弯",
@@ -2616,7 +2616,7 @@
             "priceRange": "约 ¥5~30 / 件（按弯折道数与尺寸）",
             "note": "PVC板受热软化后可折弯/成弧，冷却定型；透明PVC护罩、展示架、异形壳罩常用；维卡软化点约 70~80°C，热弯温度需精确控制",
             "code": "pvc-4-4",
-            "image": "/images/materials/pvc-4-4.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-4-4.png"
           },
           {
             "name": "覆膜",
@@ -2640,7 +2640,7 @@
             "priceRange": "约 ¥2~8 / ㎡（视膜材）",
             "note": "板材面层贴装饰膜或喷绘画面贴保护膜；地贴覆耐磨膜防踩踏，展板覆亮/哑膜提升质感并防刮",
             "code": "pvc-4-5",
-            "image": "/images/materials/pvc-4-5.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-4-5.png"
           },
           {
             "name": "挤出/压延成型",
@@ -2664,7 +2664,7 @@
             "priceRange": "—",
             "note": "PVC板由树脂+热稳定剂/润滑剂/填料，经挤出或压延制成；发泡板引入发泡剂并控制泡孔结构；共挤可形成'皮-芯-皮'致密表层+泡沫芯层",
             "code": "pvc-4-6",
-            "image": "/images/materials/pvc-4-6.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/pvc-4-6.png"
           }
         ]
       }
@@ -2762,7 +2762,7 @@
             "priceRange": "250-800 元/㎡（市场参考价，需本地询价核实）",
             "note": "门头招牌常用，立体感强、发光均匀，面板为亚克力吸塑成型，耐候性优异，支持红黄蓝绿等多色定制",
             "code": "light-1-1",
-            "image": "/images/materials/light-1-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-1-1.png"
           },
           {
             "name": "亚克力吸塑灯箱字",
@@ -2790,7 +2790,7 @@
             "priceRange": "300-1000 元/㎡（市场参考价）",
             "note": "面板+独立箱体结构，透光更均匀，适合大型招牌",
             "code": "light-1-2",
-            "image": "/images/materials/light-1-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-1-2.png"
           }
         ]
       },
@@ -2833,7 +2833,7 @@
             "priceRange": "综合约 600-1500 元/㎡（按字计价，市场参考价）",
             "note": "最小可做5-6mm笔画，通体均匀发光，双色字壳效果精致，适合精工标识",
             "code": "light-2-1",
-            "image": "/images/materials/light-2-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-2-1.png"
           },
           {
             "name": "亚克力迷你字",
@@ -2862,7 +2862,7 @@
             "priceRange": "市场参考价（按字计价，需询价）",
             "note": "全亚克力制作，成本较树脂迷你字低，室内使用为主",
             "code": "light-2-2",
-            "image": "/images/materials/light-2-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-2-2.png"
           }
         ]
       },
@@ -2904,7 +2904,7 @@
             "priceRange": "800-1500 元/㎡（市场参考价）",
             "note": "亮度500-1500 Mcd，最小6mm笔画，防水，通体均匀发光；低温环境A料需预热50-60℃",
             "code": "light-3-1",
-            "image": "/images/materials/light-3-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-3-1.png"
           },
           {
             "name": "不锈钢边树脂发光字",
@@ -2933,7 +2933,7 @@
             "priceRange": "900-1600 元/㎡（市场参考价）",
             "note": "不锈钢边+树脂面，IP68 防护，-40℃到80℃稳定工作，适用于高空、墙体、水池等场景",
             "code": "light-3-2",
-            "image": "/images/materials/light-3-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-3-2.png"
           }
         ]
       },
@@ -2976,7 +2976,7 @@
             "priceRange": "综合约 600-1500 元/㎡（市场参考价）",
             "note": "字面不透光、背面发光形成光晕，高档氛围感强，面板拉丝或镜面不锈钢质感",
             "code": "light-4-1",
-            "image": "/images/materials/light-4-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-4-1.png"
           },
           {
             "name": "铝板背发光字",
@@ -3006,7 +3006,7 @@
             "priceRange": "市场参考价（按字计价）",
             "note": "铝板更轻、耐腐蚀，颜色可烤漆定制，室内高档标识常用",
             "code": "light-4-2",
-            "image": "/images/materials/light-4-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-4-2.png"
           }
         ]
       },
@@ -3053,7 +3053,7 @@
             "priceRange": "150-400 元/㎡（单色市场参考价）",
             "note": "IP65防水，单颗LED灯珠低至0.1W，灯珠外露点阵效果，镀锌板基材成本低、性价比高",
             "code": "light-5-1",
-            "image": "/images/materials/light-5-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-5-1.png"
           },
           {
             "name": "不锈钢冲孔字",
@@ -3082,7 +3082,7 @@
             "priceRange": "250-600 元/㎡（市场参考价）",
             "note": "不锈钢基材耐腐蚀，拉丝或镜面质感，光源颜色可灵活调整，不受基材色漆影响",
             "code": "light-5-2",
-            "image": "/images/materials/light-5-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-5-2.png"
           }
         ]
       },
@@ -3123,7 +3123,7 @@
             "priceRange": "400-1000 元/㎡（市场参考价）",
             "note": "镜面不锈钢亮镜围边效果，白天金属质感强，夜间发光均匀，底板焊接密封防水",
             "code": "light-6-1",
-            "image": "/images/materials/light-6-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-6-1.png"
           },
           {
             "name": "拉丝不锈钢发光字",
@@ -3153,7 +3153,7 @@
             "priceRange": "450-1200 元/㎡（市场参考价）",
             "note": "拉丝纹理呈现中高档哑光质感，耐指纹耐刮，适合品牌门头与建筑标识",
             "code": "light-6-2",
-            "image": "/images/materials/light-6-2.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-6-2.png"
           }
         ]
       },
@@ -3196,7 +3196,7 @@
             "priceRange": "综合约 400-800 元/㎡（市场参考价）",
             "note": "无金属围边、侧面透光，外观轻薄通透，适合简约风格，常与迷你字对比选用",
             "code": "light-7-1",
-            "image": "/images/materials/light-7-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-7-1.png"
           }
         ]
       },
@@ -3235,7 +3235,7 @@
             "priceRange": "600-1200 元/㎡（市场参考价）",
             "note": "铝边围边、三面通体发光，12V低压安全、节能，耐候性强、不易开裂变形",
             "code": "light-8-1",
-            "image": "/images/materials/light-8-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-8-1.png"
           }
         ]
       },
@@ -3274,7 +3274,7 @@
             "priceRange": "市场参考价（按字计价，需询价）",
             "note": "导光性强、质量轻，可配底光做发光效果；上色方式含原有色板、烤漆、写真粘贴、UV印色",
             "code": "light-9-1",
-            "image": "/images/materials/light-9-1.png"
+            "image": "cloud://cloud1-d0get66qf4fc7987f/materials/light-9-1.png"
           }
         ]
       }

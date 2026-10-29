@@ -1,7 +1,16 @@
 {
   "description": "正鑫越文化工作室 微信小程序（原生 WXML/WXSS/JS + 云开发）",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "images/materials"
+      },
+      {
+        "type": "folder",
+        "value": "images/works"
+      }
+    ],
     "include": []
   },
   "setting": {
