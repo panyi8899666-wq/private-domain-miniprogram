@@ -1,6 +1,6 @@
 name: wx-cloud-upload
 
-# 微信云开发文件上传：图片入库即自动跑；也可手动触发只验不传，或删旧作品。
+# 微信云开发文件上传：图片入库即自动跑；也可手动触发只验不传、删旧作品、修物料图。
 # 密钥只来自仓库 Secrets WX_APPSECRET，绝不进仓库、不进聊天、不进日志。
 # 运行报告写回仓库根目录 wx-cloud-upload-report.md（不在触发路径内，不会自循环）。
 
@@ -12,11 +12,11 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'upload（传图并验）或 verify（只验不传）或 delete-works（删 w001-w010 旧作品）'
+        description: 'upload（传图并验）或 verify（只验不传）或 delete-works（删 w001-w010 旧作品）或 fix-materials（修物料百科图片地址并补传）'
         required: false
         default: 'verify'
         type: choice
-        options: [upload, verify, delete-works]
+        options: [upload, verify, delete-works, fix-materials]
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
           python-version: '3.12'
       - run: pip install requests
       - name: Run upload/verify
-        if: ${{ inputs.mode != 'delete-works' }}
+        if: ${{ inputs.mode != 'delete-works' && inputs.mode != 'fix-materials' }}
         env:
           WX_APPSECRET: ${{ secrets.WX_APPSECRET }}
         run: python3 wx-cloud-upload/upload.py --mode "${{ inputs.mode || 'upload' }}"
@@ -40,6 +40,11 @@ jobs:
         env:
           WX_APPSECRET: ${{ secrets.WX_APPSECRET }}
         run: python3 wx-cloud-upload/delete_works.py
+      - name: Run fix-materials
+        if: ${{ inputs.mode == 'fix-materials' }}
+        env:
+          WX_APPSECRET: ${{ secrets.WX_APPSECRET }}
+        run: python3 wx-cloud-upload/materials_fix.py
       - name: Commit report
         run: |
           git config user.name "github-actions[bot]"
