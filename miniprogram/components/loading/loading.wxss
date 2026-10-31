@@ -6,6 +6,7 @@
   padding: 80rpx 0;
 }
 
+
 .loading-spinner {
   width: 56rpx;
   height: 56rpx;
@@ -13,8 +14,9 @@
   border: 5rpx solid var(--border-line);
   border-top-color: var(--accent-glow);
   animation: loading-rotate 0.9s linear infinite;
-  box-shadow: 0 0 18rpx rgba(62, 198, 255, 0.35);
+  box-shadow: 0 0 18rpx rgba(198, 161, 91, 0.35);
 }
+
 
 @keyframes loading-rotate {
   to {
@@ -22,16 +24,19 @@
   }
 }
 
+
 .loading-text {
   margin-top: var(--gap-md);
   font-size: 24rpx;
   color: var(--text-secondary);
 }
 
+
 /* ---------- 骨架屏 ---------- */
 .skeleton-wrap {
   padding: var(--gap-md) 0;
 }
+
 
 .skeleton-item {
   display: flex;
@@ -40,6 +45,7 @@
   padding: var(--gap-md);
   margin-bottom: var(--gap-md);
 }
+
 
 .skeleton-thumb {
   width: 140rpx;
@@ -50,11 +56,13 @@
   animation: skeleton-pulse 1.4s ease-in-out infinite;
 }
 
+
 .skeleton-lines {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+
 
 .skeleton-line {
   height: 28rpx;
@@ -63,14 +71,17 @@
   animation: skeleton-pulse 1.4s ease-in-out infinite;
 }
 
+
 .skeleton-line-lg {
   width: 70%;
   margin-bottom: var(--gap-sm);
 }
 
+
 .skeleton-line-sm {
   width: 45%;
 }
+
 
 @keyframes skeleton-pulse {
   0%, 100% {
