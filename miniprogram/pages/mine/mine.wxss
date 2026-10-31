@@ -22,7 +22,7 @@
   height: 120rpx;
   border-radius: 50%;
   background-color: var(--bg-surface-2);
-  border: 2rpx solid rgba(62, 198, 255, 0.4);
+  border: 2rpx solid rgba(198, 161, 91, 0.4);
   flex-shrink: 0;
 }
 
