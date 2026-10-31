@@ -48,7 +48,7 @@
 .chip-active {
   color: var(--accent-glow);
   border-color: var(--accent-glow);
-  background: rgba(62, 198, 255, 0.1);
+  background: rgba(198, 161, 91, 0.1);
 }
 
 /* 材质列表 */
@@ -81,7 +81,7 @@
 }
 .material-active {
   border-color: var(--accent-glow);
-  background: rgba(62, 198, 255, 0.08);
+  background: rgba(198, 161, 91, 0.08);
 }
 .material-row {
   display: flex;
