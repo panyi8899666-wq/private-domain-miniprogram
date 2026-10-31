@@ -15,17 +15,17 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#0b0f14",
+    "navigationBarBackgroundColor": "#0D0D0F",
     "navigationBarTitleText": "正鑫越文化工作室",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#0b0f14",
-    "backgroundColorTop": "#0b0f14",
-    "backgroundColorBottom": "#0b0f14"
+    "backgroundColor": "#0D0D0F",
+    "backgroundColorTop": "#0D0D0F",
+    "backgroundColorBottom": "#0D0D0F"
   },
   "tabBar": {
-    "color": "#5c6b7e",
-    "selectedColor": "#3ec6ff",
-    "backgroundColor": "#0b0f14",
+    "color": "#77756E",
+    "selectedColor": "#C6A15B",
+    "backgroundColor": "#0D0D0F",
     "borderStyle": "black",
     "list": [
       {

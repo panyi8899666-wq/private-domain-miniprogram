@@ -1,19 +1,19 @@
 /* ==================================================================
    正鑫越文化工作室 小程序 — 全局样式（design §2.4）
-   深色工业风设计令牌 + 发光公共 class（纯 CSS，零图片）
+   深色香槟金设计令牌（与个人网站同款：墨黑 #0D0D0F / 炭灰 #141416 / 米白 #ECEAE4 / 香槟金 #C6A15B） + 发光公共 class（纯 CSS，零图片）
    ================================================================== */
 
 /* ---------- 设计令牌（design §2.4.1） ---------- */
 page {
-  --bg-base: #0b0f14;
-  --bg-surface: #121822;
-  --bg-surface-2: #1a2332;
-  --border-line: #243045;
-  --text-primary: #e8eef6;
-  --text-secondary: #9dabc0;
-  --text-muted: #5c6b7e;
-  --accent-glow: #3ec6ff;
-  --accent-orange: #ff7a32;
+  --bg-base: #0D0D0F;
+  --bg-surface: #141416;
+  --bg-surface-2: #1D1D1F;
+  --border-line: #2A2A2E;
+  --text-primary: #ECEAE4;
+  --text-secondary: #B0AEA6;
+  --text-muted: #77756E;
+  --accent-glow: #C6A15B;
+  --accent-orange: #C6A15B;
   --success: #3ddc97;
   --warning: #ffc24b;
   --danger: #ff5c5c;
@@ -155,47 +155,47 @@ button::after {
 
 /* 渐变发光标题（首页 Hero 大标题） */
 .text-glow-gradient {
-  background-image: linear-gradient(120deg, #ffffff 0%, var(--accent-glow) 45%, #7b6cff 100%);
+  background-image: linear-gradient(120deg, #ECEAE4 0%, var(--accent-glow) 45%, #8A6D3B 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 0 24rpx rgba(62, 198, 255, 0.25);
+  text-shadow: 0 0 24rpx rgba(198, 161, 91, 0.25);
 }
 
 /* 霓虹光晕文字 */
 .text-neon {
-  color: #dff3ff;
-  text-shadow: 0 0 12rpx rgba(62, 198, 255, 0.6), 0 0 32rpx rgba(62, 198, 255, 0.35);
+  color: #F5ECD7;
+  text-shadow: 0 0 12rpx rgba(198, 161, 91, 0.6), 0 0 32rpx rgba(198, 161, 91, 0.35);
 }
 
 /* 盒体辉光描边（选中态） */
 .box-glow {
-  border: 1rpx solid rgba(62, 198, 255, 0.55);
-  box-shadow: 0 0 18rpx rgba(62, 198, 255, 0.4), 0 0 42rpx rgba(62, 198, 255, 0.18);
+  border: 1rpx solid rgba(198, 161, 91, 0.55);
+  box-shadow: 0 0 18rpx rgba(198, 161, 91, 0.4), 0 0 42rpx rgba(198, 161, 91, 0.18);
 }
 
-/* 橙色发光主按钮 */
+/* 金色发光主按钮 */
 .btn-primary-glow {
-  border: 1rpx solid rgba(255, 122, 50, 0.55);
-  background-image: linear-gradient(135deg, #ff8a4a 0%, var(--accent-orange) 100%);
+  border: 1rpx solid rgba(198, 161, 91, 0.55);
+  background-image: linear-gradient(135deg, #D4B06A 0%, var(--accent-orange) 100%);
   color: #14100a;
   font-weight: 700;
-  box-shadow: 0 0 18rpx rgba(255, 122, 50, 0.45), 0 0 40rpx rgba(255, 122, 50, 0.2);
+  box-shadow: 0 0 18rpx rgba(198, 161, 91, 0.45), 0 0 40rpx rgba(198, 161, 91, 0.2);
 }
 
-/* 蓝色描边次按钮 */
+/* 金色描边次按钮 */
 .btn-secondary-glow {
-  border: 1rpx solid rgba(62, 198, 255, 0.5);
+  border: 1rpx solid rgba(198, 161, 91, 0.5);
   color: var(--accent-glow);
-  background-color: rgba(62, 198, 255, 0.08);
+  background-color: rgba(198, 161, 91, 0.08);
 }
 
 /* 径向渐变光斑背景（首页 Hero / CTA 横幅） */
 .bg-light-spots {
   background-image:
-    radial-gradient(circle at 18% 22%, rgba(62, 198, 255, 0.16), transparent 40%),
-    radial-gradient(circle at 82% 30%, rgba(123, 108, 255, 0.14), transparent 42%),
-    radial-gradient(circle at 55% 88%, rgba(62, 198, 255, 0.1), transparent 46%);
+    radial-gradient(circle at 18% 22%, rgba(198, 161, 91, 0.16), transparent 40%),
+    radial-gradient(circle at 82% 30%, rgba(198, 161, 91, 0.14), transparent 42%),
+    radial-gradient(circle at 55% 88%, rgba(198, 161, 91, 0.1), transparent 46%);
   background-color: var(--bg-base);
 }
 
@@ -209,15 +209,15 @@ button::after {
 
 /* 发光描边线条 */
 .border-glow-line {
-  border: 1rpx solid rgba(62, 198, 255, 0.5);
-  box-shadow: inset 0 0 12rpx rgba(62, 198, 255, 0.2);
+  border: 1rpx solid rgba(198, 161, 91, 0.5);
+  box-shadow: inset 0 0 12rpx rgba(198, 161, 91, 0.2);
 }
 
 /* 带光晕的区块标题 */
 .section-title-glow {
   color: var(--text-primary);
   font-weight: 800;
-  text-shadow: 0 0 22rpx rgba(62, 198, 255, 0.3);
+  text-shadow: 0 0 22rpx rgba(198, 161, 91, 0.3);
 }
 
 /* 流程步骤序号（发光描边数字） */
@@ -226,7 +226,7 @@ button::after {
   font-weight: 800;
   line-height: 1;
   color: var(--accent-glow);
-  text-shadow: 0 0 18rpx rgba(62, 198, 255, 0.35);
+  text-shadow: 0 0 18rpx rgba(198, 161, 91, 0.35);
 }
 
 /* 主按钮流光扫过动画（仅用于主 CTA） */
