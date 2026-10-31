@@ -157,7 +157,7 @@
 
 .dd-tl-dot-active {
   background-color: var(--accent-glow);
-  box-shadow: 0 0 12rpx rgba(62, 198, 255, 0.7);
+  box-shadow: 0 0 12rpx rgba(198, 161, 91, 0.7);
 }
 
 .dd-tl-body {
@@ -242,6 +242,6 @@
   font-weight: 700;
   border-radius: var(--radius-btn);
   background-color: var(--accent-glow);
-  color: #0b0f14;
+  color: #0D0D0F;
   flex-shrink: 0;
 }
