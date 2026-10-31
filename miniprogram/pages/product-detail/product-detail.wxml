@@ -24,7 +24,7 @@
       class="pd-swiper"
       indicator-dots="{{images.length > 1}}"
       indicator-color="rgba(255,255,255,0.3)"
-      indicator-active-color="#3ec6ff"
+      indicator-active-color="#C6A15B"
       circular="{{images.length > 1}}"
     >
       <swiper-item wx:for="{{images}}" wx:key="*this">
