@@ -17,13 +17,13 @@ const FALLBACK_TEXT = {
 const FALLBACK_STYLE = {
   pending_quote: { color: '#ffc24b', bg: 'rgba(255,194,75,0.12)', border: 'rgba(255,194,75,0.45)' },
   pending_payment: { color: '#ffc24b', bg: 'rgba(255,194,75,0.12)', border: 'rgba(255,194,75,0.45)' },
-  making: { color: '#3ec6ff', bg: 'rgba(62,198,255,0.12)', border: 'rgba(62,198,255,0.5)' },
+  making: { color: '#C6A15B', bg: 'rgba(198,161,91,0.12)', border: 'rgba(198,161,91,0.5)' },
   completed: { color: '#3ddc97', bg: 'rgba(61,220,151,0.12)', border: 'rgba(61,220,151,0.45)' },
-  cancelled: { color: '#5c6b7e', bg: 'rgba(92,107,126,0.12)', border: 'rgba(92,107,126,0.4)' }
+  cancelled: { color: '#77756E', bg: 'rgba(119,117,110,0.12)', border: 'rgba(119,117,110,0.4)' }
 };
 
 // 状态未知时的默认灰色样式
-const DEFAULT_STYLE = { color: '#9dabc0', bg: 'rgba(157,171,192,0.12)', border: 'rgba(157,171,192,0.4)' };
+const DEFAULT_STYLE = { color: '#B0AEA6', bg: 'rgba(176,174,166,0.12)', border: 'rgba(176,174,166,0.4)' };
 
 Component({
   options: {
