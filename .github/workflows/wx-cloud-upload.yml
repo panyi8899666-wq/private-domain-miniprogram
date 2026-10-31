@@ -1,0 +1,44 @@
+name: wx-cloud-upload
+
+# 微信云开发文件上传：图片入库即自动跑；也可手动触发只验不传。
+# 密钥只来自仓库 Secrets WX_APPSECRET，绝不进仓库、不进聊天、不进日志。
+# 运行报告写回仓库根目录 wx-cloud-upload-report.md（不在触发路径内，不会自循环）。
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'wx-cloud-upload/images/**'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'upload（传图并验）或 verify（只验不传）'
+        required: false
+        default: 'verify'
+        type: choice
+        options: [upload, verify]
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Run upload/verify
+        env:
+          WX_APPSECRET: ${{ secrets.WX_APPSECRET }}
+        run: python3 wx-cloud-upload/upload.py --mode "${{ inputs.mode || 'upload' }}"
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add wx-cloud-upload-report.md
+          git diff --cached --quiet || git commit -m "wx-cloud-upload report"
+          git pull --rebase origin master || true
+          git push || true
