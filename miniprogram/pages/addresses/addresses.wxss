@@ -11,8 +11,8 @@
 }
 .ad-default {
   font-size: 22rpx;
-  color: #3ec6ff;
-  border: 1rpx solid #3ec6ff;
+  color: #C6A15B;
+  border: 1rpx solid #C6A15B;
   border-radius: 20rpx;
   padding: 2rpx 14rpx;
 }
