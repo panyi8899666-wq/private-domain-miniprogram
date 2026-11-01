@@ -130,6 +130,7 @@ const ERROR_MESSAGES = {
   7003: '报价失败，请重试',
   8001: '无权操作该订单',
   8002: '已支付订单请联系商家',
+  8003: '订单已取消', // C-CANCEL@1：cancelOrder 对已取消订单返回此码，文案由本任务（T9）补齐
   9001: '加载失败，请重试',
   9002: '无权查看该订单',
   A001: '订单状态已变更',
@@ -147,6 +148,18 @@ const DESIGNER = {
   role: '对接设计师',
   scope: '负责需求整理、报价对接与进度跟进',
   note: '最终方案与交付由工作室确认'
+};
+
+/**
+ * 商家/工作室统一联系方式（唯一来源，契约 C-CONTACT@1）
+ * 所有页面（mine / designer / order-detail 等）的 makePhoneCall 等一律读取 CONTACT.phone，
+ * 不得在页面内散落硬编码 const CONTACT_PHONE。
+ *
+ * 注意：phone 为暂定值，上线前由业务方替换为官方客服电话。
+ */
+const CONTACT = {
+  phone: '17306983179', // 暂定值，上线前由业务方替换为官方客服电话
+  name: '正鑫越文化工作室'
 };
 
 /** 网络异常统一文案（REQ-003 异常场景 1） */
@@ -173,5 +186,6 @@ module.exports = {
   ERROR_MESSAGES,
   NETWORK_ERROR_MESSAGE,
   REQUEST_TIMEOUT,
-  DESIGNER
+  DESIGNER,
+  CONTACT
 };

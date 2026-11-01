@@ -1,0 +1,54 @@
+<view class="page-container about-page">
+  <!-- 品牌区（纯文本，无图片；如需 Logo 需用户提供素材） -->
+  <view class="about-hero card-surface bg-light-spots">
+    <text class="about-brand text-glow-gradient">{{brandName}}</text>
+    <text class="about-slogan text-aux">{{slogan}}</text>
+    <text class="about-scope tag">{{businessScope}}</text>
+  </view>
+
+  <!-- 工作室介绍 -->
+  <view class="about-section">
+    <text class="section-title-glow">工作室介绍</text>
+    <text class="about-intro text-body">{{intro}}</text>
+  </view>
+
+  <!-- 业务范围 -->
+  <view class="about-section">
+    <text class="section-title-glow">业务范围</text>
+    <view class="service-list">
+      <view wx:for="{{services}}" wx:key="name" class="service-item card-surface">
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-desc text-muted">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="about-section">
+    <text class="section-title-glow">联系我们</text>
+    <view class="contact-card card-surface">
+      <view class="contact-row row-between">
+        <text class="contact-label text-aux">品牌</text>
+        <text class="contact-value">{{contact.name}}</text>
+      </view>
+      <view class="contact-row row-between">
+        <text class="contact-label text-aux">联系电话</text>
+        <text wx:if="{{contact.hasPhone}}" class="contact-value text-price" bindtap="onCall">{{contact.phone}}</text>
+        <text wx:else class="contact-value text-muted">待配置</text>
+      </view>
+      <view class="contact-actions">
+        <view wx:if="{{contact.hasPhone}}" class="about-btn btn-secondary-glow" bindtap="onCall">拨打电话</view>
+        <button class="about-btn btn-secondary-glow contact-btn" open-type="contact">在线客服</button>
+      </view>
+      <text class="contact-note text-muted">如需报价与定制，请通过商城下单或在定制页提交需求，由工作室统一对接。</text>
+    </view>
+  </view>
+
+  <!-- 行动入口 -->
+  <view class="about-cta">
+    <view class="about-btn btn-primary-glow" bindtap="goCustom">定制下单</view>
+    <view class="about-btn btn-secondary-glow" bindtap="goShop">去商城逛逛</view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

@@ -65,5 +65,22 @@ Page({
     const work = e.detail.work;
     const imgs = (work && work.images) || [];
     if (imgs.length) wx.previewImage({ current: imgs[0], urls: imgs });
+  },
+
+  /** 组装分享标题：站点名 + 首屏主标语（缺省回退站点名） */
+  buildShareTitle() {
+    const name = this.data.siteName || '正鑫越文化工作室';
+    const hero = this.data.heroTitle || '';
+    return hero ? name + ' · ' + hero : name;
+  },
+
+  /** 分享到会话（R9.1）：标题/路径指向首页；不设置 imageUrl，避免依赖 images/ 大图 */
+  onShareAppMessage() {
+    return { title: this.buildShareTitle(), path: '/pages/index/index' };
+  },
+
+  /** 分享到朋友圈（R9.1）：可分享内容页 */
+  onShareTimeline() {
+    return { title: this.buildShareTitle(), query: '' };
   }
 });

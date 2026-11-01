@@ -82,9 +82,14 @@ function genOrderNo(prefix) {
   return prefix + ts + pad(Math.floor(Math.random() * 1000), 3);
 }
 
+/**
+ * 联系方式归一：仅接受中国大陆 11 位手机号（^1[3-9]\d{9}$），
+ * 口径与 saveAddresses / address-picker / addresses 页完全一致（C-VALIDATE@1）。
+ * 入参不合法时回退到已通过校验的收货手机号。
+ */
 function resolveContactPhone(input, fallback) {
   const p = safeString(input, 20);
-  if (/^\d{6,15}$/.test(p)) return p;
+  if (/^1[3-9]\d{9}$/.test(p)) return p;
   return fallback || '';
 }
 
@@ -120,7 +125,8 @@ async function resolveAddress(openid, payload) {
     }
   }
   if (!addr || !addr.name || !addr.phone || !addr.detail) return null;
-  if (!/^\d{6,15}$/.test(addr.phone)) return null;
+  // 收货手机号统一采用中国大陆 11 位手机号口径（与地址保存一致，收敛原 ^\d{6,15}$）
+  if (!/^1[3-9]\d{9}$/.test(addr.phone)) return null;
   return addr;
 }
 
@@ -238,6 +244,46 @@ exports.main = async (event) => {
       type: 'standard',
       amount
     });
+
+    // 幂等并发兜底（C-VALIDATE@1）：写入后回查一次，若并发首次提交产生了重复
+    // 订单，则以「该 (openid, clientRequestId) 下最小 _id」为权威记录返回，并
+    // 清理多余重复记录。所有并发请求选取权威的准则一致，故不会互相删除权威记录，
+    // 最终保证同一幂等键始终复用同一笔订单。建议为 orders 建 (openid,
+    // clientRequestId) 复合唯一索引作最终兜底（计划 O5，运维侧）。
+    const recheck = await orders
+      .where({ openid, clientRequestId })
+      .orderBy('_id', 'asc')
+      .limit(20)
+      .get();
+    const rows = (recheck && recheck.data) || [];
+    if (rows.length) {
+      const canonical = rows[0];
+      if (rows.length > 1) {
+        const dupOrderNos = rows.slice(1).map((r) => r.orderNo).filter(Boolean);
+        try {
+          await orders
+            .where({ openid, clientRequestId, _id: _.gt(canonical._id) })
+            .remove();
+        } catch (cleanupErr) {
+          console.warn('[createOrder] 清理并发重复订单失败', cleanupErr);
+        }
+        // 尽力清理重复订单遗留的建单日志（失败不影响主流程）
+        for (let i = 0; i < dupOrderNos.length; i++) {
+          try {
+            await orderLogs.where({ orderNo: dupOrderNos[i], action: 'create' }).remove();
+          } catch (logErr) {
+            console.warn('[createOrder] 清理重复订单日志失败', logErr);
+          }
+        }
+        console.log('[createOrder] 命中幂等复用 orderNo=%s', canonical.orderNo);
+        return ok({
+          orderId: canonical._id,
+          orderNo: canonical.orderNo,
+          amount: canonical.amount,
+          duplicated: true
+        });
+      }
+    }
 
     console.log('[createOrder] ok orderNo=%s amount=%s qty=%d', orderNo, amount, quantity);
     return ok({ orderId: added._id, orderNo, amount });

@@ -1,0 +1,82 @@
+<view class="page-container search-page">
+  <!-- 搜索栏（纯文本，无图片） -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      value="{{inputKw}}"
+      placeholder="输入关键词"
+      confirm-type="search"
+      bindinput="onInput"
+      bindconfirm="onSearch"
+    />
+    <view wx:if="{{inputKw}}" class="search-clear text-muted" bindtap="onClear">清空</view>
+    <view class="search-btn btn-primary-glow" bindtap="onSearch">搜索</view>
+  </view>
+
+  <!-- scope 切换 -->
+  <view class="scope-bar">
+    <view
+      wx:for="{{scopes}}"
+      wx:key="value"
+      class="scope-chip {{item.value === scope ? 'scope-chip-active box-glow' : ''}}"
+      data-scope="{{item.value}}"
+      bindtap="onScopeTap"
+    >{{item.label}}</view>
+  </view>
+
+  <!-- 引导态：未输入关键词 -->
+  <view wx:if="{{prompt}}" class="state-box">
+    <empty-state text="输入关键词开始搜索" subText="支持按作品 / 商品 / 材质查找" iconText="🔍" />
+  </view>
+
+  <!-- 加载态 -->
+  <loading wx:elif="{{loading}}" type="skeleton" rows="{{4}}" />
+
+  <!-- 错误态（可重试） -->
+  <view wx:elif="{{error}}" class="state-box">
+    <empty-state
+      text="{{error.message}}"
+      subText="请检查网络后重试"
+      buttonText="重试"
+      showButton="{{error.retriable}}"
+      bind:action="onRetry"
+    />
+  </view>
+
+  <!-- 空结果态 -->
+  <view wx:elif="{{searched && results.length === 0}}" class="state-box">
+    <empty-state text="未找到相关内容" subText="换个关键词，或切换分类试试" iconText="∅" />
+  </view>
+
+  <!-- 结果列表 -->
+  <block wx:else>
+    <view class="result-count text-muted">共 {{results.length}} 条结果</view>
+
+    <!-- 作品 -->
+    <view wx:if="{{scope === 'works'}}" class="work-grid">
+      <work-card wx:for="{{results}}" wx:key="code" work="{{item}}" bind:tap="onPreviewWork" />
+    </view>
+
+    <!-- 商品 -->
+    <view wx:elif="{{scope === 'shop'}}" class="product-grid">
+      <product-card wx:for="{{results}}" wx:key="code" product="{{item}}" bind:tap="onTapProduct" />
+    </view>
+
+    <!-- 材质（百科数据，无图片，纯文本卡片） -->
+    <view wx:else class="material-list">
+      <view
+        wx:for="{{results}}"
+        wx:key="code"
+        class="material-item card-surface"
+        data-code="{{item.code}}"
+        bindtap="onTapMaterial"
+      >
+        <text class="material-name">{{item.name}}</text>
+        <text wx:if="{{item.title}}" class="material-title text-aux">{{item.title}}</text>
+        <text wx:if="{{item.intro}}" class="material-intro text-muted ellipsis-2">{{item.intro}}</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="safe-bottom"></view>
+</view>

@@ -70,5 +70,20 @@ Page({
   /** 直接进入定制下单（不预填） */
   goCustom() {
     wx.navigateTo({ url: '/pages/custom/custom' });
+  },
+
+  /** 搜索入口（R9.3 / C-NAV@1）：跳转搜索页并限定 scope=material */
+  goSearch() {
+    wx.navigateTo({ url: '/pages/search/search?scope=material' });
+  },
+
+  /** 分享到会话（R9.1）：标题/路径指向材质百科；不设置 imageUrl，避免依赖 images/ 大图 */
+  onShareAppMessage() {
+    return { title: '正鑫越文化工作室 · 材质百科', path: '/pages/material/material' };
+  },
+
+  /** 分享到朋友圈（R9.1）：可分享内容页 */
+  onShareTimeline() {
+    return { title: '正鑫越文化工作室 · 材质百科', query: '' };
   }
 });

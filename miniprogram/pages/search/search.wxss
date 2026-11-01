@@ -1,0 +1,104 @@
+.search-page {
+  padding-top: var(--gap-lg);
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 76rpx;
+  padding: 0 24rpx;
+  border-radius: var(--radius-btn);
+  background-color: var(--bg-surface);
+  border: 1rpx solid var(--border-line);
+  color: var(--text-primary);
+  font-size: 28rpx;
+}
+
+.search-clear {
+  flex-shrink: 0;
+  font-size: 24rpx;
+  padding: 0 8rpx;
+}
+
+.search-btn {
+  flex-shrink: 0;
+  padding: 18rpx 40rpx;
+  border-radius: var(--radius-btn);
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+/* scope 切换 */
+.scope-bar {
+  display: flex;
+  gap: 16rpx;
+  margin: var(--gap-md) 0 var(--gap-lg);
+}
+
+.scope-chip {
+  padding: 10rpx 32rpx;
+  border-radius: var(--radius-tag);
+  border: 1rpx solid var(--border-line);
+  color: var(--text-secondary);
+  font-size: 26rpx;
+}
+
+.scope-chip-active {
+  color: var(--accent-glow);
+  border-color: var(--accent-glow);
+  background: rgba(198, 161, 91, 0.1);
+}
+
+/* 状态占位 */
+.state-box {
+  padding: 40rpx 0;
+}
+
+.result-count {
+  margin-bottom: var(--gap-sm);
+  font-size: 24rpx;
+}
+
+/* 结果列表 */
+.work-grid,
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+}
+
+.material-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.material-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 24rpx;
+}
+
+.material-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.material-title {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+}
+
+.material-intro {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+}

@@ -68,17 +68,26 @@ exports.main = async (event) => {
     }
 
     const now = Date.now();
-    const existing = await users.where({ openid }).limit(1).get();
+    // 按 _id 升序取第一条，保证按 openid 查询始终命中同一条记录
+    const existing = await users.where({ openid }).orderBy('_id', 'asc').limit(1).get();
     if (existing.data && existing.data.length) {
       await users.doc(existing.data[0]._id).update({ data: { phone, updatedAt: now } });
     } else {
-      // 容错：登录记录缺失时补建，避免授权手机号丢失
+      // 容错：登录记录缺失时补建，避免授权手机号丢失。
+      // 字段口径必须与 login 建档保持一致（含 realName/company/customerType/industry/
+      // invoiceTitle/taxNo 等空值字段），避免后续 saveProfile 白名单更新时字段缺失。
       await users.add({
         data: {
           openid,
           nickName: '',
           avatarUrl: '',
           phone,
+          realName: '',
+          company: '',
+          customerType: 'personal',
+          industry: '',
+          invoiceTitle: '',
+          taxNo: '',
           addresses: [],
           role: 'customer',
           privacyAgreedAt: 0,

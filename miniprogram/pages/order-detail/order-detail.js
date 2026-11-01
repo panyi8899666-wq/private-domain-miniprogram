@@ -7,10 +7,7 @@
  */
 const { callFunction } = require('../../utils/request');
 const { formatAmount, formatTime, maskPhone } = require('../../utils/format');
-const { ORDER_STATUS_TEXT, ORDER_STATUS, DESIGNER } = require('../../utils/constants');
-
-/** 商家联系电话（占位号码，上线前替换为官方客服电话） */
-const CONTACT_PHONE = '17306983179';
+const { ORDER_STATUS_TEXT, ORDER_STATUS, DESIGNER, CONTACT } = require('../../utils/constants');
 
 /** 手机号展示脱敏：已含 * 则原样，否则脱敏 */
 function displayPhone(phone) {
@@ -184,8 +181,8 @@ Page({
       hasReference: referenceFileIds.length > 0,
       address: {
         name: address.name || '',
+        // 手机号一律走脱敏展示（后端已脱敏时 displayPhone 原样返回），不保留明文
         phone: displayPhone(address.phone),
-        phoneRaw: address.phone || '',
         detail: address.detail || ''
       },
       hasAddress: !!(address.name || address.phone || address.detail),
@@ -350,10 +347,15 @@ Page({
       });
   },
 
-  /** 联系商家 */
+  /** 联系商家（电话统一来自 C-CONTACT@1 常量，页面内不再硬编码） */
   onContact() {
+    const phone = CONTACT && CONTACT.phone;
+    if (!phone) {
+      wx.showToast({ title: '客服电话暂不可用，请稍后再试', icon: 'none' });
+      return;
+    }
     wx.makePhoneCall({
-      phoneNumber: CONTACT_PHONE,
+      phoneNumber: phone,
       fail: () => {
         wx.showToast({ title: '拨号失败，请稍后重试', icon: 'none' });
       }

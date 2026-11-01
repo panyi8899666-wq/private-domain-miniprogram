@@ -17,6 +17,7 @@ const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
 const db = cloud.database();
+const _ = db.command;
 
 const orders = db.collection('orders');
 const orderLogs = db.collection('order_logs');
@@ -40,12 +41,15 @@ function normalizeQuantity(value) {
   return n;
 }
 
-/** 归一化参考图 fileID 列表（仅接受云存储 fileID，最多 9 张） */
+/** 参考图数量上限：与前端 UPLOAD_LIMITS.MAX_COUNT 保持一致（6，C-UPLOAD@1 / C-VALIDATE@1） */
+const MAX_REFERENCE_FILES = 6;
+
+/** 归一化参考图 fileID 列表（仅接受 cloud:// 前缀的云存储 fileID，最多 MAX_REFERENCE_FILES 张） */
 function normalizeFileIds(input) {
   if (!Array.isArray(input)) return [];
   return input
     .filter((v) => typeof v === 'string' && v.indexOf('cloud://') === 0)
-    .slice(0, 9);
+    .slice(0, MAX_REFERENCE_FILES);
 }
 
 function genOrderNo(prefix) {
@@ -141,7 +145,8 @@ exports.main = async (event) => {
       status: 'pending_quote',
       items: [],
       customRequirement: requirement,
-      contactPhone: /^\d{6,15}$/.test(contactPhone) ? contactPhone : '',
+      // 联系方式统一采用中国大陆 11 位手机号口径（与地址保存/标准品下单一致）
+      contactPhone: /^1[3-9]\d{9}$/.test(contactPhone) ? contactPhone : '',
       clientRequestId,
       privacyAgreed: payload.privacyAgreed === true,
       // 对接设计师：新订单默认由 Muse 对接；留言与回复走 musePoll / museReply 桥
@@ -161,6 +166,39 @@ exports.main = async (event) => {
       materialType,
       quantity
     });
+
+    // 幂等并发兜底（C-VALIDATE@1）：写入后回查一次，若并发首次提交产生了重复
+    // 订单，则以「该 (openid, clientRequestId) 下最小 _id」为权威记录返回，并
+    // 清理多余重复记录。建议为 orders 建 (openid, clientRequestId) 复合唯一索引
+    // 作最终兜底（计划 O5）。
+    const recheck = await orders
+      .where({ openid, clientRequestId })
+      .orderBy('_id', 'asc')
+      .limit(20)
+      .get();
+    const rows = (recheck && recheck.data) || [];
+    if (rows.length) {
+      const canonical = rows[0];
+      if (rows.length > 1) {
+        const dupOrderNos = rows.slice(1).map((r) => r.orderNo).filter(Boolean);
+        try {
+          await orders
+            .where({ openid, clientRequestId, _id: _.gt(canonical._id) })
+            .remove();
+        } catch (cleanupErr) {
+          console.warn('[createCustomOrder] 清理并发重复订单失败', cleanupErr);
+        }
+        for (let i = 0; i < dupOrderNos.length; i++) {
+          try {
+            await orderLogs.where({ orderNo: dupOrderNos[i], action: 'create' }).remove();
+          } catch (logErr) {
+            console.warn('[createCustomOrder] 清理重复订单日志失败', logErr);
+          }
+        }
+        console.log('[createCustomOrder] 命中幂等复用 orderNo=%s', canonical.orderNo);
+        return ok({ orderId: canonical._id, orderNo: canonical.orderNo, duplicated: true });
+      }
+    }
 
     console.log('[createCustomOrder] ok orderNo=%s materialType=%s', orderNo, materialType);
     return ok({ orderId: added._id, orderNo });

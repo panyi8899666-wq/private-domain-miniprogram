@@ -2,7 +2,8 @@
  * 云函数：getOrders —— 订单列表（REQ-034、REQ-045）
  * 入参：event.payload = { status?, page?, pageSize? }
  * 出参：{ code: 0, data: { list, total, hasMore, page, pageSize } } / 9001 加载失败
- * 权限：客户仅见本人订单（openid 过滤），商家（role=merchant）见全部；客户手机号脱敏
+ * 权限：客户仅见本人订单（openid 过滤），商家（role=merchant）见全部；
+ *       客户侧手机号一律脱敏（contactPhone 与 address.phone，C-PII@1）。
  */
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
@@ -19,19 +20,36 @@ function toInt(value, def) {
   return isNaN(n) ? def : n;
 }
 
+/**
+ * 手机号脱敏：173****3179
+ * 口径与 login / getPhoneNumber 云函数、utils/format.js#maskPhone 保持一致（C-PII@1），不得另立规则。
+ */
 function maskPhone(phone) {
-  if (typeof phone !== 'string') return '';
-  const d = phone.replace(/\D/g, '');
-  if (d.length !== 11) return phone ? phone.slice(0, 3) + '****' : '';
-  return d.slice(0, 3) + '****' + d.slice(7);
+  const s = String(phone || '');
+  if (/^\d{11}$/.test(s)) return s.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2');
+  if (s.length >= 7) return s.slice(0, 3) + '****' + s.slice(-4);
+  return s ? '****' : '';
+}
+
+/**
+ * 订单隐私字段脱敏（C-PII@1）
+ * - 非商家（客户）一律脱敏 order.contactPhone 与 order.address.phone；
+ * - 商家（users.role==='merchant'）保持明文；
+ * - 全程浅拷贝，避免污染查询结果对象。
+ */
+function maskOrderPii(order, isMerchant) {
+  const item = Object.assign({}, order);
+  if (isMerchant) return item;
+  if (item.contactPhone) item.contactPhone = maskPhone(item.contactPhone);
+  if (item.address && typeof item.address === 'object') {
+    item.address = Object.assign({}, item.address);
+    if (item.address.phone) item.address.phone = maskPhone(item.address.phone);
+  }
+  return item;
 }
 
 function sanitizeList(list, isMerchant) {
-  return (list || []).map((o) => {
-    const item = Object.assign({}, o);
-    if (!isMerchant && item.contactPhone) item.contactPhone = maskPhone(item.contactPhone);
-    return item;
-  });
+  return (list || []).map((o) => maskOrderPii(o, isMerchant));
 }
 
 exports.main = async (event) => {

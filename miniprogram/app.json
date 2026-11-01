@@ -11,7 +11,10 @@
     "pages/mine/mine",
     "pages/profile/profile",
     "pages/addresses/addresses",
-    "pages/designer/designer"
+    "pages/designer/designer",
+    "pages/about/about",
+    "pages/help/help",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

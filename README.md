@@ -12,7 +12,7 @@
 
 ```
 ├── miniprogram/          小程序前端
-│   ├── pages/            12 个页面
+│   ├── pages/            15 个页面
 │   │   ├── index/        首页
 │   │   ├── material/     材质百科（5 大类 110 材质浏览）
 │   │   ├── works/        作品集
@@ -24,7 +24,10 @@
 │   │   ├── mine/         个人中心
 │   │   ├── profile/      客户注册资料（第一批注册入口）
 │   │   ├── addresses/    收货地址管理（第一批注册入口）
-│   │   └── designer/     对接设计师窗口（Muse）
+│   │   ├── designer/     对接设计师窗口（Muse）
+│   │   ├── about/        关于我们
+│   │   ├── help/         帮助与售后
+│   │   └── search/       关键词搜索
 │   ├── components/       9 个公共组件
 │   ├── images/           图标 + 材质图（110 张）
 │   └── utils/            工具函数（request/constants/format/auth/profile）
@@ -36,6 +39,7 @@
 │   ├── submitQuote/                     商家报价
 │   ├── createPayment/ payCallback/      微信支付
 │   ├── getOrders/ getOrderDetail/ cancelOrder/  订单管理
+│   ├── musePoll/ museReply/ addOrderMessage/    对接桥（Muse，3 个）
 │   └── initData/                        数据初始化（含材质库）
 └── project.config.json   微信开发者工具项目配置
 ```
@@ -62,17 +66,18 @@
   工具与规则见 `muse-bridge/archive.py` 与桥文档存档一节；
   需百度开放平台 API 时再找 pan 要，现在不问。
 - 云函数现为 18 个：原有 13 个 + `musePoll`、`museReply`、`addOrderMessage`（对接桥 3 个）+ `saveProfile`、`saveAddresses`（第一批注册入口 2 个）。
-  上线前须完成正式 AppID、云环境、环境变量与 AppSecret 安全存储等一次性步骤，
+  正式 AppID 与云环境 ID 已配置（见上“快速开始”）；仍需在云开发控制台人工确认 `MUSE_BRIDGE_SECRET` 等
+  云函数环境变量与 AppSecret 的安全存储（仅存放于云函数环境变量，不入仓库），
   详见 `muse-bridge/README.md`“上线前 pan 只需做一次”一节。
 
 ## 快速开始
 
 1. **下载微信开发者工具**：https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
-2. **导入项目**：工具里选择「导入项目」→ 目录选本仓库根目录 → 填入你的小程序 **AppID**
-3. **替换占位配置**（2 处）：
-   - `project.config.json` 里的 `appid`（当前为占位 `touristappid`）
-   - `miniprogram/app.js` 里的 `CLOUD_ENV_ID`（当前为占位，改为你的云开发环境 ID）
-4. **开通云开发**：微信开发者工具 → 云开发 → 新建环境，复制环境 ID 填入上一步
+2. **导入项目**：工具里选择「导入项目」→ 目录选本仓库根目录 → 工具将自动使用已配置的小程序 **AppID**（`wxa7c12126aa192d2a`）
+3. **核对已配置项**（2 处，均已配置为真实值，无需替换）：
+   - `project.config.json` 里的 `appid`：`wxa7c12126aa192d2a`
+   - `miniprogram/app.js` 里的 `CLOUD_ENV_ID`：`cloud1-d0get66qf4fc7987f`（微信体验版环境）
+4. **开通/核对云开发**：微信开发者工具 → 云开发，确认环境 ID 与上述 `CLOUD_ENV_ID` 一致
 5. **部署云函数**：右键 `cloudfunctions/` 下每个云函数 → 「上传并部署（云端安装依赖）」
 6. **初始化数据**：在云开发控制台手动调用一次 `initData` 云函数（`dataset: 'all'`），导入材质库/商品/作品等数据
 7. **预览**：点「预览」用手机微信扫码
@@ -81,11 +86,11 @@
 
 ## 配置说明
 
-| 占位项 | 位置 | 说明 |
+| 配置项 | 位置 | 说明 |
 |--------|------|------|
-| AppID | `project.config.json` | 替换为你的小程序 AppID |
-| 云环境 ID | `miniprogram/app.js` 的 `CLOUD_ENV_ID` | 替换为你的云开发环境 ID |
-| 微信支付商户号 | `cloudfunctions/createPayment` 的 `SUB_MCH_ID` / `ENV_ID` 环境变量 | 云函数环境变量中配置 |
+| AppID | `project.config.json` | 已配置 `wxa7c12126aa192d2a`（企业主体小程序） |
+| 云环境 ID | `miniprogram/app.js` 的 `CLOUD_ENV_ID` | 已配置 `cloud1-d0get66qf4fc7987f`（微信体验版环境） |
+| 微信支付商户号 | `cloudfunctions/createPayment` 的 `SUB_MCH_ID` / `ENV_ID` 环境变量 | 需在云函数环境变量中配置（不在仓库内明文存放） |
 
 ## 合规说明
 

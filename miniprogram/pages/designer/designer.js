@@ -5,10 +5,7 @@
  * - 对接为异步订单留言（订单详情“对接留言”区），不是实时聊天；
  *   需求与报价仍走既有订单流程，最终方案与交付由工作室确认
  */
-const { DESIGNER } = require('../../utils/constants');
-
-/** 商家联系电话：与 mine / order-detail 既有商家电话一致，不新增联系方式 */
-const CONTACT_PHONE = '17306983179';
+const { DESIGNER, CONTACT } = require('../../utils/constants');
 
 Page({
   data: {
@@ -65,10 +62,10 @@ Page({
     wx.navigateTo({ url: '/pages/orders/orders' });
   },
 
-  /** 联系商家（复用既有电话沟通入口） */
+  /** 联系商家（电话来源统一为 C-CONTACT@1 的 CONTACT.phone） */
   goContact() {
     wx.makePhoneCall({
-      phoneNumber: CONTACT_PHONE,
+      phoneNumber: CONTACT.phone,
       fail: () => {
         wx.showToast({ title: '拨号失败，请稍后重试', icon: 'none' });
       }

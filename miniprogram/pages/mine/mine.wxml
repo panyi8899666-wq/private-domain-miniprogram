@@ -74,6 +74,44 @@
       </view>
       <text class="mi-arrow text-muted">›</text>
     </view>
+
+    <view class="mi-divider"></view>
+
+    <!-- 在线客服（微信客服入口，open-type="contact"，契约 C-CONTACT@1；未开通客服时按钮仍合规，需业务方后台开通） -->
+    <button
+      open-type="contact"
+      class="mi-menu-item row-between"
+      hover-class="mi-menu-hover"
+      style="margin: 0; background: transparent; border-radius: 0; font-size: 30rpx; line-height: 1.6; text-align: left; color: var(--text-primary);"
+    >
+      <view class="row">
+        <text class="mi-menu-icon">💬</text>
+        <text class="mi-menu-text">在线客服</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </button>
+
+    <view class="mi-divider"></view>
+
+    <!-- 关于我们（路由约定见 C-NAV@1，页面由 T10 创建） -->
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goAbout">
+      <view class="row">
+        <text class="mi-menu-icon">ℹ️</text>
+        <text class="mi-menu-text">关于我们</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
+    <!-- 帮助与售后（路由约定见 C-NAV@1，页面由 T10 创建） -->
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="goHelp">
+      <view class="row">
+        <text class="mi-menu-icon">❓</text>
+        <text class="mi-menu-text">帮助与售后</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
   </view>
 
   <!-- 退出登录 -->

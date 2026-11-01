@@ -30,6 +30,12 @@
     <view class="ds-btn ds-btn-primary" bindtap="goCustom">去定制下单</view>
     <view class="ds-btn" bindtap="goOrders">查看我的订单</view>
     <view class="ds-btn" bindtap="goContact">联系商家</view>
+    <!-- 在线客服（微信客服入口，open-type="contact"，契约 C-CONTACT@1） -->
+    <button
+      open-type="contact"
+      class="ds-btn"
+      style="line-height: 1.6;"
+    >在线客服</button>
     <text class="ds-tip text-aux">提交后请在“我的订单”里查看进度，报价与方案以订单详情为准。</text>
   </view>
 

@@ -20,6 +20,30 @@ function genClientRequestId(prefix) {
   );
 }
 
+/**
+ * 归一化参考图 fileID 列表（契约 C-UPLOAD@1 / C-VALIDATE@1）
+ * - C-UPLOAD@1：uploader 通过 change 事件产出的 fileIds 为「纯 cloud:// fileID 字符串数组」。
+ * - 仅保留 cloud:// 前缀的云存储 fileID，过滤本地临时路径（tempFilePath）等脏数据；
+ *   过滤仅用于兜底防脏数据，不作为「上传是否成功」的判定依据。
+ * - 数量截断至 UPLOAD_LIMITS.MAX_COUNT（6），与后端 createCustomOrder.normalizeFileIds 上限一致。
+ * - 兼容历史对象形态 { fileID | fileId }，避免组件契约切换期丢项。
+ * @param {Array} input 原始 fileIds / fileList
+ * @param {number} maxCount 数量上限（缺省取 UPLOAD_LIMITS.MAX_COUNT）
+ * @returns {string[]} 纯 cloud:// fileID 数组
+ */
+function normalizeReferenceFileIds(input, maxCount) {
+  const limit = maxCount > 0 ? maxCount : UPLOAD_LIMITS.MAX_COUNT;
+  if (!Array.isArray(input)) return [];
+  return input
+    .map((item) => {
+      if (typeof item === 'string') return item;
+      if (item && typeof item === 'object') return item.fileID || item.fileId || '';
+      return '';
+    })
+    .filter((id) => typeof id === 'string' && id.indexOf('cloud://') === 0)
+    .slice(0, limit);
+}
+
 Page({
   data: {
     loading: true,
@@ -201,11 +225,16 @@ Page({
   onAreaInput(e) { this.setData({ area: e.detail.value }); },
   onSizeDescInput(e) { this.setData({ sizeDesc: e.detail.value }); },
 
-  /** 参考图变更（uploader，兼容 fileIds / fileList 两种 detail） */
+  /**
+   * 参考图变更（uploader，C-UPLOAD@1）
+   * 消费组件 change 事件 detail.fileIds（纯 cloud:// fileID 字符串数组），
+   * 归一化后写入 referenceFiles，既用于回填组件预览，也作为提交源，保留脏数据过滤与数量上限。
+   */
   onRefChange(e) {
     const d = (e && e.detail) || {};
-    const list = d.fileIds || d.fileList || [];
-    this.setData({ referenceFiles: list });
+    const raw = d.fileIds || d.fileList || [];
+    const fileIds = normalizeReferenceFileIds(raw, this.data.maxCount);
+    this.setData({ referenceFiles: fileIds });
   },
 
   /** 手机号授权（button open-type=getPhoneNumber） */
@@ -271,9 +300,8 @@ Page({
     const m = this.data.activeMaterial;
     const qty = parseInt(this.data.quantity, 10);
     const area = Number(this.data.area) > 0 ? Number(this.data.area) : null;
-    const referenceFileIds = (this.data.referenceFiles || [])
-      .map((f) => (typeof f === 'string' ? f : f && f.fileID))
-      .filter((id) => typeof id === 'string' && id.indexOf('cloud://') === 0);
+    // 参考图：统一消费 C-UPLOAD@1 产出的 cloud:// fileID 数组（保留过滤 + 上限兜底）
+    const referenceFileIds = normalizeReferenceFileIds(this.data.referenceFiles, this.data.maxCount);
 
     const payload = {
       materialType: this.data.activeCategoryName, // 大类名作为 materialType

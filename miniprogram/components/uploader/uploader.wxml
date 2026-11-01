@@ -1,13 +1,17 @@
 <view class="uploader">
   <view class="upload-grid">
-    <view wx:for="{{list}}" wx:key="index" class="upload-item">
-      <image class="upload-img" src="{{item}}" mode="aspectFill" data-url="{{item}}" bindtap="onPreview" />
-      <view class="upload-del" data-index="{{index}}" catchtap="onRemove">×</view>
+    <view wx:for="{{list}}" wx:key="uid" class="upload-item">
+      <image class="upload-img" src="{{item.url}}" mode="aspectFill" data-uid="{{item.uid}}" bindtap="onPreview" />
+      <!-- 上传中占位：半透明遮罩 + 进度百分比 -->
+      <view wx:if="{{item.status === 'uploading'}}" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.5); border-radius: var(--radius-tag);">
+        <text style="color: #fff; font-size: 22rpx;">{{item.progress}}%</text>
+      </view>
+      <view class="upload-del" data-uid="{{item.uid}}" catchtap="onRemove">×</view>
     </view>
     <view wx:if="{{list.length < maxCount}}" class="upload-add" bindtap="onChoose">
       <text class="upload-add-plus">＋</text>
       <text class="upload-add-text">添加图片</text>
     </view>
   </view>
-  <text class="upload-tip text-muted">最多 {{maxCount}} 张，支持相册与拍照</text>
+  <text class="upload-tip text-muted">最多 {{maxCount}} 张，单张不超过 {{maxSizeMb}}MB，支持相册与拍照</text>
 </view>

@@ -4,6 +4,7 @@
  * 出参：{ code: 0, data: { order, quote, actions, expiredQuote } } / 9002 无权查看该订单
  * actions 按状态计算：pending_payment→[pay,cancel,contact] pending_quote→[cancel,contact]
  *   making→[contact] completed→[contact,rebuy] cancelled→[rebuy]
+ * 隐私：客户侧手机号一律脱敏（contactPhone 与 address.phone，C-PII@1）。
  */
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
@@ -16,11 +17,32 @@ const users = db.collection('users');
 function ok(data) { return { code: 0, data: data === undefined ? null : data, message: 'ok' }; }
 function fail(code, message) { return { code, data: null, message }; }
 
+/**
+ * 手机号脱敏：173****3179
+ * 口径与 login / getPhoneNumber 云函数、utils/format.js#maskPhone 保持一致（C-PII@1），不得另立规则。
+ */
 function maskPhone(phone) {
-  if (typeof phone !== 'string') return '';
-  const d = phone.replace(/\D/g, '');
-  if (d.length !== 11) return phone ? phone.slice(0, 3) + '****' : '';
-  return d.slice(0, 3) + '****' + d.slice(7);
+  const s = String(phone || '');
+  if (/^\d{11}$/.test(s)) return s.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2');
+  if (s.length >= 7) return s.slice(0, 3) + '****' + s.slice(-4);
+  return s ? '****' : '';
+}
+
+/**
+ * 订单隐私字段脱敏（C-PII@1）
+ * - 非商家（客户）一律脱敏 order.contactPhone 与 order.address.phone；
+ * - 商家（users.role==='merchant'）保持明文；
+ * - 全程浅拷贝，避免污染查询结果对象。
+ */
+function maskOrderPii(order, isMerchant) {
+  const item = Object.assign({}, order);
+  if (isMerchant) return item;
+  if (item.contactPhone) item.contactPhone = maskPhone(item.contactPhone);
+  if (item.address && typeof item.address === 'object') {
+    item.address = Object.assign({}, item.address);
+    if (item.address.phone) item.address.phone = maskPhone(item.address.phone);
+  }
+  return item;
 }
 
 function computeActions(order, quote) {
@@ -80,8 +102,8 @@ exports.main = async (event) => {
 
     const { actions, expiredQuote } = computeActions(order, quote);
 
-    const detail = Object.assign({}, order);
-    if (!isMerchant && detail.contactPhone) detail.contactPhone = maskPhone(detail.contactPhone);
+    // 隐私脱敏：客户一律脱敏 contactPhone 与 address.phone；商家保持明文（C-PII@1）
+    const detail = maskOrderPii(order, isMerchant);
 
     return ok({ order: detail, quote, actions, expiredQuote });
   } catch (err) {

@@ -5,16 +5,15 @@
  */
 const auth = require('../../utils/auth');
 const { maskPhone } = require('../../utils/format');
+const { CONTACT } = require('../../utils/constants');
 
-/** 商家联系电话（占位号码，上线前替换为官方客服电话） */
-const CONTACT_PHONE = '17306983179';
 const DEFAULT_AVATAR = '/images/avatar.png';
 
 /** 隐私协议概要文案（REQ-051） */
 const PRIVACY_TEXT =
   '为向您提供物料制作与报价下单服务，本小程序会收集您的微信昵称、头像（可选）、' +
   '手机号（仅用于订单联系与发货）及收货地址。我们承诺对以上信息严格保密，仅用于服务提供。' +
-  '联系电话：' + CONTACT_PHONE + '。';
+  '联系电话：' + CONTACT.phone + '。';
 
 Page({
   data: {
@@ -86,14 +85,60 @@ Page({
     wx.navigateTo({ url: '/pages/designer/designer' });
   },
 
-  /** 联系商家 */
+  /** 联系商家（电话来源统一为 C-CONTACT@1 的 CONTACT.phone） */
   goContact() {
     wx.makePhoneCall({
-      phoneNumber: CONTACT_PHONE,
+      phoneNumber: CONTACT.phone,
       fail: () => {
         wx.showToast({ title: '拨号失败，请稍后重试', icon: 'none' });
       }
     });
+  },
+
+  /** 关于我们（路由约定见 C-NAV@1，页面由 T10 创建） */
+  goAbout() {
+    wx.navigateTo({
+      url: '/pages/about/about',
+      fail: () => {
+        wx.showToast({ title: '页面建设中', icon: 'none' });
+      }
+    });
+  },
+
+  /** 帮助/售后（路由约定见 C-NAV@1，页面由 T10 创建） */
+  goHelp() {
+    wx.navigateTo({
+      url: '/pages/help/help',
+      fail: () => {
+        wx.showToast({ title: '页面建设中', icon: 'none' });
+      }
+    });
+  },
+
+  /**
+   * 微信客服入口（C-CONTACT@1）
+   * 官方标准入口为 WXML 的 <button open-type="contact">，需业务方在微信后台开通客服（外部前置）；
+   * 本任务 write_set 仅含 JS 文件，暂未落地该按钮，本方法为 JS 侧入口，待 mine.wxml 绑定
+   * bindtap="goCustomerService" 后即可生效。
+   * 平台支持企业微信客服会话（wx.openCustomerServiceChat）时优先打开，配置缺失或能力不可用时降级拨打统一客服电话。
+   */
+  goCustomerService() {
+    if (typeof wx.openCustomerServiceChat === 'function') {
+      try {
+        wx.openCustomerServiceChat({
+          extInfo: { url: '' },
+          corpId: '',
+          url: '',
+          fail: () => {
+            this.goContact();
+          }
+        });
+        return;
+      } catch (e) {
+        // 平台能力或客服配置不可用，降级到电话客服
+      }
+    }
+    this.goContact();
   },
 
   /** 隐私协议查看 */

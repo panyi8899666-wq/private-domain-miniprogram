@@ -1,0 +1,139 @@
+.help-page {
+  padding-top: var(--gap-lg);
+}
+
+.help-hero {
+  margin-bottom: var(--gap-xl);
+}
+
+.help-sub {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.help-section {
+  margin-bottom: var(--gap-xl);
+}
+
+/* 下单流程 */
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-top: var(--gap-sm);
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  padding: 20rpx 24rpx;
+}
+
+.step-num {
+  flex-shrink: 0;
+}
+
+.step-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.step-desc {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+/* 说明卡片 */
+.tip-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+  padding: var(--gap-md);
+  margin-top: var(--gap-sm);
+}
+
+.tip-item {
+  display: block;
+  line-height: 1.6;
+}
+
+/* 常见问题 */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-top: var(--gap-sm);
+}
+
+.faq-item {
+  padding: 20rpx 24rpx;
+}
+
+.faq-head {
+  gap: 16rpx;
+}
+
+.faq-q {
+  flex: 1;
+  min-width: 0;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-toggle {
+  flex-shrink: 0;
+  font-size: 24rpx;
+}
+
+.faq-a {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+/* 售后与联系 */
+.help-actions,
+.help-cta {
+  display: flex;
+  gap: 20rpx;
+  margin-top: var(--gap-md);
+}
+
+.help-cta {
+  margin-bottom: var(--gap-xl);
+}
+
+.help-btn {
+  flex: 1;
+  text-align: center;
+  padding: 22rpx;
+  border-radius: var(--radius-btn);
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+/* 覆盖 button 默认样式，使客服按钮与 view 按钮观感一致 */
+button.contact-btn {
+  margin: 0;
+  line-height: 1.4;
+  background-color: rgba(198, 161, 91, 0.08);
+}
+
+.help-note {
+  display: block;
+  margin-top: var(--gap-sm);
+  font-size: 22rpx;
+}

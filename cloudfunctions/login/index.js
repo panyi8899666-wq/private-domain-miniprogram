@@ -14,6 +14,7 @@ const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
 const db = cloud.database();
+const _ = db.command;
 const users = db.collection('users');
 
 /** 统一成功响应 */
@@ -75,7 +76,8 @@ exports.main = async (event) => {
     const avatarUrl = safeString(payload.avatarUrl, 500);
     const now = Date.now();
 
-    const existing = await users.where({ openid }).limit(1).get();
+    // 按 _id 升序取第一条，保证即便历史遗留了重复记录，也始终命中同一条
+    const existing = await users.where({ openid }).orderBy('_id', 'asc').limit(1).get();
     let user;
 
     if (existing.data && existing.data.length) {
@@ -105,6 +107,29 @@ exports.main = async (event) => {
       };
       const added = await users.add({ data: doc });
       user = Object.assign({ _id: added._id }, doc);
+
+      // 并发首登兜底（R1.2）：极端情况下同一 openid 的多个首次登录请求可能同时
+      // 进入 add 分支，从而产生重复用户记录。此处写入后按 _id 升序回查，取全局
+      // 最早的记录为权威记录返回，并清理多余记录（删除 _id 大于权威的记录）。
+      // 因所有并发请求都以「该 openid 下最小 _id」为权威、删除条件一致，故不会
+      // 互相删除权威记录，最终保证按 openid 查询始终命中同一条记录。
+      const recheck = await users
+        .where({ openid })
+        .orderBy('_id', 'asc')
+        .limit(20)
+        .get();
+      const rows = (recheck && recheck.data) || [];
+      if (rows.length) {
+        user = rows[0];
+        if (rows.length > 1) {
+          try {
+            await users.where({ openid, _id: _.gt(user._id) }).remove();
+          } catch (cleanupErr) {
+            // 清理失败不影响登录成功；建议为 users.openid 建唯一索引兜底（计划 O7）
+            console.warn('[login] 清理并发重复用户记录失败', cleanupErr);
+          }
+        }
+      }
     }
 
     console.log('[login] ok openid=%s', openid);

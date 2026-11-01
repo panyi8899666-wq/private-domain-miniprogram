@@ -1,8 +1,9 @@
 /**
- * 云函数：cancelOrder —— 取消订单（REQ-037）
+ * 云函数：cancelOrder —— 取消订单（REQ-037 / C-CANCEL@1）
  * 入参：event.payload = { orderId }
- * 出参：{ code: 0, data } / 8001 无权操作该订单 / 8002 已支付订单请联系商家 / 9001 无权操作该订单
- * 规则：仅本人可取消；仅「待付款/待报价」可取消；已支付需联系商家
+ * 出参：{ code: 0, data } / 8001 无权操作该订单 / 8002 已支付订单请联系商家 / 8003 订单已取消
+ * 规则：仅本人可取消；仅「待付款/待报价」可取消；
+ *       已支付/制作中/已完成/已退款 → 8002；已取消 → 8003（明确「订单已取消」语义）
  */
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
@@ -30,8 +31,13 @@ exports.main = async (event) => {
     const res = await orders.where({ _id: orderId }).limit(1).get();
     const order = res.data && res.data[0];
     if (!order) return fail(8001, '无权操作该订单');
-    if (order.openid !== openid) return fail(9001, '无权操作该订单');
-    if (CANCELLABLE.indexOf(order.status) === -1) return fail(8002, '已支付订单请联系商家');
+    if (order.openid !== openid) return fail(8001, '无权操作该订单');
+    // 不可取消状态按语义区分（C-CANCEL@1）：
+    //   cancelled                     → 8003「订单已取消」（避免误报为「已支付订单请联系商家」）
+    //   completed/refunded/making/其他 → 8002「已支付订单请联系商家」
+    const status = order.status;
+    if (status === 'cancelled') return fail(8003, '订单已取消');
+    if (CANCELLABLE.indexOf(status) === -1) return fail(8002, '已支付订单请联系商家');
 
     const now = Date.now();
     await orders.doc(order._id).update({

@@ -1,9 +1,15 @@
 /**
- * 云函数：payCallback —— 微信支付结果回调（REQ-039、REQ-040、REQ-054）
+ * 云函数：payCallback —— 微信支付结果回调
  * 入参：微信/云开发支付回调 event = { returnCode, resultCode, outTradeNo, transactionId, totalFee(分), timeEnd }
  * 出参：{ errcode, errmsg }（微信支付回调协议：errcode=0 表示处理成功，否则微信会重试）
- * 安全：幂等（订单号+流水号）、金额核对（分）
- * 说明：真实上线需对微信支付异步通知验签（云开发云调用模式已由平台侧完成验签）
+ *
+ * 幂等与异常补偿（C-PAY@1）：
+ *   1) 来源防护：平台侧回调 getWXContext().OPENID 为空；若非空则视为小程序端伪造，拒绝处理。
+ *   2) 幂等：以 order.payment.transactionId 去重，同一支付流水只处理一次。
+ *   3) 金额核对：期望分取 orders.amountFen（缺失回退 amount）；核对不通过不标记已付。
+ *   4) 异常补偿：回调到达但订单已 cancelled 或不在 pending_payment 且未支付时，
+ *      写 order_logs.action='pay_anomaly' 审计并返回 errcode:0，绝不把未付款订单标记为已付，供人工退款。
+ * 说明：真实上线需对微信支付异步通知验签（云开发云调用模式已由平台侧完成验签）。
  */
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
@@ -14,9 +20,37 @@ const _ = db.command;
 const orders = db.collection('orders');
 const orderLogs = db.collection('order_logs');
 
+/**
+ * 写入异常支付审计（pay_anomaly）。
+ * 以 transactionId 去重，避免微信重试导致重复审计；写入失败不影响回调返回。
+ */
+async function recordAnomaly(order, detail) {
+  try {
+    const dup = await orderLogs
+      .where({ orderNo: order.orderNo, action: 'pay_anomaly', 'detail.transactionId': detail.transactionId })
+      .limit(1)
+      .get();
+    if (dup.data && dup.data.length) return;
+
+    await orderLogs.add({
+      data: {
+        orderNo: order.orderNo || '',
+        action: 'pay_anomaly',
+        from: order.status || '',
+        to: '',
+        source: 'pay_callback',
+        detail: detail,
+        createdAt: Date.now()
+      }
+    });
+  } catch (err) {
+    console.error('[payCallback] 异常支付审计写入失败', err);
+  }
+}
+
 exports.main = async (event) => {
   try {
-    // 来源防护（REQ-054）：微信支付结果通知为平台侧后台回调，此时 getWXContext().OPENID 为空。
+    // 来源防护：微信支付结果通知为平台侧后台回调，此时 getWXContext().OPENID 为空。
     // 若 OPENID 非空，说明是本小程序端伪造调用，直接拒绝，防止伪造支付成功。
     // 上线前还需：① 在云开发控制台将本函数配置为不允许小程序端直接调用；
     //            ② 追加微信支付 v3 异步通知验签（需商户号 APIv3 密钥）。
@@ -47,15 +81,34 @@ exports.main = async (event) => {
     if (order.payment && order.payment.transactionId && order.payment.transactionId === transactionId) {
       return { errcode: 0, errmsg: 'ok' };
     }
-    // 订单已流转（不在待付款）视为幂等成功
+
+    // 期望金额（分）：amountFen 权威，缺失时回退 amount 并记录告警
+    let expectFen;
+    if (order.amountFen !== undefined && order.amountFen !== null && isFinite(Number(order.amountFen))) {
+      expectFen = Math.round(Number(order.amountFen));
+    } else {
+      console.warn('[payCallback] amountFen 缺失或非法，回退 amount*100 orderNo=%s amount=%s', outTradeNo, order.amount);
+      expectFen = Math.round(Number(order.amount) * 100);
+    }
+
+    const anomalyInfo = { outTradeNo, transactionId, totalFee, expectFen };
+
+    // 异常补偿：订单非待付款状态（已取消 / 已流转）且未标记支付
     if (order.status !== 'pending_payment') {
+      // 订单已完成支付（存在支付流水）→ 视为重复回调，幂等返回
+      if (order.payment && order.payment.transactionId) {
+        return { errcode: 0, errmsg: 'ok' };
+      }
+      // 未支付但状态异常：写异常支付审计，返回 0（避免微信无意义重试），绝不标记为已付
+      console.error('[payCallback] 异常支付：订单状态不可支付', anomalyInfo, { status: order.status });
+      await recordAnomaly(order, Object.assign({}, anomalyInfo, { reason: 'status_' + (order.status || 'unknown') }));
       return { errcode: 0, errmsg: 'ok' };
     }
 
-    // 金额核对（以服务端持久化的金额分 amountFen 为准，避免浮点误差）
-    const expectFen = order.amountFen !== undefined ? Number(order.amountFen) : Math.round(Number(order.amount) * 100);
+    // 金额核对（分）：不一致时不标记已付，写审计并返回失败（触发重试以便人工介入）
     if (!isFinite(totalFee) || totalFee !== expectFen) {
-      console.error('[payCallback] amount mismatch', { orderNo: outTradeNo, expectFen, totalFee });
+      console.error('[payCallback] amount mismatch', anomalyInfo);
+      await recordAnomaly(order, Object.assign({}, anomalyInfo, { reason: 'amount_mismatch' }));
       return { errcode: -1, errmsg: 'amount mismatch' };
     }
 
@@ -63,7 +116,13 @@ exports.main = async (event) => {
     await orders.doc(order._id).update({
       data: {
         status: 'making',
-        payment: { transactionId, paidAt: now, payAmount: expectFen / 100, channel: 'wechat' },
+        payment: {
+          transactionId,
+          paidAt: now,
+          payAmount: expectFen / 100,
+          amountFen: expectFen,
+          channel: 'wechat'
+        },
         timeline: _.push([{ status: 'making', at: now, source: 'pay_callback' }]),
         updatedAt: now
       }
@@ -76,7 +135,7 @@ exports.main = async (event) => {
         from: 'pending_payment',
         to: 'making',
         source: 'pay_callback',
-        detail: { transactionId, totalFee },
+        detail: anomalyInfo,
         createdAt: now
       }
     });

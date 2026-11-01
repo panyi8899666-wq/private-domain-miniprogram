@@ -18,12 +18,13 @@ miniprogram/
 │   ├── request.js      # 云函数统一调用 + 加载态/异常/重试/防重锁
 │   ├── auth.js         # 登录、手机号授权、登录态缓存
 │   ├── format.js       # 金额/时间/脱敏格式化
+│   ├── profile.js      # 客户资料 / 收货地址保存（保存前校验）
 │   └── constants.js    # 订单状态枚举、分类、物料类型、错误码映射
 ├── components/         # 9 个公共组件
 │   ├── empty-state/  loading/  glow-button/  order-status-tag/
 │   ├── work-card/    product-card/  spec-picker/
 │   └── address-picker/  uploader/
-└── pages/              # 10 个页面
+└── pages/              # 15 个页面
     ├── index/            # 首页（TabBar）
     ├── material/         # 物料百科（TabBar）
     ├── works/            # 作品集（TabBar）
@@ -33,23 +34,28 @@ miniprogram/
     ├── orders/           # 我的订单
     ├── order-detail/     # 订单详情
     ├── mine/             # 个人中心（TabBar）
-    └── designer/         # 对接设计师窗口（Muse）
+    ├── profile/          # 客户注册资料
+    ├── addresses/        # 收货地址管理
+    ├── designer/         # 对接设计师窗口（Muse）
+    ├── about/            # 关于我们
+    ├── help/             # 帮助与售后
+    └── search/           # 关键词搜索
 ```
 
-## 二、部署前必须替换的占位配置
+## 二、配置项与待替换素材
 
-| 占位项 | 位置 | 说明 |
+| 项目 | 位置 | 状态说明 |
 |-------|------|------|
-| **云开发环境 ID** | `miniprogram/app.js` 顶部 `CLOUD_ENV_ID = 'cloud1-d0get66qf4fc7987f'` | 已于 2026-10-29 填入微信体验版环境 ID（云开发控制台可查） |
-| **小程序 AppID** | 根目录 `project.config.json` 的 `"appid": "touristappid"` | 替换为企业主体小程序 AppID；`touristappid` 仅用于游客模式预览 |
-| **TabBar 图标** | `miniprogram/images/tabbar/*.png` | 当前为脚本生成的纯几何占位图标，可替换为正式设计图标（81×81px @3x） |
-| **占位图** | `miniprogram/images/placeholder.png` | 图片加载失败/无数据时展示，可替换为品牌化占位图 |
+| **云开发环境 ID** | `miniprogram/app.js` 顶部 `CLOUD_ENV_ID = 'cloud1-d0get66qf4fc7987f'` | **已配置**：2026-10-29 填入微信体验版环境 ID（云开发控制台可查） |
+| **小程序 AppID** | 根目录 `project.config.json` 的 `"appid": "wxa7c12126aa192d2a"` | **已配置**：企业主体小程序 AppID |
+| **TabBar 图标** | `miniprogram/images/tabbar/*.png` | **仍需人工确认替换**：当前为脚本生成的纯几何占位图标，可替换为正式设计图标（81×81px @3x） |
+| **占位图** | `miniprogram/images/placeholder.png` | **仍需人工确认替换**：图片加载失败/无数据时展示，可替换为品牌化占位图 |
 
 ## 三、打开与运行
 
 1. 用**微信开发者工具**「导入项目」，选择仓库根目录（含 `project.config.json`）。
 2. 工具会读取 `miniprogramRoot=miniprogram/` 与 `cloudfunctionRoot=cloudfunctions/`。
-3. 若未配置 AppID，可用「游客模式 / 测试号」预览静态页面；云函数能力需真实环境 ID 与已部署的 `cloudfunctions/`。
+3. 项目已配置正式 AppID 与云环境 ID；如需无云环境预览静态页面，仍可用「游客模式 / 测试号」；云函数能力需已部署的 `cloudfunctions/` 与真实环境。
 
 ## 四、接口约定（design §2.2）
 
@@ -64,7 +70,8 @@ miniprogram/
 { code: <非0>, data: null, message: '中文提示' } // 失败
 ```
 
-对接的云函数：`login`、`getPhoneNumber`、`getContent`、`getProducts`、`createOrder`、`createCustomOrder`、`submitQuote`、`createPayment`、`getOrders`、`getOrderDetail`、`cancelOrder`。
+前端直接调用的云函数（共 13 个）：`login`、`getPhoneNumber`、`getContent`、`getProducts`、`createOrder`、`createCustomOrder`、`createPayment`、`getOrders`、`getOrderDetail`、`cancelOrder`、`addOrderMessage`、`saveProfile`、`saveAddresses`。
+（`submitQuote`、`initData`、`musePoll`/`museReply` 等由商家侧 / 运维 / 对接桥调用，非前端页面直接调用。）
 
 ## 五、合规红线（REQ-048 ~ REQ-052）
 

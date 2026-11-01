@@ -1,0 +1,69 @@
+<view class="page-container help-page">
+  <view class="help-hero">
+    <text class="page-title text-glow-gradient">帮助与售后</text>
+    <text class="help-sub text-aux">下单流程、配置式下单说明与售后联系方式</text>
+  </view>
+
+  <!-- 下单流程 -->
+  <view class="help-section">
+    <text class="section-title-glow">下单流程</text>
+    <view class="step-list">
+      <view wx:for="{{steps}}" wx:key="no" class="step-item card-surface">
+        <text class="step-num process-step-num">{{item.no}}</text>
+        <view class="step-body">
+          <text class="step-title">{{item.title}}</text>
+          <text class="step-desc text-muted">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 配置式下单说明 -->
+  <view class="help-section">
+    <text class="section-title-glow">配置式下单说明</text>
+    <view class="tip-card card-surface">
+      <text wx:for="{{configTips}}" wx:key="*this" class="tip-item text-body">· {{item}}</text>
+    </view>
+  </view>
+
+  <!-- 常见问题 -->
+  <view class="help-section">
+    <text class="section-title-glow">常见问题</text>
+    <view class="faq-list">
+      <view
+        wx:for="{{faqs}}"
+        wx:key="q"
+        class="faq-item card-surface"
+        data-index="{{index}}"
+        bindtap="onToggleFaq"
+      >
+        <view class="faq-head row-between">
+          <text class="faq-q">{{item.q}}</text>
+          <text class="faq-toggle text-aux">{{item.open ? '收起' : '展开'}}</text>
+        </view>
+        <text wx:if="{{item.open}}" class="faq-a text-muted">{{item.a}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 售后与联系 -->
+  <view class="help-section">
+    <text class="section-title-glow">售后与联系</text>
+    <view class="tip-card card-surface">
+      <text wx:for="{{afterSale}}" wx:key="*this" class="tip-item text-body">· {{item}}</text>
+    </view>
+    <view class="help-actions">
+      <button class="help-btn btn-secondary-glow contact-btn" open-type="contact">在线客服</button>
+      <view wx:if="{{contact.hasPhone}}" class="help-btn btn-secondary-glow" bindtap="onCall">拨打电话</view>
+    </view>
+    <text wx:if="{{!contact.hasPhone}}" class="help-note text-muted">客服电话待配置（需用户提供官方客服电话）</text>
+  </view>
+
+  <!-- 行动入口 -->
+  <view class="help-cta">
+    <view class="help-btn btn-primary-glow" bindtap="goCustom">去定制下单</view>
+    <view class="help-btn btn-secondary-glow" bindtap="goOrders">查看我的订单</view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>
