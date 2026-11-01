@@ -155,10 +155,10 @@ const DESIGNER = {
  * 所有页面（mine / designer / order-detail 等）的 makePhoneCall 等一律读取 CONTACT.phone，
  * 不得在页面内散落硬编码 const CONTACT_PHONE。
  *
- * 注意：phone 为暂定值，上线前由业务方替换为官方客服电话。
+ * 注意：phone 为官方客服电话，已由业务方确认（2026-11-02）。
  */
 const CONTACT = {
-  phone: '17306983179', // 暂定值，上线前由业务方替换为官方客服电话
+  phone: '17306983179', // 官方客服电话（业务方已确认）
   name: '正鑫越文化工作室'
 };
 
