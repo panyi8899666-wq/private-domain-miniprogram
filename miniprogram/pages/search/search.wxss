@@ -6,14 +6,14 @@
 .search-bar {
   display: flex;
   align-items: center;
-  gap: 16rpx;
+  gap: var(--gap-sm);
 }
 
 .search-input {
   flex: 1;
   min-width: 0;
   height: 76rpx;
-  padding: 0 24rpx;
+  padding: 0 var(--gap-md);
   border-radius: var(--radius-btn);
   background-color: var(--bg-surface);
   border: 1rpx solid var(--border-line);
@@ -21,15 +21,19 @@
   font-size: 28rpx;
 }
 
+/* 清空操作（图标操作）：保证最小点击高度（C-CLICK-TARGET@1） */
 .search-clear {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  min-height: 72rpx;
+  padding: 0 var(--gap-xs);
   font-size: 24rpx;
-  padding: 0 8rpx;
 }
 
 .search-btn {
   flex-shrink: 0;
-  padding: 18rpx 40rpx;
+  padding: var(--gap-sm) var(--gap-lg);
   border-radius: var(--radius-btn);
   font-size: 28rpx;
   font-weight: 600;
@@ -38,16 +42,19 @@
 /* scope 切换 */
 .scope-bar {
   display: flex;
-  gap: 16rpx;
+  gap: var(--gap-sm);
   margin: var(--gap-md) 0 var(--gap-lg);
 }
 
+/* scope chip：对齐 C-LAYOUT-CLASSES@1 (b) 统一选中 chip 基线 */
 .scope-chip {
-  padding: 10rpx 32rpx;
+  padding: 12rpx 28rpx;
   border-radius: var(--radius-tag);
   border: 1rpx solid var(--border-line);
   color: var(--text-secondary);
+  background-color: var(--bg-surface);
   font-size: 26rpx;
+  line-height: 1.4;
 }
 
 .scope-chip-active {
@@ -56,9 +63,10 @@
   background: rgba(198, 161, 91, 0.1);
 }
 
-/* 状态占位 */
+/* 状态占位（引导 / 错误 / 空结果）：上下留白统一到 D1 默认 80rpx 0
+   （C-LAYOUT-CLASSES@1 (c)，与 .empty-box 同一共识值） */
 .state-box {
-  padding: 40rpx 0;
+  padding: 80rpx 0;
 }
 
 .result-count {
@@ -66,39 +74,50 @@
   font-size: 24rpx;
 }
 
-/* 结果列表 */
+/* 结果网格：gap 刻度化（与首页 / 作品 / 商城 grid 一致） */
 .work-grid,
 .product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20rpx;
+  gap: var(--gap-md);
 }
 
+/* 材质结果列表（纵向） */
 .material-list {
   display: flex;
   flex-direction: column;
-  gap: 16rpx;
+  gap: var(--gap-sm);
 }
 
 .material-item {
   display: flex;
   flex-direction: column;
-  padding: 20rpx 24rpx;
+  min-width: 0;
+  padding: var(--gap-md);
 }
 
+/* 主名称：单行省略（R3.AC1），可收缩宽度避免窄屏溢出 */
 .material-name {
   font-size: 30rpx;
   font-weight: 600;
   color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+/* 副标题：单行省略 */
 .material-title {
-  margin-top: 6rpx;
+  margin-top: var(--gap-xs);
   font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+/* 描述：两行省略（R3.AC2，wxml 已配 .ellipsis-2 提供 clamp） */
 .material-intro {
-  margin-top: 8rpx;
+  margin-top: var(--gap-xs);
   font-size: 24rpx;
   line-height: 1.5;
 }

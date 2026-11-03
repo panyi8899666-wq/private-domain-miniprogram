@@ -88,7 +88,7 @@
 }
 
 .pd-gap {
-  height: 40rpx;
+  height: var(--gap-xl); /* 末尾留白占位（区块间隔语义刻度化；40rpx→--gap-xl） */
 }
 
 /* 底部固定操作栏 */
@@ -102,6 +102,8 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--gap-sm) var(--gap-lg);
+  /* 安全区底部内边距：C-SAFE-AREA@1 要求 constant()+env() 两行回退（先 constant 后 env） */
+  padding-bottom: calc(var(--gap-sm) + constant(safe-area-inset-bottom));
   padding-bottom: calc(var(--gap-sm) + env(safe-area-inset-bottom));
   background-color: var(--bg-surface);
   border-top: 1rpx solid var(--border-line);

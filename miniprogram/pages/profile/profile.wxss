@@ -1,35 +1,45 @@
+/* ==================================================================
+   profile 客户资料页排版（layout-polish T6）
+   契约：C-TOKENS@1 / C-CLICK-TARGET@1 / C-SAFE-AREA@1
+   刻度映射（等距取大）：12rpx→--gap-sm、20rpx→--gap-md、28rpx→--gap-lg；
+   输入框高度 84rpx 属固有尺寸不刻度化；仅排版调整，配色/绑定/文案不变。
+   ================================================================== */
 .pf-form {
-  padding: 24rpx;
+  padding: var(--gap-md);              /* 卡片内边距 24rpx */
   display: flex;
   flex-direction: column;
-  gap: 28rpx;
+  gap: var(--gap-lg);                  /* 字段间距 28rpx→32rpx */
 }
 .pf-field {
   display: flex;
   flex-direction: column;
-  gap: 12rpx;
+  gap: var(--gap-sm);                  /* 标签↔输入框间距 12rpx→16rpx */
 }
 .pf-label {
-  font-size: 24rpx;
+  font-size: 24rpx;                    /* aux 级 */
   color: var(--text-muted);
 }
 .pf-input {
-  height: 84rpx;
+  height: 84rpx;                       /* 输入框固有高度（例外，不刻度化） */
   border: 1rpx solid var(--border-line);
   border-radius: var(--radius-tag);
-  padding: 0 24rpx;
+  padding: 0 var(--gap-md);            /* 24rpx */
   background: var(--bg-surface-2);
   color: var(--text-primary);
-  font-size: 28rpx;
+  font-size: 28rpx;                    /* body 级 */
 }
 .pf-radio {
-  margin-right: 48rpx;
-  font-size: 28rpx;
+  margin-right: var(--gap-xl);         /* 48rpx */
+  font-size: 28rpx;                    /* body 级 */
   color: var(--text-primary);
 }
 .pf-mini-btn {
-  font-size: 24rpx;
-  padding: 8rpx 20rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72rpx;                   /* C-CLICK-TARGET@1：点击区 ≥72rpx */
+  font-size: 24rpx;                    /* aux 级 */
+  padding: var(--gap-xs) var(--gap-md); /* 8rpx 24rpx（原 8rpx 20rpx） */
   margin: 0;
   border-radius: var(--radius-tag);
   background: var(--bg-surface-2);
@@ -44,24 +54,26 @@
   margin: 0;
 }
 .pf-link {
-  display: block;
-  margin-top: 16rpx;
-  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  min-height: 72rpx;                   /* C-CLICK-TARGET@1：整行点击区 ≥72rpx */
+  margin-top: var(--gap-sm);           /* 16rpx */
+  font-size: 24rpx;                    /* aux 级 */
   color: var(--text-muted);
 }
 .pf-link-row {
-  padding: 28rpx 24rpx;
-  margin-top: 24rpx;
+  padding: var(--gap-lg) var(--gap-md); /* 28rpx 24rpx→32rpx 24rpx，整行点击区达标 */
+  margin-top: var(--gap-md);           /* 24rpx */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .pf-save {
   width: 100%;
-  margin-top: 32rpx;
+  margin-top: var(--gap-lg);           /* 32rpx */
 }
 .pf-tip {
-  margin-top: 20rpx;
-  font-size: 22rpx;
+  margin-top: var(--gap-md);           /* 20rpx→24rpx */
+  font-size: 22rpx;                    /* tag 级 */
   text-align: center;
 }

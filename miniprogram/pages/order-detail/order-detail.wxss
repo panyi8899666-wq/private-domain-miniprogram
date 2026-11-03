@@ -48,10 +48,11 @@
 .dd-mono {
   font-size: 24rpx;
   word-break: break-all;
+  min-width: 0; /* 允许在 row-between 内收缩，长订单号换行不横向溢出（R3.AC3/AC4） */
 }
 
 .dd-amount {
-  font-size: 34rpx;
+  font-size: 36rpx; /* 金额层级对齐 page-title 级（34rpx→36rpx，消除刻度外字号） */
 }
 
 /* 标准品明细 */
@@ -76,7 +77,7 @@
 
 .dd-item-spec {
   font-size: 22rpx;
-  margin-top: 2rpx;
+  margin-top: var(--gap-xs); /* 2rpx→--gap-xs，间距刻度化 */
 }
 
 .dd-item-qty {
@@ -105,6 +106,7 @@
 
 .dd-addr-text {
   flex: 1;
+  min-width: 0; /* 长地址可持续收缩并换行，不横向溢出（R3.AC3/AC4） */
   margin-left: var(--gap-md);
   font-size: 26rpx;
   line-height: 1.6;
@@ -150,7 +152,7 @@
   height: 16rpx;
   border-radius: 50%;
   background-color: var(--text-muted);
-  margin-top: 12rpx;
+  margin-top: var(--gap-sm); /* 圆点与状态首行对齐偏移（12rpx→--gap-sm，刻度化且对齐不劣化） */
   margin-right: var(--gap-md);
   flex-shrink: 0;
 }
@@ -172,11 +174,11 @@
 
 .dd-tl-time {
   font-size: 22rpx;
-  margin-top: 2rpx;
+  margin-top: var(--gap-xs); /* 2rpx→--gap-xs，间距刻度化 */
 }
 
 .dd-gap {
-  height: 40rpx;
+  height: var(--gap-xl); /* 末尾留白占位（区块间隔语义刻度化；40rpx→--gap-xl） */
 }
 
 /* 底部操作栏 */
@@ -191,6 +193,8 @@
   justify-content: flex-end;
   gap: var(--gap-sm);
   padding: var(--gap-sm) var(--gap-lg);
+  /* 安全区底部内边距：C-SAFE-AREA@1 要求 constant()+env() 两行回退（先 constant 后 env） */
+  padding-bottom: calc(var(--gap-sm) + constant(safe-area-inset-bottom));
   padding-bottom: calc(var(--gap-sm) + env(safe-area-inset-bottom));
   background-color: var(--bg-surface);
   border-top: 1rpx solid var(--border-line);

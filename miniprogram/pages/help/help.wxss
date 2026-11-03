@@ -1,3 +1,7 @@
+/* 帮助与售后（layout-polish T8）
+   排版刻度/字号层级/圆角/对齐/点击区收敛到 C-TOKENS@1 与 C-LAYOUT-CLASSES@1；
+   深色香槟金主题配色不变，未改任何绑定/事件/文案。 */
+
 .help-page {
   padding-top: var(--gap-lg);
 }
@@ -8,8 +12,8 @@
 
 .help-sub {
   display: block;
-  margin-top: 10rpx;
-  font-size: 24rpx;
+  margin-top: var(--gap-xs);
+  font-size: 24rpx; /* aux */
 }
 
 .help-section {
@@ -20,15 +24,15 @@
 .step-list {
   display: flex;
   flex-direction: column;
-  gap: 16rpx;
+  gap: var(--gap-sm);
   margin-top: var(--gap-sm);
 }
 
 .step-item {
   display: flex;
   align-items: flex-start;
-  gap: 20rpx;
-  padding: 20rpx 24rpx;
+  gap: var(--gap-sm);
+  padding: var(--gap-md); /* 卡片内边距基线 */
 }
 
 .step-num {
@@ -37,78 +41,84 @@
 
 .step-body {
   flex: 1;
-  min-width: 0;
+  min-width: 0; /* 允许子文本收缩，配合省略/换行 */
   display: flex;
   flex-direction: column;
 }
 
 .step-title {
-  font-size: 30rpx;
+  font-size: 30rpx; /* item-title */
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .step-desc {
-  margin-top: 6rpx;
-  font-size: 24rpx;
+  margin-top: var(--gap-xs);
+  font-size: 24rpx; /* aux */
   line-height: 1.5;
+  word-break: break-word; /* 长串文本换行不溢出 */
 }
 
 /* 说明卡片 */
 .tip-card {
   display: flex;
   flex-direction: column;
-  gap: 14rpx;
-  padding: var(--gap-md);
+  gap: var(--gap-sm);
+  padding: var(--gap-md); /* 卡片内边距基线 */
   margin-top: var(--gap-sm);
 }
 
 .tip-item {
   display: block;
-  line-height: 1.6;
+  line-height: 1.6; /* 正文行高 ≥1.5 */
+  word-break: break-word; /* 长串文本换行不溢出 */
 }
 
 /* 常见问题 */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 16rpx;
+  gap: var(--gap-sm);
   margin-top: var(--gap-sm);
 }
 
+/* FAQ 整行可点击：内边距基线 + 头部行高保证点击区达标（C-CLICK-TARGET@1） */
 .faq-item {
-  padding: 20rpx 24rpx;
+  padding: var(--gap-md);
 }
 
 .faq-head {
-  gap: 16rpx;
+  gap: var(--gap-sm);
 }
 
 .faq-q {
   flex: 1;
   min-width: 0;
-  font-size: 28rpx;
+  font-size: 28rpx; /* body */
   font-weight: 600;
   color: var(--text-primary);
+  word-break: break-word; /* 长问题换行不溢出 */
 }
 
 .faq-toggle {
   flex-shrink: 0;
-  font-size: 24rpx;
+  font-size: 24rpx; /* aux */
 }
 
+/* FAQ 展开区（wx:if 控制）：与问题区对齐、间距刻度化、行高统一 */
 .faq-a {
   display: block;
-  margin-top: 14rpx;
-  font-size: 24rpx;
+  margin-top: var(--gap-sm);
+  font-size: 24rpx; /* aux */
   line-height: 1.6;
+  word-break: break-word; /* 长答案换行不溢出 */
 }
 
 /* 售后与联系 */
 .help-actions,
 .help-cta {
   display: flex;
-  gap: 20rpx;
+  gap: var(--gap-sm);
   margin-top: var(--gap-md);
 }
 
@@ -116,10 +126,11 @@
   margin-bottom: var(--gap-xl);
 }
 
+/* 按钮基线：圆角 --radius-btn、字号 28rpx，内边距收敛使高度达标（≈88rpx） */
 .help-btn {
   flex: 1;
   text-align: center;
-  padding: 22rpx;
+  padding: var(--gap-md);
   border-radius: var(--radius-btn);
   font-size: 28rpx;
   font-weight: 600;
@@ -135,5 +146,5 @@ button.contact-btn {
 .help-note {
   display: block;
   margin-top: var(--gap-sm);
-  font-size: 22rpx;
+  font-size: 22rpx; /* tag */
 }

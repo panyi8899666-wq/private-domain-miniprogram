@@ -1,22 +1,34 @@
+/* ==================================================================
+   材质百科（layout-polish T2：浏览类页 A 排版规范化）
+   间距/字号/圆角收敛到 C-TOKENS@1；搜索入口复用全局 .search-entry*；
+   空态/错误态收敛到 .empty-box（D1 默认共识值 80rpx 0）；
+   chip 数值与选中态对齐 C-LAYOUT-CLASSES@1 (b) 基线；
+   .mat-name 单行省略（.ellipsis）、.mat-note 两行省略（.ellipsis-2），
+   二者均具备可收缩宽度（flex:1/min-width:0）。
+   注：208x156rpx（图片卡）、88rpx（按钮高）为元素固有尺寸，
+   按 C-TOKENS@1 (a) 例外条款不刻度化。
+   ================================================================== */
+
 .lib-header {
-  margin-bottom: 20rpx;
+  margin-bottom: var(--gap-md);
 }
 
 .lib-sub {
   display: block;
-  margin-top: 8rpx;
-  font-size: 24rpx;
+  margin-top: var(--gap-xs);
+  font-size: 24rpx;      /* aux */
   line-height: 1.5;
 }
 
 .lib-cta {
-  margin-top: 20rpx;
+  margin-top: var(--gap-md);
+  height: 88rpx;         /* 按钮固定高度，不刻度化 */
+  line-height: 88rpx;
   text-align: center;
-  padding: 22rpx;
   border-radius: var(--radius-btn);
-  color: #04121a;
+  color: #04121a;        /* 按钮文字色，无等价令牌，保持原值（C-UNCHANGED@1） */
   font-weight: 600;
-  font-size: 30rpx;
+  font-size: 30rpx;      /* item-title */
 }
 
 /* 大类横滑 */
@@ -25,68 +37,78 @@
   top: 0;
   z-index: 10;
   background: var(--bg-base);
-  padding: 16rpx 0;
+  padding: var(--gap-sm) 0;
   white-space: nowrap;
 }
 
 .cat-row {
   display: inline-flex;
-  gap: 16rpx;
-  padding: 0 24rpx;
+  gap: var(--gap-sm);
+  padding: 0 var(--gap-md);
 }
 
+/* chip 基线：padding/border-radius/font-size/line-height/选中态统一
+   对齐 C-LAYOUT-CLASSES@1 (b)（保留 flex-shrink:0 以支持横滑） */
 .cat-chip {
-  padding: 10rpx 28rpx;
+  padding: 12rpx 28rpx;
   border-radius: var(--radius-tag);
   border: 1rpx solid var(--border-line);
   color: var(--text-secondary);
-  font-size: 26rpx;
+  background-color: var(--bg-surface);
+  font-size: 26rpx;      /* body-sm */
+  line-height: 1.4;
   flex-shrink: 0;
 }
 
 .cat-chip-active {
   color: var(--accent-glow);
   border-color: var(--accent-glow);
-  background: rgba(198, 161, 91, 0.1);
+  background-color: rgba(198, 161, 91, 0.1);
 }
 
 /* 子类 + 材质 */
 .sub-block {
-  margin-top: 28rpx;
+  margin-top: var(--gap-lg);
+}
+
+/* tabBar 页末尾留白：末个子类区块与 tabBar 不重叠（C-SAFE-AREA@1 第 3 条） */
+.sub-block:last-child {
+  margin-bottom: var(--gap-xl);
 }
 
 .sub-title {
   display: block;
-  font-size: 30rpx;
+  font-size: 30rpx;      /* item-title */
   font-weight: 600;
+  line-height: 1.4;
 }
 
 .sub-machine {
   display: block;
-  margin-top: 6rpx;
-  margin-bottom: 16rpx;
-  font-size: 22rpx;
+  margin-top: var(--gap-xs);
+  margin-bottom: var(--gap-sm);
+  font-size: 22rpx;      /* tag */
 }
 
 .mat-list {
   display: flex;
   flex-direction: column;
-  gap: 16rpx;
+  gap: var(--gap-sm);
 }
 
 .mat-card {
   display: flex;
-  gap: 20rpx;
-  padding: 20rpx;
+  gap: var(--gap-md);
+  padding: var(--gap-md);
   border: 1rpx solid var(--border-line);
-  border-radius: var(--radius-btn);
+  border-radius: var(--radius-card);
   background: var(--bg-surface);
 }
 
 .mat-img {
-  width: 208rpx;
+  width: 208rpx;         /* 图片卡固有尺寸，不刻度化 */
   height: 156rpx;
-  border-radius: 12rpx;
+  border-radius: var(--radius-tag);
   flex-shrink: 0;
   background: var(--bg-base);
   border: 1rpx solid var(--border-line);
@@ -101,44 +123,44 @@
 
 .mat-head {
   align-items: baseline;
-  gap: 12rpx;
+  gap: var(--gap-sm);
 }
 
+/* 名称单行省略：溢出属性由全局 .ellipsis 提供，此处保留可收缩宽度 */
 .mat-name {
   flex: 1;
   min-width: 0;
-  font-size: 30rpx;
+  font-size: 30rpx;      /* item-title */
   font-weight: 600;
   color: var(--text-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .mat-price {
-  font-size: 24rpx;
+  font-size: 24rpx;      /* aux */
   flex-shrink: 0;
 }
 
 .mat-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10rpx;
-  margin-top: 12rpx;
+  gap: var(--gap-xs);    /* 相邻标签间距 ≥ --gap-xs（C-CLICK-TARGET@1 第 3 条） */
+  margin-top: var(--gap-sm);
 }
 
+/* 备注两行省略：行数截断由全局 .ellipsis-2 提供，此处仅保留间距/字号/行高 */
 .mat-note {
-  margin-top: 12rpx;
-  font-size: 22rpx;
+  margin-top: var(--gap-sm);
+  font-size: 22rpx;      /* tag */
   line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .mat-cta {
-  margin-top: 12rpx;
-  font-size: 24rpx;
+  margin-top: var(--gap-sm);
+  font-size: 24rpx;      /* aux */
   text-align: right;
+}
+
+/* 状态容器（空态/错误态）：D1 默认共识值 80rpx 0（C-LAYOUT-CLASSES@1 (c)） */
+.empty-box {
+  padding: 80rpx 0;
 }

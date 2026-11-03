@@ -1,5 +1,5 @@
 .shop-head {
-  padding: 8rpx 0 24rpx;
+  padding: var(--gap-xs) 0 var(--gap-md);
 }
 
 .shop-title {
@@ -8,22 +8,24 @@
 
 .shop-sub {
   display: block;
-  margin-top: 8rpx;
+  margin-top: var(--gap-xs);
   font-size: 24rpx;
 }
 
+/* 商品网格：gap 刻度化（与首页 / 作品页 grid 一致） */
 .product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20rpx;
+  gap: var(--gap-md);
 }
 
+/* 空态 / 错误态容器：上下留白统一到 D1 默认 80rpx 0（C-LAYOUT-CLASSES@1 (c)） */
 .empty-box {
   padding: 80rpx 0;
 }
 
 .loading-more {
   text-align: center;
-  padding: 24rpx 0;
+  padding: var(--gap-md) 0;
   font-size: 24rpx;
 }

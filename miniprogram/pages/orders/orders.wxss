@@ -3,8 +3,7 @@
   min-height: 100vh;
 }
 
-
-/* 筛选标签 */
+/* 筛选标签（sticky 顶部） */
 .od-filters {
   position: sticky;
   top: 0;
@@ -14,66 +13,63 @@
   border-bottom: 1rpx solid var(--border-line);
 }
 
-
 .od-filter-scroll {
   white-space: nowrap;
   width: 100%;
 }
 
-
+/* 筛选 chip：按 D2 保留胶囊圆角，padding / 字号 / 行高 / 选中态
+   对齐 C-LAYOUT-CLASSES@1 (b) 统一选中 chip 基线 */
 .od-filter {
   display: inline-flex;
   align-items: center;
-  padding: 10rpx 28rpx;
+  padding: 12rpx 28rpx;
   margin-right: var(--gap-sm);
   font-size: 26rpx;
+  line-height: 1.4;
   color: var(--text-secondary);
   background-color: var(--bg-surface);
   border: 1rpx solid var(--border-line);
   border-radius: 32rpx;
 }
 
-
 .od-filter-active {
   color: var(--accent-glow);
   background-color: rgba(198, 161, 91, 0.1);
-  border-color: rgba(198, 161, 91, 0.5);
-  box-shadow: 0 0 16rpx rgba(198, 161, 91, 0.25);
+  border-color: var(--accent-glow);
 }
 
-
-/* 状态容器（加载/失败/空态/未登录） */
+/* 状态容器（加载 / 失败 / 空态 / 未登录）：上下留白统一到 D1 默认
+   80rpx 0（C-LAYOUT-CLASSES@1 (c)），保留自身类名 */
 .od-state {
-  padding: var(--gap-xl) var(--gap-lg);
+  padding: 80rpx 0;
 }
-
 
 /* 订单列表 */
 .od-list {
   padding: var(--gap-md) var(--gap-lg);
 }
 
-
 .od-item {
   padding: var(--gap-md);
   margin-bottom: var(--gap-md);
 }
 
-
 .od-item-hover {
   opacity: 0.85;
 }
-
 
 .od-item-head {
   margin-bottom: var(--gap-sm);
 }
 
-
+/* 订单号：长连续串允许换行、可收缩，不横向溢出（R3.AC3 / R3.AC4） */
 .od-no {
+  flex: 1;
+  min-width: 0;
   font-size: 22rpx;
+  word-break: break-all;
 }
-
 
 .od-item-body {
   display: flex;
@@ -83,20 +79,21 @@
   gap: var(--gap-md);
 }
 
-
+/* 订单摘要：可收缩宽度，保证 .ellipsis-2 在窄屏生效（R3.AC4） */
 .od-summary {
   flex: 1;
+  min-width: 0;
   font-size: 28rpx;
   color: var(--text-primary);
   line-height: 1.5;
 }
 
-
+/* 金额：不参与压缩，保持整段显示 */
 .od-amount {
+  flex-shrink: 0;
   font-size: 30rpx;
   white-space: nowrap;
 }
-
 
 .od-item-foot {
   margin-top: var(--gap-sm);
@@ -104,17 +101,14 @@
   border-top: 1rpx solid var(--border-line);
 }
 
-
 .od-time {
   font-size: 22rpx;
 }
-
 
 .od-more {
   font-size: 22rpx;
   color: var(--accent-glow);
 }
-
 
 /* 触底 */
 .od-more-loading {
@@ -122,7 +116,6 @@
   display: flex;
   justify-content: center;
 }
-
 
 .od-no-more {
   text-align: center;

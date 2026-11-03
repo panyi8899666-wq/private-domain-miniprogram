@@ -1,8 +1,11 @@
+/* 状态标签：圆角/内边距/字号对齐全局标签基线
+   （C-TOKENS@1 (c) --radius-tag + R5.AC3 标签基线 4rpx 16rpx / 22rpx）
+   注：颜色由数据驱动的 style="{{tagStyle}}" 提供，本类不含颜色。 */
 .status-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6rpx 20rpx;
+  padding: 4rpx 16rpx;
   border-radius: var(--radius-tag);
   border-width: 1rpx;
   border-style: solid;

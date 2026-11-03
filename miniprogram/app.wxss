@@ -3,6 +3,72 @@
    深色香槟金设计令牌（与个人网站同款：墨黑 #0D0D0F / 炭灰 #141416 / 米白 #ECEAE4 / 香槟金 #C6A15B） + 发光公共 class（纯 CSS，零图片）
    ================================================================== */
 
+/* ==================================================================
+   排版规范（layout-polish plan §2.2，固化依据，供后续维护）
+   契约：C-TOKENS@1 / C-LAYOUT-CLASSES@1 / C-SAFE-AREA@1 /
+        C-CLICK-TARGET@1 / C-INLINE-CONVERGE@1 / C-UNCHANGED@1
+   硬约束：仅固化规范 + 新增通用类；不修改现有类的视觉表现，不删除既有类。
+   ------------------------------------------------------------------
+   1) 间距刻度语义（令牌值保持不变，禁止再硬编码等价语义）
+      --gap-xs  8rpx   行内最小间隙、标签间距
+      --gap-sm  16rpx  列表项间距、行内中等间隙、状态容器内边距
+      --gap-md  24rpx  卡片内边距、区块内元素间距
+      --gap-lg  32rpx  页面根容器水平内边距、区块外边距
+      --gap-xl  48rpx  区块之间垂直间隔、状态容器上下留白
+      例外：元素固有尺寸（图片/头像/图标/spinner/圆点/骨架块宽高、
+      按钮固定高度 88rpx、输入框高度、上传方格 200rpx 等）不属间距语义，
+      按其自身基线统一，不因刻度化改变视觉尺寸。
+      现存非刻度值（20/28/40/12/10/14/6/4/2rpx）须映射到最近刻度。
+   2) 字号层级（9 级，新代码只能使用以下层级）
+      display-2 44rpx  页面私有（.hero-title/.about-brand 等）
+      display-1 40rpx  页面私有（.pd-name/.dd-status-text/.hero-brand 等）
+      page-title 36rpx .page-title
+      section-title 32rpx .section-title
+      item-title 30rpx .text-title（本文件新增，仅字号）
+      body 28rpx .text-body
+      body-sm 26rpx .text-sub（本文件新增，仅字号）
+      aux 24rpx .text-aux
+      tag 22rpx .text-tag
+      行高：body/正文 ≥1.5；aux/tag ≥1.4；标题 1.3–1.4。
+      .text-title/.text-sub 只定义 font-size（可选与现值一致的 font-weight:600），
+      不定义颜色；消费方需搭配颜色类维持现值，以保证视觉零变化。
+   3) 圆角令牌（值不变；硬编码 10/12/20/32/8rpx 映射到最近令牌）
+      --radius-card 28rpx  卡片、大容器、模态
+      --radius-btn  20rpx  按钮、输入框、列表项、搜索入口
+      --radius-tag  12rpx  标签、chip、小图、骨架线
+      圆形元素（头像/圆点/spinner）保留 50%。
+   4) 对齐规则
+      并排容器统一用 flex，默认垂直居中（.row/.row-between）；
+      名称+价格/数值行需基线对齐时显式 align-items: baseline；
+      同一行内元素间距统一用 --gap-xs ~ --gap-sm。
+   5) 安全区规则（C-SAFE-AREA@1）
+      固定底栏页底部 padding-bottom 必须同时写出 constant() 与 env() 两行；
+      非 tabBar 无固定底栏页内容流底部留白 ≥ var(--gap-xl)，不被系统手势区遮挡；
+      tabBar 页末尾内容与 tabBar 不重叠；窄屏（≈320px）网格用 1fr 自适应列，
+      文本/卡片容器加 min-width:0，不得横向滚动。
+   6) 点击区规则（C-CLICK-TARGET@1）
+      可点击元素最小可视高度目标 88rpx（≈44px），至少经 padding 保证 ≥ 72rpx；
+      适用搜索入口/可点击 chip/tag 式操作/整行列表项/按钮/图标操作；
+      纯展示标签不强制放大，但相邻标签间距 ≥ --gap-xs。
+   7) 卡片/按钮/标签/价格基线（R5）
+      卡片：圆角 --radius-card、内边距 --gap-md、描边 1rpx var(--border-line)、
+            阴影 var(--shadow-card) 跨页一致；
+      按钮：主/次按钮在高度、圆角 --radius-btn、字号、内边距上一致；
+      标签：圆角 --radius-tag、内边距 4rpx 16rpx、字号 22rpx 一致（.tag 基线）；
+      价格：字号/字重/颜色沿用现有价格颜色令牌（.text-price = --accent-orange），
+            跨页一致。
+   8) 内联收敛规则（C-INLINE-CONVERGE@1）
+      排版/布局类内联 style → 移入对应 .wxss 私有类或全局通用类；
+      数据驱动 style="{{...}}"（如 order-status-tag）保持不动。
+   9) 颜色等价替换白名单（C-UNCHANGED@1，仅允许下列等价替换，不得新增颜色值）
+      #C6A15B ↔ var(--accent-glow)（亦 = --accent-orange）
+      #ff5c5c ↔ var(--danger)；#0D0D0F ↔ var(--bg-base)；#ECEAE4 ↔ var(--text-primary)
+      #141416 ↔ var(--bg-surface)；#1D1D1F ↔ var(--bg-surface-2)；
+      #2A2A2E ↔ var(--border-line)；#77756E ↔ var(--text-muted)；
+      #B0AEA6 ↔ var(--text-secondary)
+      无等价令牌的颜色（如按钮文字色 #04121a/#14100a/#0D0D0F）保持原值不动。
+   ================================================================== */
+
 /* ---------- 设计令牌（design §2.4.1） ---------- */
 page {
   --bg-base: #0D0D0F;
@@ -278,4 +344,77 @@ button::after {
 .safe-bottom {
   padding-bottom: calc(24rpx + constant(safe-area-inset-bottom));
   padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+}
+/* ==================================================================
+   排版优化新增通用类（layout-polish T1；契约 C-TOKENS@1 /
+   C-LAYOUT-CLASSES@1 / C-SAFE-AREA@1；纯新增，不修改既有类）
+   ================================================================== */
+
+/* 卡片/列表主名称字号（item-title 级；仅字号，不定义颜色）——
+   消费方需搭配颜色类（如 .text-aux 语义色）以维持现值，保证视觉零变化。
+   注：font-weight 可按现值一致追加 600，此处不强制，避免影响未含该字重的消费位。 */
+.text-title {
+  font-size: 30rpx;
+}
+
+/* 次要正文字号（body-sm 级；仅字号，不定义颜色） */
+.text-sub {
+  font-size: 26rpx;
+}
+
+/* 统一搜索入口（C-LAYOUT-CLASSES@1 (a)）：works/shop/material 三页共用，
+   收敛原内联 style，使高度/圆角/内边距/图标与文字字号完全一致 */
+.search-entry {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  margin: var(--gap-xs) 0 var(--gap-sm);
+  padding: var(--gap-sm) var(--gap-md);
+  border-radius: var(--radius-btn);
+  border: 1rpx solid var(--border-line);
+  background-color: var(--bg-surface);
+}
+
+.search-entry-icon {
+  font-size: 28rpx;
+}
+
+.search-entry-text {
+  color: var(--text-secondary);
+  font-size: 26rpx;
+}
+
+/* 封面占位文本（C-LAYOUT-CLASSES@1 (d)）：product-card/work-card 共用 */
+.cover-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 24rpx;
+}
+
+/* 统一固定底栏基线（C-LAYOUT-CLASSES@1 (e) / C-SAFE-AREA@1）：
+   含 constant() 与 env() 两行安全区回退写法 */
+.fixed-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: var(--gap-sm) var(--gap-lg);
+  padding-bottom: calc(var(--gap-sm) + constant(safe-area-inset-bottom));
+  padding-bottom: calc(var(--gap-sm) + env(safe-area-inset-bottom));
+  background-color: var(--bg-surface);
+  border-top: 1rpx solid var(--border-line);
+  box-shadow: 0 -8rpx 32rpx rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+/* 状态容器语义（C-LAYOUT-CLASSES@1 (c)，D1 默认保持现值 80rpx 0=视觉零变化）：
+   空态/错误/未登录等状态容器上下留白统一到该共识值 */
+.state-box {
+  padding: 80rpx 0;
 }

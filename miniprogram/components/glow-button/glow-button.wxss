@@ -1,12 +1,21 @@
+/* ==================================================================
+   glow-button 组件排版（layout-polish T9）
+   契约：C-TOKENS@1 / C-LAYOUT-CLASSES@1 / C-CLICK-TARGET@1
+   按钮基线（与各页按钮类一致，R5.AC2 / R7.AC1）：
+     常规 min-height 84rpx / 圆角 --radius-btn / 字号 30rpx / 内边距 var(--gap-sm) var(--gap-lg)
+     大号 min-height 96rpx / 字号 32rpx / 内边距同常规
+   高度 84rpx ≥ C-CLICK-TARGET@1 最低 72rpx；按 C-TOKENS 例外，按钮固有高度属自身基线，
+   不因刻度化改变视觉尺寸（内边距上下改由 --gap-sm 表达，因 min-height 恒为 84/96，高度不变）。
+   ================================================================== */
 .glow-btn {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height: 84rpx;
-  padding: 0 40rpx;
+  min-height: 84rpx;                        /* 按钮固有高度基线（C-TOKENS 例外） */
+  padding: var(--gap-sm) var(--gap-lg);     /* 原 0 40rpx 收敛到刻度（上下 16 / 左右 32），与各页按钮一致 */
   border-radius: var(--radius-btn);
-  font-size: 30rpx;
+  font-size: 30rpx;                         /* item-title 级（刻度内，保持不变） */
   line-height: 1.2;
   transition: opacity 0.2s ease;
 }
@@ -17,8 +26,8 @@
 }
 
 .glow-btn.is-large {
-  min-height: 96rpx;
-  font-size: 32rpx;
+  min-height: 96rpx;                        /* 大号按钮固有高度基线（C-TOKENS 例外） */
+  font-size: 32rpx;                         /* section-title 级 */
 }
 
 .glow-btn-hover {
@@ -34,11 +43,11 @@
 }
 
 .glow-btn-spinner {
-  width: 32rpx;
+  width: 32rpx;                             /* spinner 固有尺寸（C-TOKENS 例外） */
   height: 32rpx;
-  margin-right: 12rpx;
+  margin-right: var(--gap-xs);              /* 8rpx（原 12rpx，行内最小间隙映射到最近刻度） */
   border-radius: 50%;
-  border: 4rpx solid rgba(0, 0, 0, 0.25);
+  border: 4rpx solid rgba(0, 0, 0, 0.25);   /* 描边厚度属 spinner 固有尺寸，不刻度化 */
   border-top-color: currentColor;
   animation: glow-btn-rotate 0.8s linear infinite;
 }

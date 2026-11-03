@@ -1,3 +1,10 @@
+/* ==================================================================
+   work-card 组件排版（layout-polish T9）
+   契约：C-TOKENS@1 / C-LAYOUT-CLASSES@1 / C-CLICK-TARGET@1 / C-INLINE-CONVERGE@1
+   说明：卡片基线沿用全局 .card-surface（圆角 --radius-card / 描边 / 阴影）；
+        封面占位文本收敛为全局 .cover-fallback（见 work-card.wxml）；
+        内容区内边距统一 --gap-md；名称单行省略、备注两行省略沿用全局 .ellipsis/.ellipsis-2。
+   ================================================================== */
 .work-card {
   border-radius: var(--radius-card);
   overflow: hidden;
@@ -5,7 +12,7 @@
 
 .work-cover-wrap {
   width: 100%;
-  height: 320rpx;
+  height: 320rpx;            /* 封面固有高度（C-TOKENS 例外，不刻度化） */
   background: var(--bg-surface-2);
 }
 
@@ -16,7 +23,7 @@
 }
 
 .work-body {
-  padding: 20rpx 24rpx 24rpx;
+  padding: var(--gap-md);    /* 卡片内边距基线 24rpx（原 20/24/24，收敛到 --gap-md） */
 }
 
 .work-head {
@@ -25,8 +32,8 @@
 
 .work-name {
   flex: 1;
-  min-width: 0;
-  font-size: 30rpx;
+  min-width: 0;              /* 保证单行省略在窄屏生效（R3.AC4） */
+  font-size: 30rpx;          /* item-title 级（刻度内，保持不变） */
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -36,7 +43,7 @@
 }
 
 .work-note {
-  margin-top: 8rpx;
-  font-size: 24rpx;
+  margin-top: var(--gap-xs); /* 8rpx（= --gap-xs，与 product-card 命名间距对齐） */
+  font-size: 24rpx;          /* aux 级（刻度内，保持不变） */
   color: var(--text-secondary);
 }

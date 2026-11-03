@@ -1,3 +1,5 @@
+/* 加载态容器：上下留白与全局状态容器一致
+   （C-LAYOUT-CLASSES@1 (c) / D1 默认 80rpx 0） */
 .loading-wrap {
   display: flex;
   flex-direction: column;
@@ -64,9 +66,10 @@
 }
 
 
+/* 骨架线圆角对齐「标签/小图/骨架线」基线（C-TOKENS@1 (c) --radius-tag） */
 .skeleton-line {
   height: 28rpx;
-  border-radius: 8rpx;
+  border-radius: var(--radius-tag);
   background-color: var(--bg-surface-2);
   animation: skeleton-pulse 1.4s ease-in-out infinite;
 }

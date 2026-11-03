@@ -1,12 +1,15 @@
+/* address-picker 排版规范化（layout-polish T11）
+   契约：C-TOKENS@1 / C-LAYOUT-CLASSES@1 / C-SAFE-AREA@1 / C-CLICK-TARGET@1
+   仅收敛间距/字号/圆角刻度与点击区、安全区；不影响主题配色 */
 .address-picker {
   border-radius: var(--radius-btn);
-  padding: 24rpx;
+  padding: var(--gap-md);
   border: 1rpx solid var(--border-line);
 }
 
 .addr-line1 {
   align-items: center;
-  gap: 20rpx;
+  gap: var(--gap-sm);
 }
 
 .addr-name {
@@ -21,7 +24,7 @@
 }
 
 .addr-detail {
-  margin-top: 8rpx;
+  margin-top: var(--gap-xs);
   font-size: 26rpx;
   color: var(--text-secondary);
 }
@@ -45,39 +48,44 @@
   justify-content: center;
 }
 
+/* 模态：圆角 --radius-card；max-height + 滚动保证小屏/键盘场景不溢出安全区 */
 .addr-modal {
   width: 82%;
+  max-height: 80vh;
+  overflow-y: auto;
   background: var(--bg-surface);
   border-radius: var(--radius-card);
-  padding: 40rpx 32rpx;
+  padding: var(--gap-lg);
 }
 
 .addr-modal-title {
   font-size: 32rpx;
   font-weight: 600;
-  margin-bottom: 24rpx;
+  margin-bottom: var(--gap-md);
   color: var(--text-primary);
 }
 
+/* 输入框：高度为固有尺寸（88rpx），圆角与全站输入框一致（--radius-tag） */
 .addr-input {
   height: 88rpx;
   border: 1rpx solid var(--border-line);
   border-radius: var(--radius-tag);
-  padding: 0 24rpx;
-  margin-bottom: 20rpx;
+  padding: 0 var(--gap-md);
+  margin-bottom: var(--gap-sm);
   background: var(--bg-surface-2);
   color: var(--text-primary);
   font-size: 28rpx;
 }
 
 .addr-btns {
-  margin-top: 12rpx;
+  margin-top: var(--gap-xs);
 }
 
+/* 按钮基线：高度 88rpx 达标 C-CLICK-TARGET@1，圆角 --radius-btn */
 .addr-btn {
   flex: 1;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 88rpx;
+  line-height: 88rpx;
   text-align: center;
   border-radius: var(--radius-btn);
   font-size: 30rpx;
@@ -86,7 +94,7 @@
 .addr-cancel {
   color: var(--text-secondary);
   background: var(--bg-surface-2);
-  margin-right: 20rpx;
+  margin-right: var(--gap-sm);
 }
 
 .addr-ok {

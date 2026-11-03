@@ -10,11 +10,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: var(--gap-lg);
+  /* 卡片内边距对齐全局卡片基线（--gap-md）；卡片间距与全页统一为 --gap-lg */
+  padding: var(--gap-md);
   border-radius: var(--radius-card);
   border: 1rpx solid var(--border-line);
   box-shadow: var(--shadow-card);
-  margin-bottom: var(--gap-md);
+  margin-bottom: var(--gap-lg);
 }
 
 
@@ -56,14 +57,16 @@
 
 
 .ds-note {
-  padding: var(--gap-md) var(--gap-lg);
+  /* 卡片内边距与 .ds-card/.ds-hero 统一到 --gap-md（R5 卡片基线） */
+  padding: var(--gap-md);
   border-radius: var(--radius-card);
   margin-bottom: var(--gap-lg);
 }
 
 
 .ds-card {
-  padding: var(--gap-lg);
+  /* 卡片内边距对齐 .ds-note/.ds-hero（--gap-md） */
+  padding: var(--gap-md);
   border-radius: var(--radius-card);
   margin-bottom: var(--gap-lg);
 }
@@ -101,6 +104,8 @@
   padding: var(--gap-md);
   text-align: center;
   font-size: 30rpx;
+  /* 收敛原 button 内联 line-height:1.6（C-INLINE-CONVERGE@1）；对 view 元素与原继承值一致，视觉零变化 */
+  line-height: 1.6;
   border-radius: var(--radius-btn);
   border: 1rpx solid var(--border-line);
   background-color: var(--bg-surface-2);

@@ -80,9 +80,8 @@
     <!-- 在线客服（微信客服入口，open-type="contact"，契约 C-CONTACT@1；未开通客服时按钮仍合规，需业务方后台开通） -->
     <button
       open-type="contact"
-      class="mi-menu-item row-between"
+      class="mi-menu-item row-between mi-menu-btn"
       hover-class="mi-menu-hover"
-      style="margin: 0; background: transparent; border-radius: 0; font-size: 30rpx; line-height: 1.6; text-align: left; color: var(--text-primary);"
     >
       <view class="row">
         <text class="mi-menu-icon">💬</text>

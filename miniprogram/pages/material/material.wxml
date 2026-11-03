@@ -1,12 +1,8 @@
 <view class="page-container">
   <!-- 搜索入口（R9.3 / C-NAV@1）：跳转搜索页，scope=material -->
-  <view
-    class="search-entry"
-    bindtap="goSearch"
-    style="display:flex;align-items:center;gap:12rpx;margin:8rpx 0 16rpx;padding:16rpx 24rpx;border-radius:var(--radius-btn);border:1rpx solid var(--border-line);background:var(--bg-surface);"
-  >
-    <text style="font-size:28rpx;">🔍</text>
-    <text style="color:var(--text-secondary);font-size:26rpx;">搜索材质</text>
+  <view class="search-entry" bindtap="goSearch">
+    <text class="search-entry-icon">🔍</text>
+    <text class="search-entry-text">搜索材质</text>
   </view>
 
   <view class="lib-header">
@@ -18,12 +14,12 @@
   <loading wx:if="{{loading}}" type="skeleton" />
 
   <!-- 错误态（R9.4）：可重试，复用 empty-state；与 .js 的 error 状态字段一致 -->
-  <view wx:elif="{{error}}" class="empty-box" style="padding:80rpx 0;">
+  <view wx:elif="{{error}}" class="empty-box">
     <empty-state text="{{error.message}}" buttonText="重试" showButton="{{error.retriable}}" bind:action="onRetry" />
   </view>
 
   <!-- 空态（R9.4）：材质库无数据，与错误态区分 -->
-  <view wx:elif="{{categories.length === 0}}" class="empty-box" style="padding:80rpx 0;">
+  <view wx:elif="{{categories.length === 0}}" class="empty-box">
     <empty-state text="暂无材质数据" subText="材质库正在整理中，敬请期待" />
   </view>
 
@@ -58,14 +54,14 @@
           <image class="mat-img" src="{{m.image}}" mode="aspectFill" lazy-load />
           <view class="mat-body">
             <view class="mat-head row-between">
-              <text class="mat-name">{{m.name}}</text>
+              <text class="mat-name ellipsis">{{m.name}}</text>
               <text class="mat-price text-price">{{m.priceRange}} {{m.priceUnit}}</text>
             </view>
             <view class="mat-tags">
               <text wx:if="{{m.indoorOutdoor}}" class="tag">{{m.indoorOutdoor}}</text>
               <text wx:for="{{m.thickness}}" wx:for-item="t" wx:key="*this" class="tag">{{t}}</text>
             </view>
-            <text wx:if="{{m.note}}" class="mat-note text-muted">{{m.note}}</text>
+            <text wx:if="{{m.note}}" class="mat-note ellipsis-2 text-muted">{{m.note}}</text>
             <view class="mat-cta text-neon">配置下单 ›</view>
           </view>
         </view>

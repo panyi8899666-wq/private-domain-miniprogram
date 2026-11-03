@@ -1,9 +1,11 @@
+/* 空态容器：上下留白统一到全局状态容器共识值
+   （C-LAYOUT-CLASSES@1 (c) / D1 默认 80rpx 0，与各页 .empty-box 一致） */
 .empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 96rpx 48rpx;
+  padding: 80rpx 0;
 }
 
 .empty-icon {
@@ -36,9 +38,11 @@
   line-height: 1.5;
 }
 
+/* 空态按钮：内边距刻度化（视觉等价 16rpx/48rpx），字号 body 级、
+   圆角对齐按钮基线（R5.AC2），上下 --gap-sm + 行高 ≥72rpx 满足点击区下限 */
 .empty-btn {
   margin-top: var(--gap-lg);
-  padding: 16rpx 48rpx;
+  padding: var(--gap-sm) var(--gap-xl);
   font-size: 28rpx;
   border-radius: var(--radius-btn);
 }

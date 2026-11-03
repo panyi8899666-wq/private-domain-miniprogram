@@ -1,7 +1,10 @@
+/* uploader 排版规范化（layout-polish T11）
+   契约：C-TOKENS@1 / C-CLICK-TARGET@1 / C-INLINE-CONVERGE@1
+   仅收敛间距/圆角刻度、点击区、内联遮罩；不影响主题配色 */
 .upload-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20rpx;
+  gap: var(--gap-sm);
 }
 
 .upload-item {
@@ -16,10 +19,22 @@
   border-radius: var(--radius-tag);
 }
 
+/* 删除按钮：外层 72rpx 透明热区满足 C-CLICK-TARGET@1（≥72rpx）；
+   热区向右上不外扩（右缘与上缘沿用原 -16rpx，避免覆盖相邻方格），
+   仅向左/下（本方格内部）扩展；内层 48rpx 圆形锚定热区右上角，
+   与原有 48rpx 徽标位置/尺寸完全一致（视觉零变化）。 */
 .upload-del {
   position: absolute;
   top: -16rpx;
   right: -16rpx;
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.upload-del-icon {
   width: 48rpx;
   height: 48rpx;
   line-height: 44rpx;
@@ -49,12 +64,31 @@
 }
 
 .upload-add-text {
-  margin-top: 8rpx;
+  margin-top: var(--gap-xs);
+  font-size: 22rpx;
+}
+
+/* 上传中遮罩与进度：由 wxml 内联 style 收敛（C-INLINE-CONVERGE@1） */
+.upload-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-tag);
+}
+
+.upload-progress {
+  color: #fff;
   font-size: 22rpx;
 }
 
 .upload-tip {
   display: block;
-  margin-top: 16rpx;
+  margin-top: var(--gap-sm);
   font-size: 22rpx;
 }

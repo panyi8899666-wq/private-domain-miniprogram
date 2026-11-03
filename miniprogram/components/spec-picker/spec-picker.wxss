@@ -1,27 +1,32 @@
+/* spec-picker 排版规范化（layout-polish T11）
+   契约：C-TOKENS@1 / C-LAYOUT-CLASSES@1 (b) chip 基线 / C-CLICK-TARGET@1
+   仅收敛间距/圆角/chip 基线与点击区；不影响主题配色 */
 .spec-picker {
-  padding: 8rpx 0;
+  padding: var(--gap-xs) 0;
 }
 
 
 .spec-label {
   font-size: 26rpx;
-  margin-bottom: 16rpx;
+  margin-bottom: var(--gap-sm);
 }
 
 
 .spec-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 16rpx;
+  gap: var(--gap-sm);
 }
 
 
+/* 对齐 C-LAYOUT-CLASSES@1 (b) 统一 chip 基线 */
 .spec-chip {
   padding: 12rpx 28rpx;
   border-radius: var(--radius-tag);
   border: 1rpx solid var(--border-line);
   color: var(--text-secondary);
   font-size: 26rpx;
+  line-height: 1.4;
   background: var(--bg-surface);
 }
 
@@ -34,7 +39,7 @@
 
 
 .spec-qty {
-  margin-top: 24rpx;
+  margin-top: var(--gap-md);
   align-items: center;
 }
 
@@ -45,10 +50,11 @@
 }
 
 
+/* 步进按钮：64→72rpx 满足 C-CLICK-TARGET@1（≥72rpx）；± 字形字号按固有控制符保留 */
 .spec-step {
-  width: 64rpx;
-  height: 64rpx;
-  line-height: 60rpx;
+  width: 72rpx;
+  height: 72rpx;
+  line-height: 72rpx;
   text-align: center;
   color: var(--text-primary);
   background: var(--bg-surface-2);

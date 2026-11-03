@@ -3,27 +3,28 @@
   top: 0;
   z-index: 10;
   background: var(--bg-base);
-  padding: 16rpx 0;
+  padding: var(--gap-sm) 0;
   white-space: nowrap;
 }
 
-
 .cat-scroll {
   display: inline-flex;
-  gap: 16rpx;
-  padding: 0 24rpx;
+  gap: var(--gap-sm);
+  padding: 0 var(--gap-md);
 }
 
-
+/* 分类 chip：对齐 C-LAYOUT-CLASSES@1 (b) 统一选中 chip 基线
+   （padding / 圆角 / 字号 / 行高 / 底色 / 选中态） */
 .cat-chip {
-  padding: 10rpx 28rpx;
+  padding: 12rpx 28rpx;
   border-radius: var(--radius-tag);
   border: 1rpx solid var(--border-line);
   color: var(--text-secondary);
+  background-color: var(--bg-surface);
   font-size: 26rpx;
+  line-height: 1.4;
   flex-shrink: 0;
 }
-
 
 .cat-chip-active {
   color: var(--accent-glow);
@@ -31,22 +32,21 @@
   background: rgba(198, 161, 91, 0.1);
 }
 
-
+/* 作品网格：gap/margin 刻度化（与首页 grid 一致） */
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20rpx;
-  margin-top: 16rpx;
+  gap: var(--gap-md);
+  margin-top: var(--gap-sm);
 }
 
-
+/* 空态 / 错误态容器：上下留白统一到 D1 默认 80rpx 0（C-LAYOUT-CLASSES@1 (c)） */
 .empty-box {
   padding: 80rpx 0;
 }
 
-
 .loading-more {
   text-align: center;
-  padding: 24rpx 0;
+  padding: var(--gap-md) 0;
   font-size: 24rpx;
 }

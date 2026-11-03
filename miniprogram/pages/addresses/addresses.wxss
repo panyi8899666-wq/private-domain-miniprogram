@@ -1,47 +1,60 @@
+/* ==================================================================
+   addresses 收货地址页排版（layout-polish T6）
+   契约：C-TOKENS@1 / C-CLICK-TARGET@1 / C-SAFE-AREA@1 / C-UNCHANGED@1
+   ① 硬编码主题色等价替换：#C6A15B→var(--accent-glow)、#ff5c5c→var(--danger)（视觉零变化）
+   ② 刻度映射（等距取大）：12rpx→--gap-sm、20rpx→--gap-md、28rpx→--gap-lg、40rpx→--gap-xl
+   ③ 输入框高度 84rpx 属固有尺寸不刻度化；保留 .safe-bottom；配色/绑定/文案不变。
+   ================================================================== */
 .ad-empty {
-  padding: 40rpx 24rpx;
+  padding: var(--gap-xl) var(--gap-md);  /* 40rpx 24rpx→48rpx 24rpx，状态容器留白 */
   text-align: center;
 }
 .ad-item {
-  padding: 24rpx;
-  margin-bottom: 20rpx;
+  padding: var(--gap-md);                /* 24rpx */
+  margin-bottom: var(--gap-md);          /* 列表项间距 20rpx→24rpx */
   display: flex;
   flex-direction: column;
-  gap: 12rpx;
+  gap: var(--gap-sm);                    /* 12rpx→16rpx */
 }
 .ad-default {
-  font-size: 22rpx;
-  color: #C6A15B;
-  border: 1rpx solid #C6A15B;
-  border-radius: 20rpx;
-  padding: 2rpx 14rpx;
+  font-size: 22rpx;                      /* tag 级 */
+  color: var(--accent-glow);             /* #C6A15B → 令牌（等价） */
+  border: 1rpx solid var(--accent-glow); /* #C6A15B → 令牌（等价） */
+  border-radius: var(--radius-btn);      /* 20rpx（最近令牌，视觉零变化） */
+  padding: 4rpx 16rpx;                   /* 对齐 .tag 基线（原 2rpx 14rpx） */
 }
 .ad-detail {
-  font-size: 26rpx;
-  line-height: 1.6;
+  font-size: 26rpx;                      /* body-sm 级 */
+  line-height: 1.6;                      /* ≥1.5 */
+  overflow-wrap: break-word;             /* 长地址串不横向溢出 */
+  word-break: break-word;
 }
 .ad-actions {
   display: flex;
-  gap: 40rpx;
-  margin-top: 8rpx;
+  gap: var(--gap-xl);                    /* 40rpx→48rpx */
+  margin-top: var(--gap-xs);             /* 8rpx */
 }
 .ad-action {
-  font-size: 24rpx;
+  display: inline-flex;
+  align-items: center;
+  min-height: 72rpx;                     /* C-CLICK-TARGET@1：点击区 ≥72rpx */
+  padding: var(--gap-xs) 0;              /* 纵向留白，配合 min-height 保证点击高度 */
+  font-size: 24rpx;                      /* aux 级 */
   color: var(--text-muted);
 }
 .ad-danger {
-  color: #ff5c5c;
+  color: var(--danger);                  /* #ff5c5c → 令牌（等价） */
 }
 .ad-form {
-  padding: 24rpx;
+  padding: var(--gap-md);                /* 24rpx */
   display: flex;
   flex-direction: column;
-  gap: 28rpx;
-  margin-top: 8rpx;
+  gap: var(--gap-lg);                    /* 28rpx→32rpx（与 profile .pf-form 一致） */
+  margin-top: var(--gap-xs);             /* 8rpx */
 }
 .ad-form-actions {
   display: flex;
-  gap: 20rpx;
+  gap: var(--gap-md);                    /* 20rpx→24rpx */
 }
 .ad-form-btn {
   flex: 1;
@@ -49,8 +62,8 @@
 }
 .ad-bottom-actions {
   display: flex;
-  gap: 20rpx;
-  margin-top: 28rpx;
+  gap: var(--gap-md);                    /* 20rpx→24rpx */
+  margin-top: var(--gap-lg);             /* 28rpx→32rpx */
 }
 .ad-bottom-btn {
   flex: 1;
@@ -59,20 +72,20 @@
 .pf-field {
   display: flex;
   flex-direction: column;
-  gap: 12rpx;
+  gap: var(--gap-sm);                    /* 12rpx→16rpx（与 profile .pf-field 一致） */
 }
 .pf-label {
-  font-size: 24rpx;
+  font-size: 24rpx;                      /* aux 级 */
   color: var(--text-muted);
 }
 .pf-input {
-  height: 84rpx;
+  height: 84rpx;                         /* 输入框固有高度（例外，不刻度化） */
   border: 1rpx solid var(--border-line);
   border-radius: var(--radius-tag);
-  padding: 0 24rpx;
+  padding: 0 var(--gap-md);              /* 24rpx */
   background: var(--bg-surface-2);
   color: var(--text-primary);
-  font-size: 28rpx;
+  font-size: 28rpx;                      /* body 级 */
   display: flex;
   align-items: center;
 }
