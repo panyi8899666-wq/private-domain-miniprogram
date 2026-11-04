@@ -35,15 +35,46 @@
       </view>
     </view>
 
-    <!-- 精选作品 -->
-    <view wx:if="{{featuredWorks.length}}" class="section">
-      <view class="row-between">
-        <text class="section-title section-title-glow">精选作品</text>
-        <text class="more-link" bindtap="goWorks">查看更多 ›</text>
+    <!-- 作品案例 · 横向画廊 -->
+    <view wx:if="{{featuredWorks.length}}" class="section case-section">
+      <view class="row-between case-head">
+        <view class="case-head-left">
+          <text class="section-title section-title-glow">作品案例</text>
+          <text class="case-sub">3D设计 · 展台美陈 · 户外标识 · 实拍 · 发光字</text>
+        </view>
+        <text class="more-link" bindtap="goWorks">全部案例 ›</text>
       </view>
-      <view class="work-grid">
-        <work-card wx:for="{{featuredWorks}}" wx:key="code" work="{{item}}" bind:tap="onPreviewWork" />
-      </view>
+
+      <scroll-view class="case-scroll" scroll-x enhanced enable-flex show-scrollbar="{{false}}" scroll-with-animation>
+        <view class="case-track">
+          <view
+            wx:for="{{featuredWorks}}"
+            wx:key="code"
+            class="case-item"
+            hover-class="case-item-hover"
+            bindtap="onTapCase"
+            data-index="{{index}}"
+          >
+            <image
+              wx:if="{{item.images[0]}}"
+              class="case-cover"
+              src="{{item.images[0]}}"
+              mode="aspectFill"
+              lazy-load
+              binderror="onCaseImageError"
+              data-index="{{index}}"
+            />
+            <view wx:else class="cover-fallback">暂无图片</view>
+            <view class="case-shade"></view>
+            <text wx:if="{{item.categoryName}}" class="case-badge">{{item.categoryName}}</text>
+            <text class="case-num">{{item.seq}}</text>
+            <view class="case-meta">
+              <text class="case-name ellipsis">{{item.name}}</text>
+              <text wx:if="{{item.note}}" class="case-note ellipsis-2">{{item.note}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
     </view>
 
     <!-- 接单流程 -->

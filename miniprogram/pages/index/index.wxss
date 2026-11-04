@@ -92,11 +92,67 @@
   color: var(--accent-glow);
 }
 
-.work-grid {
+/* 作品案例 · 横向画廊（首页案例展示改版） */
+.case-section { width: 100%; }   /* 区块语义钩子，布局沿用 .section 基线 */
+.case-head { align-items: flex-end; }
+.case-head-left { display: flex; flex-direction: column; gap: var(--gap-xs); }
+.case-sub { font-size: 22rpx; color: var(--text-muted); letter-spacing: 0.5rpx; }
+
+/* 出血画廊：用负 margin 抵消 .page-container 的左右 --gap-lg，
+   使首卡左边缘与区块标题对齐，同时卡片可向右滑出屏幕边缘 */
+.case-scroll {
   margin-top: var(--gap-md);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap-md);
+  margin-left: calc(-1 * var(--gap-lg));
+  margin-right: calc(-1 * var(--gap-lg));
+  width: calc(100% + 2 * var(--gap-lg));
+}
+.case-track { display: flex; gap: var(--gap-md); padding: 0 var(--gap-lg) var(--gap-xs); }
+
+.case-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 560rpx;            /* 固有卡片宽度 */
+  height: 400rpx;           /* 固有卡片高度 */
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--bg-surface-2);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.case-item-hover { transform: scale(0.985); opacity: 0.94; }
+
+.case-cover { width: 100%; height: 100%; display: block; }
+
+.case-shade {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 62%;
+  background: linear-gradient(to top, rgba(13,13,15,0.94) 0%, rgba(13,13,15,0.55) 45%, rgba(13,13,15,0) 100%);
+  pointer-events: none;
+}
+
+.case-badge {
+  position: absolute; top: var(--gap-sm); left: var(--gap-sm);
+  padding: 4rpx 16rpx;
+  font-size: 22rpx;
+  color: var(--accent-glow);
+  background: rgba(13,13,15,0.72);
+  border: 1rpx solid rgba(198,161,91,0.55);
+  border-radius: var(--radius-tag);
+}
+
+.case-num {
+  position: absolute; top: var(--gap-sm); right: var(--gap-sm);
+  font-size: 22rpx; color: var(--text-muted); letter-spacing: 1rpx;
+}
+
+.case-meta { position: absolute; left: var(--gap-md); right: var(--gap-md); bottom: var(--gap-md); }
+.case-name {
+  display: block;
+  font-size: 32rpx; font-weight: 700; color: var(--text-primary);
+}
+.case-note {
+  /* 不设 display：沿用全局 .ellipsis-2 的 -webkit-box，保证两行截断生效 */
+  margin-top: var(--gap-xs);
+  font-size: 22rpx; color: var(--text-secondary);
 }
 
 .process-list {

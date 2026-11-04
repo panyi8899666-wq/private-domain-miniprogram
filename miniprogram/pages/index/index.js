@@ -18,6 +18,17 @@ function mapServices(list) {
   return arr.length ? arr : FALLBACK_SERVICES;
 }
 
+/**
+ * 为首页案例预计算两位序号（1 → '01'、10 → '10'），供 wxml 直接渲染。
+ * 目的：避免在 wxml 文本节点使用 `{{index < 9 ? ...}}` 触发编译告警。
+ * 仅追加 seq 字段，其余字段原样保留。
+ */
+function mapWorks(list) {
+  return (list || []).map((w, i) =>
+    Object.assign({}, w, { seq: (i + 1 < 10 ? '0' : '') + (i + 1) })
+  );
+}
+
 Page({
   data: {
     loading: true,
@@ -47,7 +58,7 @@ Page({
           heroTitle: (site.hero && site.hero.title) || '发光字 · 展台美陈 · 户外标识 · 3D设计',
           heroSubtitle: (site.hero && site.hero.subtitle) || '',
           services: mapServices(site.services),
-          featuredWorks: data.featuredWorks || [],
+          featuredWorks: mapWorks(data.featuredWorks),
           process: site.process || []
         });
       })
@@ -65,6 +76,25 @@ Page({
     const work = e.detail.work;
     const imgs = (work && work.images) || [];
     if (imgs.length) wx.previewImage({ current: imgs[0], urls: imgs });
+  },
+
+  /** 点击案例卡片：预览该作品图片 */
+  onTapCase(e) {
+    const i = e && e.currentTarget && e.currentTarget.dataset ? e.currentTarget.dataset.index : -1;
+    const list = this.data.featuredWorks || [];
+    const work = list[i];
+    if (!work) return;
+    const imgs = (work.images || []).filter(Boolean);
+    if (imgs.length) wx.previewImage({ current: imgs[0], urls: imgs });
+  },
+
+  /** 案例封面加载失败：清空该项 images，触发布局回退到「暂无图片」占位 */
+  onCaseImageError(e) {
+    const i = e && e.currentTarget && e.currentTarget.dataset ? e.currentTarget.dataset.index : -1;
+    if (i < 0) return;
+    const list = this.data.featuredWorks || [];
+    if (!list[i]) return;
+    this.setData({ [`featuredWorks[${i}].images`]: [] });
   },
 
   /** 组装分享标题：站点名 + 首屏主标语（缺省回退站点名） */

@@ -51,10 +51,11 @@ exports.main = async (event) => {
     const { page, pageSize } = normalizePage(payload);
 
     if (scope === 'home') {
-      // 首页：一次聚合站点配置 + 精选作品（≤6）+ 百科数据（REQ-006~011）
+      // 首页：一次聚合站点配置 + 案例画廊作品（≤10）+ 百科数据（REQ-006~011）
       const [siteRes, worksRes, matsRes] = await Promise.all([
         db.collection('site_config').where({ key: 'main' }).limit(1).get(),
-        db.collection('works').where({ featured: true }).orderBy('sort', 'asc').limit(6).get(),
+        // 首页案例画廊：展示全部作品（≤10），覆盖 3D/展台/标识/实拍/发光字
+        db.collection('works').orderBy('sort', 'asc').limit(10).get(),
         db.collection('materials').orderBy('sort', 'asc').get()
       ]);
       return ok({

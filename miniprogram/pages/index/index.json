@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "work-card": "/components/work-card/work-card",
     "empty-state": "/components/empty-state/empty-state",
     "loading": "/components/loading/loading"
   }
