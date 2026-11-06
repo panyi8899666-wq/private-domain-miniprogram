@@ -2,9 +2,9 @@
   <block wx:if="{{address && address.name}}">
     <view class="addr-line1 row">
       <text class="addr-name">{{address.name}}</text>
-      <text class="addr-phone">{{address.phone}}</text>
+      <text class="addr-phone">{{address.phone || address.phoneMasked}}</text>
     </view>
-    <text class="addr-detail">{{address.detail}}</text>
+    <text class="addr-detail">{{address.detail || address.regionText}}</text>
   </block>
   <view wx:else class="addr-empty">
     <text class="text-muted">请选择收货地址</text>

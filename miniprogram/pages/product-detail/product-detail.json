@@ -5,6 +5,7 @@
     "address-picker": "/components/address-picker/address-picker",
     "empty-state": "/components/empty-state/empty-state",
     "loading": "/components/loading/loading",
-    "glow-button": "/components/glow-button/glow-button"
+    "glow-button": "/components/glow-button/glow-button",
+    "privacy-popup": "/components/privacy-popup/privacy-popup"
   }
 }

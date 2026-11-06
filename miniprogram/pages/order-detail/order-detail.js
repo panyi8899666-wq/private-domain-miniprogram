@@ -100,7 +100,8 @@ Page({
     const canContact =
       status === ORDER_STATUS.MAKING ||
       status === ORDER_STATUS.COMPLETED ||
-      status === ORDER_STATUS.CANCELLED;
+      status === ORDER_STATUS.CANCELLED ||
+      status === ORDER_STATUS.PAID_AFTER_CANCEL;
 
     // 状态时间线（接口单独返回 timeline 时优先，退化用 order.timeline）
     const timeline = this.decorateTimeline(

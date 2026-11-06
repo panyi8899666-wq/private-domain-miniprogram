@@ -53,6 +53,7 @@ function computeActions(order, quote) {
   else if (s === 'making') actions.push('contact');
   else if (s === 'completed') actions.push('contact', 'rebuy');
   else if (s === 'cancelled') actions.push('rebuy');
+  else if (s === 'paid_after_cancel') actions.push('contact');
 
   let expiredQuote = false;
   if (order.type === 'custom' && quote && quote.validUntil) {

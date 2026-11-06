@@ -6,7 +6,9 @@
  */
 const auth = require('../../utils/auth');
 const profile = require('../../utils/profile');
+const privacy = require('../../utils/privacy');
 const { maskPhone } = require('../../utils/format');
+const { isFullMobile, hasContactPhone } = require('../../utils/phone');
 
 Page({
   data: {
@@ -24,13 +26,19 @@ Page({
   },
 
   onShow() {
-    this.refreshForm();
+    privacy.ensurePrivacyConsent().then((ok) => {
+      if (!ok) {
+        wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/mine/mine' }) });
+        return;
+      }
+      this.refreshForm();
+    });
   },
 
   /** 从本地缓存回填表单（不拉云端，保存后缓存即最新） */
   refreshForm() {
     const p = profile.getProfile();
-    const phone = p.phone || '';
+    const phone = isFullMobile(p.phone) ? p.phone : '';
     this.setData({
       realName: p.realName,
       company: p.company,
@@ -39,7 +47,7 @@ Page({
       invoiceTitle: p.invoiceTitle,
       taxNo: p.taxNo,
       phone: phone,
-      phoneMasked: phone ? maskPhone(phone) : '',
+      phoneMasked: p.phoneMasked || (phone ? maskPhone(phone) : ''),
       manualInput: false
     });
   },
@@ -56,15 +64,16 @@ Page({
   onGetPhoneNumber(e) {
     auth.getPhoneNumber(e)
       .then((data) => {
-        const phone = (data && data.phone) || '';
-        if (!phone) {
+        const phone = isFullMobile(data && data.phone) ? data.phone : '';
+        const masked = (data && data.phoneMasked) || '';
+        if (!phone && !(data && data.hasPhone)) {
           this.setData({ manualInput: true });
           wx.showToast({ title: '手机号不可用，请手动填写', icon: 'none' });
           return;
         }
         this.setData({
           phone: phone,
-          phoneMasked: maskPhone(phone),
+          phoneMasked: masked || (phone ? maskPhone(phone) : ''),
           manualInput: false
         });
       })
@@ -97,12 +106,15 @@ Page({
       wx.showToast({ title: '税号格式不正确', icon: 'none' });
       return;
     }
-    // 手机号：缓存里是完整号才采用；否则用手动填写的 11 位号；都没有则不传（保存不强制电话）
+    // 只提交完整 11 位。已授权但本地没有明文时不传，避免把脱敏号写回去。
     let phone = '';
-    if (/^\d{11}$/.test(this.data.phone || '')) {
+    if (isFullMobile(this.data.phone)) {
       phone = this.data.phone;
-    } else if (/^1[3-9]\d{9}$/.test((this.data.manualPhone || '').trim())) {
+    } else if (isFullMobile((this.data.manualPhone || '').trim())) {
       phone = this.data.manualPhone.trim();
+    } else if (!hasContactPhone(profile.getProfile()) && this.data.phone) {
+      wx.showToast({ title: '请填写 11 位手机号', icon: 'none' });
+      return;
     }
 
     const payload = {

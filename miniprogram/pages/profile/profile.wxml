@@ -62,4 +62,5 @@
   <button class="btn-primary-glow pf-save" bindtap="onSave" disabled="{{saving}}">保存资料</button>
   <view class="text-muted pf-tip">资料仅用于订单联系、发货与开票，不会对外公开。</view>
   <view class="safe-bottom"></view>
+  <privacy-popup id="privacy-popup" />
 </view>

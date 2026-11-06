@@ -19,7 +19,13 @@ Component({
     noop() {},
     onOpen() {
       const a = this.data.address || {};
-      this.setData({ show: true, name: a.name || '', phone: a.phone || '', detail: a.detail || '' });
+      const phone = a.phone || '';
+      this.setData({
+        show: true,
+        name: a.name || '',
+        phone: phone.indexOf('*') === -1 ? phone : '',
+        detail: a.detail || ''
+      });
     },
     onName(e) { this.setData({ name: e.detail.value }); },
     onPhone(e) { this.setData({ phone: e.detail.value }); },

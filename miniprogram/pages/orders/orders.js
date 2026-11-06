@@ -8,6 +8,7 @@ const { callFunction } = require('../../utils/request');
 const { formatAmount, formatTime } = require('../../utils/format');
 const { ORDER_STATUS_FILTERS } = require('../../utils/constants');
 const { isLoggedIn, requireLogin } = require('../../utils/auth');
+const { nextSeq, isCurrentResponse, planOrdersShow } = require('../../utils/listGuard');
 
 const PAGE_SIZE = 10;
 
@@ -50,22 +51,19 @@ Page({
 
   onLoad() {
     this.page = 1;
-    this.setData({ activeFilter: '', list: [], hasMore: false, empty: false, loadError: null, loading: true });
+    this.reqSeq = 0;
   },
 
   onShow() {
-    // 每次进入页面刷新登录态与列表
-    if (!isLoggedIn()) {
-      this.setData({ needLogin: true, loading: false, list: [], empty: false });
+    // 首次进入 loading 为 true，也要真正发请求；从详情返回时刷新列表
+    const plan = planOrdersShow(isLoggedIn());
+    if (plan.action === 'login') {
+      this.reqSeq = nextSeq(this.reqSeq);
+      this.setData(plan.patch);
       return;
     }
-    if (this.data.needLogin) {
-      // 从未登录切换为已登录，重新加载
-      this.setData({ needLogin: false });
-      this.reload();
-    } else if (!this.data.list.length && !this.data.loading && !this.data.loadError) {
-      this.reload();
-    }
+    this.setData(plan.patch);
+    this.reload();
   },
 
   /** 切换状态筛选 */
@@ -108,14 +106,18 @@ Page({
 
   /** 拉取当前页 */
   fetchList() {
-    const payload = { role: 'customer', page: this.page, pageSize: PAGE_SIZE };
+    const seq = nextSeq(this.reqSeq);
+    this.reqSeq = seq;
+    const page = this.page;
+    const payload = { role: 'customer', page: page, pageSize: PAGE_SIZE };
     if (this.data.activeFilter) payload.status = this.data.activeFilter;
 
     callFunction('getOrders', { payload: payload, showError: false })
       .then((data) => {
+        if (!isCurrentResponse(seq, this.reqSeq)) return;
         const list = this.decorate((data && data.list) || []);
         const hasMore = !!(data && data.hasMore);
-        const merged = this.page === 1 ? list : this.data.list.concat(list);
+        const merged = page === 1 ? list : this.data.list.concat(list);
         this.setData({
           loading: false,
           loadingMore: false,
@@ -125,6 +127,7 @@ Page({
         });
       })
       .catch((err) => {
+        if (!isCurrentResponse(seq, this.reqSeq)) return;
         this.setData({
           loading: false,
           loadingMore: false,

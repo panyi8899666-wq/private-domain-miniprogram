@@ -10,7 +10,8 @@ const ORDER_STATUS = {
   MAKING: 'making', // 制作中
   COMPLETED: 'completed', // 已完成
   CANCELLED: 'cancelled', // 已取消
-  REFUNDED: 'refunded' // 已退款（P2）
+  REFUNDED: 'refunded', // 已退款（P2）
+  PAID_AFTER_CANCEL: 'paid_after_cancel' // 取消后仍收到付款，待人工退款
 };
 
 /** 订单状态中文名映射 */
@@ -20,7 +21,8 @@ const ORDER_STATUS_TEXT = {
   making: '制作中',
   completed: '已完成',
   cancelled: '已取消',
-  refunded: '已退款'
+  refunded: '已退款',
+  paid_after_cancel: '取消后已付款'
 };
 
 /**
@@ -33,7 +35,8 @@ const ORDER_STATUS_STYLE = {
   making: { color: '#C6A15B', bg: 'rgba(198,161,91,0.12)', border: 'rgba(198,161,91,0.5)' },
   completed: { color: '#3ddc97', bg: 'rgba(61,220,151,0.12)', border: 'rgba(61,220,151,0.45)' },
   cancelled: { color: '#77756E', bg: 'rgba(119,117,110,0.12)', border: 'rgba(119,117,110,0.4)' },
-  refunded: { color: '#B0AEA6', bg: 'rgba(176,174,166,0.12)', border: 'rgba(176,174,166,0.4)' }
+  refunded: { color: '#B0AEA6', bg: 'rgba(176,174,166,0.12)', border: 'rgba(176,174,166,0.4)' },
+  paid_after_cancel: { color: '#ff5c5c', bg: 'rgba(255,92,92,0.12)', border: 'rgba(255,92,92,0.45)' }
 };
 
 /** 订单状态筛选项（我的订单页，REQ-034） */
@@ -123,8 +126,10 @@ const ERROR_MESSAGES = {
   5002: '收货信息不完整',
   5003: '下单失败，请重试',
   5004: '规格不可生产，请走定制',
+  5005: '请先同意隐私政策',
   6001: '请填写必填项',
   6002: '提交失败，请重试',
+  6003: '请先同意隐私政策',
   7001: '无权限',
   7002: '金额必须为正数',
   7003: '报价失败，请重试',

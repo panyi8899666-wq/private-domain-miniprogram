@@ -1,0 +1,9 @@
+{
+  "name": "savePrivacyConsent",
+  "version": "1.0.0",
+  "description": "记录或撤回隐私同意，并提交资料删除申请",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

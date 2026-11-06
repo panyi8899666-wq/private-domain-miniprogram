@@ -18,7 +18,8 @@
 
 注意：
 - access_token 有效期约 2 小时，本脚本每次调用现取现用，不缓存密钥。
-- 微信 HTTP API 触发的云函数调用超时约 5 秒，musePoll 只取最近 20 单。
+- 微信 HTTP API 触发的云函数单次大约只返回 20 单。本脚本按复合游标
+  （updatedAt + 订单 id）翻页，直到 hasMore 为假；水位只在每一单处理成功后前移。
 - 输出里不含客户手机号与 openid；musePoll 本来就不回传这两项。
 """
 import json
@@ -72,29 +73,87 @@ def watermark_path():
         os.path.join(os.path.dirname(os.path.abspath(__file__)), 'watermark.json'))
 
 
-def read_watermark():
+def read_watermark(path=None):
+    target = path or watermark_path()
     try:
-        with open(watermark_path(), encoding='utf-8') as f:
-            return int(json.load(f).get('since', 0))
+        with open(target, encoding='utf-8') as f:
+            data = json.load(f)
+        since = int(data.get('since') or 0)
+        since_id = str(data.get('sinceId') or '')
+        return {'since': since, 'sinceId': since_id}
     except (OSError, ValueError, TypeError):
-        return 0
+        return {'since': 0, 'sinceId': ''}
 
 
-def write_watermark(since):
-    with open(watermark_path(), 'w', encoding='utf-8') as f:
-        json.dump({'since': since}, f)
+def write_watermark(since, since_id='', path=None):
+    target = path or watermark_path()
+    payload = json.dumps({
+        'since': int(since or 0),
+        'sinceId': str(since_id or ''),
+    })
+    tmp = target + '.tmp'
+    with open(tmp, 'w', encoding='utf-8') as f:
+        f.write(payload)
+    os.replace(tmp, target)
+
+
+def order_cursor(order):
+    updated_at = int((order or {}).get('updatedAt') or 0)
+    order_id = str((order or {}).get('orderId') or '')
+    return updated_at, order_id
+
+
+def poll_orders(fetch_page, read_wm, write_wm, on_order, max_pages=50):
+    """按复合游标翻页。on_order 成功返回后才前移水位；抛错则停在该单之前。"""
+    wm = read_wm() or {'since': 0, 'sinceId': ''}
+    since = int(wm.get('since') or 0)
+    since_id = str(wm.get('sinceId') or '')
+    collected = []
+    for _ in range(max_pages):
+        page = fetch_page(since, since_id) or {}
+        orders = page.get('orders') or []
+        if not orders:
+            break
+        moved = False
+        for order in orders:
+            updated_at, oid = order_cursor(order)
+            if updated_at < since or (updated_at == since and (not oid or oid <= since_id)):
+                continue
+            on_order(order)
+            write_wm(updated_at, oid)
+            since, since_id = updated_at, oid
+            collected.append(order)
+            moved = True
+        if not page.get('hasMore'):
+            break
+        if not moved:
+            break
+    return collected
 
 
 def cmd_poll():
     token = access_token()
-    out = invoke(token, 'musePoll', {
-        'secret': _env('MUSE_BRIDGE_SECRET'),
-        'since': read_watermark(),
-    })
-    orders = (out.get('data') or {}).get('orders') or []
-    if orders:
-        write_watermark(max(int(o.get('updatedAt') or 0) for o in orders))
-    print(json.dumps({'orders': orders}, ensure_ascii=False, indent=2))
+    secret = _env('MUSE_BRIDGE_SECRET')
+
+    def fetch_page(since, since_id):
+        out = invoke(token, 'musePoll', {
+            'secret': secret,
+            'since': since,
+            'sinceId': since_id,
+        })
+        data = out.get('data') or {}
+        return {
+            'orders': data.get('orders') or [],
+            'hasMore': bool(data.get('hasMore')),
+        }
+
+    collected = []
+
+    def on_order(order):
+        collected.append(order)
+
+    poll_orders(fetch_page, read_watermark, write_watermark, on_order)
+    print(json.dumps({'orders': collected}, ensure_ascii=False, indent=2))
 
 
 def cmd_reply(kind, order_id, text):

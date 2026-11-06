@@ -6,6 +6,7 @@
  * - 拒绝授权降级：暴露手动填写联系方式的能力
  */
 const { callFunction } = require('./request.js');
+const { normalizeUserRecord, isFullMobile } = require('./phone.js');
 
 /** 安全获取 App 实例（模块加载期 app 可能尚未就绪） */
 function getAppInstance() {
@@ -29,13 +30,17 @@ function getOpenid() {
 
 /** 读取本地缓存的用户记录 */
 function getLocalUser() {
+  let user = null;
   const app = getAppInstance();
-  if (app && app.globalData && app.globalData.user) return app.globalData.user;
-  try {
-    return wx.getStorageSync('user') || null;
-  } catch (err) {
-    return null;
+  if (app && app.globalData && app.globalData.user) user = app.globalData.user;
+  else {
+    try {
+      user = wx.getStorageSync('user') || null;
+    } catch (err) {
+      user = null;
+    }
   }
+  return user ? normalizeUserRecord(user) : null;
 }
 
 /** 是否已登录 */
@@ -45,14 +50,15 @@ function isLoggedIn() {
 
 /** 写入登录态到内存与本地缓存 */
 function persistAuth(openid, user) {
+  const safeUser = user ? normalizeUserRecord(user) : null;
   const app = getAppInstance();
   if (app && app.globalData) {
     app.globalData.openid = openid || '';
-    app.globalData.user = user || null;
+    app.globalData.user = safeUser;
   }
   try {
     wx.setStorageSync('openid', openid || '');
-    wx.setStorageSync('user', user || null);
+    wx.setStorageSync('user', safeUser || null);
   } catch (err) {
     console.warn('[auth] 缓存登录态失败', err);
   }
@@ -135,10 +141,15 @@ function getPhoneNumber(e) {
     payload: { cloudID: cloudID },
     showError: true
   }).then((data) => {
-    // 授权成功后同步更新本地用户记录中的手机号
+    // 只记录 hasPhone / phoneMasked。脱敏串不能写入 user.phone。
     const user = getLocalUser() || {};
-    if (data && data.phone) {
-      user.phone = data.phone;
+    const masked = (data && data.phoneMasked) || '';
+    const raw = (data && data.phone) || '';
+    if (data && (data.hasPhone || masked || isFullMobile(raw))) {
+      user.hasPhone = data.hasPhone !== false;
+      if (masked) user.phoneMasked = masked;
+      if (isFullMobile(raw)) user.phone = raw;
+      else user.phone = isFullMobile(user.phone) ? user.phone : '';
       persistAuth(getOpenid(), user);
     }
     return data || {};

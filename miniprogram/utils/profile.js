@@ -8,6 +8,7 @@
  */
 const auth = require('./auth');
 const { callFunction } = require('./request');
+const { hasContactPhone, missingOrderProfile, toDisplayAddress, isFullMobile } = require('./phone');
 
 /** 从本地缓存读客户资料（未登录返回空资料） */
 function getProfile() {
@@ -19,7 +20,9 @@ function getProfile() {
     industry: u.industry || '',
     invoiceTitle: u.invoiceTitle || '',
     taxNo: u.taxNo || '',
-    phone: u.phone || '',
+    phone: isFullMobile(u.phone) ? u.phone : '',
+    phoneMasked: u.phoneMasked || '',
+    hasPhone: hasContactPhone(u),
     addresses: Array.isArray(u.addresses) ? u.addresses : []
   };
 }
@@ -36,11 +39,7 @@ function getDefaultAddress() {
  * @returns {{ok:boolean, missing:string[]}} missing 为缺失项中文名
  */
 function checkOrderReady() {
-  const p = getProfile();
-  const missing = [];
-  if (!p.realName) missing.push('姓名');
-  if (!p.phone) missing.push('手机号');
-  if (!getDefaultAddress()) missing.push('收货地址');
+  const missing = missingOrderProfile(getProfile());
   return { ok: missing.length === 0, missing: missing };
 }
 
@@ -74,14 +73,12 @@ function requireOrderProfile() {
   });
 }
 
-/** 合并云端返回的公开用户信息到本地缓存（脱敏手机号不覆盖本地完整号） */
+/** 合并云端返回的公开用户信息。本地若持有完整手机号则保留，脱敏串不写入 phone。 */
 function mergeUser(patch) {
   const user = auth.getLocalUser() || {};
-  const localPhone = user.phone || '';
+  const localPhone = isFullMobile(user.phone) ? user.phone : '';
   Object.assign(user, patch || {});
-  if (patch && patch.phone && patch.phone.indexOf('*') >= 0 && /^\d{11}$/.test(localPhone)) {
-    user.phone = localPhone;
-  }
+  if (localPhone) user.phone = localPhone;
   auth.persistAuth(auth.getOpenid(), user);
 }
 
@@ -107,10 +104,19 @@ function saveAddresses(addresses) {
     lockKey: 'saveAddresses'
   }).then((data) => {
     const user = auth.getLocalUser() || {};
-    user.addresses = (data && data.addresses) || [];
+    const full = (data && data.addresses) || [];
+    user.addresses = full.map(toDisplayAddress).filter(Boolean);
     auth.persistAuth(auth.getOpenid(), user);
     return data;
   });
+}
+
+/** 按需拉取完整地址（含手机号与街道）。只交给当前页面使用，不写入登录缓存。 */
+function fetchFullAddresses() {
+  return callFunction('getAddresses', {
+    payload: {},
+    showError: false
+  }).then((data) => (data && data.addresses) || []);
 }
 
 module.exports = {
@@ -119,5 +125,6 @@ module.exports = {
   checkOrderReady,
   requireOrderProfile,
   saveProfile,
-  saveAddresses
+  saveAddresses,
+  fetchFullAddresses
 };

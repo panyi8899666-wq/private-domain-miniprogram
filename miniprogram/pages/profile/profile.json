@@ -1,1 +1,6 @@
-{"navigationBarTitleText":"我的资料","usingComponents":{}}
+{
+  "navigationBarTitleText": "我的资料",
+  "usingComponents": {
+    "privacy-popup": "/components/privacy-popup/privacy-popup"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "getAddresses",
+  "version": "1.0.0",
+  "description": "按需返回当前用户的完整收货地址",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
