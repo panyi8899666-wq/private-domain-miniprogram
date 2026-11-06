@@ -8,6 +8,9 @@
 const { callFunction, buildErrorState } = require('../../utils/request');
 const { requireLogin, getPhoneNumber } = require('../../utils/auth');
 const profile = require('../../utils/profile');
+const privacy = require('../../utils/privacy');
+const { resolveMeasure } = require('../../utils/measure');
+const { isFullMobile } = require('../../utils/phone');
 const { UPLOAD_LIMITS } = require('../../utils/constants');
 
 function genClientRequestId(prefix) {
@@ -76,6 +79,7 @@ Page({
     manualPhone: '',
     // 参考图
     referenceFiles: [],
+    uploadsPending: false,
     maxCount: UPLOAD_LIMITS.MAX_COUNT,
     submitting: false
   },
@@ -234,16 +238,20 @@ Page({
     const d = (e && e.detail) || {};
     const raw = d.fileIds || d.fileList || [];
     const fileIds = normalizeReferenceFileIds(raw, this.data.maxCount);
-    this.setData({ referenceFiles: fileIds });
+    const uploading = Number(d.uploading) || 0;
+    this.setData({
+      referenceFiles: fileIds,
+      uploadsPending: uploading > 0 || d.pending === true
+    });
   },
 
   /** 手机号授权（button open-type=getPhoneNumber） */
   onGetPhoneNumber(e) {
     getPhoneNumber(e)
       .then((data) => {
-        const phone = (data && data.phone) || '';
+        const phone = isFullMobile(data && data.phone) ? data.phone : '';
         const masked = (data && data.phoneMasked) || '';
-        if (!phone) {
+        if (!phone && !(data && data.hasPhone)) {
           this.setData({ manualInput: true });
           wx.showToast({ title: '手机号不可用，请手动填写', icon: 'none' });
           return;
@@ -269,10 +277,9 @@ Page({
       wx.showToast({ title: '请选择材质', icon: 'none' });
       return false;
     }
-    const qty = parseInt(this.data.quantity, 10);
-    const hasArea = this.data.area && Number(this.data.area) > 0;
-    if ((isNaN(qty) || qty < 1) && !hasArea) {
-      wx.showToast({ title: '请填写数量或面积', icon: 'none' });
+    const measure = resolveMeasure(this.data.quantity, this.data.area);
+    if (!measure.ok) {
+      wx.showToast({ title: measure.message, icon: 'none' });
       return false;
     }
     return true;
@@ -281,25 +288,40 @@ Page({
   /** 提交需求 */
   onSubmit() {
     if (this.data.submitting) return;
+    if (this.data.uploadsPending) {
+      wx.showToast({ title: '图片还在上传，请稍候再提交', icon: 'none' });
+      return;
+    }
     if (!this.validate()) return;
 
     const { phone, manualPhone } = this.data;
-    const contactPhone = phone || manualPhone.trim();
+    const typed = isFullMobile(phone) ? phone : (manualPhone || '').trim();
+    const contactPhone = isFullMobile(typed) ? typed : '';
 
     requireLogin({ message: '提交定制需求需要登录，是否立即登录？' }).then((ok) => {
       if (!ok) return;
-      // 第一批注册入口：资料不全（姓名/手机号/收货地址）先引导补齐
-      profile.requireOrderProfile().then((ready) => {
-        if (ready) this.submitOrder(contactPhone);
+      privacy.ensurePrivacyConsent().then((agreed) => {
+        if (!agreed) return;
+        // 第一批注册入口：资料不全（姓名/手机号/收货地址）先引导补齐
+        profile.requireOrderProfile().then((ready) => {
+          if (ready) this.submitOrder(contactPhone);
+        });
       });
     });
   },
 
   /** 组装结构化 payload 并调用 createCustomOrder */
   submitOrder(contactPhone) {
+    if (this.data.uploadsPending) {
+      wx.showToast({ title: '图片还在上传，请稍候再提交', icon: 'none' });
+      return;
+    }
+    const measure = resolveMeasure(this.data.quantity, this.data.area);
+    if (!measure.ok) {
+      wx.showToast({ title: measure.message, icon: 'none' });
+      return;
+    }
     const m = this.data.activeMaterial;
-    const qty = parseInt(this.data.quantity, 10);
-    const area = Number(this.data.area) > 0 ? Number(this.data.area) : null;
     // 参考图：统一消费 C-UPLOAD@1 产出的 cloud:// fileID 数组（保留过滤 + 上限兜底）
     const referenceFileIds = normalizeReferenceFileIds(this.data.referenceFiles, this.data.maxCount);
 
@@ -317,8 +339,8 @@ Page({
       crafts: this.data.selectedCrafts,
       size: [this.data.selectedThickness, this.data.selectedSize].filter(Boolean).join('/'),
       sizeDesc: this.data.sizeDesc,
-      quantity: isNaN(qty) ? 0 : qty,
-      area: area,
+      quantity: measure.quantity,
+      area: measure.area,
       requirement: this.buildRequirementSummary(),
       contactPhone: contactPhone,
       referenceFileIds: referenceFileIds,

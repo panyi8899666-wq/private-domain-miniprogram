@@ -9,9 +9,10 @@
  *              payload.secret === process.env.MUSE_BRIDGE_SECRET；环境变量缺失
  *              直接拒绝。校验失败一律返回 7001「无权限」，不透露订单是否存在。
  *
- * 入参：event.payload = { secret, since? }
- *   since：毫秒时间戳（可选），只返回 updatedAt 大于该值的订单。
- * 出参：{ code: 0, data: { orders: [...], hasMore, nextSince }, message: 'ok' }
+ * 入参：event.payload = { secret, since?, sinceId? }
+ *   since：毫秒时间戳（可选）。sinceId：同一毫秒内的订单 _id 游标。
+ *   返回 updatedAt 更大，或 updatedAt 相同且 _id 更大的订单，避免同毫秒丢单。
+ * 出参：{ code: 0, data: { orders: [...], hasMore, nextSince, nextSinceId }, message: 'ok' }
  *   每单只回最小字段（C-BRIDGE@1）：订单号、类型、状态、创建/更新时间、需求摘要、
  *   商品明细、客户未读留言、对接回复。绝不回传 openid、客户手机号、收货地址。
  *   Muse 不需要手机号：回复走小程序订单详情，不走电话。
@@ -19,13 +20,15 @@
  * 轮询游标（关键修复）：
  *   - `updatedAt > since` 下推到数据库 where（不再先 limit 再内存过滤，避免漏单）；
  *   - 按 updatedAt 升序取一批，保证"最老未处理变更优先"，不会因截断永久漏掉订单；
- *   - 响应补 `hasMore` 与 `nextSince`（nextSince = 本批最大 updatedAt），
- *     Muse 侧可用 nextSince 作为下次 since 续拉。
+ *   - 响应补 `hasMore`、`nextSince` 与 `nextSinceId`（本批最后一单的 updatedAt + _id）。
+ *     续拉必须同时带上 sinceId，否则同一毫秒内排在游标后面的订单会被漏掉。
+ *   - 需在云开发控制台为 orders 建立 updatedAt 升序 + _id 升序的组合索引。
  *
  * 失败：{ code: 7001, data: null, message: '无权限' }
  */
 const crypto = require('crypto');
 const cloud = require('wx-server-sdk');
+const rules = require('./rules');
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
@@ -106,25 +109,38 @@ exports.main = async (event) => {
     const payload = (event && event.payload) || {};
     if (!bridgeAuthorized(payload)) return fail(7001, '无权限');
 
-    const since = Number(payload.since) || 0;
+    const cursor = rules.pollCursor(payload.since, payload.sinceId);
+    const since = cursor.since;
+    const sinceId = cursor.sinceId;
 
-    // 游标下推：updatedAt > since 直接进 where；多取一条用于探测是否还有更多。
-    // 升序保证先处理最老的未处理变更，配合 nextSince 续拉不会漏单。
+    // 复合游标：updatedAt 更大，或同一毫秒且 _id 更大。多取一条探测 hasMore。
+    // orderBy 两个字段依赖组合索引（updatedAt 升序, _id 升序），见文件头说明。
+    const where = sinceId
+      ? _.or([
+        { updatedAt: _.gt(since) },
+        _.and([{ updatedAt: _.eq(since) }, { _id: _.gt(sinceId) }])
+      ])
+      : { updatedAt: _.gt(since) };
     const res = await orders
-      .where({ updatedAt: _.gt(since) })
+      .where(where)
       .orderBy('updatedAt', 'asc')
+      .orderBy('_id', 'asc')
       .limit(MAX_BATCH + 1)
       .get();
 
-    const all = res.data || [];
+    const all = (res.data || []).filter((row) => rules.isAfterCursor(
+      { updatedAt: row.updatedAt, orderId: row._id },
+      cursor
+    ));
     const hasMore = all.length > MAX_BATCH;
     const batch = hasMore ? all.slice(0, MAX_BATCH) : all;
 
     const out = batch.map(toMinimalOrder);
-    // nextSince 取本批最大 updatedAt；无数据时保持原 since（不回退游标）
-    const nextSince = batch.length ? (batch[batch.length - 1].updatedAt || 0) : since;
+    const last = batch.length ? batch[batch.length - 1] : null;
+    const nextSince = last ? (last.updatedAt || 0) : since;
+    const nextSinceId = last ? (last._id || '') : sinceId;
 
-    return ok({ orders: out, hasMore, nextSince });
+    return ok({ orders: out, hasMore, nextSince, nextSinceId });
   } catch (err) {
     console.error('[musePoll] error', err);
     return fail(7001, '无权限');

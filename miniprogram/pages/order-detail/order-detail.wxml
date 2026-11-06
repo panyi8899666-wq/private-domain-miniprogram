@@ -23,6 +23,7 @@
       <order-status-tag status="{{order.status}}" />
       <text class="dd-status-text section-title-glow">{{order.statusText}}</text>
       <text wx:if="{{order.contactPhoneText}}" class="dd-contact text-aux">联系方式 {{order.contactPhoneText}}</text>
+      <text wx:if="{{order.status === 'paid_after_cancel'}}" class="dd-contact text-aux">取消后仍收到付款，请联系商家办理退款</text>
     </view>
 
     <view class="dd-content">

@@ -151,7 +151,8 @@
 
     <!-- 提交 -->
     <view class="submit-bar">
-      <view class="btn-primary-glow submit-btn" bindtap="onSubmit" hover-class="btn-hover">{{submitting ? '提交中...' : '提交需求，等待报价'}}</view>
+      <view class="btn-primary-glow submit-btn" bindtap="onSubmit" hover-class="btn-hover">{{uploadsPending ? '图片上传中…' : (submitting ? '提交中...' : '提交需求，等待报价')}}</view>
+      <privacy-popup id="privacy-popup" />
     </view>
   </view>
 </view>

@@ -1,0 +1,78 @@
+.pp-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.62);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-lg);
+}
+
+.pp-panel {
+  width: 100%;
+  padding: var(--gap-lg);
+  border-radius: var(--radius-card);
+}
+
+.pp-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--gap-md);
+}
+
+.pp-body {
+  font-size: 26rpx;
+  line-height: 1.6;
+  margin-bottom: var(--gap-lg);
+}
+
+.pp-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--accent-glow);
+  font-size: 26rpx;
+  line-height: 1.6;
+  vertical-align: baseline;
+}
+
+.pp-link::after {
+  border: none;
+}
+
+.pp-actions {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-sm);
+}
+
+.pp-btn {
+  flex: 1;
+  margin: 0;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: var(--radius-btn);
+  font-size: 28rpx;
+  padding: 0;
+}
+
+.pp-btn::after {
+  border: none;
+}
+
+.pp-decline {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1rpx solid var(--border-line);
+}
+
+.pp-agree {
+  color: #14100a;
+}

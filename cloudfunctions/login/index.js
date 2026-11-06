@@ -10,6 +10,7 @@
  *   openid 只能通过 cloud.getWXContext().OPENID 获取，绝不接受前端传入。
  */
 const cloud = require('wx-server-sdk');
+const rules = require('./rules');
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
@@ -27,32 +28,9 @@ function fail(code, message) {
   return { code, data: null, message };
 }
 
-/** 手机号脱敏：173****3179（REQ-050 / DFX §4.3.4） */
-function maskPhone(phone) {
-  const s = String(phone || '');
-  if (/^\d{11}$/.test(s)) return s.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2');
-  if (s.length >= 7) return s.slice(0, 3) + '****' + s.slice(-4);
-  return s ? '****' : '';
-}
-
-/** 对外返回的用户信息（手机号一律脱敏） */
+/** 对外返回的用户信息：手机号只给脱敏展示，地址只给列表展示字段。 */
 function toPublicUser(user) {
-  return {
-    openid: user.openid,
-    nickName: user.nickName || '',
-    avatarUrl: user.avatarUrl || '',
-    phone: maskPhone(user.phone),
-    hasPhone: !!user.phone,
-    role: user.role || 'customer',
-    realName: user.realName || '',
-    company: user.company || '',
-    customerType: user.customerType || 'personal',
-    industry: user.industry || '',
-    invoiceTitle: user.invoiceTitle || '',
-    taxNo: user.taxNo || '',
-    addresses: Array.isArray(user.addresses) ? user.addresses : [],
-    privacyAgreedAt: user.privacyAgreedAt || 0
-  };
+  return rules.toPublicUser(user);
 }
 
 /** 截断并做类型归一 */
@@ -102,6 +80,9 @@ exports.main = async (event) => {
         addresses: [],
         role: 'customer', // 商家角色需在云开发控制台手动设置 users.role='merchant'
         privacyAgreedAt: 0,
+        privacyConsentVersion: '',
+        privacyWithdrawnAt: 0,
+        privacyDeletionRequestedAt: 0,
         createdAt: now,
         updatedAt: now
       };

@@ -181,7 +181,9 @@ Component({
         status: 'uploading',
         progress: 0
       };
-      this.setData({ list: this.data.list.concat([placeholder]) });
+      const list = this.data.list.concat([placeholder]);
+      this.setData({ list: list });
+      this.emitChange(list);
 
       const cloudPath = this.buildCloudPath(tempFilePath);
 
@@ -197,8 +199,7 @@ Component({
               this.removeByUid(uid, '上传失败，请重试');
               return;
             }
-            this.updateItem(uid, { fileId: fileID, status: 'done', progress: 100 });
-            this.emitChange();
+            this.emitChange(this.updateItem(uid, { fileId: fileID, status: 'done', progress: 100 }));
           },
           fail: () => {
             this.removeByUid(uid, '上传失败，请重试');
@@ -231,6 +232,7 @@ Component({
         it.uid === uid ? Object.assign({}, it, patch) : it
       );
       this.setData({ list: list });
+      return list;
     },
 
     /** 按 uid 移除列表项并（可选）提示 */
@@ -240,15 +242,21 @@ Component({
       if (toastTitle) {
         wx.showToast({ title: toastTitle, icon: 'none' });
       }
-      this.emitChange();
+      this.emitChange(list);
     },
 
-    /** 仅上报已完成项的纯 fileID 数组 */
-    emitChange() {
-      const fileIds = this.data.list
+    /** 上报已完成 fileID，并带上仍在上传的张数，便于页面拦住提前提交 */
+    emitChange(list) {
+      const src = list || this.data.list;
+      const fileIds = src
         .filter((it) => it.status === 'done' && it.fileId)
         .map((it) => it.fileId);
-      this.triggerEvent('change', { fileIds: fileIds });
+      const uploading = src.filter((it) => it.status === 'uploading').length;
+      this.triggerEvent('change', {
+        fileIds: fileIds,
+        uploading: uploading,
+        pending: uploading > 0
+      });
     },
 
     /** 预览：上传中预览本地临时图，完成后预览云图 */
@@ -265,7 +273,7 @@ Component({
       const uid = e.currentTarget.dataset.uid;
       const list = this.data.list.filter((it) => it.uid !== uid);
       this.setData({ list: list });
-      this.emitChange();
+      this.emitChange(list);
     }
   }
 });

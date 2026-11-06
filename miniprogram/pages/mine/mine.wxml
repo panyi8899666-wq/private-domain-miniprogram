@@ -77,6 +77,16 @@
 
     <view class="mi-divider"></view>
 
+    <view class="mi-menu-item row-between" hover-class="mi-menu-hover" bindtap="onWithdrawPrivacy">
+      <view class="row">
+        <text class="mi-menu-icon">🗑</text>
+        <text class="mi-menu-text">撤回同意并申请删除资料</text>
+      </view>
+      <text class="mi-arrow text-muted">›</text>
+    </view>
+
+    <view class="mi-divider"></view>
+
     <!-- 在线客服（微信客服入口，open-type="contact"，契约 C-CONTACT@1；未开通客服时按钮仍合规，需业务方后台开通） -->
     <button
       open-type="contact"
@@ -126,6 +136,7 @@
     </view>
   </view>
 
+  <privacy-popup id="privacy-popup" />
   <view class="mi-copyright text-muted">正鑫越文化工作室</view>
   <view class="safe-bottom"></view>
 </view>

@@ -1,0 +1,19 @@
+<view class="pp-mask" wx:if="{{visible}}" catchtouchmove="noop">
+  <view class="pp-panel card-surface">
+    <text class="pp-title">用户隐私保护提示</text>
+    <view class="pp-body text-aux">
+      <text>为提供物料制作、报价与下单服务，我们会在你同意后收集微信昵称、头像（可选）、手机号和收货地址，仅用于订单联系与发货。请先阅读</text>
+      <button class="pp-link" open-type="openPrivacyContract">《隐私政策》</button>
+      <text>，再选择是否同意。</text>
+    </view>
+    <view class="pp-actions">
+      <button class="pp-btn pp-decline" bindtap="onDecline">拒绝</button>
+      <button
+        id="agree-btn"
+        class="pp-btn pp-agree btn-primary-glow"
+        open-type="agreePrivacyAuthorization"
+        bindagreeprivacyauthorization="onAgree"
+      >同意</button>
+    </view>
+  </view>
+</view>

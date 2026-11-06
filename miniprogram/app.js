@@ -7,6 +7,8 @@
  * ⚠️ 部署前必须将 CLOUD_ENV_ID 替换为真实的云开发环境 ID，详见 miniprogram/README.md
  */
 const CLOUD_ENV_ID = 'cloud1-d0get66qf4fc7987f'; // 2026-10-29 填入微信体验版环境 ID
+const privacy = require('./utils/privacy');
+const { hasActiveConsent } = require('./utils/consent');
 
 App({
   globalData: {
@@ -28,6 +30,7 @@ App({
     this.initCloud();
     this.collectSystemInfo();
     this.restoreLocalAuth();
+    privacy.bindPrivacyAuthorization();
     this.checkPrivacyAgreed();
   },
 
@@ -69,10 +72,9 @@ App({
     try {
       const openid = wx.getStorageSync('openid') || '';
       const user = wx.getStorageSync('user') || null;
-      const privacyAgreed = !!wx.getStorageSync('privacyAgreed');
       this.globalData.openid = openid;
       this.globalData.user = user;
-      this.globalData.privacyAgreed = privacyAgreed;
+      this.globalData.privacyAgreed = hasActiveConsent(user);
     } catch (err) {
       console.warn('[app] 恢复本地登录态失败', err);
     }

@@ -3,7 +3,7 @@
  * 需求锚点：REQ-027~029、REQ-043、REQ-053
  *
  * 入参：event.payload = {
- *   materialType, size?, quantity, installPosition?, requirement?,
+ *   materialType, size?, quantity? | area?, installPosition?, requirement?,
  *   contactPhone?, referenceFileIds?: string[], clientRequestId, privacyAgreed?
  * }
  * 出参：{ code: 0, data: { orderId, orderNo }, message: 'ok' }
@@ -13,6 +13,7 @@
  * 安全要点：openid 仅取云开发上下文；clientRequestId 幂等防重复提交。
  */
 const cloud = require('wx-server-sdk');
+const rules = require('./rules');
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
@@ -21,6 +22,7 @@ const _ = db.command;
 
 const orders = db.collection('orders');
 const orderLogs = db.collection('order_logs');
+const users = db.collection('users');
 
 function ok(data) {
   return { code: 0, data: data === undefined ? null : data, message: 'ok' };
@@ -35,10 +37,18 @@ function safeString(value, maxLen) {
   return value.trim().slice(0, maxLen);
 }
 
-function normalizeQuantity(value) {
-  const n = parseInt(value, 10);
-  if (isNaN(n) || n < 1 || n > 9999) return 0;
-  return n;
+async function loadUser(openid) {
+  const res = await users.where({ openid }).limit(1).get();
+  return (res.data && res.data[0]) || null;
+}
+
+/** 联系电话：客户端完整 11 位优先，否则回退用户资料里已授权的手机号（不接受脱敏串）。 */
+function resolveContactPhone(input, stored) {
+  const typed = safeString(input, 20);
+  if (/^1[3-9]\d{9}$/.test(typed)) return typed;
+  const saved = safeString(stored, 20);
+  if (/^1[3-9]\d{9}$/.test(saved)) return saved;
+  return '';
 }
 
 /** 参考图数量上限：与前端 UPLOAD_LIMITS.MAX_COUNT 保持一致（6，C-UPLOAD@1 / C-VALIDATE@1） */
@@ -93,12 +103,15 @@ exports.main = async (event) => {
 
     const payload = (event && event.payload) || {};
     const materialType = safeString(payload.materialType, 40);
-    const quantity = normalizeQuantity(payload.quantity);
     const clientRequestId = safeString(payload.clientRequestId, 64);
+    const measure = rules.resolveMeasure(payload.quantity, payload.area);
 
-    // 必填校验（REQ-027：物料类型、数量必填）
-    if (!materialType || !quantity || !clientRequestId) {
+    // 必填：物料类型、幂等键，以及数量或面积至少一项合法（与定制页同一规则）
+    if (!materialType || !clientRequestId) {
       return fail(6001, '请填写必填项');
+    }
+    if (!measure.ok) {
+      return fail(6001, measure.message);
     }
 
     // 幂等：同一 clientRequestId 重复提交复用已有订单
@@ -106,6 +119,11 @@ exports.main = async (event) => {
     if (dup.data && dup.data.length) {
       const exist = dup.data[0];
       return ok({ orderId: exist._id, orderNo: exist.orderNo, duplicated: true });
+    }
+
+    const user = await loadUser(openid);
+    if (!rules.hasActiveConsent(user)) {
+      return fail(6003, '请先同意隐私政策');
     }
 
     // 结构化材质配置（来自物料配置器），兼容旧的自由文本模式
@@ -127,14 +145,14 @@ exports.main = async (event) => {
         : [],
       size: safeString(payload.size, 100),
       sizeDesc: safeString(payload.sizeDesc, 100),
-      area: Number(payload.area) > 0 ? Number(payload.area) : null,
-      quantity,
+      area: measure.area,
+      quantity: measure.quantity,
       installPosition: safeString(payload.installPosition, 100),
       requirement: safeString(payload.requirement || payload.remark, 500),
       referenceFileIds: normalizeFileIds(payload.referenceFileIds)
     };
 
-    const contactPhone = safeString(payload.contactPhone, 20);
+    const contactPhone = resolveContactPhone(payload.contactPhone, user && user.phone);
     const orderNo = genOrderNo('D');
 
     const orderDoc = {
@@ -148,7 +166,9 @@ exports.main = async (event) => {
       // 联系方式统一采用中国大陆 11 位手机号口径（与地址保存/标准品下单一致）
       contactPhone: /^1[3-9]\d{9}$/.test(contactPhone) ? contactPhone : '',
       clientRequestId,
-      privacyAgreed: payload.privacyAgreed === true,
+      privacyAgreed: true,
+      privacyConsentVersion: user.privacyConsentVersion || rules.PRIVACY_POLICY_VERSION,
+      privacyAgreedAt: user.privacyAgreedAt || 0,
       // 对接设计师：新订单默认由 Muse 对接；留言与回复走 musePoll / museReply 桥
       designer: { name: 'Muse', role: '对接设计师' },
       designerReplies: [],
@@ -164,7 +184,8 @@ exports.main = async (event) => {
     await writeLog(orderNo, 'create', '', 'pending_quote', 'customer', {
       type: 'custom',
       materialType,
-      quantity
+      quantity: measure.quantity,
+      area: measure.area
     });
 
     // 幂等并发兜底（C-VALIDATE@1）：写入后回查一次，若并发首次提交产生了重复

@@ -9,6 +9,10 @@ const { callFunction } = require('../../utils/request');
 const { formatAmount } = require('../../utils/format');
 const { requireLogin } = require('../../utils/auth');
 const profile = require('../../utils/profile');
+const privacy = require('../../utils/privacy');
+const { isFullMobile } = require('../../utils/phone');
+const { hasActiveConsent } = require('../../utils/consent');
+const { getLocalUser } = require('../../utils/auth');
 
 const PLACEHOLDER = '/images/placeholder.png';
 
@@ -52,6 +56,12 @@ Page({
       return;
     }
     this.fetchDetail();
+  },
+
+  onShow() {
+    if (this._addressTouched) return;
+    if (!hasActiveConsent(getLocalUser())) return;
+    this.ensureFullAddress();
   },
 
   /** 拉取商品详情 */
@@ -130,6 +140,7 @@ Page({
       detail: d.detail || '',
       addressId: d.addressId || d.id || ''
     };
+    this._addressTouched = true;
     this.setData({ address: address });
   },
 
@@ -186,54 +197,91 @@ Page({
     }
   },
 
+  /** 页面上的地址是否已是完整收货信息（不是登录缓存里的展示字段） */
+  hasFullAddress(address) {
+    return !!(address && address.name && isFullMobile(address.phone) && address.detail);
+  },
+
+  /**
+   * 下单前准备地址：用户刚填的完整地址直接用；
+   * 否则按需向云端取完整地址。只留在本页，不写回登录缓存。
+   */
+  ensureFullAddress() {
+    const current = this.data.address;
+    if (this.hasFullAddress(current)) return Promise.resolve(current);
+    const cached = profile.getDefaultAddress();
+    const addressId = (current && current.addressId) || (cached && cached.addressId) || '';
+    return profile.fetchFullAddresses().then((list) => {
+      const found = (list || []).find((a) => a && addressId && a.addressId === addressId)
+        || (list || []).find((a) => a && a.isDefault)
+        || (list && list[0]);
+      if (found && this.hasFullAddress(found)) {
+        const address = {
+          name: found.name,
+          phone: found.phone,
+          detail: found.detail,
+          addressId: found.addressId
+        };
+        this.setData({ address: address });
+        return address;
+      }
+      if (addressId) return { addressId: addressId };
+      return null;
+    }).catch(() => (addressId ? { addressId: addressId } : null));
+  },
+
   /** 立即购买 */
   onBuy() {
     if (this.data.submitting) return;
-    const { specs, selectedSpecId, quantity } = this.data;
-    let address = this.data.address;
-    // 第一批注册入口：未选收货信息时，优先用客户默认地址预填
-    if (!address || !address.name || !address.phone || !address.detail) {
-      const d = profile.getDefaultAddress();
-      if (d) {
-        address = { name: d.name, phone: d.phone, detail: d.detail, addressId: d.addressId };
-        this.setData({ address: address });
-      }
-    }
+    const { specs, selectedSpecId } = this.data;
     const spec = specs.find((s) => s && s.specId === selectedSpecId);
     if (!spec) {
       wx.showToast({ title: '请先选择规格', icon: 'none' });
-      return;
-    }
-    if (!address || !address.name || !address.phone || !address.detail) {
-      wx.showToast({ title: '请填写收货信息', icon: 'none' });
       return;
     }
 
     // 下单前登录引导（REQ-023 前置）
     requireLogin({ message: '下单需要登录，是否立即登录？' }).then((ok) => {
       if (!ok) return;
-      // 第一批注册入口：资料不全（姓名/手机号/收货地址）先引导补齐
-      profile.requireOrderProfile().then((ready) => {
-        if (ready) this.submitOrder(spec);
+      privacy.ensurePrivacyConsent().then((agreed) => {
+        if (!agreed) return;
+        // 第一批注册入口：资料不全（姓名/手机号/收货地址）先引导补齐
+        profile.requireOrderProfile().then((ready) => {
+          if (!ready) return;
+          this.ensureFullAddress().then((address) => {
+            if (!address || (!address.addressId && !this.hasFullAddress(address))) {
+              wx.showToast({ title: '请填写收货信息', icon: 'none' });
+              return;
+            }
+            this.submitOrder(spec, address);
+          });
+        });
       });
     });
   },
 
   /** 提交下单 */
-  submitOrder(spec) {
-    const { quantity, address } = this.data;
+  submitOrder(spec, address) {
+    const quantity = this.data.quantity;
+    const chosen = address || this.data.address || {};
     const clientRequestId = genClientRequestId('po');
     const lockKey = 'createOrder:' + this.productId + ':' + spec.specId;
+    const payload = {
+      productId: this.productId,
+      specId: spec.specId,
+      quantity: quantity,
+      clientRequestId: clientRequestId
+    };
+    if (this.hasFullAddress(chosen)) {
+      payload.address = { name: chosen.name, phone: chosen.phone, detail: chosen.detail };
+      if (chosen.addressId) payload.addressId = chosen.addressId;
+    } else if (chosen.addressId) {
+      payload.addressId = chosen.addressId;
+    }
 
     this.setData({ submitting: true });
     callFunction('createOrder', {
-      payload: {
-        productId: this.productId,
-        specId: spec.specId,
-        quantity: quantity,
-        address: { name: address.name, phone: address.phone, detail: address.detail },
-        clientRequestId: clientRequestId
-      },
+      payload: payload,
       lockKey: lockKey,
       loading: true,
       showError: true

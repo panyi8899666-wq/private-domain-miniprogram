@@ -10,10 +10,10 @@
 
   <view wx:for="{{list}}" wx:key="addressId" class="card-surface ad-item">
     <view class="row-between">
-      <text class="text-body">{{item.name}} {{item.phone}}</text>
+      <text class="text-body">{{item.name}} {{item.phone || item.phoneMasked}}</text>
       <text wx:if="{{item.isDefault}}" class="ad-default">默认</text>
     </view>
-    <text class="text-aux ad-detail">{{item.detail}}</text>
+    <text class="text-aux ad-detail">{{item.detail || item.regionText}}</text>
     <view class="ad-actions">
       <text class="ad-action" wx:if="{{!item.isDefault}}" data-id="{{item.addressId}}" bindtap="onSetDefault">设为默认</text>
       <text class="ad-action" data-id="{{item.addressId}}" bindtap="onEdit">编辑</text>
@@ -51,4 +51,5 @@
     <button class="btn-primary-glow ad-bottom-btn" bindtap="onAdd">新增地址</button>
   </view>
   <view class="safe-bottom"></view>
+  <privacy-popup id="privacy-popup" />
 </view>

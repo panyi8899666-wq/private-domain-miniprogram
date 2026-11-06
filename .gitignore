@@ -1,6 +1,8 @@
 # 依赖与缓存
 node_modules/
 cloudfunctions/**/node_modules/
+__pycache__/
+*.pyc
 
 # 系统与编辑器
 .DS_Store

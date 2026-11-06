@@ -5,7 +5,8 @@
  * 入参：event.payload = { cloudID: string }
  *   cloudID 来自前端 <button open-type="getPhoneNumber"> 回调中 e.detail.cloudID。
  * 出参：{ code: 0, data: { phone, phoneMasked, hasPhone }, message: 'ok' }
- *   为满足 REQ-050（前端不展示明文），返回的 phone/phoneMasked 均为脱敏值。
+ *   为满足 REQ-050（前端不展示明文），phone 恒为空串，phoneMasked 为脱敏值，hasPhone 表示已落库。
+ *   调用方不得把 phoneMasked 写入用户资料的 phone 字段。
  * 失败：{ code: 2001, data: null, message: '手机号授权失败，请重试' }
  *       { code: 2002, data: null, message: '手机号不可用，请手动填写' }
  *
@@ -91,6 +92,9 @@ exports.main = async (event) => {
           addresses: [],
           role: 'customer',
           privacyAgreedAt: 0,
+          privacyConsentVersion: '',
+          privacyWithdrawnAt: 0,
+          privacyDeletionRequestedAt: 0,
           createdAt: now,
           updatedAt: now
         }
@@ -99,7 +103,7 @@ exports.main = async (event) => {
 
     const masked = maskPhone(phone);
     console.log('[getPhoneNumber] ok openid=%s', openid);
-    return ok({ phone: masked, phoneMasked: masked, hasPhone: true });
+    return ok({ phone: '', phoneMasked: masked, hasPhone: true });
   } catch (err) {
     console.error('[getPhoneNumber] error', err);
     return fail(2001, '手机号授权失败，请重试');

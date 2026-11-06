@@ -5,6 +5,7 @@
  * - 下单读取口径：默认地址优先（utils/profile.getDefaultAddress），服务端 createOrder 按 addressId 取用
  */
 const profile = require('../../utils/profile');
+const privacy = require('../../utils/privacy');
 
 function joinDetail(province, city, county, detailInfo) {
   return [province || '', city || '', county || '', detailInfo || ''].join('');
@@ -22,23 +23,41 @@ Page({
   },
 
   onShow() {
-    this.refreshList();
+    privacy.ensurePrivacyConsent().then((ok) => {
+      if (!ok) {
+        wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/mine/mine' }) });
+        return;
+      }
+      this.loadFull();
+    });
   },
 
-  /** 从本地缓存刷新列表（保存后缓存即最新） */
-  refreshList() {
-    const p = profile.getProfile();
-    this.setData({ list: p.addresses });
+  /** 按需拉取完整地址，不写入登录缓存。未拉到完整数据前不允许回写，避免把展示字段覆盖掉街道。 */
+  loadFull() {
+    this.fullLoaded = false;
+    profile.fetchFullAddresses()
+      .then((list) => {
+        this.fullLoaded = true;
+        this.setData({ list: list });
+      })
+      .catch(() => {
+        this.fullLoaded = false;
+        wx.showToast({ title: '地址加载失败，请重试', icon: 'none' });
+      });
   },
 
-  /** 持久化：调云函数全量保存，失败则回滚列表显示 */
+  /** 持久化：调云函数全量保存，失败则重新拉取 */
   persist(list) {
+    if (!this.fullLoaded) {
+      wx.showToast({ title: '地址尚未加载完成', icon: 'none' });
+      return;
+    }
     profile.saveAddresses(list)
       .then((data) => {
         this.setData({ list: (data && data.addresses) || list });
       })
       .catch(() => {
-        this.refreshList();
+        this.loadFull();
       });
   },
 
@@ -69,8 +88,15 @@ Page({
     });
   },
 
+  canMutate() {
+    if (this.fullLoaded) return true;
+    wx.showToast({ title: '地址尚未加载完成', icon: 'none' });
+    return false;
+  },
+
   /** 删除地址（二次确认） */
   onDelete(e) {
+    if (!this.canMutate()) return;
     const id = e.currentTarget.dataset.id;
     wx.showModal({
       title: '删除地址',
@@ -88,6 +114,7 @@ Page({
 
   /** 设为默认 */
   onSetDefault(e) {
+    if (!this.canMutate()) return;
     const id = e.currentTarget.dataset.id;
     const list = (this.data.list || []).map((a) => {
       if (!a) return a;
@@ -99,6 +126,14 @@ Page({
 
   /** 微信地址簿导入：全字段映射，旧版丢省市区/详细地址的问题在此修复 */
   onImportWx() {
+    privacy.ensurePrivacyConsent().then((ok) => {
+      if (!ok) return;
+      this.importWxAddress();
+    });
+  },
+
+  importWxAddress() {
+    if (!this.canMutate()) return;
     wx.chooseAddress({
       success: (res) => {
         const province = res.provinceName || '';
@@ -139,6 +174,7 @@ Page({
 
   /** 表单保存：校验后新增或覆盖，落库 */
   onSaveForm() {
+    if (!this.canMutate()) return;
     const name = (this.data.formName || '').trim();
     const phone = (this.data.formPhone || '').trim();
     const region = this.data.region || [];

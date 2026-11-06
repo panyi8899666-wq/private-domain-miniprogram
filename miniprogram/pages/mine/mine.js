@@ -4,7 +4,9 @@
  * - 我的资料入口、我的订单入口、收货地址管理页（云端落库）、联系商家、对接设计师窗口、隐私协议、退出登录
  */
 const auth = require('../../utils/auth');
+const privacy = require('../../utils/privacy');
 const { maskPhone } = require('../../utils/format');
+const { isFullMobile } = require('../../utils/phone');
 const { CONTACT } = require('../../utils/constants');
 
 const DEFAULT_AVATAR = '/images/avatar.png';
@@ -35,7 +37,7 @@ Page({
       isLogin: isLogin,
       avatar: (user.avatarUrl || DEFAULT_AVATAR),
       nickName: isLogin ? (user.nickName || '微信用户') : '点击登录',
-      phoneMasked: user.phone ? maskPhone(user.phone) : ''
+      phoneMasked: user.phoneMasked || (isFullMobile(user.phone) ? maskPhone(user.phone) : '')
     });
   },
 
@@ -62,7 +64,9 @@ Page({
   /** 我的资料 */
   goProfile() {
     this.ensureLogin(() => {
-      wx.navigateTo({ url: '/pages/profile/profile' });
+      privacy.ensurePrivacyConsent().then((ok) => {
+        if (ok) wx.navigateTo({ url: '/pages/profile/profile' });
+      });
     });
   },
 
@@ -76,7 +80,9 @@ Page({
   /** 收货地址管理（第一批注册入口：独立管理页，落库到云端） */
   goAddresses() {
     this.ensureLogin(() => {
-      wx.navigateTo({ url: '/pages/addresses/addresses' });
+      privacy.ensurePrivacyConsent().then((ok) => {
+        if (ok) wx.navigateTo({ url: '/pages/addresses/addresses' });
+      });
     });
   },
 
@@ -141,13 +147,50 @@ Page({
     this.goContact();
   },
 
-  /** 隐私协议查看 */
+  /** 隐私协议查看：优先打开微信后台配置的隐私保护指引 */
   goPrivacy() {
+    if (typeof wx.openPrivacyContract === 'function') {
+      wx.openPrivacyContract({
+        fail: () => {
+          wx.showModal({
+            title: '隐私政策',
+            content: PRIVACY_TEXT,
+            showCancel: false,
+            confirmText: '我知道了'
+          });
+        }
+      });
+      return;
+    }
     wx.showModal({
       title: '隐私政策',
       content: PRIVACY_TEXT,
       showCancel: false,
       confirmText: '我知道了'
+    });
+  },
+
+  /** 撤回隐私同意，并提交资料删除申请（订单与支付记录需商家人工处理） */
+  onWithdrawPrivacy() {
+    if (!this.data.isLogin) {
+      wx.showToast({ title: '请先登录', icon: 'none' });
+      return;
+    }
+    wx.showModal({
+      title: '撤回同意并申请删除',
+      content: '撤回后将无法继续下单，并清除已保存的资料与地址。历史订单里的联系方式需商家人工删除。确定继续吗？',
+      confirmText: '确定撤回',
+      cancelText: '取消',
+      confirmColor: '#ff5c5c',
+      success: (res) => {
+        if (!res.confirm) return;
+        privacy.withdrawConsent()
+          .then(() => {
+            this.refreshUser();
+            wx.showToast({ title: '已撤回并提交删除申请', icon: 'none' });
+          })
+          .catch(() => {});
+      }
     });
   },
 

@@ -9,7 +9,8 @@
  * }
  * 出参：{ code: 0, data: { orderId, orderNo, amount }, message: 'ok' }
  * 失败：5001 商品已更新，请重新选择 / 5002 收货信息不完整 /
- *       5003 下单失败，请重试 / 5004 规格不可生产，请走定制
+ *       5003 下单失败，请重试 / 5004 规格不可生产，请走定制 /
+ *       5005 请先同意隐私政策
  *
  * 安全要点：
  *   1) openid 仅取 cloud.getWXContext().OPENID，忽略前端传入；
@@ -17,6 +18,7 @@
  *   3) clientRequestId 幂等键，重复提交只生成一笔订单。
  */
 const cloud = require('wx-server-sdk');
+const rules = require('./rules');
 
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
@@ -171,6 +173,12 @@ exports.main = async (event) => {
       return ok({ orderId: exist._id, orderNo: exist.orderNo, amount: exist.amount, duplicated: true });
     }
 
+    const consentUser = await users.where({ openid }).limit(1).get();
+    const consent = consentUser.data && consentUser.data[0];
+    if (!rules.hasActiveConsent(consent)) {
+      return fail(5005, '请先同意隐私政策');
+    }
+
     const quantity = normalizeQuantity(payload.quantity);
     if (!quantity) return fail(5001, '商品已更新，请重新选择');
 
@@ -227,7 +235,9 @@ exports.main = async (event) => {
       address,
       contactPhone,
       clientRequestId,
-      privacyAgreed: payload.privacyAgreed === true,
+      privacyAgreed: true,
+      privacyConsentVersion: consent.privacyConsentVersion || rules.PRIVACY_POLICY_VERSION,
+      privacyAgreedAt: consent.privacyAgreedAt || 0,
       // 对接设计师：新订单默认由 Muse 对接；留言与回复走 musePoll / museReply 桥
       designer: { name: 'Muse', role: '对接设计师' },
       designerReplies: [],
